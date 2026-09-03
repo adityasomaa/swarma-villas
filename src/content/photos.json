@@ -1,0 +1,3158 @@
+[
+  {
+    "slug": "bath-detail-01",
+    "category": "bathroom",
+    "caption": "Bathroom detail with fresh flowers above the fittings",
+    "w": 1920,
+    "h": 2560,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "bath-detail-01-480.webp",
+        "kb": 20
+      },
+      {
+        "w": 960,
+        "file": "bath-detail-01-960.webp",
+        "kb": 59
+      },
+      {
+        "w": 1600,
+        "file": "bath-detail-01-1600.webp",
+        "kb": 128
+      },
+      {
+        "w": 1920,
+        "file": "bath-detail-01-1920.webp",
+        "kb": 172
+      }
+    ],
+    "source": "l1130664-1-scaled.jpg"
+  },
+  {
+    "slug": "bath-dome-01",
+    "category": "bathroom",
+    "caption": "Bamboo bathroom with a stone basin and hanging towels",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "bath-dome-01-480.webp",
+        "kb": 18
+      },
+      {
+        "w": 960,
+        "file": "bath-dome-01-960.webp",
+        "kb": 53
+      },
+      {
+        "w": 1600,
+        "file": "bath-dome-01-1600.webp",
+        "kb": 111
+      },
+      {
+        "w": 2048,
+        "file": "bath-dome-01-2048.webp",
+        "kb": 155
+      }
+    ],
+    "source": "bathroomdome1.jpg"
+  },
+  {
+    "slug": "bath-dome-02",
+    "category": "bathroom",
+    "caption": "Bathroom with a bathtub against a woven bamboo wall",
+    "w": 1365,
+    "h": 2048,
+    "ratio": 0.6665,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "bath-dome-02-480.webp",
+        "kb": 33
+      },
+      {
+        "w": 960,
+        "file": "bath-dome-02-960.webp",
+        "kb": 105
+      },
+      {
+        "w": 1365,
+        "file": "bath-dome-02-1365.webp",
+        "kb": 179
+      }
+    ],
+    "source": "bathroomdome4.jpg"
+  },
+  {
+    "slug": "bath-dome-03",
+    "category": "bathroom",
+    "caption": "Shower corner inside a bamboo bathroom",
+    "w": 1365,
+    "h": 2048,
+    "ratio": 0.6665,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "bath-dome-03-480.webp",
+        "kb": 38
+      },
+      {
+        "w": 960,
+        "file": "bath-dome-03-960.webp",
+        "kb": 104
+      },
+      {
+        "w": 1365,
+        "file": "bath-dome-03-1365.webp",
+        "kb": 169
+      }
+    ],
+    "source": "bathroomdome5.jpg"
+  },
+  {
+    "slug": "bath-dome-04",
+    "category": "bathroom",
+    "caption": "Bamboo bathroom with towels on a rail and a mirror",
+    "w": 1365,
+    "h": 2048,
+    "ratio": 0.6665,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "bath-dome-04-480.webp",
+        "kb": 35
+      },
+      {
+        "w": 960,
+        "file": "bath-dome-04-960.webp",
+        "kb": 105
+      },
+      {
+        "w": 1365,
+        "file": "bath-dome-04-1365.webp",
+        "kb": 174
+      }
+    ],
+    "source": "bathroomdome6.jpg"
+  },
+  {
+    "slug": "bath-dome-05",
+    "category": "bathroom",
+    "caption": "Bathroom with a round basin set into a bamboo counter",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "bath-dome-05-480.webp",
+        "kb": 22
+      },
+      {
+        "w": 960,
+        "file": "bath-dome-05-960.webp",
+        "kb": 68
+      },
+      {
+        "w": 1600,
+        "file": "bath-dome-05-1600.webp",
+        "kb": 140
+      },
+      {
+        "w": 2048,
+        "file": "bath-dome-05-2048.webp",
+        "kb": 198
+      }
+    ],
+    "source": "bathroomdome7.jpg"
+  },
+  {
+    "slug": "bath-flower-01",
+    "category": "ritual",
+    "caption": "Bathtub filled with water and flower petals arranged in a pattern",
+    "w": 2048,
+    "h": 1263,
+    "ratio": 1.6215,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "bath-flower-01-480.webp",
+        "kb": 22
+      },
+      {
+        "w": 960,
+        "file": "bath-flower-01-960.webp",
+        "kb": 70
+      },
+      {
+        "w": 1600,
+        "file": "bath-flower-01-1600.webp",
+        "kb": 143
+      },
+      {
+        "w": 2048,
+        "file": "bath-flower-01-2048.webp",
+        "kb": 203
+      }
+    ],
+    "source": "bathroomdome2.jpg"
+  },
+  {
+    "slug": "bath-flower-02",
+    "category": "ritual",
+    "caption": "Flower petal bath prepared on a dark bathtub",
+    "w": 1365,
+    "h": 2048,
+    "ratio": 0.6665,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "bath-flower-02-480.webp",
+        "kb": 40
+      },
+      {
+        "w": 960,
+        "file": "bath-flower-02-960.webp",
+        "kb": 129
+      },
+      {
+        "w": 1365,
+        "file": "bath-flower-02-1365.webp",
+        "kb": 226
+      }
+    ],
+    "source": "bathroomdome3.jpg"
+  },
+  {
+    "slug": "bath-open-01",
+    "category": "bathroom",
+    "caption": "Open-air bathroom with a stone basin and bamboo screen",
+    "w": 960,
+    "h": 1280,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "bath-open-01-480.webp",
+        "kb": 42
+      },
+      {
+        "w": 960,
+        "file": "bath-open-01-960.webp",
+        "kb": 121
+      }
+    ],
+    "source": "23c5d3d0-0556-45e1-b247-9fd43524617f.jpg"
+  },
+  {
+    "slug": "bath-open-02",
+    "category": "bathroom",
+    "caption": "Outdoor shower against a rendered wall with a pebble floor",
+    "w": 960,
+    "h": 1280,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "bath-open-02-480.webp",
+        "kb": 58
+      },
+      {
+        "w": 960,
+        "file": "bath-open-02-960.webp",
+        "kb": 197
+      }
+    ],
+    "source": "95c4c4d7-3178-424a-8b5e-459042acca6e.jpg"
+  },
+  {
+    "slug": "bath-open-03",
+    "category": "bathroom",
+    "caption": "Outdoor bathtub and basin under the open sky",
+    "w": 2560,
+    "h": 1920,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "bath-open-03-480.webp",
+        "kb": 29
+      },
+      {
+        "w": 960,
+        "file": "bath-open-03-960.webp",
+        "kb": 91
+      },
+      {
+        "w": 1600,
+        "file": "bath-open-03-1600.webp",
+        "kb": 205
+      },
+      {
+        "w": 2400,
+        "file": "bath-open-03-2400.webp",
+        "kb": 357
+      }
+    ],
+    "source": "l1130658-scaled.jpg"
+  },
+  {
+    "slug": "bath-open-04",
+    "category": "bathroom",
+    "caption": "Stone basin and a carved mirror in an open-air bathroom",
+    "w": 1920,
+    "h": 2560,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "bath-open-04-480.webp",
+        "kb": 62
+      },
+      {
+        "w": 960,
+        "file": "bath-open-04-960.webp",
+        "kb": 191
+      },
+      {
+        "w": 1600,
+        "file": "bath-open-04-1600.webp",
+        "kb": 395
+      },
+      {
+        "w": 1920,
+        "file": "bath-open-04-1920.webp",
+        "kb": 513
+      }
+    ],
+    "source": "l1130659-scaled.jpg"
+  },
+  {
+    "slug": "bath-open-05",
+    "category": "bathroom",
+    "caption": "Freestanding tub and stone basin in the open-air bathroom",
+    "w": 1280,
+    "h": 960,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "bath-open-05-480.webp",
+        "kb": 29
+      },
+      {
+        "w": 960,
+        "file": "bath-open-05-960.webp",
+        "kb": 87
+      },
+      {
+        "w": 1280,
+        "file": "bath-open-05-1280.webp",
+        "kb": 133
+      }
+    ],
+    "source": "whatsapp-image-2024-04-02-at-12-40-14-ee6cba84.jpg"
+  },
+  {
+    "slug": "dome-bed-01",
+    "category": "dome",
+    "caption": "Bed under a mosquito net inside the curved bamboo shell of the Bamboo Dome",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "dome-bed-01-480.webp",
+        "kb": 34
+      },
+      {
+        "w": 960,
+        "file": "dome-bed-01-960.webp",
+        "kb": 111
+      },
+      {
+        "w": 1600,
+        "file": "dome-bed-01-1600.webp",
+        "kb": 245
+      },
+      {
+        "w": 2048,
+        "file": "dome-bed-01-2048.webp",
+        "kb": 344
+      }
+    ],
+    "source": "bedroomdome1.jpg"
+  },
+  {
+    "slug": "dome-bed-02",
+    "category": "dome",
+    "caption": "The Bamboo Dome bed with woven bamboo walls curving overhead",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "dome-bed-02-480.webp",
+        "kb": 27
+      },
+      {
+        "w": 960,
+        "file": "dome-bed-02-960.webp",
+        "kb": 85
+      },
+      {
+        "w": 1600,
+        "file": "dome-bed-02-1600.webp",
+        "kb": 189
+      },
+      {
+        "w": 2048,
+        "file": "dome-bed-02-2048.webp",
+        "kb": 265
+      }
+    ],
+    "source": "bedroomdome2.jpg"
+  },
+  {
+    "slug": "dome-bed-03",
+    "category": "dome",
+    "caption": "Inside the Bamboo Dome, looking across the bed to the curved wall",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "dome-bed-03-480.webp",
+        "kb": 20
+      },
+      {
+        "w": 960,
+        "file": "dome-bed-03-960.webp",
+        "kb": 60
+      },
+      {
+        "w": 1600,
+        "file": "dome-bed-03-1600.webp",
+        "kb": 130
+      },
+      {
+        "w": 2048,
+        "file": "dome-bed-03-2048.webp",
+        "kb": 186
+      }
+    ],
+    "source": "bedroomdome3.jpg"
+  },
+  {
+    "slug": "dome-bed-04",
+    "category": "dome",
+    "caption": "The Bamboo Dome interior, bed and woven bamboo ceiling",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "dome-bed-04-480.webp",
+        "kb": 31
+      },
+      {
+        "w": 960,
+        "file": "dome-bed-04-960.webp",
+        "kb": 97
+      },
+      {
+        "w": 1600,
+        "file": "dome-bed-04-1600.webp",
+        "kb": 208
+      },
+      {
+        "w": 2048,
+        "file": "dome-bed-04-2048.webp",
+        "kb": 291
+      }
+    ],
+    "source": "bedroomdome4.jpg"
+  },
+  {
+    "slug": "dome-bed-05",
+    "category": "dome",
+    "caption": "Bed and built-in bamboo lounge inside the Bamboo Dome",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "dome-bed-05-480.webp",
+        "kb": 27
+      },
+      {
+        "w": 960,
+        "file": "dome-bed-05-960.webp",
+        "kb": 88
+      },
+      {
+        "w": 1600,
+        "file": "dome-bed-05-1600.webp",
+        "kb": 201
+      },
+      {
+        "w": 2048,
+        "file": "dome-bed-05-2048.webp",
+        "kb": 291
+      }
+    ],
+    "source": "bedroomdome5.jpg"
+  },
+  {
+    "slug": "dome-detail-01",
+    "category": "dome",
+    "caption": "Bamboo detailing and a stool inside the Bamboo Dome",
+    "w": 1365,
+    "h": 2048,
+    "ratio": 0.6665,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "dome-detail-01-480.webp",
+        "kb": 43
+      },
+      {
+        "w": 960,
+        "file": "dome-detail-01-960.webp",
+        "kb": 118
+      },
+      {
+        "w": 1365,
+        "file": "dome-detail-01-1365.webp",
+        "kb": 191
+      }
+    ],
+    "source": "bedroomdome10.jpg"
+  },
+  {
+    "slug": "dome-detail-02",
+    "category": "dome",
+    "caption": "Flowers on a wooden table against a woven bamboo wall",
+    "w": 1365,
+    "h": 2048,
+    "ratio": 0.6665,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "dome-detail-02-480.webp",
+        "kb": 62
+      },
+      {
+        "w": 960,
+        "file": "dome-detail-02-960.webp",
+        "kb": 167
+      },
+      {
+        "w": 1365,
+        "file": "dome-detail-02-1365.webp",
+        "kb": 262
+      }
+    ],
+    "source": "bedroomdome11.jpg"
+  },
+  {
+    "slug": "dome-detail-03",
+    "category": "dome",
+    "caption": "Fresh flowers and a bowl on the Bamboo Dome table",
+    "w": 1365,
+    "h": 2048,
+    "ratio": 0.6665,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "dome-detail-03-480.webp",
+        "kb": 58
+      },
+      {
+        "w": 960,
+        "file": "dome-detail-03-960.webp",
+        "kb": 147
+      },
+      {
+        "w": 1365,
+        "file": "dome-detail-03-1365.webp",
+        "kb": 229
+      }
+    ],
+    "source": "bedroomdome12.jpg"
+  },
+  {
+    "slug": "dome-detail-04",
+    "category": "dome",
+    "caption": "Wardrobe and bathrobe inside the Bamboo Dome",
+    "w": 1365,
+    "h": 2048,
+    "ratio": 0.6665,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "dome-detail-04-480.webp",
+        "kb": 48
+      },
+      {
+        "w": 960,
+        "file": "dome-detail-04-960.webp",
+        "kb": 143
+      },
+      {
+        "w": 1365,
+        "file": "dome-detail-04-1365.webp",
+        "kb": 238
+      }
+    ],
+    "source": "bedroomdome7.jpg"
+  },
+  {
+    "slug": "dome-lounge-01",
+    "category": "dome",
+    "caption": "The built-in lounge and low table inside the Bamboo Dome",
+    "w": 1365,
+    "h": 2048,
+    "ratio": 0.6665,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "dome-lounge-01-480.webp",
+        "kb": 56
+      },
+      {
+        "w": 960,
+        "file": "dome-lounge-01-960.webp",
+        "kb": 153
+      },
+      {
+        "w": 1365,
+        "file": "dome-lounge-01-1365.webp",
+        "kb": 251
+      }
+    ],
+    "source": "bedroomdome6.jpg"
+  },
+  {
+    "slug": "dome-lounge-02",
+    "category": "dome",
+    "caption": "Seating corner and wardrobe inside the Bamboo Dome",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "dome-lounge-02-480.webp",
+        "kb": 27
+      },
+      {
+        "w": 960,
+        "file": "dome-lounge-02-960.webp",
+        "kb": 85
+      },
+      {
+        "w": 1600,
+        "file": "dome-lounge-02-1600.webp",
+        "kb": 187
+      },
+      {
+        "w": 2048,
+        "file": "dome-lounge-02-2048.webp",
+        "kb": 265
+      }
+    ],
+    "source": "bedroomdome8.jpg"
+  },
+  {
+    "slug": "dome-lounge-03",
+    "category": "dome",
+    "caption": "The Bamboo Dome interior with its arched window and bathrobe",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "dome-lounge-03-480.webp",
+        "kb": 30
+      },
+      {
+        "w": 960,
+        "file": "dome-lounge-03-960.webp",
+        "kb": 90
+      },
+      {
+        "w": 1600,
+        "file": "dome-lounge-03-1600.webp",
+        "kb": 188
+      },
+      {
+        "w": 2048,
+        "file": "dome-lounge-03-2048.webp",
+        "kb": 261
+      }
+    ],
+    "source": "bedroomdome9.jpg"
+  },
+  {
+    "slug": "food-01",
+    "category": "food",
+    "caption": "Granola bowl topped with fruit and flowers",
+    "w": 960,
+    "h": 1280,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "food-01-480.webp",
+        "kb": 49
+      },
+      {
+        "w": 960,
+        "file": "food-01-960.webp",
+        "kb": 130
+      }
+    ],
+    "source": "granola.jpg"
+  },
+  {
+    "slug": "food-02",
+    "category": "food",
+    "caption": "Sliced fruit plated with flowers",
+    "w": 4608,
+    "h": 3456,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "food-02-480.webp",
+        "kb": 30
+      },
+      {
+        "w": 960,
+        "file": "food-02-960.webp",
+        "kb": 79
+      },
+      {
+        "w": 1600,
+        "file": "food-02-1600.webp",
+        "kb": 160
+      },
+      {
+        "w": 2400,
+        "file": "food-02-2400.webp",
+        "kb": 265
+      }
+    ],
+    "source": "image00006-1.jpg"
+  },
+  {
+    "slug": "food-03",
+    "category": "food",
+    "caption": "Nasi campur served on a banana leaf",
+    "w": 960,
+    "h": 1280,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "food-03-480.webp",
+        "kb": 38
+      },
+      {
+        "w": 960,
+        "file": "food-03-960.webp",
+        "kb": 112
+      }
+    ],
+    "source": "nasi-campur-2.jpg"
+  },
+  {
+    "slug": "food-04",
+    "category": "food",
+    "caption": "Nasi campur with side dishes on a wooden plate",
+    "w": 960,
+    "h": 1280,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "food-04-480.webp",
+        "kb": 54
+      },
+      {
+        "w": 960,
+        "file": "food-04-960.webp",
+        "kb": 154
+      }
+    ],
+    "source": "nasi-campur.jpg"
+  },
+  {
+    "slug": "food-05",
+    "category": "food",
+    "caption": "Spring rolls with dipping sauce",
+    "w": 960,
+    "h": 1280,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "food-05-480.webp",
+        "kb": 45
+      },
+      {
+        "w": 960,
+        "file": "food-05-960.webp",
+        "kb": 141
+      }
+    ],
+    "source": "spring-roll.jpg"
+  },
+  {
+    "slug": "gladak-bed-01",
+    "category": "gladak",
+    "caption": "Four-poster bed with red bedding inside the Wooden Gladak House",
+    "w": 2560,
+    "h": 1707,
+    "ratio": 1.4997,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "gladak-bed-01-480.webp",
+        "kb": 18
+      },
+      {
+        "w": 960,
+        "file": "gladak-bed-01-960.webp",
+        "kb": 49
+      },
+      {
+        "w": 1600,
+        "file": "gladak-bed-01-1600.webp",
+        "kb": 96
+      },
+      {
+        "w": 2400,
+        "file": "gladak-bed-01-2400.webp",
+        "kb": 160
+      }
+    ],
+    "source": "img-1414-min-scaled.jpg"
+  },
+  {
+    "slug": "gladak-bed-02",
+    "category": "gladak",
+    "caption": "Bed and mosquito net inside the Wooden Gladak House",
+    "w": 2560,
+    "h": 1707,
+    "ratio": 1.4997,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "gladak-bed-02-480.webp",
+        "kb": 18
+      },
+      {
+        "w": 960,
+        "file": "gladak-bed-02-960.webp",
+        "kb": 55
+      },
+      {
+        "w": 1600,
+        "file": "gladak-bed-02-1600.webp",
+        "kb": 108
+      },
+      {
+        "w": 2400,
+        "file": "gladak-bed-02-2400.webp",
+        "kb": 181
+      }
+    ],
+    "source": "img-1416-min-scaled.jpg"
+  },
+  {
+    "slug": "gladak-bed-03",
+    "category": "gladak",
+    "caption": "The Wooden Gladak House bed against a woven wall",
+    "w": 2560,
+    "h": 1707,
+    "ratio": 1.4997,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "gladak-bed-03-480.webp",
+        "kb": 18
+      },
+      {
+        "w": 960,
+        "file": "gladak-bed-03-960.webp",
+        "kb": 54
+      },
+      {
+        "w": 1600,
+        "file": "gladak-bed-03-1600.webp",
+        "kb": 108
+      },
+      {
+        "w": 2400,
+        "file": "gladak-bed-03-2400.webp",
+        "kb": 181
+      }
+    ],
+    "source": "img-1417-min-scaled.jpg"
+  },
+  {
+    "slug": "gladak-bed-04",
+    "category": "gladak",
+    "caption": "Bed with a red batik runner under a mosquito net",
+    "w": 2560,
+    "h": 1920,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "gladak-bed-04-480.webp",
+        "kb": 12
+      },
+      {
+        "w": 960,
+        "file": "gladak-bed-04-960.webp",
+        "kb": 32
+      },
+      {
+        "w": 1600,
+        "file": "gladak-bed-04-1600.webp",
+        "kb": 66
+      },
+      {
+        "w": 2400,
+        "file": "gladak-bed-04-2400.webp",
+        "kb": 119
+      }
+    ],
+    "source": "l1130669-scaled.jpg"
+  },
+  {
+    "slug": "gladak-bed-05",
+    "category": "gladak",
+    "caption": "Bedroom with red batik bedding and a wooden bench",
+    "w": 2560,
+    "h": 1920,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "gladak-bed-05-480.webp",
+        "kb": 14
+      },
+      {
+        "w": 960,
+        "file": "gladak-bed-05-960.webp",
+        "kb": 38
+      },
+      {
+        "w": 1600,
+        "file": "gladak-bed-05-1600.webp",
+        "kb": 83
+      },
+      {
+        "w": 2400,
+        "file": "gladak-bed-05-2400.webp",
+        "kb": 148
+      }
+    ],
+    "source": "l1130676-scaled.jpg"
+  },
+  {
+    "slug": "gladak-bed-06",
+    "category": "gladak",
+    "caption": "Bedroom interior with red batik bedding and open shelving",
+    "w": 2560,
+    "h": 1920,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "gladak-bed-06-480.webp",
+        "kb": 15
+      },
+      {
+        "w": 960,
+        "file": "gladak-bed-06-960.webp",
+        "kb": 38
+      },
+      {
+        "w": 1600,
+        "file": "gladak-bed-06-1600.webp",
+        "kb": 75
+      },
+      {
+        "w": 2400,
+        "file": "gladak-bed-06-2400.webp",
+        "kb": 137
+      }
+    ],
+    "source": "l1130677-scaled.jpg"
+  },
+  {
+    "slug": "gladak-bed-07",
+    "category": "gladak",
+    "caption": "Bed with red batik bedding and air conditioning above",
+    "w": 1280,
+    "h": 960,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "gladak-bed-07-480.webp",
+        "kb": 13
+      },
+      {
+        "w": 960,
+        "file": "gladak-bed-07-960.webp",
+        "kb": 34
+      },
+      {
+        "w": 1280,
+        "file": "gladak-bed-07-1280.webp",
+        "kb": 51
+      }
+    ],
+    "source": "whatsapp-image-2024-04-02-at-12-39-37-50fec1b4.jpg"
+  },
+  {
+    "slug": "gladak-ext-01",
+    "category": "gladak",
+    "caption": "The wooden gladak house seen from the garden at dusk",
+    "w": 1024,
+    "h": 683,
+    "ratio": 1.4993,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "gladak-ext-01-480.webp",
+        "kb": 30
+      },
+      {
+        "w": 960,
+        "file": "gladak-ext-01-960.webp",
+        "kb": 89
+      },
+      {
+        "w": 1024,
+        "file": "gladak-ext-01-1024.webp",
+        "kb": 100
+      }
+    ],
+    "source": "whatsapp-image-2023-11-13-at-10-38-09-691df0c0.jpg"
+  },
+  {
+    "slug": "gladak-ext-02",
+    "category": "gladak",
+    "caption": "Wooden gladak houses among banana palms",
+    "w": 1600,
+    "h": 1066,
+    "ratio": 1.5009,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "gladak-ext-02-480.webp",
+        "kb": 30
+      },
+      {
+        "w": 960,
+        "file": "gladak-ext-02-960.webp",
+        "kb": 101
+      },
+      {
+        "w": 1600,
+        "file": "gladak-ext-02-1600.webp",
+        "kb": 228
+      }
+    ],
+    "source": "whatsapp-image-2024-04-02-at-12-57-59-ff0f6347.jpg"
+  },
+  {
+    "slug": "gladak-ext-03",
+    "category": "gladak",
+    "caption": "A wooden house and lawn in the villa garden",
+    "w": 1280,
+    "h": 853,
+    "ratio": 1.5006,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "gladak-ext-03-480.webp",
+        "kb": 27
+      },
+      {
+        "w": 960,
+        "file": "gladak-ext-03-960.webp",
+        "kb": 95
+      },
+      {
+        "w": 1280,
+        "file": "gladak-ext-03-1280.webp",
+        "kb": 170
+      }
+    ],
+    "source": "wooden-cabana-at-cozy-backyard-of-the-villa.jpg"
+  },
+  {
+    "slug": "gladak-terrace-01",
+    "category": "gladak",
+    "caption": "Terrace chairs and a small table outside the Wooden Gladak House",
+    "w": 2560,
+    "h": 1707,
+    "ratio": 1.4997,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "gladak-terrace-01-480.webp",
+        "kb": 33
+      },
+      {
+        "w": 960,
+        "file": "gladak-terrace-01-960.webp",
+        "kb": 82
+      },
+      {
+        "w": 1600,
+        "file": "gladak-terrace-01-1600.webp",
+        "kb": 157
+      },
+      {
+        "w": 2400,
+        "file": "gladak-terrace-01-2400.webp",
+        "kb": 247
+      }
+    ],
+    "source": "img-1413-min-scaled.jpg"
+  },
+  {
+    "slug": "hexa-ext-01",
+    "category": "hexa",
+    "caption": "The arched doorway of the Hexa Bamboo House framed by planting",
+    "w": 2560,
+    "h": 1707,
+    "ratio": 1.4997,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "hexa-ext-01-480.webp",
+        "kb": 37
+      },
+      {
+        "w": 960,
+        "file": "hexa-ext-01-960.webp",
+        "kb": 111
+      },
+      {
+        "w": 1600,
+        "file": "hexa-ext-01-1600.webp",
+        "kb": 221
+      },
+      {
+        "w": 2400,
+        "file": "hexa-ext-01-2400.webp",
+        "kb": 366
+      }
+    ],
+    "source": "img-1432-min-scaled.jpg"
+  },
+  {
+    "slug": "hexa-ext-02",
+    "category": "hexa",
+    "caption": "The Hexa Bamboo House among tropical planting",
+    "w": 2560,
+    "h": 1707,
+    "ratio": 1.4997,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "hexa-ext-02-480.webp",
+        "kb": 42
+      },
+      {
+        "w": 960,
+        "file": "hexa-ext-02-960.webp",
+        "kb": 133
+      },
+      {
+        "w": 1600,
+        "file": "hexa-ext-02-1600.webp",
+        "kb": 272
+      },
+      {
+        "w": 2400,
+        "file": "hexa-ext-02-2400.webp",
+        "kb": 452
+      }
+    ],
+    "source": "img-1433-min-scaled.jpg"
+  },
+  {
+    "slug": "hexa-ext-03",
+    "category": "hexa",
+    "caption": "Arched bamboo doorway of the Hexa Bamboo House",
+    "w": 2560,
+    "h": 1707,
+    "ratio": 1.4997,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "hexa-ext-03-480.webp",
+        "kb": 23
+      },
+      {
+        "w": 960,
+        "file": "hexa-ext-03-960.webp",
+        "kb": 65
+      },
+      {
+        "w": 1600,
+        "file": "hexa-ext-03-1600.webp",
+        "kb": 129
+      },
+      {
+        "w": 2400,
+        "file": "hexa-ext-03-2400.webp",
+        "kb": 218
+      }
+    ],
+    "source": "img-1438-min-scaled.jpg"
+  },
+  {
+    "slug": "hexa-ext-04",
+    "category": "hexa",
+    "caption": "A hexagonal bamboo house standing in the garden",
+    "w": 2560,
+    "h": 1707,
+    "ratio": 1.4997,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "hexa-ext-04-480.webp",
+        "kb": 35
+      },
+      {
+        "w": 960,
+        "file": "hexa-ext-04-960.webp",
+        "kb": 106
+      },
+      {
+        "w": 1600,
+        "file": "hexa-ext-04-1600.webp",
+        "kb": 221
+      },
+      {
+        "w": 2400,
+        "file": "hexa-ext-04-2400.webp",
+        "kb": 367
+      }
+    ],
+    "source": "img-1388-min-scaled.jpg"
+  },
+  {
+    "slug": "hexa-ext-05",
+    "category": "hexa",
+    "caption": "The hexagonal bamboo house seen across the lawn",
+    "w": 2560,
+    "h": 1707,
+    "ratio": 1.4997,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "hexa-ext-05-480.webp",
+        "kb": 40
+      },
+      {
+        "w": 960,
+        "file": "hexa-ext-05-960.webp",
+        "kb": 130
+      },
+      {
+        "w": 1600,
+        "file": "hexa-ext-05-1600.webp",
+        "kb": 281
+      },
+      {
+        "w": 2400,
+        "file": "hexa-ext-05-2400.webp",
+        "kb": 471
+      }
+    ],
+    "source": "img-1418-min-scaled.jpg"
+  },
+  {
+    "slug": "hexa-int-01",
+    "category": "hexa",
+    "caption": "Bed and curtain inside the woven bamboo Hexa house",
+    "w": 2560,
+    "h": 1707,
+    "ratio": 1.4997,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "hexa-int-01-480.webp",
+        "kb": 22
+      },
+      {
+        "w": 960,
+        "file": "hexa-int-01-960.webp",
+        "kb": 65
+      },
+      {
+        "w": 1600,
+        "file": "hexa-int-01-1600.webp",
+        "kb": 135
+      },
+      {
+        "w": 2400,
+        "file": "hexa-int-01-2400.webp",
+        "kb": 227
+      }
+    ],
+    "source": "img-1468-min-scaled.jpg"
+  },
+  {
+    "slug": "hexa-int-02",
+    "category": "hexa",
+    "caption": "Bed under a canopy inside the Hexa Bamboo House",
+    "w": 1024,
+    "h": 768,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "hexa-int-02-480.webp",
+        "kb": 24
+      },
+      {
+        "w": 960,
+        "file": "hexa-int-02-960.webp",
+        "kb": 87
+      },
+      {
+        "w": 1024,
+        "file": "hexa-int-02-1024.webp",
+        "kb": 101
+      }
+    ],
+    "source": "whatsapp-image-2023-11-13-at-10-31-22-1bcaa5b8.jpg"
+  },
+  {
+    "slug": "jungle-01",
+    "category": "jungle",
+    "caption": "Looking up through the jungle canopy",
+    "w": 4608,
+    "h": 3456,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "jungle-01-480.webp",
+        "kb": 68
+      },
+      {
+        "w": 960,
+        "file": "jungle-01-960.webp",
+        "kb": 231
+      },
+      {
+        "w": 1600,
+        "file": "jungle-01-1600.webp",
+        "kb": 504
+      },
+      {
+        "w": 2400,
+        "file": "jungle-01-2400.webp",
+        "kb": 830
+      }
+    ],
+    "source": "image00024-1.jpg"
+  },
+  {
+    "slug": "jungle-02",
+    "category": "jungle",
+    "caption": "Sunlight through the branches of the jungle",
+    "w": 1280,
+    "h": 960,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "jungle-02-480.webp",
+        "kb": 55
+      },
+      {
+        "w": 960,
+        "file": "jungle-02-960.webp",
+        "kb": 216
+      },
+      {
+        "w": 1280,
+        "file": "jungle-02-1280.webp",
+        "kb": 372
+      }
+    ],
+    "source": "jungle-1.jpg"
+  },
+  {
+    "slug": "jungle-03",
+    "category": "jungle",
+    "caption": "The buttressed roots of an old jungle tree",
+    "w": 960,
+    "h": 1280,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "jungle-03-480.webp",
+        "kb": 100
+      },
+      {
+        "w": 960,
+        "file": "jungle-03-960.webp",
+        "kb": 345
+      }
+    ],
+    "source": "jungle-2.jpg"
+  },
+  {
+    "slug": "jungle-04",
+    "category": "jungle",
+    "caption": "Tall trees in the jungle",
+    "w": 960,
+    "h": 1280,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "jungle-04-480.webp",
+        "kb": 97
+      },
+      {
+        "w": 960,
+        "file": "jungle-04-960.webp",
+        "kb": 346
+      }
+    ],
+    "source": "jungle-3.jpg"
+  },
+  {
+    "slug": "jungle-05",
+    "category": "jungle",
+    "caption": "The forest canopy seen from below",
+    "w": 960,
+    "h": 1280,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "jungle-05-480.webp",
+        "kb": 98
+      },
+      {
+        "w": 960,
+        "file": "jungle-05-960.webp",
+        "kb": 346
+      }
+    ],
+    "source": "jungle-4.jpg"
+  },
+  {
+    "slug": "jungle-06",
+    "category": "jungle",
+    "caption": "A path through the jungle",
+    "w": 960,
+    "h": 1280,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "jungle-06-480.webp",
+        "kb": 101
+      },
+      {
+        "w": 960,
+        "file": "jungle-06-960.webp",
+        "kb": 357
+      }
+    ],
+    "source": "waterfall-10.jpg"
+  },
+  {
+    "slug": "jungle-07",
+    "category": "jungle",
+    "caption": "Ancient trees along the trekking route",
+    "w": 960,
+    "h": 1280,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "jungle-07-480.webp",
+        "kb": 96
+      },
+      {
+        "w": 960,
+        "file": "jungle-07-960.webp",
+        "kb": 317
+      }
+    ],
+    "source": "waterfall-11.jpg"
+  },
+  {
+    "slug": "menu-cover",
+    "category": "menu",
+    "caption": "The cover of the Paon Restaurant menu",
+    "w": 1414,
+    "h": 2000,
+    "ratio": 0.707,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "menu-cover-480.webp",
+        "kb": 64
+      },
+      {
+        "w": 960,
+        "file": "menu-cover-960.webp",
+        "kb": 165
+      },
+      {
+        "w": 1414,
+        "file": "menu-cover-1414.webp",
+        "kb": 262
+      }
+    ],
+    "source": "1-resto.png"
+  },
+  {
+    "slug": "menu-spa",
+    "category": "menu",
+    "caption": "The massage and body treatment menu",
+    "w": 1414,
+    "h": 2000,
+    "ratio": 0.707,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "menu-spa-480.webp",
+        "kb": 40
+      },
+      {
+        "w": 960,
+        "file": "menu-spa-960.webp",
+        "kb": 102
+      },
+      {
+        "w": 1414,
+        "file": "menu-spa-1414.webp",
+        "kb": 165
+      }
+    ],
+    "source": "swarma-spa-menu-flyer.png"
+  },
+  {
+    "slug": "paon-01",
+    "category": "restaurant",
+    "caption": "Tables set inside Swarma Paon Restaurant under a bamboo roof",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "paon-01-480.webp",
+        "kb": 39
+      },
+      {
+        "w": 960,
+        "file": "paon-01-960.webp",
+        "kb": 124
+      },
+      {
+        "w": 1600,
+        "file": "paon-01-1600.webp",
+        "kb": 287
+      },
+      {
+        "w": 2048,
+        "file": "paon-01-2048.webp",
+        "kb": 421
+      }
+    ],
+    "source": "pututeddy-01.jpg"
+  },
+  {
+    "slug": "paon-02",
+    "category": "restaurant",
+    "caption": "The dining room at Swarma Paon Restaurant",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "paon-02-480.webp",
+        "kb": 39
+      },
+      {
+        "w": 960,
+        "file": "paon-02-960.webp",
+        "kb": 124
+      },
+      {
+        "w": 1600,
+        "file": "paon-02-1600.webp",
+        "kb": 287
+      },
+      {
+        "w": 2048,
+        "file": "paon-02-2048.webp",
+        "kb": 421
+      }
+    ],
+    "source": "restaurantpaon1.jpg"
+  },
+  {
+    "slug": "paon-03",
+    "category": "restaurant",
+    "caption": "Looking through Swarma Paon Restaurant to the garden",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "paon-03-480.webp",
+        "kb": 36
+      },
+      {
+        "w": 960,
+        "file": "paon-03-960.webp",
+        "kb": 113
+      },
+      {
+        "w": 1600,
+        "file": "paon-03-1600.webp",
+        "kb": 245
+      },
+      {
+        "w": 2048,
+        "file": "paon-03-2048.webp",
+        "kb": 347
+      }
+    ],
+    "source": "restaurantpaon10.jpg"
+  },
+  {
+    "slug": "paon-04",
+    "category": "restaurant",
+    "caption": "Bamboo dining furniture and planting at Swarma Paon",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "paon-04-480.webp",
+        "kb": 44
+      },
+      {
+        "w": 960,
+        "file": "paon-04-960.webp",
+        "kb": 147
+      },
+      {
+        "w": 1600,
+        "file": "paon-04-1600.webp",
+        "kb": 327
+      },
+      {
+        "w": 2048,
+        "file": "paon-04-2048.webp",
+        "kb": 469
+      }
+    ],
+    "source": "restaurantpaon11.jpg"
+  },
+  {
+    "slug": "paon-05",
+    "category": "restaurant",
+    "caption": "Textiles and a counter inside the restaurant",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "paon-05-480.webp",
+        "kb": 22
+      },
+      {
+        "w": 960,
+        "file": "paon-05-960.webp",
+        "kb": 56
+      },
+      {
+        "w": 1600,
+        "file": "paon-05-1600.webp",
+        "kb": 113
+      },
+      {
+        "w": 2048,
+        "file": "paon-05-2048.webp",
+        "kb": 158
+      }
+    ],
+    "source": "restaurantpaon13.jpg"
+  },
+  {
+    "slug": "paon-06",
+    "category": "restaurant",
+    "caption": "Dining tables and flowers at Swarma Paon Restaurant",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "paon-06-480.webp",
+        "kb": 37
+      },
+      {
+        "w": 960,
+        "file": "paon-06-960.webp",
+        "kb": 119
+      },
+      {
+        "w": 1600,
+        "file": "paon-06-1600.webp",
+        "kb": 267
+      },
+      {
+        "w": 2048,
+        "file": "paon-06-2048.webp",
+        "kb": 388
+      }
+    ],
+    "source": "restaurantpaon2.jpg"
+  },
+  {
+    "slug": "paon-07",
+    "category": "restaurant",
+    "caption": "The restaurant interior with lanterns overhead",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "paon-07-480.webp",
+        "kb": 35
+      },
+      {
+        "w": 960,
+        "file": "paon-07-960.webp",
+        "kb": 113
+      },
+      {
+        "w": 1600,
+        "file": "paon-07-1600.webp",
+        "kb": 249
+      },
+      {
+        "w": 2048,
+        "file": "paon-07-2048.webp",
+        "kb": 364
+      }
+    ],
+    "source": "restaurantpaon4.jpg"
+  },
+  {
+    "slug": "paon-08",
+    "category": "restaurant",
+    "caption": "Tables and flowers inside Swarma Paon Restaurant",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "paon-08-480.webp",
+        "kb": 35
+      },
+      {
+        "w": 960,
+        "file": "paon-08-960.webp",
+        "kb": 109
+      },
+      {
+        "w": 1600,
+        "file": "paon-08-1600.webp",
+        "kb": 237
+      },
+      {
+        "w": 2048,
+        "file": "paon-08-2048.webp",
+        "kb": 340
+      }
+    ],
+    "source": "restaurantpaon5.jpg"
+  },
+  {
+    "slug": "paon-09",
+    "category": "restaurant",
+    "caption": "The restaurant counter and open kitchen",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "paon-09-480.webp",
+        "kb": 31
+      },
+      {
+        "w": 960,
+        "file": "paon-09-960.webp",
+        "kb": 90
+      },
+      {
+        "w": 1600,
+        "file": "paon-09-1600.webp",
+        "kb": 189
+      },
+      {
+        "w": 2048,
+        "file": "paon-09-2048.webp",
+        "kb": 261
+      }
+    ],
+    "source": "restaurantpaon6.jpg"
+  },
+  {
+    "slug": "paon-10",
+    "category": "restaurant",
+    "caption": "Coffee machine on the restaurant counter",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "paon-10-480.webp",
+        "kb": 20
+      },
+      {
+        "w": 960,
+        "file": "paon-10-960.webp",
+        "kb": 51
+      },
+      {
+        "w": 1600,
+        "file": "paon-10-1600.webp",
+        "kb": 100
+      },
+      {
+        "w": 2048,
+        "file": "paon-10-2048.webp",
+        "kb": 141
+      }
+    ],
+    "source": "restaurantpaon7.jpg"
+  },
+  {
+    "slug": "paon-11",
+    "category": "restaurant",
+    "caption": "Shelves of tableware and ornaments in the restaurant",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "paon-11-480.webp",
+        "kb": 30
+      },
+      {
+        "w": 960,
+        "file": "paon-11-960.webp",
+        "kb": 94
+      },
+      {
+        "w": 1600,
+        "file": "paon-11-1600.webp",
+        "kb": 209
+      },
+      {
+        "w": 2048,
+        "file": "paon-11-2048.webp",
+        "kb": 302
+      }
+    ],
+    "source": "restaurantpaon8.jpg"
+  },
+  {
+    "slug": "paon-12",
+    "category": "restaurant",
+    "caption": "A drink on a bamboo table in the restaurant",
+    "w": 1920,
+    "h": 2560,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "paon-12-480.webp",
+        "kb": 65
+      },
+      {
+        "w": 960,
+        "file": "paon-12-960.webp",
+        "kb": 233
+      },
+      {
+        "w": 1600,
+        "file": "paon-12-1600.webp",
+        "kb": 508
+      },
+      {
+        "w": 1920,
+        "file": "paon-12-1920.webp",
+        "kb": 661
+      }
+    ],
+    "source": "img-2368-scaled.jpg"
+  },
+  {
+    "slug": "paon-13",
+    "category": "restaurant",
+    "caption": "A fresh juice served on a bamboo table",
+    "w": 960,
+    "h": 1280,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "paon-13-480.webp",
+        "kb": 69
+      },
+      {
+        "w": 960,
+        "file": "paon-13-960.webp",
+        "kb": 204
+      }
+    ],
+    "source": "juice.jpg"
+  },
+  {
+    "slug": "paon-dinner-01",
+    "category": "restaurant",
+    "caption": "A candlelit dinner laid for two with flowers and wine",
+    "w": 1280,
+    "h": 853,
+    "ratio": 1.5006,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "paon-dinner-01-480.webp",
+        "kb": 21
+      },
+      {
+        "w": 960,
+        "file": "paon-dinner-01-960.webp",
+        "kb": 57
+      },
+      {
+        "w": 1280,
+        "file": "paon-dinner-01-1280.webp",
+        "kb": 85
+      }
+    ],
+    "source": "special-dinner-swarma.jpg"
+  },
+  {
+    "slug": "pool-01",
+    "category": "pool",
+    "caption": "The swimming pool with jungle planting behind it",
+    "w": 4608,
+    "h": 3456,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "pool-01-480.webp",
+        "kb": 41
+      },
+      {
+        "w": 960,
+        "file": "pool-01-960.webp",
+        "kb": 151
+      },
+      {
+        "w": 1600,
+        "file": "pool-01-1600.webp",
+        "kb": 366
+      },
+      {
+        "w": 2400,
+        "file": "pool-01-2400.webp",
+        "kb": 681
+      }
+    ],
+    "source": "image00002.jpg"
+  },
+  {
+    "slug": "pool-02",
+    "category": "pool",
+    "caption": "Pool and parasols surrounded by tropical greenery",
+    "w": 2560,
+    "h": 1707,
+    "ratio": 1.4997,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "pool-02-480.webp",
+        "kb": 47
+      },
+      {
+        "w": 960,
+        "file": "pool-02-960.webp",
+        "kb": 167
+      },
+      {
+        "w": 1600,
+        "file": "pool-02-1600.webp",
+        "kb": 377
+      },
+      {
+        "w": 2400,
+        "file": "pool-02-2400.webp",
+        "kb": 659
+      }
+    ],
+    "source": "img-1452-min-scaled.jpg"
+  },
+  {
+    "slug": "pool-03",
+    "category": "pool",
+    "caption": "Loungers and planting beside the pool",
+    "w": 3072,
+    "h": 4096,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "pool-03-480.webp",
+        "kb": 68
+      },
+      {
+        "w": 960,
+        "file": "pool-03-960.webp",
+        "kb": 244
+      },
+      {
+        "w": 1600,
+        "file": "pool-03-1600.webp",
+        "kb": 561
+      },
+      {
+        "w": 2400,
+        "file": "pool-03-2400.webp",
+        "kb": 1007
+      }
+    ],
+    "source": "swarma-1-1.jpg"
+  },
+  {
+    "slug": "pool-04",
+    "category": "pool",
+    "caption": "A floating breakfast tray on the pool at dusk",
+    "w": 3072,
+    "h": 4096,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "pool-04-480.webp",
+        "kb": 37
+      },
+      {
+        "w": 960,
+        "file": "pool-04-960.webp",
+        "kb": 118
+      },
+      {
+        "w": 1600,
+        "file": "pool-04-1600.webp",
+        "kb": 252
+      },
+      {
+        "w": 2400,
+        "file": "pool-04-2400.webp",
+        "kb": 434
+      }
+    ],
+    "source": "swarma-13-1-1.jpg"
+  },
+  {
+    "slug": "pool-05",
+    "category": "pool",
+    "caption": "The pool area lit in the evening",
+    "w": 4096,
+    "h": 3072,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "pool-05-480.webp",
+        "kb": 36
+      },
+      {
+        "w": 960,
+        "file": "pool-05-960.webp",
+        "kb": 115
+      },
+      {
+        "w": 1600,
+        "file": "pool-05-1600.webp",
+        "kb": 239
+      },
+      {
+        "w": 2400,
+        "file": "pool-05-2400.webp",
+        "kb": 401
+      }
+    ],
+    "source": "swarma-7-1-1-1.jpg"
+  },
+  {
+    "slug": "pool-06",
+    "category": "pool",
+    "caption": "The pool seen from the deck in bright sun",
+    "w": 4096,
+    "h": 3072,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "pool-06-480.webp",
+        "kb": 27
+      },
+      {
+        "w": 960,
+        "file": "pool-06-960.webp",
+        "kb": 97
+      },
+      {
+        "w": 1600,
+        "file": "pool-06-1600.webp",
+        "kb": 230
+      },
+      {
+        "w": 2400,
+        "file": "pool-06-2400.webp",
+        "kb": 443
+      }
+    ],
+    "source": "swarma-9-1-1.jpg"
+  },
+  {
+    "slug": "pool-07",
+    "category": "pool",
+    "caption": "A floating breakfast tray served in the pool",
+    "w": 1280,
+    "h": 853,
+    "ratio": 1.5006,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "pool-07-480.webp",
+        "kb": 21
+      },
+      {
+        "w": 960,
+        "file": "pool-07-960.webp",
+        "kb": 62
+      },
+      {
+        "w": 1280,
+        "file": "pool-07-1280.webp",
+        "kb": 95
+      }
+    ],
+    "source": "woman-having-tropical-healthy-breakfast-at-villa-on-.jpg"
+  },
+  {
+    "slug": "property-01",
+    "category": "property",
+    "caption": "Bamboo building surrounded by tropical planting",
+    "w": 1152,
+    "h": 2560,
+    "ratio": 0.45,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "property-01-480.webp",
+        "kb": 67
+      },
+      {
+        "w": 960,
+        "file": "property-01-960.webp",
+        "kb": 169
+      },
+      {
+        "w": 1152,
+        "file": "property-01-1152.webp",
+        "kb": 214
+      }
+    ],
+    "source": "20250606-161929-scaled.jpg"
+  },
+  {
+    "slug": "property-02",
+    "category": "property",
+    "caption": "A bamboo house standing among palms and greenery",
+    "w": 2560,
+    "h": 1707,
+    "ratio": 1.4997,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "property-02-480.webp",
+        "kb": 47
+      },
+      {
+        "w": 960,
+        "file": "property-02-960.webp",
+        "kb": 165
+      },
+      {
+        "w": 1600,
+        "file": "property-02-1600.webp",
+        "kb": 402
+      },
+      {
+        "w": 2400,
+        "file": "property-02-2400.webp",
+        "kb": 754
+      }
+    ],
+    "source": "dsc04233-hdr-scaled.jpg"
+  },
+  {
+    "slug": "property-03",
+    "category": "property",
+    "caption": "Wooden and bamboo buildings in the villa garden",
+    "w": 2560,
+    "h": 1707,
+    "ratio": 1.4997,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "property-03-480.webp",
+        "kb": 30
+      },
+      {
+        "w": 960,
+        "file": "property-03-960.webp",
+        "kb": 98
+      },
+      {
+        "w": 1600,
+        "file": "property-03-1600.webp",
+        "kb": 230
+      },
+      {
+        "w": 2400,
+        "file": "property-03-2400.webp",
+        "kb": 433
+      }
+    ],
+    "source": "img-0072-scaled.jpg"
+  },
+  {
+    "slug": "property-04",
+    "category": "property",
+    "caption": "A timber structure framed by tropical foliage",
+    "w": 2560,
+    "h": 1707,
+    "ratio": 1.4997,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "property-04-480.webp",
+        "kb": 35
+      },
+      {
+        "w": 960,
+        "file": "property-04-960.webp",
+        "kb": 84
+      },
+      {
+        "w": 1600,
+        "file": "property-04-1600.webp",
+        "kb": 158
+      },
+      {
+        "w": 2400,
+        "file": "property-04-2400.webp",
+        "kb": 261
+      }
+    ],
+    "source": "img-1403-min-scaled.jpg"
+  },
+  {
+    "slug": "property-05",
+    "category": "property",
+    "caption": "Path through the villa garden past the buildings",
+    "w": 2560,
+    "h": 1707,
+    "ratio": 1.4997,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "property-05-480.webp",
+        "kb": 34
+      },
+      {
+        "w": 960,
+        "file": "property-05-960.webp",
+        "kb": 110
+      },
+      {
+        "w": 1600,
+        "file": "property-05-1600.webp",
+        "kb": 240
+      },
+      {
+        "w": 2400,
+        "file": "property-05-2400.webp",
+        "kb": 406
+      }
+    ],
+    "source": "img-1424-min-scaled.jpg"
+  },
+  {
+    "slug": "property-06",
+    "category": "property",
+    "caption": "Terrace chairs lined along the front of the villas",
+    "w": 2560,
+    "h": 1707,
+    "ratio": 1.4997,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "property-06-480.webp",
+        "kb": 43
+      },
+      {
+        "w": 960,
+        "file": "property-06-960.webp",
+        "kb": 139
+      },
+      {
+        "w": 1600,
+        "file": "property-06-1600.webp",
+        "kb": 297
+      },
+      {
+        "w": 2400,
+        "file": "property-06-2400.webp",
+        "kb": 502
+      }
+    ],
+    "source": "img-1447-min-scaled.jpg"
+  },
+  {
+    "slug": "property-07",
+    "category": "property",
+    "caption": "Villa terraces with chairs and flowering plants",
+    "w": 2560,
+    "h": 1707,
+    "ratio": 1.4997,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "property-07-480.webp",
+        "kb": 43
+      },
+      {
+        "w": 960,
+        "file": "property-07-960.webp",
+        "kb": 141
+      },
+      {
+        "w": 1600,
+        "file": "property-07-1600.webp",
+        "kb": 304
+      },
+      {
+        "w": 2400,
+        "file": "property-07-2400.webp",
+        "kb": 506
+      }
+    ],
+    "source": "img-1448-min-scaled.jpg"
+  },
+  {
+    "slug": "property-08",
+    "category": "property",
+    "caption": "Timber terrace with a table looking into the garden",
+    "w": 1920,
+    "h": 2560,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "property-08-480.webp",
+        "kb": 45
+      },
+      {
+        "w": 960,
+        "file": "property-08-960.webp",
+        "kb": 127
+      },
+      {
+        "w": 1600,
+        "file": "property-08-1600.webp",
+        "kb": 258
+      },
+      {
+        "w": 1920,
+        "file": "property-08-1920.webp",
+        "kb": 338
+      }
+    ],
+    "source": "img-2575-scaled.jpg"
+  },
+  {
+    "slug": "property-09",
+    "category": "property",
+    "caption": "Wooden veranda with armchairs and a round table",
+    "w": 1920,
+    "h": 2560,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "property-09-480.webp",
+        "kb": 46
+      },
+      {
+        "w": 960,
+        "file": "property-09-960.webp",
+        "kb": 146
+      },
+      {
+        "w": 1600,
+        "file": "property-09-1600.webp",
+        "kb": 298
+      },
+      {
+        "w": 1920,
+        "file": "property-09-1920.webp",
+        "kb": 398
+      }
+    ],
+    "source": "img-2576-scaled.jpg"
+  },
+  {
+    "slug": "property-10",
+    "category": "property",
+    "caption": "Veranda seating along the front of a wooden house",
+    "w": 1920,
+    "h": 2560,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "property-10-480.webp",
+        "kb": 48
+      },
+      {
+        "w": 960,
+        "file": "property-10-960.webp",
+        "kb": 156
+      },
+      {
+        "w": 1600,
+        "file": "property-10-1600.webp",
+        "kb": 324
+      },
+      {
+        "w": 1920,
+        "file": "property-10-1920.webp",
+        "kb": 419
+      }
+    ],
+    "source": "img-2579-scaled.jpg"
+  },
+  {
+    "slug": "property-11",
+    "category": "property",
+    "caption": "Timber deck running along the villa",
+    "w": 1920,
+    "h": 2560,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "property-11-480.webp",
+        "kb": 52
+      },
+      {
+        "w": 960,
+        "file": "property-11-960.webp",
+        "kb": 166
+      },
+      {
+        "w": 1600,
+        "file": "property-11-1600.webp",
+        "kb": 346
+      },
+      {
+        "w": 1920,
+        "file": "property-11-1920.webp",
+        "kb": 448
+      }
+    ],
+    "source": "img-2580-scaled.jpg"
+  },
+  {
+    "slug": "property-12",
+    "category": "property",
+    "caption": "A pavilion and daybed in the villa garden",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "property-12-480.webp",
+        "kb": 38
+      },
+      {
+        "w": 960,
+        "file": "property-12-960.webp",
+        "kb": 129
+      },
+      {
+        "w": 1600,
+        "file": "property-12-1600.webp",
+        "kb": 298
+      },
+      {
+        "w": 2048,
+        "file": "property-12-2048.webp",
+        "kb": 443
+      }
+    ],
+    "source": "restaurantpaon12.jpg"
+  },
+  {
+    "slug": "ricefield-01",
+    "category": "jungle",
+    "caption": "Rice fields under an open sky",
+    "w": 963,
+    "h": 1280,
+    "ratio": 0.7523,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "ricefield-01-480.webp",
+        "kb": 58
+      },
+      {
+        "w": 960,
+        "file": "ricefield-01-960.webp",
+        "kb": 191
+      },
+      {
+        "w": 963,
+        "file": "ricefield-01-963.webp",
+        "kb": 200
+      }
+    ],
+    "source": "rice-field.jpg"
+  },
+  {
+    "slug": "ritual-01",
+    "category": "ritual",
+    "caption": "A water purification at a jungle waterfall",
+    "w": 960,
+    "h": 1280,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "ritual-01-480.webp",
+        "kb": 93
+      },
+      {
+        "w": 960,
+        "file": "ritual-01-960.webp",
+        "kb": 290
+      }
+    ],
+    "source": "purification-3.jpg"
+  },
+  {
+    "slug": "room-01",
+    "category": "rooms",
+    "caption": "Bed with a mosquito net against a woven bamboo wall",
+    "w": 1024,
+    "h": 768,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "room-01-480.webp",
+        "kb": 24
+      },
+      {
+        "w": 960,
+        "file": "room-01-960.webp",
+        "kb": 87
+      },
+      {
+        "w": 1024,
+        "file": "room-01-1024.webp",
+        "kb": 101
+      }
+    ],
+    "source": "020fb67f-5486-4bc2-9532-f8880a84442d.jpg"
+  },
+  {
+    "slug": "room-02",
+    "category": "rooms",
+    "caption": "Bed and canopy in a villa room",
+    "w": 1200,
+    "h": 1600,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "room-02-480.webp",
+        "kb": 47
+      },
+      {
+        "w": 960,
+        "file": "room-02-960.webp",
+        "kb": 150
+      },
+      {
+        "w": 1200,
+        "file": "room-02-1200.webp",
+        "kb": 209
+      }
+    ],
+    "source": "7870d1b6-a084-4998-8cdd-96bc9ea99498.jpg"
+  },
+  {
+    "slug": "room-03",
+    "category": "rooms",
+    "caption": "Four-poster bed with white drapes in a villa room",
+    "w": 1200,
+    "h": 1600,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "room-03-480.webp",
+        "kb": 39
+      },
+      {
+        "w": 960,
+        "file": "room-03-960.webp",
+        "kb": 116
+      },
+      {
+        "w": 1200,
+        "file": "room-03-1200.webp",
+        "kb": 159
+      }
+    ],
+    "source": "ba866717-52a2-4846-9c15-94bf6ebd87a8.jpg"
+  },
+  {
+    "slug": "room-04",
+    "category": "rooms",
+    "caption": "Bed with white linen and a woven headboard",
+    "w": 2560,
+    "h": 1707,
+    "ratio": 1.4997,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "room-04-480.webp",
+        "kb": 21
+      },
+      {
+        "w": 960,
+        "file": "room-04-960.webp",
+        "kb": 61
+      },
+      {
+        "w": 1600,
+        "file": "room-04-1600.webp",
+        "kb": 122
+      },
+      {
+        "w": 2400,
+        "file": "room-04-2400.webp",
+        "kb": 206
+      }
+    ],
+    "source": "img-1436-min-scaled.jpg"
+  },
+  {
+    "slug": "room-05",
+    "category": "rooms",
+    "caption": "Bed beside a balcony looking into the garden",
+    "w": 2560,
+    "h": 1707,
+    "ratio": 1.4997,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "room-05-480.webp",
+        "kb": 24
+      },
+      {
+        "w": 960,
+        "file": "room-05-960.webp",
+        "kb": 69
+      },
+      {
+        "w": 1600,
+        "file": "room-05-1600.webp",
+        "kb": 139
+      },
+      {
+        "w": 2400,
+        "file": "room-05-2400.webp",
+        "kb": 224
+      }
+    ],
+    "source": "img-1437-min-scaled.jpg"
+  },
+  {
+    "slug": "room-06",
+    "category": "rooms",
+    "caption": "Bed with a red runner under a white canopy",
+    "w": 1707,
+    "h": 2560,
+    "ratio": 0.6668,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "room-06-480.webp",
+        "kb": 25
+      },
+      {
+        "w": 960,
+        "file": "room-06-960.webp",
+        "kb": 65
+      },
+      {
+        "w": 1600,
+        "file": "room-06-1600.webp",
+        "kb": 126
+      },
+      {
+        "w": 1707,
+        "file": "room-06-1707.webp",
+        "kb": 140
+      }
+    ],
+    "source": "img-1463-min-scaled.jpg"
+  },
+  {
+    "slug": "room-07",
+    "category": "rooms",
+    "caption": "Bedroom with white linen and a canopy frame",
+    "w": 2560,
+    "h": 1707,
+    "ratio": 1.4997,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "room-07-480.webp",
+        "kb": 16
+      },
+      {
+        "w": 960,
+        "file": "room-07-960.webp",
+        "kb": 44
+      },
+      {
+        "w": 1600,
+        "file": "room-07-1600.webp",
+        "kb": 86
+      },
+      {
+        "w": 2400,
+        "file": "room-07-2400.webp",
+        "kb": 143
+      }
+    ],
+    "source": "img-1469-min-scaled.jpg"
+  },
+  {
+    "slug": "room-08",
+    "category": "rooms",
+    "caption": "Bed and side table beside an open wall",
+    "w": 2560,
+    "h": 1707,
+    "ratio": 1.4997,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "room-08-480.webp",
+        "kb": 25
+      },
+      {
+        "w": 960,
+        "file": "room-08-960.webp",
+        "kb": 77
+      },
+      {
+        "w": 1600,
+        "file": "room-08-1600.webp",
+        "kb": 165
+      },
+      {
+        "w": 2400,
+        "file": "room-08-2400.webp",
+        "kb": 279
+      }
+    ],
+    "source": "img-1470-min-scaled.jpg"
+  },
+  {
+    "slug": "room-detail-01",
+    "category": "detail",
+    "caption": "Open wardrobe with folded towels and a flower arrangement",
+    "w": 1920,
+    "h": 2560,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "room-detail-01-480.webp",
+        "kb": 18
+      },
+      {
+        "w": 960,
+        "file": "room-detail-01-960.webp",
+        "kb": 45
+      },
+      {
+        "w": 1600,
+        "file": "room-detail-01-1600.webp",
+        "kb": 92
+      },
+      {
+        "w": 1920,
+        "file": "room-detail-01-1920.webp",
+        "kb": 124
+      }
+    ],
+    "source": "l1130665-1-scaled.jpg"
+  },
+  {
+    "slug": "room-detail-02",
+    "category": "detail",
+    "caption": "Toiletries lined up on a stone ledge",
+    "w": 2560,
+    "h": 1920,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "room-detail-02-480.webp",
+        "kb": 30
+      },
+      {
+        "w": 960,
+        "file": "room-detail-02-960.webp",
+        "kb": 97
+      },
+      {
+        "w": 1600,
+        "file": "room-detail-02-1600.webp",
+        "kb": 205
+      },
+      {
+        "w": 2400,
+        "file": "room-detail-02-2400.webp",
+        "kb": 352
+      }
+    ],
+    "source": "l1130662-scaled.jpg"
+  },
+  {
+    "slug": "room-detail-03",
+    "category": "detail",
+    "caption": "Towel ladder beside an outdoor shower",
+    "w": 1920,
+    "h": 2560,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "room-detail-03-480.webp",
+        "kb": 40
+      },
+      {
+        "w": 960,
+        "file": "room-detail-03-960.webp",
+        "kb": 129
+      },
+      {
+        "w": 1600,
+        "file": "room-detail-03-1600.webp",
+        "kb": 285
+      },
+      {
+        "w": 1920,
+        "file": "room-detail-03-1920.webp",
+        "kb": 380
+      }
+    ],
+    "source": "l1130661-scaled.jpg"
+  },
+  {
+    "slug": "waterfall-01",
+    "category": "waterfall",
+    "caption": "A waterfall falling into a rocky pool",
+    "w": 963,
+    "h": 1280,
+    "ratio": 0.7523,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "waterfall-01-480.webp",
+        "kb": 66
+      },
+      {
+        "w": 960,
+        "file": "waterfall-01-960.webp",
+        "kb": 191
+      },
+      {
+        "w": 963,
+        "file": "waterfall-01-963.webp",
+        "kb": 198
+      }
+    ],
+    "source": "river-waterfall.jpg"
+  },
+  {
+    "slug": "waterfall-02",
+    "category": "waterfall",
+    "caption": "Water falling through dense green planting",
+    "w": 960,
+    "h": 1280,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "waterfall-02-480.webp",
+        "kb": 100
+      },
+      {
+        "w": 960,
+        "file": "waterfall-02-960.webp",
+        "kb": 352
+      }
+    ],
+    "source": "waterfall-1.jpg"
+  },
+  {
+    "slug": "waterfall-03",
+    "category": "waterfall",
+    "caption": "A wide waterfall running down a mossy cliff",
+    "w": 960,
+    "h": 1280,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "waterfall-03-480.webp",
+        "kb": 92
+      },
+      {
+        "w": 960,
+        "file": "waterfall-03-960.webp",
+        "kb": 306
+      }
+    ],
+    "source": "waterfall-2.jpg"
+  },
+  {
+    "slug": "waterfall-04",
+    "category": "waterfall",
+    "caption": "The waterfall seen through the surrounding jungle",
+    "w": 960,
+    "h": 1280,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "waterfall-04-480.webp",
+        "kb": 87
+      },
+      {
+        "w": 960,
+        "file": "waterfall-04-960.webp",
+        "kb": 258
+      }
+    ],
+    "source": "waterfall-4.jpg"
+  },
+  {
+    "slug": "waterfall-05",
+    "category": "waterfall",
+    "caption": "Falling water against a green cliff face",
+    "w": 960,
+    "h": 1280,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "waterfall-05-480.webp",
+        "kb": 89
+      },
+      {
+        "w": 960,
+        "file": "waterfall-05-960.webp",
+        "kb": 257
+      }
+    ],
+    "source": "waterfall-6.jpg"
+  }
+]

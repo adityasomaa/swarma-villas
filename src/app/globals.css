@@ -1,0 +1,486 @@
+@import "tailwindcss";
+@import "./motion.css";
+
+/* =============================================================================
+   SWARMA VILLAS BALI — GLOBAL TOKENS
+   =============================================================================
+   Everything lives inside an @layer so Tailwind utilities always win over it.
+
+   Colour is scoped with [data-tpl]. A template's palette exists only inside its
+   own subtree, so one direction cannot leak into another even though all three
+   share a stylesheet.
+   ========================================================================== */
+
+/* =============================================================================
+   THE `inline` KEYWORD BELOW IS LOAD-BEARING. DO NOT REMOVE IT.
+   -----------------------------------------------------------------------------
+   A plain `@theme` resolves these at build time: `--color-ink: var(--c-ink)`
+   compiles to a single hard-coded hex — whichever template happens to define
+   the :root fallback — and every other template silently renders in it.
+   `@theme inline` emits `color: var(--c-ink)` instead and lets the variable
+   resolve against whichever [data-tpl] subtree the element sits in. That is the
+   entire mechanism that keeps three design systems apart in one stylesheet.
+   ========================================================================== */
+@theme inline {
+  --color-canvas: var(--c-canvas);
+  --color-surface: var(--c-surface);
+  --color-raised: var(--c-raised);
+  --color-ink: var(--c-ink);
+  --color-muted: var(--c-muted);
+  --color-line: var(--c-line);
+  /* Control borders. Separate from --c-line because WCAG 1.4.11 asks 3:1 of the
+     boundary that identifies a CONTROL; a rule between two paragraphs is
+     exempt, and darkening every hairline would flatten all three directions. */
+  --color-field: var(--c-field);
+  /*
+   * Small print — kickers, captions, table headers, "per night".
+   *
+   * NOT the same token as --color-field, and the split is deliberate. A control
+   * boundary has to clear 3:1 (WCAG 1.4.11); text of any size has to clear
+   * 4.5:1 (1.4.3). One value cannot be both without either failing the text or
+   * darkening every hairline in all three designs until they look like a form.
+   * `field` draws the boundary, `subtle` sets the words.
+   */
+  --color-subtle: var(--c-subtle);
+  /* The text-safe descendant of the brand gold. Used for links and kickers on
+     light grounds, where the brand gold itself is unreadable. */
+  --color-accent: var(--c-accent);
+  --color-onaccent: var(--c-onaccent);
+  /* THE BRAND GOLD, #FCD403, straight off the logo. It is 1.44:1 on white, so
+     it can never carry text on a light ground. It is used as a FILL with
+     near-black type on it (12.9:1), as a rule, and as text on dark bands. */
+  --color-gold: var(--c-gold);
+  --color-ongold: var(--c-ongold);
+  --color-deep: var(--c-deep);
+  --color-ondeep: var(--c-ondeep);
+
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-quint: cubic-bezier(0.64, 0, 0.78, 0);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --font-display: var(--f-display);
+  --font-body: var(--f-body);
+}
+
+@layer theme {
+  :root {
+    /* ---------------------------------------------------------------------
+       THE Z-INDEX SCALE. The only place a stacking number is written; every
+       component uses the .z-* utilities below, so grepping for a raw z-index
+       in a component returns nothing.
+
+       content < sticky header < preview switcher < mobile menu
+               < calendar & modals < cookie banner < page curtain < skip link
+       --------------------------------------------------------------------- */
+    --z-below: -1;
+    --z-content: 1;
+    --z-sticky-header: 100;
+    --z-template-switcher: 200;
+    --z-mobile-menu: 300;
+    --z-overlay: 400;
+    --z-cookie: 500;
+    --z-curtain: 550;
+    --z-skip-link: 600;
+
+    /* Height of the fixed preview switcher. Consumed by the sticky header
+       offset and by the full-height heroes, so "one screen" means one screen
+       of visible page rather than one screen minus a hidden strip. */
+    --switcher-h: 38px;
+
+    --r-sm: 0px;
+    --r-md: 0px;
+    --r-pill: 0px;
+
+    /* Fallback palette for shared chrome. Mirrors Template 1. */
+    --c-canvas: #fbf7ef;
+    --c-surface: #ffffff;
+    --c-raised: #f3ecdd;
+    --c-ink: #16130c;
+    --c-muted: #5f574a;
+    --c-line: #e4dccb;
+    --c-field: #857a66;
+    --c-subtle: #746a59;
+    --c-accent: #7a5d00;
+    --c-onaccent: #fbf7ef;
+    --c-gold: #fcd403;
+    --c-ongold: #16130c;
+    --c-deep: #16130c;
+    --c-ondeep: #fbf7ef;
+
+    --f-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
+    --f-body: var(--font-inter), system-ui, -apple-system, sans-serif;
+  }
+
+  @media (min-width: 768px) {
+    :root {
+      --switcher-h: 42px;
+    }
+  }
+
+  /* ------------------------------------------------------ TEMPLATE 1 — AMBER */
+  /* After Vantara: warm cream, bronze, glass cards, pills, Cormorant.          */
+  [data-tpl="t1"] {
+    --c-canvas: #fbf7ef;
+    --c-surface: #ffffff;
+    --c-raised: #f3ecdd;
+    --c-ink: #16130c;
+    --c-muted: #5f574a;
+    --c-line: #e4dccb;
+    --c-field: #857a66;
+    --c-accent: #7a5d00;
+    --c-onaccent: #fbf7ef;
+    --c-gold: #fcd403;
+    --c-ongold: #16130c;
+    --c-deep: #16130c;
+    --c-ondeep: #fbf7ef;
+
+    --r-sm: 10px;
+    --r-md: 20px;
+    --r-pill: 999px;
+
+    --f-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
+    --f-body: var(--font-inter), system-ui, -apple-system, sans-serif;
+  }
+
+  /* -------------------------------------------------- TEMPLATE 2 — RIVERSTONE */
+  /* After Villa Asteria: cream and deep sage, sharp corners, photo-first.       */
+  [data-tpl="t2"] {
+    --c-canvas: #f5f0e8;
+    --c-surface: #ffffff;
+    --c-raised: #e8ddcc;
+    --c-ink: #2b3227;
+    --c-muted: #4a5642;
+    --c-line: #d9cfbb;
+    --c-field: #77816d;
+    --c-subtle: #5d6555;
+    --c-accent: #6b5200;
+    --c-onaccent: #f5f0e8;
+    --c-gold: #fcd403;
+    --c-ongold: #2b3227;
+    --c-deep: #2b3227;
+    --c-ondeep: #f5f0e8;
+
+    --r-sm: 2px;
+    --r-md: 2px;
+    --r-pill: 2px;
+
+    --f-display: var(--font-instrument), Georgia, serif;
+    --f-body: var(--font-dmsans), system-ui, -apple-system, sans-serif;
+  }
+
+  /* ------------------------------------------------------ TEMPLATE 3 — PAON */
+  /* After Villa L: white, hairlines, all-serif, classic hotel structure.       */
+  [data-tpl="t3"] {
+    --c-canvas: #ffffff;
+    --c-surface: #f8f7f4;
+    --c-raised: #f1efea;
+    --c-ink: #171717;
+    --c-muted: #585858;
+    --c-line: #e2e0da;
+    --c-field: #767676;
+    --c-subtle: #6d6d6d;
+    --c-accent: #6b5200;
+    --c-onaccent: #ffffff;
+    --c-gold: #fcd403;
+    --c-ongold: #171717;
+    --c-deep: #171717;
+    --c-ondeep: #ffffff;
+
+    --r-sm: 0px;
+    --r-md: 0px;
+    --r-pill: 0px;
+
+    --f-display: var(--font-lora), Georgia, serif;
+    --f-body: var(--font-lora), Georgia, serif;
+  }
+}
+
+@layer base {
+  * {
+    min-width: 0;
+  }
+
+  html {
+    /* Lenis owns smooth scrolling where it is enabled; native smooth scrolling
+       on top of it produces a fight nobody wins. */
+    scroll-behavior: auto;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--c-canvas);
+    color: var(--c-ink);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    padding-top: var(--switcher-h);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /*
+   * The typeface is set on the template wrapper, not on <body>.
+   *
+   * next/font defines its CSS variable on the element carrying the font class,
+   * which is this wrapper. A font-family on <body> referencing it resolves to
+   * nothing, and an invalid font-family silently falls back to whatever <html>
+   * inherited — which is how a whole site ends up in the system sans while
+   * every colour token still works.
+   */
+  [data-tpl] {
+    font-family: var(--f-body);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--c-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Inside a dark band the accent ring disappears; the light token takes over. */
+  .on-deep :focus-visible {
+    outline-color: var(--c-gold);
+    box-shadow: 0 0 0 5px color-mix(in srgb, var(--c-gold) 30%, transparent);
+  }
+
+  ::selection {
+    background: var(--c-gold);
+    color: var(--c-ongold);
+  }
+
+  img,
+  svg,
+  video {
+    display: block;
+    max-width: 100%;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    hyphens: manual;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* When a failed submit focuses the first invalid control, the browser brings
+     it into view — without this it lands under the sticky header and the guest
+     is told something is wrong by a message they cannot see. */
+  [id^="booking-"] {
+    scroll-margin-top: calc(var(--switcher-h) + 6rem);
+    scroll-margin-bottom: 2rem;
+  }
+}
+
+/* =============================================================================
+   THE THREE TYPOGRAPHIC SYSTEMS
+   -----------------------------------------------------------------------------
+   Each direction takes its type from its reference:
+     t1  Cormorant Garamond, large and light, sentence case, slight negative
+         tracking — Vantara's display voice.
+     t2  Instrument Serif, very large, tight leading — Villa Asteria's.
+     t3  Lora throughout, moderate size, classic hotel proportions — Villa L's.
+   ========================================================================== */
+@layer components {
+  .display {
+    font-family: var(--f-display);
+  }
+
+  [data-tpl="t1"] .display {
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.02;
+  }
+  [data-tpl="t1"] .kicker {
+    font-family: var(--f-body);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  [data-tpl="t2"] .display {
+    font-weight: 400;
+    letter-spacing: -0.012em;
+    line-height: 0.95;
+  }
+  [data-tpl="t2"] .kicker {
+    font-family: var(--f-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+  }
+
+  [data-tpl="t3"] .display {
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    line-height: 1.14;
+  }
+  [data-tpl="t3"] .kicker {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+}
+
+@layer utilities {
+  /* --------------------------------------------- the whole stacking scale */
+  .z-below { z-index: var(--z-below); }
+  .z-content { z-index: var(--z-content); }
+  .z-sticky-header { z-index: var(--z-sticky-header); }
+  .z-template-switcher { z-index: var(--z-template-switcher); }
+  .z-mobile-menu { z-index: var(--z-mobile-menu); }
+  .z-overlay { z-index: var(--z-overlay); }
+  .z-cookie { z-index: var(--z-cookie); }
+  .z-curtain { z-index: var(--z-curtain); }
+  .z-skip-link { z-index: var(--z-skip-link); }
+
+  /* ------------------------------------------------ per-template geometry */
+  .r-sm { border-radius: var(--r-sm); }
+  .r-md { border-radius: var(--r-md); }
+  .r-pill { border-radius: var(--r-pill); }
+
+  /* A dark band. Flips the palette inside it so children keep using the same
+     token names and no component needs a "dark variant". */
+  .on-deep {
+    background-color: var(--c-deep);
+    --c-canvas: var(--c-deep);
+    --c-surface: color-mix(in srgb, var(--c-deep) 90%, #ffffff);
+    --c-raised: color-mix(in srgb, var(--c-deep) 82%, #ffffff);
+    --c-ink: var(--c-ondeep);
+    --c-muted: color-mix(in srgb, var(--c-ondeep) 74%, var(--c-deep));
+    --c-line: color-mix(in srgb, var(--c-ondeep) 24%, var(--c-deep));
+    --c-field: color-mix(in srgb, var(--c-ondeep) 50%, var(--c-deep));
+    --c-subtle: color-mix(in srgb, var(--c-ondeep) 66%, var(--c-deep));
+    /* On a dark band the brand gold IS readable, so links go back to it. */
+    --c-accent: var(--c-gold);
+    --c-onaccent: var(--c-deep);
+    color: var(--c-ondeep);
+  }
+
+  /* Text sitting directly on a photograph. The scrim is part of the utility so
+     no caller can forget it and ship unreadable type over a bright frame. */
+  .on-photo {
+    color: #ffffff;
+    text-shadow: 0 1px 24px rgba(0, 0, 0, 0.4);
+    --c-ink: #ffffff;
+    --c-muted: rgba(255, 255, 255, 0.86);
+    --c-accent: var(--c-gold);
+    --c-line: rgba(255, 255, 255, 0.3);
+    --c-field: rgba(255, 255, 255, 0.55);
+    --c-subtle: rgba(255, 255, 255, 0.78);
+  }
+
+  .sr-only-x {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /*
+   * Honeypot. Clipped rather than pushed to left:-9999px, because an absolute
+   * offset without a positioned ancestor escapes the layout and creates a
+   * horizontal scrollbar on small screens.
+   */
+  .honeypot {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /* Measure caps, so heading line counts fall per breakpoint rather than being
+     forced with manual line breaks. */
+  .measure-display { max-width: 18ch; }
+  .measure-head { max-width: 22ch; }
+  .measure-prose { max-width: 64ch; }
+  @media (min-width: 768px) {
+    .measure-display { max-width: 26ch; }
+    .measure-head { max-width: 32ch; }
+  }
+  @media (min-width: 1280px) {
+    .measure-display { max-width: 34ch; }
+    .measure-head { max-width: 44ch; }
+  }
+
+  /*
+   * The page gutter, as padding rather than a max-width wrapper.
+   *
+   * Amber's opening runs the photograph off the right edge of the screen while
+   * the type beside it still lines up with the 72rem grid every other section
+   * uses. A centred container cannot do both. Padding the full-width row by
+   * half the leftover space puts the text exactly where a container would have
+   * put it, and leaves the second column free to reach the edge.
+   *
+   * 100% here is the row's own width — the viewport minus any scrollbar — which
+   * is why this is not written in vw. 100vw includes the scrollbar and would
+   * push the layout sideways by its width.
+   */
+  @media (min-width: 1024px) {
+    .gutter-start {
+      padding-left: max(2rem, calc((100% - 72rem) / 2));
+    }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translate3d(var(--reveal-x, 0), var(--reveal-y, 16px), 0);
+    transition:
+      opacity 0.8s var(--ease-out-quint),
+      transform 0.8s var(--ease-out-quint);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal[data-shown="true"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@layer components {
+  /* ---------------------------------------------------------- Lenis hooks */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+}
+
+/* =============================================================================
+   REDUCED MOTION
+   -----------------------------------------------------------------------------
+   The calm version simplifies itself; it never removes content.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  @layer base {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  @layer utilities {
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}

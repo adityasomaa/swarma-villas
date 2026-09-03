@@ -1,0 +1,241 @@
+/* =============================================================================
+   MOTION — the two loaders, per direction.
+   -----------------------------------------------------------------------------
+   Kept in @layer components so Tailwind utilities still out-rank it. Both roots
+   carry data-tpl, so they take the palette of the template they belong to.
+
+   Two variants, as asked for:
+     [data-variant="arrival"]  first load, and any navigation to a home page.
+                               The feather from the logo draws itself in gold,
+                               the name sets underneath, then the curtain lifts.
+     [data-variant="page"]     every other navigation. Same geometry, no mark,
+                               shorter, quieter.
+
+   Three families, so a transition belongs to its direction rather than being
+   one shared wrapper in a different colour:
+     t1 Amber      one warm sheet rises from the bottom and lifts away upward.
+     t2 Riverstone three columns close from alternating edges, then part.
+     t3 Paon       five hairline-separated panels drop and lift in sequence.
+   ========================================================================== */
+
+@layer components {
+  .sw-curtain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+  }
+  .sw-curtain[data-state="idle"] {
+    visibility: hidden;
+  }
+  .sw-curtain[data-state="closing"],
+  .sw-curtain[data-state="closed"] {
+    pointer-events: auto;
+  }
+
+  .sw-curtain__panel {
+    position: absolute;
+    display: block;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  /* ---- the mark, only on the arrival loader -------------------------- */
+  .sw-curtain__mark {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    gap: 1.1rem;
+    color: var(--c-gold);
+    opacity: 0;
+  }
+  .sw-curtain[data-state="closed"] .sw-curtain__mark,
+  .sw-curtain[data-state="closing"] .sw-curtain__mark {
+    opacity: 1;
+    transition: opacity 0.42s var(--ease-soft) 0.24s;
+  }
+  .sw-curtain[data-state="opening"] .sw-curtain__mark {
+    opacity: 0;
+    transition: opacity 0.24s linear;
+  }
+  .sw-curtain__feather,
+  .sw-curtain__rib {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+  .sw-curtain[data-state="closing"] .sw-curtain__feather,
+  .sw-curtain[data-state="closed"] .sw-curtain__feather {
+    animation: sw-draw 1.05s var(--ease-out-quint) 0.26s forwards;
+  }
+  .sw-curtain[data-state="closing"] .sw-curtain__rib,
+  .sw-curtain[data-state="closed"] .sw-curtain__rib {
+    animation: sw-draw 0.8s var(--ease-out-quint) 0.5s forwards;
+  }
+
+  /* ---- t1 Amber: one sheet rises, then lifts away -------------------- */
+  .sw-curtain[data-family="t1"] .sw-curtain__panel {
+    inset: 0;
+    background: var(--c-deep);
+    transform: translate3d(0, 101%, 0);
+  }
+  .sw-curtain[data-family="t1"][data-state="closing"] .sw-curtain__panel,
+  .sw-curtain[data-family="t1"][data-state="closed"] .sw-curtain__panel {
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.66s var(--ease-out-quint);
+  }
+  .sw-curtain[data-family="t1"][data-variant="page"][data-state="closing"] .sw-curtain__panel,
+  .sw-curtain[data-family="t1"][data-variant="page"][data-state="closed"] .sw-curtain__panel {
+    transition-duration: 0.5s;
+  }
+  .sw-curtain[data-family="t1"][data-state="opening"] .sw-curtain__panel {
+    transform: translate3d(0, -101%, 0);
+    transition: transform 0.8s var(--ease-in-quint);
+  }
+
+  /* ---- t2 Riverstone: three columns close from alternating edges ----- */
+  .sw-curtain[data-family="t2"] .sw-curtain__panel {
+    top: -1px;
+    bottom: -1px;
+    width: calc(100% / var(--n) + 1px);
+    left: calc(var(--i) * 100% / var(--n));
+    background: var(--c-deep);
+    transform: scaleY(0);
+    transform-origin: top center;
+  }
+  .sw-curtain[data-family="t2"] .sw-curtain__panel:nth-child(even) {
+    transform-origin: bottom center;
+  }
+  .sw-curtain[data-family="t2"][data-state="closing"] .sw-curtain__panel,
+  .sw-curtain[data-family="t2"][data-state="closed"] .sw-curtain__panel {
+    transform: scaleY(1);
+    transition: transform 0.54s var(--ease-out-quint);
+    transition-delay: calc(var(--i) * 70ms);
+  }
+  .sw-curtain[data-family="t2"][data-state="opening"] .sw-curtain__panel {
+    transform: scaleY(0);
+    transform-origin: bottom center;
+    transition: transform 0.56s var(--ease-in-quint);
+    transition-delay: calc((var(--n) - 1 - var(--i)) * 60ms);
+  }
+  .sw-curtain[data-family="t2"][data-state="opening"] .sw-curtain__panel:nth-child(even) {
+    transform-origin: top center;
+  }
+
+  /* ---- t3 Paon: five panels drop, separated by hairlines ------------- */
+  .sw-curtain[data-family="t3"] .sw-curtain__panel {
+    top: -1px;
+    bottom: -1px;
+    width: calc(100% / var(--n) + 1px);
+    left: calc(var(--i) * 100% / var(--n));
+    background: var(--c-deep);
+    border-left: 1px solid color-mix(in srgb, var(--c-gold) 26%, transparent);
+    transform: translate3d(0, -101%, 0);
+  }
+  .sw-curtain[data-family="t3"] .sw-curtain__panel:first-child {
+    border-left: 0;
+  }
+  .sw-curtain[data-family="t3"][data-state="closing"] .sw-curtain__panel,
+  .sw-curtain[data-family="t3"][data-state="closed"] .sw-curtain__panel {
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.5s var(--ease-out-quint);
+    transition-delay: calc(var(--i) * 46ms);
+  }
+  .sw-curtain[data-family="t3"][data-state="opening"] .sw-curtain__panel {
+    transform: translate3d(0, 101%, 0);
+    transition: transform 0.54s var(--ease-in-quint);
+    transition-delay: calc((var(--n) - 1 - var(--i)) * 42ms);
+  }
+
+  /* ------------------------------------------------- the first-load view */
+  /*
+   * Same geometry as the arrival curtain, but rendered by IntroLoader on a
+   * hard page load, where there is no route change to hang a transition on.
+   */
+  .sw-intro {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: var(--c-deep);
+    color: var(--c-gold);
+  }
+  .sw-intro__inner {
+    display: grid;
+    justify-items: center;
+    gap: 1.15rem;
+    padding-inline: 1.5rem;
+    text-align: center;
+  }
+  .sw-intro__word {
+    font-family: var(--f-display);
+    font-size: clamp(1.1rem, 4.4vw, 1.7rem);
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin: 0;
+    color: var(--c-ondeep);
+    opacity: 0;
+    animation: sw-fade-up 0.85s var(--ease-out-quint) 0.62s forwards;
+  }
+  .sw-intro__sub {
+    font-family: var(--f-body);
+    font-size: 0.66rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--c-ondeep) 62%, transparent);
+    opacity: 0;
+    animation: sw-fade-up 0.8s var(--ease-out-quint) 0.86s forwards;
+  }
+  .sw-intro .sw-curtain__feather {
+    animation: sw-draw 1.15s var(--ease-out-quint) 0.1s forwards;
+  }
+  .sw-intro .sw-curtain__rib {
+    animation: sw-draw 0.85s var(--ease-out-quint) 0.42s forwards;
+  }
+  .sw-intro[data-state="out"] {
+    transform: translate3d(0, -101%, 0);
+    transition: transform 0.9s var(--ease-in-quint);
+  }
+
+  @keyframes sw-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes sw-fade-up {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 0.6rem, 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   Calm version. The curtain is not rendered at all under reduced motion (see
+   Transition.tsx); the intro view still appears and still announces itself, it
+   simply stops moving and fades. Nothing is removed, only simplified.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  @layer components {
+    .sw-intro__word,
+    .sw-intro__sub,
+    .sw-curtain__feather,
+    .sw-curtain__rib {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+      stroke-dashoffset: 0 !important;
+    }
+    .sw-intro[data-state="out"] {
+      opacity: 0;
+      transform: none;
+      transition: opacity 0.18s linear !important;
+    }
+  }
+}
