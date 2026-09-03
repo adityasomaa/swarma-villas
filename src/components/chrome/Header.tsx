@@ -120,9 +120,11 @@ function AmberHeader({ scrolled, isCurrent, toggleRef }: HeaderPartProps) {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button tpl="t1" href={href("t1", cta.primary.href)} className="hidden px-5 py-2.5 sm:inline-flex">
-            {cta.primary.label}
-          </Button>
+          <span className="hidden sm:block">
+            <Button tpl="t1" href={href("t1", cta.primary.href)} className="px-5 py-2.5">
+              {cta.primary.label}
+            </Button>
+          </span>
           <MenuToggle tpl="t1" toggleRef={toggleRef} />
         </div>
       </div>
@@ -169,14 +171,16 @@ function RiverstoneHeader({ scrolled, isCurrent, toggleRef }: HeaderPartProps) {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Button
-            tpl="t2"
-            href={href("t2", cta.primary.href)}
-            tone={scrolled ? "primary" : "outline"}
-            className="hidden px-6 py-3 sm:inline-flex"
-          >
-            {cta.primary.label}
-          </Button>
+          <span className="hidden sm:block">
+            <Button
+              tpl="t2"
+              href={href("t2", cta.primary.href)}
+              tone={scrolled ? "primary" : "outline"}
+              className="px-6 py-3"
+            >
+              {cta.primary.label}
+            </Button>
+          </span>
           <MenuToggle tpl="t2" toggleRef={toggleRef} />
         </div>
       </div>
@@ -207,13 +211,11 @@ function PaonHeader({ scrolled, isCurrent, toggleRef }: HeaderPartProps) {
         <LogoLink tpl="t3" tone="ink" height={scrolled ? 40 : 52} className="mx-auto lg:mx-0" />
 
         <div className="flex w-auto items-center justify-end gap-3 lg:w-56">
-          <Button
-            tpl="t3"
-            href={href("t3", cta.primary.href)}
-            className="hidden px-5 py-3 sm:inline-flex"
-          >
-            {cta.primary.label}
-          </Button>
+          <span className="hidden sm:block">
+            <Button tpl="t3" href={href("t3", cta.primary.href)} className="px-5 py-3">
+              {cta.primary.label}
+            </Button>
+          </span>
           <MenuToggle tpl="t3" toggleRef={toggleRef} />
         </div>
       </div>

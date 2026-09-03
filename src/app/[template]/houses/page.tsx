@@ -30,7 +30,7 @@ export default async function HousesPage({ params }: { params: Promise<{ templat
         kicker="Where you sleep"
         title={copy.houses.h1}
         lede={copy.houses.lede}
-        photo={{ slug: "gladak-bed-01", alt: "Inside the Wooden Gladak House" }}
+        photo={{ slug: "room-04", alt: "A bed under a mosquito net in one of the houses" }}
         crumbs={[{ label: "Houses", path: "/houses" }]}
       />
 

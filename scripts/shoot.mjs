@@ -1,8 +1,8 @@
-import { chromium } from "playwright";
+﻿import { chromium } from "playwright";
 import { mkdirSync } from "node:fs";
 
 /**
- * Screenshots for review. Not a test — a way to look at all three directions at
+ * Screenshots for review. Not a test â€” a way to look at all three directions at
  * a real desktop width instead of guessing from a narrow preview pane.
  *
  *   node scripts/shoot.mjs /template-1 /template-2          (defaults to homes)
@@ -27,11 +27,11 @@ const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width, height }, deviceScaleFactor: 1 });
 
 // Consent up front, so the banner is not in every screenshot.
-await page.goto("http://localhost:3100/template-1", { waitUntil: "domcontentloaded" });
+await page.goto("https://swarma-villas.vercel.app/template-1", { waitUntil: "domcontentloaded" });
 await page.evaluate(() => localStorage.setItem("swarma.consent.v1", "accepted"));
 
 for (const path of paths) {
-  await page.goto(`http://localhost:3100${path}`, { waitUntil: "networkidle" });
+  await page.goto(`https://swarma-villas.vercel.app${path}`, { waitUntil: "networkidle" });
   // Let the intro play out and every Reveal fire.
   await page.waitForTimeout(3200);
   await page.evaluate(async () => {
@@ -42,7 +42,43 @@ for (const path of paths) {
     }
     window.scrollTo(0, 0);
   });
-  await page.waitForTimeout(900);
+  /*
+   * fullPage composites a tall image, and a lazy <img> that has never been in
+   * the viewport composites BLANK — which reads in review as a missing
+   * photograph rather than a screenshot artefact. Force every image eager and
+   * wait for all of them to decode before capturing.
+   */
+  await page.evaluate(async () => {
+    /*
+     * Kill every transition and animation before capturing.
+     *
+     * An element carrying `transition-transform` gets its own composited layer,
+     * and fullPage compositing renders those layers BLANK in the stitched
+     * image — which in review looks exactly like a photograph that failed to
+     * load. It is not: the same elements paint correctly in a viewport
+     * screenshot and in the browser. Removing the transitions removes the
+     * layers, and the capture matches what a person sees.
+     */
+    const style = document.createElement("style");
+    style.textContent =
+      "*,*::before,*::after{transition:none!important;animation:none!important;will-change:auto!important}";
+    document.head.appendChild(style);
+
+    const imgs = [...document.querySelectorAll("img")];
+    for (const img of imgs) img.loading = "eager";
+    await Promise.all(
+      imgs.map((img) =>
+        img.complete && img.naturalWidth > 0
+          ? Promise.resolve()
+          : new Promise((r) => {
+              img.addEventListener("load", r, { once: true });
+              img.addEventListener("error", r, { once: true });
+              setTimeout(r, 8000);
+            }),
+      ),
+    );
+  });
+  await page.waitForTimeout(1200);
   const name = `${tag}${path.replace(/\//g, "_")}.png`;
   await page.screenshot({ path: `scratch/shots/${name}`, fullPage: true });
   console.log(name);

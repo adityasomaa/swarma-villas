@@ -69,19 +69,23 @@ function AmberHero() {
           </Reveal>
 
           <Reveal delay={320}>
-            <dl className="mt-12 grid max-w-md grid-cols-3 gap-6 border-t border-line pt-7">
-              <div>
-                <dt className="kicker text-subtle">Houses</dt>
-                <dd className="display mt-1.5 text-[1.75rem]">{houses.length}</dd>
-              </div>
-              <div>
-                <dt className="kicker text-subtle">From</dt>
-                <dd className="display mt-1.5 text-[1.75rem]">{formatIDR(cheapest)}</dd>
-              </div>
-              <div>
-                <dt className="kicker text-subtle">Ubud</dt>
-                <dd className="display mt-1.5 text-[1.75rem]">Singakerta</dd>
-              </div>
+            <dl className="mt-12 grid max-w-md grid-cols-3 gap-4 border-t border-line pt-7 sm:gap-6">
+              {[
+                ["Houses", String(houses.length)],
+                ["From", formatIDR(cheapest)],
+                ["Ubud", "Singakerta"],
+              ].map(([label, value]) => (
+                <div key={label}>
+                  <dt className="kicker text-subtle">{label}</dt>
+                  {/* Steps up with the screen. At 390px a third of the column
+                      is about 100px, and "Singakerta" at 1.75rem does not fit
+                      in it — the section clips rather than scrolls, so it was
+                      losing its last letters silently. */}
+                  <dd className="display mt-1.5 text-[1.0625rem] sm:text-[1.375rem] lg:text-[1.75rem]">
+                    {value}
+                  </dd>
+                </div>
+              ))}
             </dl>
           </Reveal>
         </div>
