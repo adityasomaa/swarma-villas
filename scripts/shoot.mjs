@@ -27,11 +27,11 @@ const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width, height }, deviceScaleFactor: 1 });
 
 // Consent up front, so the banner is not in every screenshot.
-await page.goto("https://swarma-villas.vercel.app/template-1", { waitUntil: "domcontentloaded" });
+await page.goto("http://localhost:3100/template-1", { waitUntil: "domcontentloaded" });
 await page.evaluate(() => localStorage.setItem("swarma.consent.v1", "accepted"));
 
 for (const path of paths) {
-  await page.goto(`https://swarma-villas.vercel.app${path}`, { waitUntil: "networkidle" });
+  await page.goto(`http://localhost:3100${path}`, { waitUntil: "networkidle" });
   // Let the intro play out and every Reveal fire.
   await page.waitForTimeout(3200);
   await page.evaluate(async () => {

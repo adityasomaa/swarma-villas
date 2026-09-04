@@ -172,29 +172,128 @@ const browser = await chromium.launch();
     void variants;
   }
 
-  /* --------------- 13. the two loaders are actually different variants --- */
-  const variantToHouse = await page.evaluate(async () => {
-    const link = [...document.querySelectorAll('a[href*="/houses/"]')][0];
-    if (!link) return null;
-    link.click();
-    await new Promise((r) => setTimeout(r, 250));
-    return document.querySelector("[data-curtain]")?.getAttribute("data-variant") ?? null;
-  });
-  await page.waitForTimeout(2600);
+  /* ------------------------------------------------------------------------
+     13 + 14. THE CURTAIN IS NEVER CUT OFF.
 
-  const variantToHome = await page.evaluate(async () => {
-    const link = [...document.querySelectorAll("header a")].find(
-      (a) => new URL(a.href).pathname === "/template-1",
-    );
-    if (!link) return null;
-    link.click();
-    await new Promise((r) => setTimeout(r, 250));
-    return document.querySelector("[data-curtain]")?.getAttribute("data-variant") ?? null;
-  });
-  await page.waitForTimeout(2600);
+     This is the direct test for the stutter. The curtain's CSS durations and
+     the JavaScript waits used to be two separate sets of numbers; they drifted,
+     and five of the twelve phases had the sequence move on while the panels
+     were still mid-slide, so they vanished part-way. Both now derive from one
+     table, and this check proves it for every family and both variants.
 
-  check("page loader on an inner page", variantToHouse === "page", `got "${variantToHouse}"`);
-  check("arrival loader when going home", variantToHome === "arrival", `got "${variantToHome}"`);
+     It samples the LAST panel's transform on the frame the phase changes. If
+     the animation finished, the panel is exactly where that phase should leave
+     it. If it was cut, it is somewhere in between and the numbers say so.
+     -------------------------------------------------------------------------- */
+  for (const [family, base] of [
+    ["t1", "/template-1"],
+    ["t2", "/template-2"],
+    ["t3", "/template-3"],
+  ]) {
+    for (const [variant, from, to] of [
+      ["page", `${base}`, `${base}/houses`],
+      ["arrival", `${base}/houses`, `${base}`],
+    ]) {
+      await page.goto(`${ORIGIN}${from}`, { waitUntil: "networkidle" });
+      await page.waitForTimeout(3400);
+
+      const trace = await page.evaluate(async (target) => {
+        const out = { closeEnd: null, openEnd: null, variant: null };
+        let previous = "idle";
+        let running = true;
+
+        /*
+         * Watch the panel that finishes LAST, which is a different one in each
+         * phase: closing staggers from the first panel to the last, opening
+         * runs the other way. Sampling the wrong end measures a panel that
+         * finished early and reports a cut animation as fine.
+         */
+        const panels = () => [...document.querySelectorAll("[data-curtain] .sw-curtain__panel")];
+        const slowest = (phase) => {
+          const list = panels();
+          if (list.length === 0) return null;
+          return phase === "opening" ? list[0] : list[list.length - 1];
+        };
+        const progress = (phase) => {
+          const el = slowest(phase);
+          if (!el) return null;
+          const m = new DOMMatrixReadOnly(getComputedStyle(el).transform);
+          const h = el.getBoundingClientRect().height || 1;
+          return { ty: m.m42 / h, sy: m.m22 };
+        };
+
+        /*
+         * The value is taken from the frame BEFORE the phase changed, not the
+         * frame it changed on.
+         *
+         * By the time data-state reads "idle", React has already swapped the
+         * attribute, the [data-state="opening"] rule no longer matches, and the
+         * computed transform has snapped back to the panel's base — so sampling
+         * at the boundary measures the reset rather than where the animation
+         * got to. Keeping the previous frame's reading avoids that entirely.
+         */
+        let lastReading = null;
+
+        const tick = () => {
+          const curtain = document.querySelector("[data-curtain]");
+          const phase = curtain?.getAttribute("data-state") ?? "none";
+          if (phase !== previous) {
+            if (previous === "closing") out.closeEnd = lastReading;
+            if (previous === "opening") out.openEnd = lastReading;
+            if (curtain) out.variant = curtain.getAttribute("data-variant");
+            previous = phase;
+          }
+          lastReading = progress(phase);
+          if (running) requestAnimationFrame(tick);
+        };
+        tick();
+
+        document.querySelector(`a[href="${target}"]`)?.click();
+        await new Promise((r) => setTimeout(r, 4200));
+        running = false;
+        return out;
+      }, to);
+
+      await page.waitForTimeout(400);
+
+      const label = `${family} ${variant}`;
+      check(`${label}: loader variant`, trace.variant === variant, `got "${trace.variant}"`);
+
+      // Covered: the panel has arrived. t2 scales, the others translate.
+      if (trace.closeEnd) {
+        const covered =
+          family === "t2"
+            ? Math.abs(trace.closeEnd.sy - 1) < 0.06
+            : Math.abs(trace.closeEnd.ty) < 0.06;
+        check(
+          `${label}: close finished before the phase ended`,
+          covered,
+          family === "t2"
+            ? `scaleY ${trace.closeEnd.sy.toFixed(3)} (want 1)`
+            : `translateY ${trace.closeEnd.ty.toFixed(3)} (want 0)`,
+        );
+      } else {
+        check(`${label}: close finished before the phase ended`, false, "no sample");
+      }
+
+      // Cleared: the panel has left. Anything short of that is a visible snap.
+      if (trace.openEnd) {
+        const cleared =
+          family === "t2"
+            ? Math.abs(trace.openEnd.sy) < 0.06
+            : Math.abs(trace.openEnd.ty) > 0.94;
+        check(
+          `${label}: open finished before the phase ended`,
+          cleared,
+          family === "t2"
+            ? `scaleY ${trace.openEnd.sy.toFixed(3)} (want 0)`
+            : `translateY ${trace.openEnd.ty.toFixed(3)} (want +-1)`,
+        );
+      } else {
+        check(`${label}: open finished before the phase ended`, false, "no sample");
+      }
+    }
+  }
 
   await context.close();
 }

@@ -7,6 +7,7 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   useRef,
   useState,
   type AnchorHTMLAttributes,
@@ -26,47 +27,101 @@ import { prefersReducedMotion, wait } from "@/lib/wait";
      3. scroll to top    instantly, while the curtain still covers everything
      4. page opens       the curtain clears
 
-   Every step waits for the one before it, so the visitor never sees a
-   half-rendered page or a scroll position jumping. It is deliberately unhurried:
-   the brief asked for seamless over fast.
+   THE TWO LOADERS, chosen by WHERE YOU ARE GOING and never by where you are:
+     "arrival"  a template home, and the first load of the site. The feather
+                draws in gold, the name sets, then the curtain lifts.
+     "page"     every other destination. Shorter, quieter, no mark.
 
-   THE TWO LOADERS:
-     "arrival"  — the first load of the site, and any navigation that lands on a
-                  template's home page. The bigger of the two: the mark draws,
-                  the name sets, and the curtain lifts.
-     "page"     — every other navigation. Shorter, quieter, no wordmark.
+   ---------------------------------------------------------------------------
+   TIMING LIVES HERE AND ONLY HERE.
 
-   Every wait is `wait()` from lib/wait, which races setTimeout against
-   requestAnimationFrame. A sequence driven by rAF alone freezes when the tab is
-   backgrounded and the curtain never reopens.
+   These numbers used to exist twice — once in this file as the delays the
+   sequence waits, and again in motion.css as the CSS transition durations. They
+   drifted, and five of the twelve phases ended up with the JavaScript hiding
+   the curtain while its animation was still running: the panels vanished
+   mid-slide. That is what "patah-patah" was.
+
+   Now the numbers are written once, below, and pushed onto the curtain element
+   as custom properties. motion.css derives every duration and every stagger
+   delay from them, so a panel's animation finishes exactly as its phase ends
+   and the two cannot drift apart again.
+
+   `close`   how long the curtain takes to cover the screen
+   `hold`    the MINIMUM time it stays covered, measured from the moment it is
+             covered. The arrival loader needs enough of this for the feather to
+             finish drawing; without it the mark was cut off at whatever moment
+             the router happened to be ready.
+   `open`    how long it takes to clear
+   `stagger` the gap between neighbouring panels. The per-panel duration is
+             `total - stagger x (panels - 1)`, so the LAST panel lands exactly
+             on the budget rather than after it.
    ========================================================================== */
 
 export type CurtainVariant = "arrival" | "page";
 type Phase = "idle" | "closing" | "closed" | "opening";
 
-/** Per-template, per-variant timing in milliseconds. */
-const TIMING: Record<TemplateId | "shared", Record<CurtainVariant, { close: number; open: number }>> = {
-  t1: { arrival: { close: 760, open: 900 }, page: { close: 560, open: 640 } },
-  t2: { arrival: { close: 820, open: 940 }, page: { close: 600, open: 700 } },
-  t3: { arrival: { close: 720, open: 860 }, page: { close: 540, open: 620 } },
-  shared: { arrival: { close: 600, open: 700 }, page: { close: 460, open: 540 } },
+type Beat = {
+  close: number;
+  hold: number;
+  open: number;
+  staggerClose: number;
+  staggerOpen: number;
 };
+
+const TIMING: Record<TemplateId | "shared", Record<CurtainVariant, Beat>> = {
+  // One warm sheet, so nothing to stagger.
+  t1: {
+    arrival: { close: 820, hold: 900, open: 900, staggerClose: 0, staggerOpen: 0 },
+    page: { close: 620, hold: 200, open: 720, staggerClose: 0, staggerOpen: 0 },
+  },
+  // Three columns from alternating edges.
+  t2: {
+    arrival: { close: 860, hold: 900, open: 940, staggerClose: 70, staggerOpen: 60 },
+    page: { close: 660, hold: 200, open: 720, staggerClose: 70, staggerOpen: 60 },
+  },
+  // Five panels with gold hairlines between them.
+  t3: {
+    arrival: { close: 840, hold: 900, open: 900, staggerClose: 46, staggerOpen: 42 },
+    page: { close: 640, hold: 200, open: 700, staggerClose: 46, staggerOpen: 42 },
+  },
+  shared: {
+    arrival: { close: 700, hold: 900, open: 800, staggerClose: 0, staggerOpen: 0 },
+    page: { close: 560, hold: 200, open: 640, staggerClose: 0, staggerOpen: 0 },
+  },
+};
+
+const PANELS: Record<TemplateId | "shared", number> = { t1: 1, t2: 3, t3: 5, shared: 1 };
 
 /** If the route never arrives, reopen anyway rather than trapping the visitor. */
 const NAVIGATION_TIMEOUT = 4000;
 
-type TransitionState = {
-  phase: Phase;
-  variant: CurtainVariant;
-  navigate: (href: string) => void;
-};
+/**
+ * A beat between the curtain finishing its exit and being hidden.
+ *
+ * `idle` sets `visibility: hidden`, which is instant. Flipping to it on the
+ * exact millisecond the transition is due to end means the last frame of the
+ * animation and the frame that hides it can be the same one — the panel is
+ * still a few percent short of gone when it disappears. Sixty milliseconds is
+ * about four frames: invisible to a viewer, decisive for the browser.
+ */
+const CURTAIN_TAIL = 60;
 
-const Ctx = createContext<TransitionState | null>(null);
+/* -----------------------------------------------------------------------------
+   TWO CONTEXTS, NOT ONE.
 
-export function usePageTransition(): TransitionState {
-  const ctx = useContext(Ctx);
-  if (!ctx) throw new Error("usePageTransition must be used inside <TransitionProvider>");
-  return ctx;
+   `navigate` never changes, so a link never re-renders. The phase changes four
+   times per navigation, and it is read by exactly one component — the curtain.
+   Putting both in one context re-rendered every TLink on the page four times per
+   navigation, which on /gallery is a hundred and eight of them, at the precise
+   moment the curtain is trying to animate.
+   -------------------------------------------------------------------------- */
+
+const NavCtx = createContext<((href: string) => void) | null>(null);
+
+export function useNavigate(): (href: string) => void {
+  const navigate = useContext(NavCtx);
+  if (!navigate) throw new Error("useNavigate must be used inside <TransitionProvider>");
+  return navigate;
 }
 
 /** A template home is `/template-N` exactly. */
@@ -77,11 +132,19 @@ function isHomePath(pathname: string): boolean {
 export function TransitionProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
+
   const [phase, setPhase] = useState<Phase>("idle");
   const [variant, setVariant] = useState<CurtainVariant>("page");
+
   const pendingPath = useRef<string | null>(null);
   const busy = useRef(false);
-  const timing = useRef(TIMING.shared.page);
+  const beat = useRef<Beat>(TIMING.shared.page);
+  const closedAt = useRef(0);
+
+  // navigate() reads the current path from here rather than closing over it, so
+  // the callback is stable for the life of the session.
+  const pathRef = useRef(pathname);
+  pathRef.current = pathname;
 
   const navigate = useCallback(
     (href: string) => {
@@ -94,14 +157,12 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
         return;
       }
 
-      // The loader is chosen by where you are GOING, not where you are.
       const nextVariant: CurtainVariant = isHomePath(target.pathname) ? "arrival" : "page";
-      const tpl = templateFromPath(target.pathname) ?? templateFromPath(pathname);
-      const t = TIMING[tpl ?? "shared"][nextVariant];
-      timing.current = t;
+      const family = templateFromPath(target.pathname) ?? templateFromPath(pathRef.current);
+      const b = TIMING[family ?? "shared"][nextVariant];
+      beat.current = b;
 
       const reduced = prefersReducedMotion();
-      const closeMs = reduced ? 140 : t.close;
 
       busy.current = true;
       pendingPath.current = target.pathname;
@@ -110,16 +171,17 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
 
       void (async () => {
         // 1. page closes
-        await wait(closeMs);
+        await wait(reduced ? 140 : b.close);
+        closedAt.current = performance.now();
         setPhase("closed");
         // 2. content changes, behind the curtain
         router.push(target.pathname + target.search + target.hash);
       })();
     },
-    [router, pathname],
+    [router],
   );
 
-  // 3 + 4. The new route has rendered: jump to the top, then open.
+  // 3 + 4. The new route has rendered: jump to the top, hold, then open.
   useEffect(() => {
     if (!busy.current) return;
     if (pendingPath.current && pathname !== pendingPath.current) return;
@@ -128,11 +190,17 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
     void (async () => {
       pendingPath.current = null;
       hardScrollToTop();
-      // A beat at the top so the new page is painted before it is revealed.
-      await wait(prefersReducedMotion() ? 40 : 220);
+
+      const reduced = prefersReducedMotion();
+      // Stay covered until the loader has actually finished playing, and long
+      // enough for the new page to have painted a frame at the top.
+      const elapsed = performance.now() - closedAt.current;
+      const remaining = reduced ? 40 : Math.max(180, beat.current.hold - elapsed);
+
+      await wait(remaining);
       if (cancelled) return;
       setPhase("opening");
-      await wait(prefersReducedMotion() ? 140 : timing.current.open);
+      await wait(reduced ? 140 : beat.current.open + CURTAIN_TAIL);
       if (cancelled) return;
       setPhase("idle");
       busy.current = false;
@@ -154,16 +222,18 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
       setTimeout(() => {
         setPhase("idle");
         busy.current = false;
-      }, timing.current.open);
+      }, beat.current.open + CURTAIN_TAIL);
     }, NAVIGATION_TIMEOUT);
     return () => clearTimeout(timer);
   }, [phase]);
 
+  const family = templateFromPath(pathname);
+
   return (
-    <Ctx.Provider value={{ phase, variant, navigate }}>
+    <NavCtx.Provider value={navigate}>
       {children}
-      <Curtain phase={phase} variant={variant} template={templateFromPath(pathname)} />
-    </Ctx.Provider>
+      <Curtain phase={phase} variant={variant} template={family} beat={beat.current} />
+    </NavCtx.Provider>
   );
 }
 
@@ -171,13 +241,9 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
  * Jump to the same page in a different preview: /template-1/houses becomes
  * /template-2/houses. Used only by the preview switcher, which is review
  * scaffolding rather than part of any of the three designs.
- *
- * If the current route is outside every preview — the 404 — it lands on that
- * template's home instead, which is also the one case that plays the arrival
- * loader rather than the page loader.
  */
 export function useTemplateNav(): (id: TemplateId) => void {
-  const { navigate } = usePageTransition();
+  const navigate = useNavigate();
   const pathname = usePathname();
 
   return useCallback(
@@ -204,7 +270,7 @@ type TLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> & {
  * normally; the click handler is what routes it through the curtain.
  */
 export function TLink({ href, children, onClick, prefetch, ...rest }: TLinkProps) {
-  const { navigate } = usePageTransition();
+  const navigate = useNavigate();
   const isInternal = href.startsWith("/") && !href.startsWith("//");
 
   if (!isInternal) {
@@ -242,10 +308,12 @@ function Curtain({
   phase,
   variant,
   template,
+  beat,
 }: {
   phase: Phase;
   variant: CurtainVariant;
   template: TemplateId | null;
+  beat: Beat;
 }) {
   const family = template ?? "t1";
   const [reduced, setReduced] = useState(false);
@@ -258,11 +326,26 @@ function Curtain({
     return () => mq.removeEventListener("change", sync);
   }, []);
 
+  const slats = PANELS[family];
+
+  // The numbers from TIMING, handed to CSS. Every duration and delay in
+  // motion.css is computed from these four values, which is what keeps the
+  // animation and the sequence that drives it in step.
+  const vars = useMemo(
+    () =>
+      ({
+        "--sw-close": `${beat.close}ms`,
+        "--sw-open": `${beat.open}ms`,
+        "--sw-stagger-close": `${beat.staggerClose}ms`,
+        "--sw-stagger-open": `${beat.staggerOpen}ms`,
+        "--n": slats,
+      }) as React.CSSProperties,
+    [beat, slats],
+  );
+
   // The calm version simplifies itself: no wipe, but the scroll reset still
   // happens in the right place in the sequence, so nothing is lost.
   if (reduced) return null;
-
-  const slats = family === "t3" ? 5 : family === "t1" ? 1 : 3;
 
   return (
     <div
@@ -275,14 +358,11 @@ function Curtain({
       data-variant={variant}
       data-family={family}
       data-tpl={family}
+      style={vars}
       aria-hidden="true"
     >
       {Array.from({ length: slats }, (_, i) => (
-        <span
-          key={i}
-          className="sw-curtain__panel"
-          style={{ "--i": i, "--n": slats } as React.CSSProperties}
-        />
+        <span key={i} className="sw-curtain__panel" style={{ "--i": i } as React.CSSProperties} />
       ))}
       {variant === "arrival" && (
         <span className="sw-curtain__mark">

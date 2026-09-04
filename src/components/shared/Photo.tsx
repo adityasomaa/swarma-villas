@@ -61,6 +61,18 @@ type Props = {
   ratio?: number;
   /** Rounds the corners with the template's own radius token. */
   rounded?: "none" | "sm" | "md";
+  /**
+   * Fill the nearest positioned ancestor instead of holding a ratio box.
+   *
+   * This is a PROP rather than something a caller passes through `className`,
+   * because `position` can only be set once. The box is `relative` by default,
+   * and an `absolute` arriving in `className` does not reliably win — which of
+   * the two applies is decided by the order Tailwind emits them, not by the
+   * order they were written. A hero photo laid out that way silently kept its
+   * ratio box in the flow and doubled the height of the section it was meant
+   * to sit behind. Setting it here removes the conflict entirely.
+   */
+  fill?: boolean;
 };
 
 export function Photo({
@@ -72,6 +84,7 @@ export function Photo({
   imgClassName,
   ratio,
   rounded = "none",
+  fill = false,
 }: Props) {
   const record = BY_SLUG.get(slug);
 
@@ -92,12 +105,14 @@ export function Photo({
   return (
     <div
       className={clsx(
-        "relative overflow-hidden bg-raised",
+        "overflow-hidden bg-raised",
+        fill ? "absolute inset-0 h-full w-full" : "relative",
         rounded === "sm" && "r-sm",
         rounded === "md" && "r-md",
         className,
       )}
-      style={{ aspectRatio: String(ratio ?? record.ratio) }}
+      // A filling photo takes its size from its ancestor; a ratio would fight it.
+      style={fill ? undefined : { aspectRatio: String(ratio ?? record.ratio) }}
     >
       <img
         src={`/img/${largest.file}`}

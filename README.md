@@ -82,7 +82,17 @@ open, that there is no native `<select>` or `<input type="date">` anywhere, that
 the calendar opens from a click 24px in from the *left* edge of the field, that
 Escape closes it and focus returns, and that the page transition really does run
 close → change → scroll → open with nothing moving while the page is uncovered.
-**18/18 pass.**
+
+It also samples the curtain's **slowest panel** on the frame before each phase
+ends, for all three families and both variants, and fails if the animation was
+still in flight when the phase closed. That check exists because the curtain
+used to be cut off mid-slide in five of the twelve phases. **34/34 pass.**
+
+`scripts/serve.sh` restarts the production server and refuses to return until
+the stylesheet the page links actually resolves. Next reads `.next` lazily, so a
+server left running across a rebuild serves HTML pointing at chunks that no
+longer exist — the page renders with no CSS at all, and every visual check after
+that is measuring an unstyled document.
 
 `scripts/shoot.mjs` takes full-page screenshots at any width for looking at.
 
@@ -112,12 +122,68 @@ Each direction has its own curtain: one warm sheet for Amber, three columns
 closing from alternating edges for Riverstone, five panels with gold hairlines
 for Paon.
 
+**Every duration is written once.** `TIMING` in `Transition.tsx` holds the close,
+hold, open and stagger for each family and variant, and pushes them onto the
+curtain element as custom properties; `motion.css` contains no literal duration
+and derives each panel's own duration as `budget - stagger x (panels - 1)`, so
+the last panel lands exactly on the budget. They used to be two separate sets of
+numbers and they drifted: five of the twelve phases had the JavaScript hide the
+curtain while its panels were still sliding. `hold` is the other half of that
+fix — the arrival curtain now stays covered long enough for the feather to
+finish drawing rather than being cut wherever the router happened to finish.
+
 Two details worth knowing about. Every delay goes through `lib/wait.ts`, which
 races `setTimeout` against `requestAnimationFrame` — rAF stops in a backgrounded
 tab, and a curtain driven by rAF alone would freeze mid-close and never reopen.
 And `hardScrollToTop()` tells Lenis as well as the window, because Lenis keeps
 its own scroll position and telling only one leaves the next wheel event to snap
 back.
+
+---
+
+## Heroes
+
+Every home hero fills one screen; every inner-page hero fills half of one; and in
+both cases the type sits **on** the photograph rather than above it.
+
+The measurement is `svh`, not `vh`. On a phone `100vh` is the height with the
+address bar collapsed, so a hero sized in `vh` is taller than the screen on
+arrival and its buttons sit below the fold until you scroll.
+
+Because every hero is a dark photograph, all three headers start transparent over
+it with the **gold** wordmark, and switch to the near-black cut the moment they
+land on their own light ground. Gold is 1.44:1 on cream and cannot be read there,
+so this is the only arrangement in which the brand mark is both used and legible.
+
+Privacy, terms of use and contact have no photograph. They get a plain
+typographic opening on the canvas and a solid header — half a screen of empty
+colour would be a worse page, not a more consistent one. The hero declares itself
+with `data-hero="dark"` and the header asks the document once per navigation,
+because the two are siblings in the layout with no other way to talk.
+
+`Photo` takes a `fill` prop rather than accepting `absolute` through `className`:
+`position` can only be set once, and which of `relative` (the component's own)
+and `absolute` (the caller's) applies is decided by the order Tailwind emits
+them. Passed as a class, a hero photograph silently kept its ratio box in the
+flow and doubled the height of the section it was meant to sit behind.
+
+---
+
+## Buttons
+
+Hover is not a background swap. Two things move together: a **wipe** that grows
+into the button from a direction, and a **roll** where the label leaves and an
+identical copy arrives from the opposite side.
+
+- **Amber** — the gold wipes up from the bottom, the label rolls up.
+- **Riverstone** — the wipe sweeps in from the left with a skew, the label rolls up.
+- **Paon** — the wipe grows out of a hairline at the bottom, the label slides sideways.
+
+The label is rendered twice; the copy carries `aria-hidden`, so a screen reader
+announces the name once. `:focus-visible` gets the same treatment as `:hover`, so
+a keyboard reaches the same interface a mouse does, and `@media (hover: none)`
+removes the motion on touch, where `:hover` is a sticky state after a tap rather
+than a hover.
 
 ---
 

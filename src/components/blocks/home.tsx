@@ -382,9 +382,9 @@ export function CtaBand({
     <section className="on-deep relative isolate overflow-hidden bg-deep">
       <Photo
         slug="pool-05"
-        ratio={16 / 9}
+        fill
         sizes="100vw"
-        className="absolute inset-0 -z-10 h-full w-full opacity-30"
+        className="-z-10 opacity-30"
         alt=""
       />
       <Container className="relative py-20 text-center md:py-28">

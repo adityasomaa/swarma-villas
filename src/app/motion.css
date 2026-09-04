@@ -4,15 +4,35 @@
    Kept in @layer components so Tailwind utilities still out-rank it. Both roots
    carry data-tpl, so they take the palette of the template they belong to.
 
-   Two variants, as asked for:
-     [data-variant="arrival"]  first load, and any navigation to a home page.
-                               The feather from the logo draws itself in gold,
-                               the name sets underneath, then the curtain lifts.
-     [data-variant="page"]     every other navigation. Same geometry, no mark,
-                               shorter, quieter.
+   NOT ONE NUMBER IN THIS FILE IS A DURATION.
 
-   Three families, so a transition belongs to its direction rather than being
-   one shared wrapper in a different colour:
+   Every timing comes from the four custom properties the curtain element
+   carries, which are written by TIMING in Transition.tsx:
+
+     --sw-close          how long covering the screen takes
+     --sw-open           how long clearing it takes
+     --sw-stagger-close  gap between neighbouring panels while closing
+     --sw-stagger-open   gap between neighbouring panels while opening
+     --n                 how many panels this family has
+
+   A panel's own duration is the budget minus the stagger already spent getting
+   to the last panel, so panel n-1 finishes exactly when the phase ends:
+
+     duration = --sw-close - --sw-stagger-close x (--n - 1)
+     delay    = --i x --sw-stagger-close
+
+   This is the whole point of the file. The durations used to be written here as
+   literals and again in Transition.tsx as the waits, and they drifted: five of
+   the twelve phases had the JavaScript hide the curtain while its animation was
+   still mid-slide. Deriving both from one set of numbers makes that impossible.
+
+   Two variants:
+     [data-variant="arrival"]  first load, and any navigation to a home page.
+                               The feather draws in gold, the name sets, the
+                               curtain lifts.
+     [data-variant="page"]     every other navigation. Same geometry, no mark.
+
+   Three families:
      t1 Amber      one warm sheet rises from the bottom and lifts away upward.
      t2 Riverstone three columns close from alternating edges, then part.
      t3 Paon       five hairline-separated panels drop and lift in sequence.
@@ -26,6 +46,10 @@
     overflow: hidden;
     display: grid;
     place-items: center;
+
+    /* The per-panel duration, derived once and used by all three families. */
+    --sw-panel-close: calc(var(--sw-close) - var(--sw-stagger-close) * (var(--n) - 1));
+    --sw-panel-open: calc(var(--sw-open) - var(--sw-stagger-open) * (var(--n) - 1));
   }
   .sw-curtain[data-state="idle"] {
     visibility: hidden;
@@ -38,11 +62,19 @@
   .sw-curtain__panel {
     position: absolute;
     display: block;
+    background: var(--c-deep);
+    /*
+     * Promoted for the whole life of the curtain rather than on hover. A layer
+     * created at the moment the transition starts costs a paint on the first
+     * frame, which is exactly the frame a viewer is looking at.
+     */
     will-change: transform;
     backface-visibility: hidden;
+    transition-timing-function: var(--ease-out-quint);
+    transition-property: transform;
   }
 
-  /* ---- the mark, only on the arrival loader -------------------------- */
+  /* ---- the mark, only on the arrival loader --------------------------- */
   .sw-curtain__mark {
     position: relative;
     display: grid;
@@ -54,53 +86,52 @@
   .sw-curtain[data-state="closed"] .sw-curtain__mark,
   .sw-curtain[data-state="closing"] .sw-curtain__mark {
     opacity: 1;
-    transition: opacity 0.42s var(--ease-soft) 0.24s;
+    transition: opacity 0.4s var(--ease-soft) 0.2s;
   }
   .sw-curtain[data-state="opening"] .sw-curtain__mark {
     opacity: 0;
-    transition: opacity 0.24s linear;
+    transition: opacity 0.22s linear;
   }
   .sw-curtain__feather,
   .sw-curtain__rib {
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
   }
+  /*
+   * The draw has to finish inside close + hold, which TIMING guarantees is at
+   * least 1720ms for every arrival. 0.2s + 0.94s = 1.14s, comfortably inside.
+   */
   .sw-curtain[data-state="closing"] .sw-curtain__feather,
   .sw-curtain[data-state="closed"] .sw-curtain__feather {
-    animation: sw-draw 1.05s var(--ease-out-quint) 0.26s forwards;
+    animation: sw-draw 0.94s var(--ease-out-quint) 0.2s forwards;
   }
   .sw-curtain[data-state="closing"] .sw-curtain__rib,
   .sw-curtain[data-state="closed"] .sw-curtain__rib {
-    animation: sw-draw 0.8s var(--ease-out-quint) 0.5s forwards;
+    animation: sw-draw 0.72s var(--ease-out-quint) 0.4s forwards;
   }
 
-  /* ---- t1 Amber: one sheet rises, then lifts away -------------------- */
+  /* ---- t1 Amber: one sheet rises, then lifts away --------------------- */
   .sw-curtain[data-family="t1"] .sw-curtain__panel {
     inset: 0;
-    background: var(--c-deep);
     transform: translate3d(0, 101%, 0);
   }
   .sw-curtain[data-family="t1"][data-state="closing"] .sw-curtain__panel,
   .sw-curtain[data-family="t1"][data-state="closed"] .sw-curtain__panel {
     transform: translate3d(0, 0, 0);
-    transition: transform 0.66s var(--ease-out-quint);
-  }
-  .sw-curtain[data-family="t1"][data-variant="page"][data-state="closing"] .sw-curtain__panel,
-  .sw-curtain[data-family="t1"][data-variant="page"][data-state="closed"] .sw-curtain__panel {
-    transition-duration: 0.5s;
+    transition-duration: var(--sw-panel-close);
   }
   .sw-curtain[data-family="t1"][data-state="opening"] .sw-curtain__panel {
     transform: translate3d(0, -101%, 0);
-    transition: transform 0.8s var(--ease-in-quint);
+    transition-duration: var(--sw-panel-open);
+    transition-timing-function: var(--ease-in-quint);
   }
 
-  /* ---- t2 Riverstone: three columns close from alternating edges ----- */
+  /* ---- t2 Riverstone: three columns from alternating edges ------------ */
   .sw-curtain[data-family="t2"] .sw-curtain__panel {
     top: -1px;
     bottom: -1px;
     width: calc(100% / var(--n) + 1px);
     left: calc(var(--i) * 100% / var(--n));
-    background: var(--c-deep);
     transform: scaleY(0);
     transform-origin: top center;
   }
@@ -110,26 +141,26 @@
   .sw-curtain[data-family="t2"][data-state="closing"] .sw-curtain__panel,
   .sw-curtain[data-family="t2"][data-state="closed"] .sw-curtain__panel {
     transform: scaleY(1);
-    transition: transform 0.54s var(--ease-out-quint);
-    transition-delay: calc(var(--i) * 70ms);
+    transition-duration: var(--sw-panel-close);
+    transition-delay: calc(var(--i) * var(--sw-stagger-close));
   }
   .sw-curtain[data-family="t2"][data-state="opening"] .sw-curtain__panel {
     transform: scaleY(0);
     transform-origin: bottom center;
-    transition: transform 0.56s var(--ease-in-quint);
-    transition-delay: calc((var(--n) - 1 - var(--i)) * 60ms);
+    transition-duration: var(--sw-panel-open);
+    transition-timing-function: var(--ease-in-quint);
+    transition-delay: calc((var(--n) - 1 - var(--i)) * var(--sw-stagger-open));
   }
   .sw-curtain[data-family="t2"][data-state="opening"] .sw-curtain__panel:nth-child(even) {
     transform-origin: top center;
   }
 
-  /* ---- t3 Paon: five panels drop, separated by hairlines ------------- */
+  /* ---- t3 Paon: five panels drop, separated by gold hairlines --------- */
   .sw-curtain[data-family="t3"] .sw-curtain__panel {
     top: -1px;
     bottom: -1px;
     width: calc(100% / var(--n) + 1px);
     left: calc(var(--i) * 100% / var(--n));
-    background: var(--c-deep);
     border-left: 1px solid color-mix(in srgb, var(--c-gold) 26%, transparent);
     transform: translate3d(0, -101%, 0);
   }
@@ -139,19 +170,20 @@
   .sw-curtain[data-family="t3"][data-state="closing"] .sw-curtain__panel,
   .sw-curtain[data-family="t3"][data-state="closed"] .sw-curtain__panel {
     transform: translate3d(0, 0, 0);
-    transition: transform 0.5s var(--ease-out-quint);
-    transition-delay: calc(var(--i) * 46ms);
+    transition-duration: var(--sw-panel-close);
+    transition-delay: calc(var(--i) * var(--sw-stagger-close));
   }
   .sw-curtain[data-family="t3"][data-state="opening"] .sw-curtain__panel {
     transform: translate3d(0, 101%, 0);
-    transition: transform 0.54s var(--ease-in-quint);
-    transition-delay: calc((var(--n) - 1 - var(--i)) * 42ms);
+    transition-duration: var(--sw-panel-open);
+    transition-timing-function: var(--ease-in-quint);
+    transition-delay: calc((var(--n) - 1 - var(--i)) * var(--sw-stagger-open));
   }
 
   /* ------------------------------------------------- the first-load view */
   /*
-   * Same geometry as the arrival curtain, but rendered by IntroLoader on a
-   * hard page load, where there is no route change to hang a transition on.
+   * Same geometry as the arrival curtain, but rendered by IntroLoader on a hard
+   * page load, where there is no route change to hang a transition on.
    */
   .sw-intro {
     position: fixed;
@@ -160,6 +192,7 @@
     place-items: center;
     background: var(--c-deep);
     color: var(--c-gold);
+    will-change: transform;
   }
   .sw-intro__inner {
     display: grid;
@@ -194,6 +227,7 @@
   .sw-intro .sw-curtain__rib {
     animation: sw-draw 0.85s var(--ease-out-quint) 0.42s forwards;
   }
+  /* IntroLoader holds for 1900ms and allows 900ms to leave; both match here. */
   .sw-intro[data-state="out"] {
     transform: translate3d(0, -101%, 0);
     transition: transform 0.9s var(--ease-in-quint);

@@ -196,6 +196,30 @@ export function SectionHeader({
 
 type ButtonTone = "primary" | "outline" | "quiet";
 
+/* =============================================================================
+   THE BUTTON
+   -----------------------------------------------------------------------------
+   Hover is not a background swap. Two things move together:
+
+     the WIPE  a fill that grows INTO the button from a direction — up from the
+               bottom in Amber, in from the left with a skew in Riverstone, out
+               of a hairline in Paon;
+     the ROLL  the label leaves and an identical copy arrives from the opposite
+               side, so the words travel rather than just recolour.
+
+   Both live in globals.css under `.btn`, keyed on `[data-tpl]`, because they
+   are three decisions rather than sixty class strings.
+
+   THE LABEL IS RENDERED TWICE. The copy carries aria-hidden, so a screen
+   reader announces the name once — without that the audit's accessible-name
+   pass would be reading every button's text doubled.
+
+   `--btn-wipe` is what the fill is made of, and it changes with the tone:
+   a primary button is already gold and wipes to near-black, an outline button
+   is transparent and wipes to ink. So hovering always crosses a real boundary
+   rather than nudging a brightness.
+   ========================================================================== */
+
 function buttonClasses(tpl: TemplateId, tone: ButtonTone): string {
   const shape = {
     t1: "r-pill px-7 py-3.5 text-[0.9375rem]",
@@ -204,18 +228,37 @@ function buttonClasses(tpl: TemplateId, tone: ButtonTone): string {
   }[tpl];
 
   const skin = {
-    primary: "bg-gold text-ongold hover:brightness-[1.06] active:brightness-[0.97]",
-    outline: "border border-current text-ink hover:bg-ink hover:text-canvas",
+    // Gold ground, near-black label; the wipe brings the near-black in and the
+    // label flips to gold to stay readable on it.
+    primary: "btn bg-gold text-ongold [--btn-wipe:var(--c-deep)] hover:text-gold focus-visible:text-gold",
+    // Transparent with a hairline; the wipe brings ink in under a canvas label.
+    outline:
+      "btn border border-current text-ink [--btn-wipe:var(--c-ink)] hover:text-canvas focus-visible:text-canvas",
     quiet: "text-accent underline-offset-4 hover:underline",
   }[tone];
 
   return clsx(
     "inline-flex items-center justify-center gap-2 font-medium",
-    "transition-[background-color,color,filter,border-color] duration-300 ease-out",
+    // Colour only. The wipe and the roll are transforms and are owned by CSS,
+    // so nothing here can fight them.
+    "transition-[color,border-color] duration-300 ease-out",
     "focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent",
     tone !== "quiet" && shape,
     tone === "quiet" && "text-[0.9375rem]",
     skin,
+  );
+}
+
+/** The label and the copy that replaces it. */
+function Roll({ children, tone }: { children: ReactNode; tone: ButtonTone }) {
+  if (tone === "quiet") return <>{children}</>;
+  return (
+    <span className="btn__roll">
+      <span className="btn__label">{children}</span>
+      <span aria-hidden className="btn__label btn__label--clone">
+        {children}
+      </span>
+    </span>
   );
 }
 
@@ -236,23 +279,33 @@ export function Button({
   external?: boolean;
 } & Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href" | "children" | "className">) {
   const cls = clsx(buttonClasses(tpl, tone), className);
+  const label = <Roll tone={tone}>{children}</Roll>;
+
   if (external) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className={cls} {...rest}>
-        {children}
+        {label}
       </a>
     );
   }
   return (
     <TLink href={href} className={cls} {...rest}>
-      {children}
+      {label}
     </TLink>
   );
 }
 
-/** The same skin, on a real <button> — used by the form and the cookie banner. */
+/**
+ * The same skin, on a real <button> — used by the form and the cookie banner.
+ * Wrap the label in <ButtonLabel> to get the roll as well; the wipe comes with
+ * the class either way.
+ */
 export function buttonStyle(tpl: TemplateId, tone: ButtonTone = "primary"): string {
   return buttonClasses(tpl, tone);
+}
+
+export function ButtonLabel({ children }: { children: ReactNode }) {
+  return <Roll tone="primary">{children}</Roll>;
 }
 
 /* -------------------------------------------------------------------- text */

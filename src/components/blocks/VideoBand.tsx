@@ -60,9 +60,8 @@ export function VideoBand({ tpl }: { tpl: TemplateId }) {
           >
             <Photo
               slug="pool-03"
-              ratio={16 / 9}
+              fill
               sizes="(min-width: 1024px) 80vw, 100vw"
-              className="absolute inset-0 h-full w-full"
               imgClassName="transition-transform duration-[1200ms] ease-out-quint group-hover:scale-[1.03]"
               alt=""
             />

@@ -8,140 +8,170 @@ import { href, type TemplateId } from "@/lib/templates";
 /* =============================================================================
    INNER-PAGE OPENING
    -----------------------------------------------------------------------------
-   Every page that is not the home page starts here, so the three directions
-   stay recognisably themselves below the fold as well as on the front page:
+   Half a screen, and the type sits ON the photograph rather than above it.
 
-     Amber       type on cream, a wide rounded photograph under it
-     Riverstone  the title set over a short full-bleed photograph
-     Paon        a centred title between hairlines, photograph below
+   The three directions keep their own composition inside that constraint:
 
-   The breadcrumb is real navigation, not decoration — every inner page is at
-   least two clicks deep and this is how you get back up one level.
+     Amber       type at the bottom-left, warm scrim, rounded bottom corners
+     Riverstone  type at the bottom-left, square, edge to edge
+     Paon        type centred between hairlines
+
+   A page with no photograph — privacy, terms of use, contact — falls through to
+   a plain typographic opening on the canvas instead. Half a screen of empty
+   colour would be a worse page, not a more consistent one.
+
+   HEIGHT. `50svh` with a floor of 22rem: at 50% of a short landscape phone the
+   band would be under 200px and the heading would not fit inside it.
    ========================================================================== */
 
 export type Crumb = { label: string; path: string };
 
-export function PageHero({
-  tpl,
-  kicker,
-  title,
-  lede,
-  photo,
-  crumbs = [],
-}: {
+const HALF = "min-h-[max(22rem,50svh)]";
+
+type Props = {
   tpl: TemplateId;
   kicker?: string;
   title: string;
   lede?: string;
-  /** Omit for the text-only pages: privacy, terms. */
+  /** Omit for the text-only pages: privacy, terms, contact. */
   photo?: { slug: string; alt: string };
   crumbs?: Crumb[];
-}) {
-  /* ------------------------------------------------------- 2 — RIVERSTONE */
-  if (tpl === "t2" && photo) {
-    return (
-      <section className="relative isolate">
-        <Photo
-          slug={photo.slug}
-          priority
-          ratio={21 / 9}
-          sizes="100vw"
-          className="absolute inset-0 -z-10 h-full w-full"
-          alt={photo.alt}
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(20,24,18,0.8),rgba(20,24,18,0.3))]"
-        />
-        <div className="on-photo">
-          <Container
-            width="wide"
-            className="flex min-h-[26rem] flex-col justify-end pt-[calc(var(--switcher-h)+8rem)] pb-12 md:min-h-[32rem] md:pb-16"
-          >
-            <Breadcrumbs tpl={tpl} crumbs={crumbs} />
-            <Reveal>
-              {kicker && <p className="kicker mt-6">{kicker}</p>}
-              <h1 className="display mt-4 max-w-4xl text-[clamp(2.25rem,6vw,4.5rem)] leading-[0.98]">
-                {title}
-              </h1>
-              {lede && (
-                <p className="measure-prose mt-5 text-[1.0625rem] leading-[1.7] opacity-90">
-                  {lede}
-                </p>
-              )}
-            </Reveal>
-          </Container>
-        </div>
-      </section>
-    );
-  }
+};
 
-  /* ------------------------------------------------------------- 3 — PAON */
-  if (tpl === "t3") {
-    return (
-      <section className="bg-canvas">
-        <Container className="pt-8 pb-10 text-center md:pb-12">
-          <Breadcrumbs tpl={tpl} crumbs={crumbs} className="justify-center" />
-          <Reveal className="mt-8 border-y border-line py-10">
-            {kicker && <p className="kicker text-accent">{kicker}</p>}
-            <h1 className="display measure-display mx-auto mt-4 text-[clamp(2rem,4.6vw,3.25rem)] leading-[1.12]">
+export function PageHero({ tpl, kicker, title, lede, photo, crumbs = [] }: Props) {
+  if (!photo) return <TextOnlyHero {...{ tpl, kicker, title, lede, crumbs }} />;
+
+  const centred = tpl === "t3";
+
+  return (
+    <section data-hero="dark" className={clsx("relative isolate w-full overflow-hidden", HALF)}>
+      <Photo
+        slug={photo.slug}
+        priority
+        fill
+        sizes="100vw"
+        className="-z-10"
+        imgClassName="object-[center_42%]"
+        alt={photo.alt}
+      />
+      <div
+        aria-hidden
+        className={clsx(
+          "absolute inset-0 -z-10",
+          tpl === "t1" &&
+            "bg-[linear-gradient(to_top,rgba(22,19,12,0.85)_0%,rgba(22,19,12,0.42)_58%,rgba(22,19,12,0.3)_100%)]",
+          tpl === "t2" &&
+            "bg-[linear-gradient(to_top,rgba(20,24,18,0.82)_0%,rgba(20,24,18,0.36)_60%,rgba(20,24,18,0.3)_100%)]",
+          tpl === "t3" &&
+            "bg-[linear-gradient(to_bottom,rgba(14,14,14,0.68)_0%,rgba(14,14,14,0.36)_45%,rgba(14,14,14,0.7)_100%)]",
+        )}
+      />
+
+      <div
+        className={clsx(
+          "on-photo relative flex",
+          HALF,
+          centred ? "items-center justify-center" : "flex-col justify-end",
+        )}
+      >
+        <Container
+          width={tpl === "t2" ? "wide" : "default"}
+          className={clsx(
+            "pt-[calc(var(--switcher-h)+7rem)] pb-12 md:pb-16",
+            centred && "text-center",
+          )}
+        >
+          <Breadcrumbs tpl={tpl} crumbs={crumbs} className={centred ? "justify-center" : undefined} />
+
+          <Reveal className={clsx("mt-6", centred && "border-t border-white/35 pt-8")}>
+            {kicker &&
+              (tpl === "t1" ? (
+                <div className="flex items-center gap-3">
+                  <span aria-hidden className="h-px w-8 bg-gold" />
+                  <p className="kicker">{kicker}</p>
+                </div>
+              ) : (
+                <p className="kicker">{kicker}</p>
+              ))}
+
+            <h1
+              className={clsx(
+                "display mt-4",
+                tpl === "t2"
+                  ? "max-w-4xl text-[clamp(2.25rem,6vw,4.5rem)] leading-[0.98]"
+                  : "measure-display text-[clamp(2rem,5vw,3.5rem)] leading-[1.06]",
+                centred && "mx-auto",
+              )}
+            >
               {title}
             </h1>
+
             {lede && (
-              <p className="measure-prose mx-auto mt-5 text-[1.0625rem] leading-[1.75] text-muted">
+              <p
+                className={clsx(
+                  "measure-prose mt-5 text-[1.0625rem] leading-[1.7] opacity-90",
+                  centred && "mx-auto",
+                )}
+              >
                 {lede}
               </p>
             )}
           </Reveal>
         </Container>
-        {photo && (
-          <Reveal>
-            <Container width="wide">
-              <Photo slug={photo.slug} priority ratio={21 / 9} sizes="100vw" alt={photo.alt} />
-            </Container>
-          </Reveal>
-        )}
-      </section>
-    );
-  }
-
-  /* ------------------------------------------------------------ 1 — AMBER */
-  return (
-    <section className="bg-canvas pt-[calc(var(--switcher-h)+7rem)] md:pt-[calc(var(--switcher-h)+8.5rem)]">
-      <Container>
-        <Breadcrumbs tpl={tpl} crumbs={crumbs} />
-        <Reveal className="mt-6">
-          {kicker && (
-            <div className="flex items-center gap-3">
-              <span aria-hidden className="h-px w-8 bg-gold" />
-              <p className="kicker text-accent">{kicker}</p>
-            </div>
-          )}
-          <h1 className="display measure-display mt-5 text-[clamp(2.25rem,5.2vw,3.75rem)] leading-[1.05]">
-            {title}
-          </h1>
-          {lede && (
-            <p className="measure-prose mt-5 text-[1.125rem] leading-[1.7] text-muted">{lede}</p>
-          )}
-        </Reveal>
-      </Container>
-      {photo && (
-        <Reveal delay={120} className="mt-12">
-          <Container>
-            <Photo
-              slug={photo.slug}
-              priority
-              ratio={21 / 9}
-              rounded="md"
-              sizes="100vw"
-              alt={photo.alt}
-            />
-          </Container>
-        </Reveal>
-      )}
+      </div>
     </section>
   );
 }
+
+/* ------------------------------------------------- pages with no photograph */
+
+function TextOnlyHero({
+  tpl,
+  kicker,
+  title,
+  lede,
+  crumbs = [],
+}: Omit<Props, "photo">) {
+  const centred = tpl === "t3";
+  return (
+    <section className="bg-canvas pt-[calc(var(--switcher-h)+6.5rem)] pb-4 md:pt-[calc(var(--switcher-h)+8rem)]">
+      <Container className={clsx(centred && "text-center")}>
+        <Breadcrumbs tpl={tpl} crumbs={crumbs} className={centred ? "justify-center" : undefined} />
+        <Reveal className={clsx("mt-6", centred && "border-y border-line py-10")}>
+          {kicker &&
+            (tpl === "t1" ? (
+              <div className="flex items-center gap-3">
+                <span aria-hidden className="h-px w-8 bg-gold" />
+                <p className="kicker text-accent">{kicker}</p>
+              </div>
+            ) : (
+              <p className="kicker text-accent">{kicker}</p>
+            ))}
+          <h1
+            className={clsx(
+              "display measure-display mt-4 text-[clamp(2rem,5vw,3.5rem)] leading-[1.06]",
+              centred && "mx-auto",
+            )}
+          >
+            {title}
+          </h1>
+          {lede && (
+            <p
+              className={clsx(
+                "measure-prose mt-5 text-[1.0625rem] leading-[1.75] text-muted",
+                centred && "mx-auto",
+              )}
+            >
+              {lede}
+            </p>
+          )}
+        </Reveal>
+      </Container>
+    </section>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
 
 function Breadcrumbs({
   tpl,
@@ -177,9 +207,7 @@ function Breadcrumbs({
                 /
               </span>
               {last ? (
-                <span aria-current="page" className="opacity-100">
-                  {crumb.label}
-                </span>
+                <span aria-current="page">{crumb.label}</span>
               ) : (
                 <TLink
                   href={href(tpl, crumb.path)}

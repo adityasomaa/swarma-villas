@@ -325,6 +325,144 @@
 }
 
 @layer utilities {
+  /* ===========================================================================
+     BUTTON MOTION
+     ---------------------------------------------------------------------------
+     Not a background swap. Every button does two things at once:
+
+       a WIPE   a fill that grows into the button from a direction, rather than
+                the whole surface changing colour in one step;
+       a ROLL   the label leaves and an identical copy arrives from the opposite
+                side, so the words move rather than just recolour.
+
+     The label is rendered twice. The copy carries aria-hidden, so a screen
+     reader hears the name once — the audit's accessible-name check would fail
+     loudly if this were done by duplicating readable text.
+
+     Each direction rolls differently, because a button is the most-repeated
+     element on a site and it is where a design's manners show:
+
+       Amber       the gold wipes up from the bottom and the label rolls up.
+                   Soft, warm, round.
+       Riverstone  the wipe sweeps in from the left with a slight skew and the
+                   label rolls up as it goes. Editorial, a little brisk.
+       Paon        the wipe grows from a hairline at the bottom into the whole
+                   face, and the label slides sideways. Formal, restrained.
+
+     `:focus-visible` gets the same treatment as `:hover`, so a keyboard reaches
+     the same interface a mouse does.
+     ======================================================================== */
+  .btn {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--btn-wipe, var(--c-gold));
+    transition:
+      transform 0.55s var(--ease-out-quint),
+      opacity 0.4s var(--ease-out-quint);
+    will-change: transform;
+  }
+
+  /* The label and its stand-in share a box; the box is what clips the roll. */
+  .btn__roll {
+    position: relative;
+    display: block;
+    overflow: hidden;
+  }
+  .btn__label {
+    display: block;
+    transition: transform 0.5s var(--ease-out-quint);
+    will-change: transform;
+  }
+  .btn__label--clone {
+    position: absolute;
+    inset: 0;
+    display: block;
+  }
+
+  /* ---- Amber: wipe up, label rolls up ---------------------------------- */
+  [data-tpl="t1"] .btn::before {
+    transform: translate3d(0, 101%, 0);
+  }
+  [data-tpl="t1"] .btn:hover::before,
+  [data-tpl="t1"] .btn:focus-visible::before {
+    transform: translate3d(0, 0, 0);
+  }
+  [data-tpl="t1"] .btn__label--clone {
+    transform: translate3d(0, 110%, 0);
+  }
+  [data-tpl="t1"] .btn:hover .btn__label,
+  [data-tpl="t1"] .btn:focus-visible .btn__label {
+    transform: translate3d(0, -110%, 0);
+  }
+  [data-tpl="t1"] .btn:hover .btn__label--clone,
+  [data-tpl="t1"] .btn:focus-visible .btn__label--clone {
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* ---- Riverstone: wipe in from the left, skewed ----------------------- */
+  [data-tpl="t2"] .btn::before {
+    transform: translate3d(-101%, 0, 0) skewX(-9deg);
+    transform-origin: left center;
+    /* Wider than the button so the skew never exposes a corner. */
+    inset: 0 -12% 0 -12%;
+  }
+  [data-tpl="t2"] .btn:hover::before,
+  [data-tpl="t2"] .btn:focus-visible::before {
+    transform: translate3d(0, 0, 0) skewX(0deg);
+  }
+  [data-tpl="t2"] .btn__label--clone {
+    transform: translate3d(0, 110%, 0);
+  }
+  [data-tpl="t2"] .btn:hover .btn__label,
+  [data-tpl="t2"] .btn:focus-visible .btn__label {
+    transform: translate3d(0, -110%, 0);
+  }
+  [data-tpl="t2"] .btn:hover .btn__label--clone,
+  [data-tpl="t2"] .btn:focus-visible .btn__label--clone {
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* ---- Paon: a hairline grows into the face, label slides sideways ------ */
+  [data-tpl="t3"] .btn::before {
+    transform: scaleY(0.06);
+    transform-origin: bottom center;
+  }
+  [data-tpl="t3"] .btn:hover::before,
+  [data-tpl="t3"] .btn:focus-visible::before {
+    transform: scaleY(1);
+  }
+  [data-tpl="t3"] .btn__label--clone {
+    transform: translate3d(-110%, 0, 0);
+  }
+  [data-tpl="t3"] .btn:hover .btn__label,
+  [data-tpl="t3"] .btn:focus-visible .btn__label {
+    transform: translate3d(110%, 0, 0);
+  }
+  [data-tpl="t3"] .btn:hover .btn__label--clone,
+  [data-tpl="t3"] .btn:focus-visible .btn__label--clone {
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* On a touch screen there is no hover, and :hover fires as a sticky state
+     after a tap. Nothing moves there; the tap itself is the feedback. */
+  @media (hover: none) {
+    .btn::before,
+    .btn__label,
+    .btn__label--clone {
+      transition: none;
+    }
+  }
+
+
   /* --------------------------------------------- the whole stacking scale */
   .z-below { z-index: var(--z-below); }
   .z-content { z-index: var(--z-content); }
@@ -361,10 +499,20 @@
 
   /* Text sitting directly on a photograph. The scrim is part of the utility so
      no caller can forget it and ship unreadable type over a bright frame. */
+  /*
+   * Anything sitting on a photograph. It does not just set a text colour — it
+   * redefines the whole palette for that subtree, so components below can keep
+   * using the same token names and none of them needs an "on a photo" variant.
+   *
+   * --c-canvas matters as much as --c-ink here: the outline button's label
+   * flips to `text-canvas` as its wipe arrives, and if canvas were still cream
+   * the label would vanish into a white fill.
+   */
   .on-photo {
     color: #ffffff;
     text-shadow: 0 1px 24px rgba(0, 0, 0, 0.4);
     --c-ink: #ffffff;
+    --c-canvas: #16130c;
     --c-muted: rgba(255, 255, 255, 0.86);
     --c-accent: var(--c-gold);
     --c-line: rgba(255, 255, 255, 0.3);
@@ -484,3 +632,33 @@
     }
   }
 }
+
+/* -----------------------------------------------------------------------------
+   Calm buttons. The state still changes — the fill is simply already there
+   rather than travelling — so hover remains legible without motion.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  @layer utilities {
+    .btn::before {
+      transition: opacity 0.15s linear !important;
+      transform: none !important;
+      opacity: 0;
+    }
+    .btn:hover::before,
+    .btn:focus-visible::before {
+      opacity: 1;
+    }
+    .btn__label,
+    .btn__label--clone {
+      transition: none !important;
+    }
+    .btn__label--clone {
+      display: none;
+    }
+    .btn:hover .btn__label,
+    .btn:focus-visible .btn__label {
+      transform: none !important;
+    }
+  }
+}
+
