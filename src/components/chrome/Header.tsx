@@ -15,13 +15,17 @@ import { useEnquiry } from "@/lib/useEnquiry";
 /* =============================================================================
    HEADER
    -----------------------------------------------------------------------------
-   Edge to edge. Transparent with the gold wordmark while it sits on a
-   photograph; solid cream with the dark wordmark once it is on its own ground.
-   Gold is 1.27:1 on the cream and cannot be read there, so the mark switches
-   the moment the ground does.
+   Edge to edge. Transparent with the reversed logo — gold and cream — while it
+   sits on a photograph; solid cream with the full-colour logo once it is on its
+   own ground. The logo's deep olive lettering cannot be read on a photograph,
+   and its cream cut cannot be read on cream, so the mark switches the moment
+   the ground does.
+
+   The logo is stacked, so it is set tall enough for SWARMA to read, and steps
+   down a size once the page is scrolled so the bar does not eat the screen.
 
    `onPhoto` is not "am I at the top". Privacy, terms of use, contact and the
-   404 have no photograph — a gold mark there would disappear into the cream.
+   404 have no photograph — a cream mark there would disappear into the cream.
    The hero declares itself with data-hero="dark" and the header asks the
    document once per navigation.
 
@@ -90,8 +94,12 @@ export function Header() {
             : "border-b border-line bg-canvas/92 backdrop-blur-lg",
         )}
       >
-        <div className="mx-auto flex max-w-[100rem] items-center justify-between gap-6 px-5 py-4 sm:px-8 md:py-5 lg:px-12">
-          <LogoLink tone={onPhoto ? "gold" : "ink"} height={42} />
+        <div className="mx-auto flex max-w-[100rem] items-center justify-between gap-6 px-5 py-3 sm:px-8 md:py-4 lg:px-12">
+          <LogoLink
+            tone={onPhoto ? "reversed" : "color"}
+            onPhoto={onPhoto}
+            imageClassName={scrolled ? "h-12 md:h-14" : "h-14 md:h-[4.5rem]"}
+          />
 
           <nav aria-label="Main" className="hidden lg:block">
             <ul className="flex items-center gap-8">
@@ -198,8 +206,8 @@ function MobilePanel({
         open ? "visible opacity-100" : "invisible opacity-0",
       )}
     >
-      <div className="flex items-center justify-between px-5 pt-4 pb-4 sm:px-8">
-        <LogoImage tone="gold" height={42} />
+      <div className="flex items-center justify-between px-5 py-3 sm:px-8">
+        <LogoImage tone="reversed" className="h-14" />
         <button
           type="button"
           onClick={onClose}

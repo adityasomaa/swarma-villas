@@ -118,7 +118,7 @@ the one before it:
 Which loader plays is decided by **where you are going**, not where you are:
 
 - **arrival** — the first load of the site, and any navigation to `/`. The logo
-  feather draws in gold, the name sets, the curtain lifts.
+  rises into place on the closed curtain, then the curtain lifts.
 - **page** — every other navigation. Shorter, quieter, no mark.
 
 The curtain is three columns closing from alternating edges.
@@ -129,9 +129,8 @@ custom properties; `motion.css` contains no literal duration and derives each
 column's own duration as `budget - stagger x (columns - 1)`, so the last column
 lands exactly on the budget. They used to be two separate sets of numbers and
 they drifted, with the JavaScript hiding the curtain while it was still sliding.
-`hold` keeps the arrival curtain covered long enough for the feather to finish
-drawing, and a 60 ms tail lets the exit complete before `visibility: hidden`
-applies.
+`hold` keeps the arrival curtain covered long enough for the logo to be seen,
+and a 60 ms tail lets the exit complete before `visibility: hidden` applies.
 
 Every delay goes through `lib/wait.ts`, which races `setTimeout` against
 `requestAnimationFrame` — rAF stops in a backgrounded tab, and a curtain driven
@@ -152,9 +151,10 @@ The measurement is `svh`, not `vh`. On a phone `100vh` is the height with the
 address bar collapsed, so a hero sized in `vh` is taller than the screen on
 arrival and its buttons sit below the fold.
 
-The header starts transparent over the photograph with the **gold** wordmark and
-switches to the dark cut once it is on its own cream ground. Gold is 1.27:1 on
-the cream and cannot be read there. Contact, privacy, terms of use and the 404
+The header starts transparent over the photograph with the **reversed** logo and
+switches to the full-colour logo once it is on its own cream ground. The logo's
+olive lettering cannot be read on a photograph, and the reversed cut's cream
+lettering cannot be read on cream. Contact, privacy, terms of use and the 404
 have no photograph; they get a typographic opening and a solid header. The hero
 declares itself with `data-hero="dark"` and the header asks the document once per
 navigation.
@@ -197,8 +197,24 @@ boundaries** and needs 3:1; `--c-subtle` sets **small print** and needs 4.5:1.
 One value cannot satisfy both without failing the text or darkening every
 hairline on the site.
 
-The logo ships in two cuts: the supplied gold artwork for dark grounds, and a
-near-black version made from its alpha channel for the solid header.
+### The logo
+
+The logo is a stacked, full-colour mark — a gold S round a palm leaf, SWARMA in
+deep olive, VILLAS in gold — and ships in two cuts:
+
+- **color** (`public/brand/logo.png`) — the supplied artwork, for light grounds.
+- **reversed** (`public/brand/logo-reversed.png`) — made from the supplied file
+  by classifying each pixel: gold stays exactly as supplied, everything else
+  (SWARMA, the leaf, the small print) becomes cream. For photographs, the footer,
+  the mobile menu and both loaders.
+
+Both come at 1x and 2x. Being stacked, it is set tall — 72 px in the header at the
+top of a page, 56 px once scrolled — so SWARMA stays legible. Logo type is
+exempt from WCAG contrast; the image's alt text carries the name.
+
+The site icon is the S-and-leaf mark on its own: `src/app/icon.png` at 256 px
+with a transparent ground, and `src/app/apple-icon.png` on the cream, because
+iOS fills transparency with black.
 
 **`@theme inline` is load-bearing.** A plain `@theme` resolves
 `--color-ink: var(--c-ink)` at build time into one hex. `.on-photo` and
@@ -328,6 +344,3 @@ scripts/                    crawl, fetch, optimise, audit, contrast, flow, shoot
 - **The current site's house pages live at `/house/<slug>`** (singular); this
   site uses `/houses/<slug>`. Add redirects from the old addresses so existing
   links and search results keep working.
-- **The supplied logo reads "Swarna Villas Ubud - Bali"** while the business is
-  "Swarma Villas Bali". It is used as supplied; the discrepancy is the client's
-  to resolve.

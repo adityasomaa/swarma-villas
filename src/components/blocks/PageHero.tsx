@@ -51,7 +51,7 @@ export function PageHero({ kicker, title, lede, photo, crumbs = [] }: Props) {
       />
 
       <div className={clsx("on-photo relative flex flex-col justify-end", HALF)}>
-        <Container width="wide" className="pt-28 pb-12 md:pb-16">
+        <Container width="wide" className="pt-32 pb-12 md:pb-16">
           <Breadcrumbs crumbs={crumbs} />
           <Reveal className="mt-6">
             {kicker && <p className="kicker">{kicker}</p>}
@@ -72,7 +72,7 @@ export function PageHero({ kicker, title, lede, photo, crumbs = [] }: Props) {
 
 function TextOnlyHero({ kicker, title, lede, crumbs = [] }: Omit<Props, "photo">) {
   return (
-    <section className="bg-canvas pt-32 pb-4 md:pt-40">
+    <section className="bg-canvas pt-36 pb-4 md:pt-44">
       <Container>
         <Breadcrumbs crumbs={crumbs} />
         <Reveal className="mt-6">

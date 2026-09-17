@@ -27,8 +27,8 @@
 
    Two variants:
      [data-variant="arrival"]  first load, and any navigation to the home page.
-                               The feather draws in gold, the name sets, the
-                               curtain lifts.
+                               The logo rises into place, then the curtain
+                               lifts.
      [data-variant="page"]     every other navigation. Same geometry, no mark.
 
    The curtain: three columns close from alternating edges, then part.
@@ -88,22 +88,18 @@
     opacity: 0;
     transition: opacity 0.22s linear;
   }
-  .sw-curtain__feather,
-  .sw-curtain__rib {
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
+  /* The logo settles a few pixels upward as it fades in, and has the whole
+     close + hold (1760ms on arrival) to be seen. */
+  .sw-curtain__logo {
+    display: block;
+    width: auto;
+    height: clamp(7rem, 20vw, 10.5rem);
+    transform: translate3d(0, 0.75rem, 0);
   }
-  /*
-   * The draw has to finish inside close + hold, which TIMING sets to 1760ms
-   * for the arrival. 0.2s + 0.94s = 1.14s, comfortably inside.
-   */
-  .sw-curtain[data-state="closing"] .sw-curtain__feather,
-  .sw-curtain[data-state="closed"] .sw-curtain__feather {
-    animation: sw-draw 0.94s var(--ease-out-quint) 0.2s forwards;
-  }
-  .sw-curtain[data-state="closing"] .sw-curtain__rib,
-  .sw-curtain[data-state="closed"] .sw-curtain__rib {
-    animation: sw-draw 0.72s var(--ease-out-quint) 0.4s forwards;
+  .sw-curtain[data-state="closing"] .sw-curtain__logo,
+  .sw-curtain[data-state="closed"] .sw-curtain__logo {
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.9s var(--ease-out-quint) 0.2s;
   }
 
   /* ---- three columns from alternating edges ---------------------------- */
@@ -156,16 +152,12 @@
     padding-inline: 1.5rem;
     text-align: center;
   }
-  .sw-intro__word {
-    font-family: var(--f-display);
-    font-size: clamp(1.1rem, 4.4vw, 1.7rem);
-    letter-spacing: 0.34em;
-    text-transform: uppercase;
-    line-height: 1;
-    margin: 0;
-    color: var(--c-ondeep);
+  .sw-intro__logo {
+    display: block;
+    width: auto;
+    height: clamp(8rem, 24vw, 11.5rem);
     opacity: 0;
-    animation: sw-fade-up 0.85s var(--ease-out-quint) 0.62s forwards;
+    animation: sw-fade-up 0.95s var(--ease-out-quint) 0.15s forwards;
   }
   .sw-intro__sub {
     font-family: var(--f-body);
@@ -174,13 +166,7 @@
     text-transform: uppercase;
     color: color-mix(in srgb, var(--c-ondeep) 62%, transparent);
     opacity: 0;
-    animation: sw-fade-up 0.8s var(--ease-out-quint) 0.86s forwards;
-  }
-  .sw-intro .sw-curtain__feather {
-    animation: sw-draw 1.15s var(--ease-out-quint) 0.1s forwards;
-  }
-  .sw-intro .sw-curtain__rib {
-    animation: sw-draw 0.85s var(--ease-out-quint) 0.42s forwards;
+    animation: sw-fade-up 0.8s var(--ease-out-quint) 0.6s forwards;
   }
   /* IntroLoader holds for 1900ms and allows 900ms to leave; both match here. */
   .sw-intro[data-state="out"] {
@@ -188,11 +174,6 @@
     transition: transform 0.9s var(--ease-in-quint);
   }
 
-  @keyframes sw-draw {
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
   @keyframes sw-fade-up {
     from {
       opacity: 0;
@@ -212,14 +193,12 @@
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   @layer components {
-    .sw-intro__word,
+    .sw-intro__logo,
     .sw-intro__sub,
-    .sw-curtain__feather,
-    .sw-curtain__rib {
+    .sw-curtain__logo {
       animation: none !important;
       opacity: 1 !important;
       transform: none !important;
-      stroke-dashoffset: 0 !important;
     }
     .sw-intro[data-state="out"] {
       opacity: 0;

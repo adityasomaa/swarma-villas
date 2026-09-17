@@ -43,7 +43,7 @@ export function Hero() {
       />
 
       <div className={`on-photo relative flex flex-col justify-end ${FULL}`}>
-        <Container width="wide" className="pt-28 pb-16 md:pb-24">
+        <Container width="wide" className="pt-32 pb-16 md:pb-24">
           <Reveal>
             <p className="kicker">{business.positioning}</p>
           </Reveal>

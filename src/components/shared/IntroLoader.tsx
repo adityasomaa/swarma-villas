@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { CurtainMark } from "@/components/shared/Transition";
+import { LoaderMark } from "@/components/shared/Transition";
 import { business } from "@/content/site";
 import { prefersReducedMotion, wait } from "@/lib/wait";
 
@@ -11,12 +11,12 @@ import { prefersReducedMotion, wait } from "@/lib/wait";
    This is the arrival loader in the case a route transition cannot cover: a
    hard page load, where there is no previous page to close. It renders once per
    document. Every navigation after it is handled by the curtain in
-   Transition.tsx, which uses the same mark and the same geometry so the two
+   Transition.tsx, which shows the same logo on the same deep sage so the two
    read as one system rather than two different animations.
 
    `hasPlayed` is module-level on purpose. It survives client navigation — so
-   moving between the three previews does not replay the intro — and resets on a
-   real page load, which is exactly when the intro should run.
+   going back to the home page does not replay the intro — and resets on a real
+   page load, which is exactly when the intro should run.
    ========================================================================== */
 
 let hasPlayed = false;
@@ -81,8 +81,7 @@ export function IntroLoader() {
       aria-label={`Loading ${business.name}`}
     >
       <div className="sw-intro__inner">
-        <CurtainMark />
-        <p className="sw-intro__word">{business.name}</p>
+        <LoaderMark className="sw-intro__logo" />
         <p className="sw-intro__sub" aria-hidden="true">
           {business.tagline}
         </p>

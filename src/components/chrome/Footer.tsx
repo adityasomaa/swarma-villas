@@ -57,7 +57,7 @@ export function Footer() {
         {/* -------------------------------------------------- masthead row */}
         <div className="flex flex-col gap-8 border-b border-line pb-12 md:flex-row md:items-end md:justify-between">
           <div>
-            <LogoImage tone="gold" height={40} />
+            <LogoImage tone="reversed" className="h-20 md:h-24" />
             <p className="measure-prose mt-6 text-[0.9375rem] leading-[1.7] text-muted">
               {business.founderLine}
             </p>

@@ -27,8 +27,8 @@ import { prefersReducedMotion, wait } from "@/lib/wait";
      4. page opens       the curtain clears
 
    THE TWO LOADERS, chosen by WHERE YOU ARE GOING and never by where you are:
-     "arrival"  the home page, and the first load of the site. The feather
-                draws in gold, the name sets, then the curtain lifts.
+     "arrival"  the home page, and the first load of the site. The logo rises
+                into place on the closed curtain, then the curtain lifts.
      "page"     every other destination. Shorter, quieter, no mark.
 
    ---------------------------------------------------------------------------
@@ -47,9 +47,9 @@ import { prefersReducedMotion, wait } from "@/lib/wait";
 
    `close`   how long the curtain takes to cover the screen
    `hold`    the MINIMUM time it stays covered, measured from the moment it is
-             covered. The arrival loader needs enough of this for the feather to
-             finish drawing; without it the mark was cut off at whatever moment
-             the router happened to be ready.
+             covered. The arrival loader needs enough of this for the logo to
+             be seen; without it the mark was cut off at whatever moment the
+             router happened to be ready.
    `open`    how long it takes to clear
    `stagger` the gap between neighbouring columns. The per-panel duration is
              `total - stagger x (panels - 1)`, so the LAST panel lands exactly
@@ -314,35 +314,29 @@ function Curtain({
       ))}
       {variant === "arrival" && (
         <span className="sw-curtain__mark">
-          <CurtainMark />
+          <LoaderMark className="sw-curtain__logo" />
         </span>
       )}
     </div>
   );
 }
 
-/** The feather from the logo, drawn as a single path so it can be stroked on. */
-export function CurtainMark() {
+/**
+ * The logo as both loaders show it: the reversed cut, gold and cream, on the
+ * deep sage of the curtain. Decorative here — each loader carries its own
+ * accessible label, so the image would only be announced twice.
+ */
+export function LoaderMark({ className }: { className: string }) {
   return (
-    <svg viewBox="0 0 120 64" width="120" height="64" aria-hidden="true" focusable="false">
-      <path
-        className="sw-curtain__feather"
-        d="M8 52 C 26 46, 44 38, 62 26 C 76 17, 92 12, 112 12 C 104 30, 90 42, 72 48 C 54 54, 30 56, 8 52 Z"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-        pathLength={1}
-      />
-      <path
-        className="sw-curtain__rib"
-        d="M10 51 C 40 44, 74 32, 110 13"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        pathLength={1}
-      />
-    </svg>
+    <img
+      src="/brand/logo-reversed.png"
+      srcSet="/brand/logo-reversed.png 1x, /brand/logo-reversed@2x.png 2x"
+      alt=""
+      aria-hidden="true"
+      width={157}
+      height={100}
+      className={className}
+      decoding="async"
+    />
   );
 }
