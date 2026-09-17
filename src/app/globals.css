@@ -4,9 +4,20 @@
 /* =============================================================================
    SWARMA VILLAS BALI — GLOBAL TOKENS
    =============================================================================
-   Cream and deep sage, square corners, Instrument Serif over DM Sans.
-   (The Riverstone direction, after Villa Asteria. The two directions that were
-   not chosen are kept in git under the tag `three-directions`.)
+   Ivory, deep olive and metallic gold, square corners, Instrument Serif over
+   DM Sans. (The Riverstone direction, after Villa Asteria. The two directions
+   that were not chosen are kept in git under the tag `three-directions`.)
+
+   THE PALETTE IS TAKEN FROM THE LOGO, sampled from the artwork itself:
+
+     deep olive   #2f3915   SWARMA is #394419, its darkest strokes #313c12
+     gold         #c9a451   the S is #cba553, shading to #b79241
+     leaf         #5b632c   the palm leaf — not a token; muted is its quieter,
+                            text-safe cousin
+
+   Everything else is derived from those two: the ivory grounds are warmed
+   toward the gold, and the greys are olive rather than neutral, so nothing on
+   the page reads as a colour the logo does not contain.
 
    Everything lives inside an @layer so Tailwind utilities always win over it.
    ========================================================================== */
@@ -21,7 +32,7 @@
    That matters even with a single palette, because two utilities redefine the
    palette for a subtree: `.on-photo` (type set on a photograph) and `.on-deep`
    (a dark band). Without `inline`, `text-ink` inside a hero would still be
-   deep sage on a dark photograph.
+   deep olive on a dark photograph.
    ========================================================================== */
 @theme inline {
   --color-canvas: var(--c-canvas);
@@ -47,9 +58,10 @@
      light grounds, where the brand gold itself is unreadable. */
   --color-accent: var(--c-accent);
   --color-onaccent: var(--c-onaccent);
-  /* THE BRAND GOLD, #FCD403, straight off the logo. It is 1.27:1 on the cream,
-     so it can never carry text on a light ground. It is used as a FILL with
-     deep sage on it (9.2:1), as a rule, and as text on dark grounds. */
+  /* THE BRAND GOLD, #C9A451, the metallic gold of the logo's S. It is 2.1:1
+     on the ivory, so it never carries text on a light ground. It is used as a
+     FILL with deep olive on it (5.2:1), as a rule, and as text on dark grounds
+     (5.2:1). */
   --color-gold: var(--c-gold);
   --color-ongold: var(--c-ongold);
   --color-deep: var(--c-deep);
@@ -87,20 +99,28 @@
     --r-md: 2px;
     --r-pill: 2px;
 
-    --c-canvas: #f5f0e8;
-    --c-surface: #ffffff;
-    --c-raised: #e8ddcc;
-    --c-ink: #2b3227;
-    --c-muted: #4a5642;
-    --c-line: #d9cfbb;
-    --c-field: #77816d;
-    --c-subtle: #5d6555;
-    --c-accent: #6b5200;
-    --c-onaccent: #f5f0e8;
-    --c-gold: #fcd403;
-    --c-ongold: #2b3227;
-    --c-deep: #2b3227;
-    --c-ondeep: #f5f0e8;
+    /* grounds — ivory, warmed toward the gold */
+    --c-canvas: #f5f0e4;
+    --c-surface: #fbf8f1;
+    --c-raised: #ebe4d0;
+    --c-line: #d9d1b9;
+
+    /* type — the logo's olive, and olive greys derived from it. Each value was
+       solved to clear its WCAG threshold on the darkest of the three grounds. */
+    --c-ink: #2f3915;
+    --c-muted: #474c30;
+    --c-subtle: #65684f;
+    --c-field: #838566;
+
+    /* the logo's gold, and a darker bronze of the same hue for text */
+    --c-accent: #7b622c;
+    --c-onaccent: #f5f0e4;
+    --c-gold: #c9a451;
+    --c-ongold: #2f3915;
+
+    /* dark bands: the footer, the mobile menu, the loaders */
+    --c-deep: #2f3915;
+    --c-ondeep: #f5f0e4;
 
     /*
      * The font variables are defined by next/font on <html> (the class is
@@ -326,7 +346,7 @@
     color: #ffffff;
     text-shadow: 0 1px 24px rgba(0, 0, 0, 0.4);
     --c-ink: #ffffff;
-    --c-canvas: #2b3227;
+    --c-canvas: #2f3915;
     --c-muted: rgba(255, 255, 255, 0.86);
     --c-accent: var(--c-gold);
     --c-line: rgba(255, 255, 255, 0.3);

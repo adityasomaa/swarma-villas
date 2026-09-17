@@ -120,15 +120,13 @@ export default async function ExperiencePage({
               className="mb-10 md:mb-14"
             />
             <ul
-              className={clsx(
-                "grid gap-px bg-line sm:grid-cols-2",
-              )}
+              className="grid gap-px bg-line sm:grid-cols-2"
             >
               {exp.lists.map((list, i) => (
                 <li key={list.title} className="bg-surface">
                   <Reveal delay={i * 80}>
                     <div className="h-full p-7 md:p-9">
-                      <span className="kicker text-gold tabular-nums">
+                      <span className="kicker text-accent tabular-nums">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <h3 className="display mt-4 text-[1.5rem] leading-snug">{list.title}</h3>

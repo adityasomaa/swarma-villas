@@ -61,7 +61,7 @@ export function VideoBand() {
             />
             <span
               aria-hidden
-              className="absolute inset-0 bg-[linear-gradient(to_top,rgba(10,10,8,0.55),rgba(10,10,8,0.12))]"
+              className="absolute inset-0 bg-[linear-gradient(to_top,rgba(24,30,10,0.6),rgba(24,30,10,0.14))]"
             />
             <span className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-white">
               <span

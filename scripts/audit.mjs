@@ -18,6 +18,9 @@ import { writeFileSync, mkdirSync } from "node:fs";
      404            addresses the site does not have really return 404
      redirects      the old preview links land on the same page at its new address
      duplicates     no two pages share a title or a meta description
+     gold text      no text set in the brand gold outside a dark band or a
+                    photograph — it is 2.1:1 on the ivory, and the contrast
+                    script cannot see where a class was actually used
 
    Run it against a production build:
      npx next build && bash scripts/serve.sh 3100
@@ -156,6 +159,22 @@ for (const path of PAGE_PATHS) {
       .map((el) => `${el.tagName.toLowerCase()}${el.className ? "." + String(el.className).split(" ")[0] : ""}`)
       .slice(0, 5);
 
+    /* ---- gold type only where the ground is dark ---- */
+    const gold = getComputedStyle(document.documentElement).getPropertyValue("--c-gold").trim();
+    const probe = document.createElement("span");
+    probe.style.color = gold;
+    document.body.appendChild(probe);
+    const goldRgb = getComputedStyle(probe).color;
+    probe.remove();
+    out.goldOnLight = [...document.querySelectorAll("body *")]
+      .filter((el) => {
+        if (el.closest(".on-deep, .on-photo, [aria-hidden='true']")) return false;
+        const own = [...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim());
+        return own && getComputedStyle(el).color === goldRgb;
+      })
+      .map((el) => `"${el.textContent.trim().slice(0, 30)}"`)
+      .slice(0, 5);
+
     /* ---- metadata ---- */
     out.title = document.title;
     out.description = document.querySelector('meta[name="description"]')?.getAttribute("content") ?? "";
@@ -173,6 +192,7 @@ for (const path of PAGE_PATHS) {
   if (result.mainCount !== 1) fail(path, "landmark", `${result.mainCount} <main> elements`);
   if (!result.skipTargetExists) fail(path, "skip-link", "#main does not exist");
   for (const control of result.unnamed) fail(path, "unnamed-control", control);
+  for (const text of result.goldOnLight) fail(path, "gold-text-on-light", text);
   if (!result.lang) fail(path, "lang", "<html> has no lang");
   if (!result.title) fail(path, "title", "empty");
   if (!result.description) fail(path, "description", "empty");

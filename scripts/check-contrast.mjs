@@ -11,8 +11,8 @@
    reading, because a screenshot cannot tell you that a pair is at 4.4 — it just
    looks slightly tired.
 
-   The brand gold is the reason this file exists. #FCD403 measures 1.27:1 on
-   the cream: it can never carry text on a light ground. The palette solves that by
+   The brand gold is the reason this file exists. #C9A451 measures 2.1:1 on
+   the ivory: it can never carry text on a light ground. The palette solves that by
    using gold as a FILL that carries near-black type, and a darker bronze
    descendant for text on light grounds. This script is what proves that holds
    everywhere rather than mostly.
@@ -22,19 +22,19 @@
 
 const PALETTES = {
   "Swarma Villas": {
-    canvas: "#f5f0e8",
-    surface: "#ffffff",
-    raised: "#e8ddcc",
-    ink: "#2b3227",
-    muted: "#4a5642",
-    line: "#d9cfbb",
-    field: "#77816d",
-    subtle: "#5d6555",
-    accent: "#6b5200",
-    gold: "#fcd403",
-    ongold: "#2b3227",
-    deep: "#2b3227",
-    ondeep: "#f5f0e8",
+    canvas: "#f5f0e4",
+    surface: "#fbf8f1",
+    raised: "#ebe4d0",
+    ink: "#2f3915",
+    muted: "#474c30",
+    line: "#d9d1b9",
+    field: "#838566",
+    subtle: "#65684f",
+    accent: "#7b622c",
+    gold: "#c9a451",
+    ongold: "#2f3915",
+    deep: "#2f3915",
+    ondeep: "#f5f0e4",
   },
 };
 

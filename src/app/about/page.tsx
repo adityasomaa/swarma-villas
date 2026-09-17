@@ -7,7 +7,6 @@ import { Photo } from "@/components/shared/Photo";
 import { Reveal } from "@/components/shared/Reveal";
 import { Container, Prose, Section, SectionHeader } from "@/components/ui";
 import { copy, reviews } from "@/content/site";
-import { clsx } from "@/lib/clsx";
 
 export const metadata: Metadata = {
   title: "About",
@@ -59,19 +58,15 @@ export default function AboutPage() {
             className="mb-12 md:mb-16"
           />
           <ul
-            className={clsx(
-              "grid gap-px bg-line sm:grid-cols-2",
-            )}
+            className="grid gap-px bg-line sm:grid-cols-2"
           >
             {copy.about.why.map((item, i) => (
               <li key={item.title} className="bg-surface">
                 <Reveal delay={i * 80}>
                   <div
-                    className={clsx(
-                      "flex h-full flex-col p-7 md:p-9",
-                    )}
+                    className="flex h-full flex-col p-7 md:p-9"
                   >
-                    <span className="kicker text-gold tabular-nums">
+                    <span className="kicker text-accent tabular-nums">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <h3 className="display mt-5 text-[1.375rem] leading-snug">{item.title}</h3>

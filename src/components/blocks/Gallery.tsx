@@ -184,7 +184,7 @@ function Lightbox({
       role="dialog"
       aria-modal="true"
       aria-label={`Photograph ${index + 1} of ${slugs.length}`}
-      className="z-overlay fixed inset-0 flex flex-col bg-[rgba(12,11,8,0.94)] p-3 backdrop-blur-sm sm:p-6"
+      className="z-overlay fixed inset-0 flex flex-col bg-[rgba(20,25,8,0.95)] p-3 backdrop-blur-sm sm:p-6"
     >
       <div className="flex shrink-0 items-center justify-between gap-4 pb-3 text-white/70">
         <p className="text-[0.8125rem] tabular-nums">
@@ -193,7 +193,7 @@ function Lightbox({
         <button
           type="button"
           onClick={onClose}
-          className="inline-flex h-11 w-11 items-center justify-center text-[1.75rem] leading-none text-white/70 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fcd403]"
+          className="inline-flex h-11 w-11 items-center justify-center text-[1.75rem] leading-none text-white/70 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
         >
           <span className="sr-only">Close</span>
           <span aria-hidden>&times;</span>
@@ -244,7 +244,7 @@ function NavButton({
     <button
       type="button"
       onClick={onClick}
-      className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fcd403]"
+      className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
     >
       <span className="sr-only">{label}</span>
       <span aria-hidden dangerouslySetInnerHTML={{ __html: arrow }} />

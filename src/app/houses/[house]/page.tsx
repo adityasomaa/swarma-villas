@@ -77,9 +77,7 @@ export default async function HousePage({
               <Reveal className="mt-12">
                 <h2 className="display text-[1.5rem]">What is in the house</h2>
                 <ul
-                  className={clsx(
-                    "mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2",
-                  )}
+                  className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2"
                 >
                   {house.amenities.map((item) => (
                     <li

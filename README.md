@@ -1,7 +1,8 @@
 # Swarma Villas Bali — redesign
 
-A redesign of [swarmavillasbali.com](https://swarmavillasbali.com): cream and deep
-sage, square corners, Instrument Serif over DM Sans, photography first.
+A redesign of [swarmavillasbali.com](https://swarmavillasbali.com): ivory, deep
+olive and metallic gold taken from the logo, square corners, Instrument Serif over
+DM Sans, photography first.
 
 **Live:** https://swarma-villas.vercel.app
 
@@ -179,23 +180,41 @@ removes the motion on touch, where `:hover` is a sticky state after a tap.
 
 ---
 
-## Colour, and the brand gold
+## Colour
 
-The palette comes from the logo, a single-colour gold mark: **#FCD403**. It
-measures 1.27:1 on the cream, so it is used the only ways it works:
+**The palette is sampled from the logo artwork**, not picked by eye:
 
-- **as a fill** carrying deep sage type — 9.2:1;
-- **as text on dark grounds**, where `.on-deep` and `.on-photo` flip
-  `--c-accent` back to it;
+| Token | Value | From the logo |
+|---|---|---|
+| deep olive — `--c-ink`, `--c-deep` | `#2f3915` | SWARMA is `#394419`, its darkest strokes `#313c12` |
+| gold — `--c-gold` | `#c9a451` | the S is `#cba553`, shading to `#b79241` |
+| bronze — `--c-accent` | `#7b622c` | the same hue as the gold, darkened until it reads as text |
+
+The ivory grounds (`#f5f0e4`, `#fbf8f1`, `#ebe4d0`) are warmed toward the gold,
+and the greys (`--c-muted`, `--c-subtle`, `--c-field`) are olive rather than
+neutral. Each text token was solved to clear its WCAG threshold on the darkest
+of the three grounds, so nothing on the page is a colour the logo does not
+contain and nothing was nudged by hand until it happened to pass.
+
+The gold measures **2.1:1 on the ivory**, so it is used the only ways it works:
+
+- **as a fill** carrying deep olive type — 5.2:1;
+- **as text on dark grounds** (the footer, the mobile menu, the review band),
+  where `.on-deep` and `.on-photo` flip `--c-accent` back to it — 5.2:1;
 - **as rules and marks**, where 1.4.11 does not apply.
 
-For links and kickers on light grounds there is a text-safe bronze descendant,
-`--c-accent` (#6b5200).
+On light grounds, anything that would have been gold text is bronze instead.
+`scripts/audit.mjs` checks this on the rendered pages — it flags any text whose
+computed colour is the gold outside a dark band or a photograph. The contrast
+script cannot catch that on its own, because it checks colour pairs, not where a
+class was actually used; the numbered lists on /about and on the package page
+were gold on ivory until this check found them.
 
 Two tokens look like they should be one. `--c-field` draws **control
 boundaries** and needs 3:1; `--c-subtle` sets **small print** and needs 4.5:1.
-One value cannot satisfy both without failing the text or darkening every
-hairline on the site.
+
+Photograph scrims are deep olive rather than black, so the dark end of every
+hero belongs to the same palette as the footer.
 
 ### The logo
 
@@ -205,7 +224,7 @@ deep olive, VILLAS in gold — and ships in two cuts:
 - **color** (`public/brand/logo.png`) — the supplied artwork, for light grounds.
 - **reversed** (`public/brand/logo-reversed.png`) — made from the supplied file
   by classifying each pixel: gold stays exactly as supplied, everything else
-  (SWARMA, the leaf, the small print) becomes cream. For photographs, the footer,
+  (SWARMA, the leaf, the small print) becomes the ivory `#f5f0e4`. For photographs, the footer,
   the mobile menu and both loaders.
 
 Both come at 1x and 2x. Being stacked, it is set tall — 72 px in the header at the
@@ -213,7 +232,7 @@ top of a page, 56 px once scrolled — so SWARMA stays legible. Logo type is
 exempt from WCAG contrast; the image's alt text carries the name.
 
 The site icon is the S-and-leaf mark on its own: `src/app/icon.png` at 256 px
-with a transparent ground, and `src/app/apple-icon.png` on the cream, because
+with a transparent ground, and `src/app/apple-icon.png` on the ivory, because
 iOS fills transparency with black.
 
 **`@theme inline` is load-bearing.** A plain `@theme` resolves
