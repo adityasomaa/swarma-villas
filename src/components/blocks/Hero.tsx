@@ -153,7 +153,8 @@ function RiverstoneHero() {
       <div className={`on-photo relative flex flex-col justify-end ${FULL}`}>
         <Container width="wide" className="pb-16 md:pb-24">
           <Reveal>
-            <p className="kicker">{copy.home.kicker}</p>
+            {/* The client asked for Paon's hero wording on this direction. */}
+            <p className="kicker">{business.positioning}</p>
           </Reveal>
           <Reveal delay={100}>
             <h1 className="display mt-5 max-w-5xl text-[clamp(2.5rem,8.5vw,6.5rem)] leading-[0.94]">
