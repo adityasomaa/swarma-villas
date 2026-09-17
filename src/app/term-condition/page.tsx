@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 
-import { idFromSegment } from "@/app/[template]/layout";
 import { LegalDoc } from "@/components/blocks/LegalDoc";
 import { CtaBand } from "@/components/blocks/home";
 import { bookingTerms, copy } from "@/content/site";
@@ -31,25 +29,16 @@ const doc: LegalDocument = {
   ],
 };
 
-export default async function TermConditionPage({
-  params,
-}: {
-  params: Promise<{ template: string }>;
-}) {
-  const { template } = await params;
-  const tpl = idFromSegment(template);
-  if (!tpl) notFound();
+export default function TermConditionPage() {
 
   return (
     <>
       <LegalDoc
-        tpl={tpl}
         doc={doc}
         currentPath="/term-condition"
         crumbLabel="Terms & conditions"
       />
       <CtaBand
-        tpl={tpl}
         title="Ready when you are"
         lede="Send your dates and we will confirm what is free and what it comes to."
       />

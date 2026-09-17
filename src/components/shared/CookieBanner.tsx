@@ -4,9 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { useConsent } from "@/components/shared/ConsentProvider";
 import { useUI } from "@/components/shared/UIProvider";
 import { TLink } from "@/components/shared/Transition";
-import { templateFromPath } from "@/lib/templates";
-import { usePathname } from "next/navigation";
-import { href } from "@/lib/templates";
 
 /* =============================================================================
    COOKIE SETTINGS — a working feature, not a notice.
@@ -25,8 +22,6 @@ import { href } from "@/lib/templates";
 export function CookieBanner() {
   const { banner, consent, set } = useConsent();
   const { menuOpen } = useUI();
-  const pathname = usePathname();
-  const tpl = templateFromPath(pathname);
   const [detail, setDetail] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -48,7 +43,6 @@ export function CookieBanner() {
 
   if (!visible) return null;
 
-  const privacyHref = tpl ? href(tpl, "/privacy") : "/template-1/privacy";
 
   return (
     <div
@@ -118,7 +112,7 @@ export function CookieBanner() {
             {detail ? "Hide detail" : "Manage"}
           </button>
           <TLink
-            href={privacyHref}
+            href="/privacy"
             className="ml-auto px-1 py-2.5 text-sm text-muted underline underline-offset-4 hover:text-ink"
           >
             Privacy

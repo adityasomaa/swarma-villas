@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 
-import { idFromSegment } from "@/app/[template]/layout";
 import { Gallery } from "@/components/blocks/Gallery";
 import { PageHero } from "@/components/blocks/PageHero";
 import { CtaBand } from "@/components/blocks/home";
@@ -75,10 +73,7 @@ const GROUPS: { title: string; blurb: string; categories: string[] }[] = [
   },
 ];
 
-export default async function GalleryPage({ params }: { params: Promise<{ template: string }> }) {
-  const { template } = await params;
-  const tpl = idFromSegment(template);
-  if (!tpl) notFound();
+export default function GalleryPage() {
 
   const groups = GROUPS.map((group) => ({
     ...group,
@@ -92,7 +87,6 @@ export default async function GalleryPage({ params }: { params: Promise<{ templa
   return (
     <>
       <PageHero
-        tpl={tpl}
         kicker="The property"
         title={copy.gallery.h1}
         lede={copy.gallery.lede}
@@ -100,7 +94,7 @@ export default async function GalleryPage({ params }: { params: Promise<{ templa
         crumbs={[{ label: "Gallery", path: "/gallery" }]}
       />
 
-      <Section tpl={tpl} tone="canvas" size="tight">
+      <Section tone="canvas" size="tight">
         <Container>
           <p className="text-[0.9375rem] text-muted">
             {total} photographs, all of this property. Select any one to see it larger; the
@@ -112,25 +106,22 @@ export default async function GalleryPage({ params }: { params: Promise<{ templa
       {groups.map((group, i) => (
         <Section
           key={group.title}
-          tpl={tpl}
           tone={i % 2 === 0 ? "canvas" : "surface"}
           size="tight"
         >
-          <Container width={tpl === "t2" ? "wide" : "default"}>
+          <Container width="wide">
             <SectionHeader
-              tpl={tpl}
               kicker={`${group.slugs.length} photographs`}
               title={group.title}
               lede={group.blurb}
               className="mb-8 md:mb-12"
             />
-            <Gallery tpl={tpl} slugs={group.slugs} columns={4} />
+            <Gallery slugs={group.slugs} columns={4} />
           </Container>
         </Section>
       ))}
 
       <CtaBand
-        tpl={tpl}
         title="See it for yourself"
         lede="Photographs only go so far. Send your dates and come and stand in it."
       />

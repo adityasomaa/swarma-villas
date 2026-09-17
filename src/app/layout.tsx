@@ -1,27 +1,19 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+import { Footer } from "@/components/chrome/Footer";
+import { Header } from "@/components/chrome/Header";
 import { ConsentProvider } from "@/components/shared/ConsentProvider";
 import { CookieBanner } from "@/components/shared/CookieBanner";
+import { IntroLoader } from "@/components/shared/IntroLoader";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { SkipLink } from "@/components/shared/SkipLink";
 import { SmoothScroll } from "@/components/shared/SmoothScroll";
-import { PreviewSwitcher } from "@/components/shared/PreviewSwitcher";
 import { TransitionProvider } from "@/components/shared/Transition";
 import { UIProvider } from "@/components/shared/UIProvider";
 import { business } from "@/content/site";
+import { fontVariables } from "@/lib/fonts";
 import { SITE_URL, lodgingBusinessJsonLd } from "@/lib/seo";
-
-/**
- * The root layout carries what is the same across all three previews: the
- * providers, the preview switcher, smooth scrolling, the cookie settings and
- * the business-level structured data.
- *
- * It loads NO typeface. next/font defines its variable on the element carrying
- * the class, and that element has to be each template's own wrapper — the
- * curtain and the chrome live inside it and need the variable to resolve.
- * Loading a face here would also put it on every page of every preview.
- */
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -60,31 +52,45 @@ export const metadata: Metadata = {
     description: "Three houses in Singakerta, Ubud. Published rates, book direct.",
   },
   /**
-   * Noindex, deliberately. Three previews carrying Swarma Villas' own copy
-   * would compete with swarmavillasbali.com in search — damaging the client
-   * this is a pitch to. Flip this and the disallow in robots.ts together on the
-   * day one direction goes live under the real domain.
+   * Noindex, deliberately, for as long as this lives on vercel.app. A second
+   * copy of Swarma Villas' own copy would compete with swarmavillasbali.com in
+   * search. Flip this and the disallow in robots.ts together on the day the
+   * site moves to the villa's own domain.
    */
   robots: { index: false, follow: false },
   formatDetection: { telephone: false },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#16130c",
+  themeColor: "#2b3227",
   colorScheme: "light",
 };
 
+/**
+ * The font class goes on <html>: next/font defines its CSS variables on the
+ * element carrying the class, and this is the only element that is an ancestor
+ * of everything — including the calendar and the lightbox, which render
+ * through portals straight into <body>.
+ */
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className={fontVariables}>
+      <body className="flex min-h-dvh flex-col">
         <ConsentProvider>
           <UIProvider>
             <TransitionProvider>
               <SkipLink />
-              <PreviewSwitcher />
               <SmoothScroll />
-              {children}
+              <IntroLoader />
+              <Header />
+              {/*
+                The skip link targets this id, and it is the element the page
+                transition scrolls to the top of.
+              */}
+              <main id="main" className="flex-1">
+                {children}
+              </main>
+              <Footer />
               <CookieBanner />
             </TransitionProvider>
           </UIProvider>

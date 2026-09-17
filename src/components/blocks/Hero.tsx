@@ -1,139 +1,31 @@
 import { Photo } from "@/components/shared/Photo";
 import { Reveal } from "@/components/shared/Reveal";
 import { Button, Container } from "@/components/ui";
-import { business, copy, cta, houses } from "@/content/site";
-import { formatIDR } from "@/lib/format";
-import { href, type TemplateId } from "@/lib/templates";
+import { business, copy, cta } from "@/content/site";
 
 /* =============================================================================
-   THREE OPENINGS
+   THE OPENING
    -----------------------------------------------------------------------------
-   All three fill one screen and all three set their type ON the photograph.
-   What differs is the composition, taken from each direction's reference:
+   One photograph, full height, with the name set across its bottom-left corner.
 
-     Amber       the type in a warm glass panel floating over the photograph,
-                 with the rate card beside it. (Vantara)
-     Riverstone  the name across the bottom-left corner, nothing else on it.
-                 (Villa Asteria)
-     Paon        centred between two hairlines, hotel-formal. (Villa L)
+   The kicker is the villa's positioning line rather than its tagline — the
+   client asked for this wording specifically.
 
-   HEIGHT. `100svh` — the *small* viewport height — minus the preview switcher.
-   On a phone `100vh` is the height with the address bar collapsed, so a hero
-   sized in vh is taller than the screen on arrival and its buttons sit below
-   the fold until you scroll. `svh` is the honest number.
+   HEIGHT. `100svh`, the *small* viewport height. On a phone `100vh` is the
+   height with the address bar collapsed, so a hero sized in vh is taller than
+   the screen on arrival and its buttons sit below the fold until you scroll.
 
-   THE SCRIM. Every one of these puts text on a photograph, so every one of
-   them carries a gradient underneath the type. Without it the contrast depends
-   on which part of a jungle happens to be bright that day — and jungle is the
-   one subject that is reliably light and dark in the same frame.
+   THE SCRIM. Type on a photograph needs a gradient underneath it. Without one
+   the contrast depends on which part of a jungle happens to be bright that day,
+   and jungle is reliably light and dark in the same frame.
+
+   `data-hero="dark"` tells the header it is sitting on a photograph, so it can
+   start transparent with the gold wordmark.
    ========================================================================== */
 
-const cheapest = Math.min(...houses.map((h) => h.priceFromIDR));
+const FULL = "min-h-svh";
 
-/** One screen, honestly measured. Used by all three. */
-const FULL = "min-h-[calc(100svh-var(--switcher-h))]";
-
-export function Hero({ tpl }: { tpl: TemplateId }) {
-  if (tpl === "t1") return <AmberHero />;
-  if (tpl === "t2") return <RiverstoneHero />;
-  return <PaonHero />;
-}
-
-/* ------------------------------------------------------------- 1 — AMBER */
-
-function AmberHero() {
-  return (
-    <section data-hero="dark" className={`relative isolate w-full overflow-hidden ${FULL}`}>
-      <Photo
-        slug="property-03"
-        priority
-        fill
-        sizes="100vw"
-        className="-z-10"
-        imgClassName="object-[center_38%]"
-        alt="A teakwood gladak house raised above the garden at Swarma Villas"
-      />
-      {/*
-        Warm rather than neutral, so the scrim belongs to Amber's palette
-        instead of greying the photograph down.
-      */}
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(105deg,rgba(22,19,12,0.86)_0%,rgba(22,19,12,0.62)_38%,rgba(22,19,12,0.18)_68%,rgba(22,19,12,0.32)_100%)]"
-      />
-
-      <div className={`on-photo relative flex items-center ${FULL}`}>
-        <Container className="grid w-full items-end gap-8 py-28 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.75fr)] lg:gap-12">
-          <div>
-            <Reveal>
-              <div className="flex items-center gap-3">
-                <span aria-hidden className="h-px w-8 bg-gold" />
-                <p className="kicker">{copy.home.kicker}</p>
-              </div>
-            </Reveal>
-
-            <Reveal delay={80}>
-              <h1 className="display mt-6 text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.02]">
-                {copy.home.h1}
-              </h1>
-            </Reveal>
-
-            <Reveal delay={160}>
-              <p className="measure-prose mt-6 text-[1.0625rem] leading-[1.7] opacity-90 md:text-[1.125rem]">
-                {copy.home.lede}
-              </p>
-            </Reveal>
-
-            <Reveal delay={240}>
-              <div className="mt-9 flex flex-wrap gap-3">
-                <Button tpl="t1" href={href("t1", cta.primary.href)}>
-                  {cta.primary.label}
-                </Button>
-                <Button tpl="t1" href={href("t1", "/houses")} tone="outline">
-                  See the three houses
-                </Button>
-              </div>
-            </Reveal>
-          </div>
-
-          {/* The rate card. Glass, rounded, warm — Amber's whole character in
-              one element, and the only place a rate appears above the fold. */}
-          <Reveal delay={320}>
-            <div className="r-md border border-white/15 bg-black/30 p-6 backdrop-blur-xl md:p-7">
-              <p className="kicker opacity-75">Rates start from</p>
-              <p className="display mt-2 text-[2rem] leading-none">
-                {formatIDR(cheapest)}
-                <span className="ml-2 align-middle text-[0.8125rem] tracking-normal opacity-75">
-                  per night
-                </span>
-              </p>
-              <p className="mt-3 text-[0.875rem] leading-relaxed opacity-85">
-                Published rate for the Wooden Gladak House. Book direct on WhatsApp — no
-                agency fee.
-              </p>
-              <dl className="mt-6 grid grid-cols-3 gap-3 border-t border-white/20 pt-5">
-                {[
-                  ["Houses", String(houses.length)],
-                  ["Ubud", "Singakerta"],
-                  ["Sleeps", "2 each"],
-                ].map(([label, value]) => (
-                  <div key={label}>
-                    <dt className="kicker text-[0.5625rem] opacity-70">{label}</dt>
-                    <dd className="display mt-1 text-[0.9375rem] sm:text-[1.0625rem]">{value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          </Reveal>
-        </Container>
-      </div>
-    </section>
-  );
-}
-
-/* -------------------------------------------------------- 2 — RIVERSTONE */
-
-function RiverstoneHero() {
+export function Hero() {
   return (
     <section data-hero="dark" className={`relative isolate w-full ${FULL}`}>
       <Photo
@@ -151,9 +43,8 @@ function RiverstoneHero() {
       />
 
       <div className={`on-photo relative flex flex-col justify-end ${FULL}`}>
-        <Container width="wide" className="pb-16 md:pb-24">
+        <Container width="wide" className="pt-28 pb-16 md:pb-24">
           <Reveal>
-            {/* The client asked for Paon's hero wording on this direction. */}
             <p className="kicker">{business.positioning}</p>
           </Reveal>
           <Reveal delay={100}>
@@ -169,67 +60,13 @@ function RiverstoneHero() {
             </Reveal>
             <Reveal delay={280}>
               <div className="flex flex-wrap gap-3">
-                <Button tpl="t2" href={href("t2", cta.primary.href)}>
-                  {cta.primary.label}
-                </Button>
-                <Button tpl="t2" href={href("t2", "/houses")} tone="outline">
+                <Button href={cta.primary.href}>{cta.primary.label}</Button>
+                <Button href="/houses" tone="outline">
                   The houses
                 </Button>
               </div>
             </Reveal>
           </div>
-        </Container>
-      </div>
-    </section>
-  );
-}
-
-/* -------------------------------------------------------------- 3 — PAON */
-
-function PaonHero() {
-  return (
-    <section data-hero="dark" className={`relative isolate w-full ${FULL}`}>
-      <Photo
-        slug="property-12"
-        priority
-        fill
-        sizes="100vw"
-        className="-z-10"
-        imgClassName="object-[center_45%]"
-        alt="The open pavilion and lawn at Swarma Villas Bali"
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgba(14,14,14,0.68)_0%,rgba(14,14,14,0.34)_45%,rgba(14,14,14,0.72)_100%)]"
-      />
-
-      <div className={`on-photo relative flex items-center justify-center ${FULL}`}>
-        <Container className="py-24 text-center">
-          {/* Hairlines above and below the block: Paon's whole system is rules,
-              and here they frame rather than separate. */}
-          <Reveal>
-            <p className="kicker border-t border-white/35 pt-8">{business.positioning}</p>
-          </Reveal>
-          <Reveal delay={80}>
-            <h1 className="display measure-display mx-auto mt-6 text-[clamp(2.25rem,5.6vw,4.25rem)] leading-[1.08]">
-              {copy.home.h1}
-            </h1>
-          </Reveal>
-          <Reveal delay={160}>
-            <p className="measure-prose mx-auto mt-6 text-[1.0625rem] leading-[1.75] opacity-90">
-              {copy.home.lede}
-            </p>
-          </Reveal>
-          <Reveal delay={240}>
-            <div className="mt-10 flex flex-wrap justify-center gap-3 border-b border-white/35 pb-10">
-              <Button tpl="t3" href={href("t3", cta.primary.href)}>
-                {cta.primary.label}
-              </Button>
-              <Button tpl="t3" href={href("t3", "/houses")} tone="outline">
-                The houses
-              </Button>
-            </div>
-          </Reveal>
         </Container>
       </div>
     </section>

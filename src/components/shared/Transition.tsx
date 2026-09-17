@@ -14,7 +14,6 @@ import {
   type ReactNode,
 } from "react";
 import { hardScrollToTop } from "@/components/shared/SmoothScroll";
-import { TEMPLATES, templateFromPath, type TemplateId } from "@/lib/templates";
 import { prefersReducedMotion, wait } from "@/lib/wait";
 
 /* =============================================================================
@@ -28,7 +27,7 @@ import { prefersReducedMotion, wait } from "@/lib/wait";
      4. page opens       the curtain clears
 
    THE TWO LOADERS, chosen by WHERE YOU ARE GOING and never by where you are:
-     "arrival"  a template home, and the first load of the site. The feather
+     "arrival"  the home page, and the first load of the site. The feather
                 draws in gold, the name sets, then the curtain lifts.
      "page"     every other destination. Shorter, quieter, no mark.
 
@@ -52,7 +51,7 @@ import { prefersReducedMotion, wait } from "@/lib/wait";
              finish drawing; without it the mark was cut off at whatever moment
              the router happened to be ready.
    `open`    how long it takes to clear
-   `stagger` the gap between neighbouring panels. The per-panel duration is
+   `stagger` the gap between neighbouring columns. The per-panel duration is
              `total - stagger x (panels - 1)`, so the LAST panel lands exactly
              on the budget rather than after it.
    ========================================================================== */
@@ -68,29 +67,13 @@ type Beat = {
   staggerOpen: number;
 };
 
-const TIMING: Record<TemplateId | "shared", Record<CurtainVariant, Beat>> = {
-  // One warm sheet, so nothing to stagger.
-  t1: {
-    arrival: { close: 820, hold: 900, open: 900, staggerClose: 0, staggerOpen: 0 },
-    page: { close: 620, hold: 200, open: 720, staggerClose: 0, staggerOpen: 0 },
-  },
-  // Three columns from alternating edges.
-  t2: {
-    arrival: { close: 860, hold: 900, open: 940, staggerClose: 70, staggerOpen: 60 },
-    page: { close: 660, hold: 200, open: 720, staggerClose: 70, staggerOpen: 60 },
-  },
-  // Five panels with gold hairlines between them.
-  t3: {
-    arrival: { close: 840, hold: 900, open: 900, staggerClose: 46, staggerOpen: 42 },
-    page: { close: 640, hold: 200, open: 700, staggerClose: 46, staggerOpen: 42 },
-  },
-  shared: {
-    arrival: { close: 700, hold: 900, open: 800, staggerClose: 0, staggerOpen: 0 },
-    page: { close: 560, hold: 200, open: 640, staggerClose: 0, staggerOpen: 0 },
-  },
+/** Three columns closing from alternating edges. */
+const TIMING: Record<CurtainVariant, Beat> = {
+  arrival: { close: 860, hold: 900, open: 940, staggerClose: 70, staggerOpen: 60 },
+  page: { close: 660, hold: 200, open: 720, staggerClose: 70, staggerOpen: 60 },
 };
 
-const PANELS: Record<TemplateId | "shared", number> = { t1: 1, t2: 3, t3: 5, shared: 1 };
+const PANELS = 3;
 
 /** If the route never arrives, reopen anyway rather than trapping the visitor. */
 const NAVIGATION_TIMEOUT = 4000;
@@ -124,10 +107,7 @@ export function useNavigate(): (href: string) => void {
   return navigate;
 }
 
-/** A template home is `/template-N` exactly. */
-function isHomePath(pathname: string): boolean {
-  return Object.values(TEMPLATES).some((t) => t.basePath === pathname);
-}
+const isHomePath = (pathname: string) => pathname === "/";
 
 export function TransitionProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
@@ -138,13 +118,8 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
 
   const pendingPath = useRef<string | null>(null);
   const busy = useRef(false);
-  const beat = useRef<Beat>(TIMING.shared.page);
+  const beat = useRef<Beat>(TIMING.page);
   const closedAt = useRef(0);
-
-  // navigate() reads the current path from here rather than closing over it, so
-  // the callback is stable for the life of the session.
-  const pathRef = useRef(pathname);
-  pathRef.current = pathname;
 
   const navigate = useCallback(
     (href: string) => {
@@ -158,8 +133,7 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
       }
 
       const nextVariant: CurtainVariant = isHomePath(target.pathname) ? "arrival" : "page";
-      const family = templateFromPath(target.pathname) ?? templateFromPath(pathRef.current);
-      const b = TIMING[family ?? "shared"][nextVariant];
+      const b = TIMING[nextVariant];
       beat.current = b;
 
       const reduced = prefersReducedMotion();
@@ -227,32 +201,11 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
     return () => clearTimeout(timer);
   }, [phase]);
 
-  const family = templateFromPath(pathname);
-
   return (
     <NavCtx.Provider value={navigate}>
       {children}
-      <Curtain phase={phase} variant={variant} template={family} beat={beat.current} />
+      <Curtain phase={phase} variant={variant} beat={beat.current} />
     </NavCtx.Provider>
-  );
-}
-
-/**
- * Jump to the same page in a different preview: /template-1/houses becomes
- * /template-2/houses. Used only by the preview switcher, which is review
- * scaffolding rather than part of any of the three designs.
- */
-export function useTemplateNav(): (id: TemplateId) => void {
-  const navigate = useNavigate();
-  const pathname = usePathname();
-
-  return useCallback(
-    (id: TemplateId) => {
-      const current = templateFromPath(pathname);
-      const rest = current ? pathname.slice(TEMPLATES[current].basePath.length) : "";
-      navigate(TEMPLATES[id].basePath + rest);
-    },
-    [navigate, pathname],
   );
 }
 
@@ -307,15 +260,12 @@ export function TLink({ href, children, onClick, prefetch, ...rest }: TLinkProps
 function Curtain({
   phase,
   variant,
-  template,
   beat,
 }: {
   phase: Phase;
   variant: CurtainVariant;
-  template: TemplateId | null;
   beat: Beat;
 }) {
-  const family = template ?? "t1";
   const [reduced, setReduced] = useState(false);
 
   useEffect(() => {
@@ -326,7 +276,7 @@ function Curtain({
     return () => mq.removeEventListener("change", sync);
   }, []);
 
-  const slats = PANELS[family];
+  const slats = PANELS;
 
   // The numbers from TIMING, handed to CSS. Every duration and delay in
   // motion.css is computed from these four values, which is what keeps the
@@ -356,8 +306,6 @@ function Curtain({
       data-curtain=""
       data-state={phase}
       data-variant={variant}
-      data-family={family}
-      data-tpl={family}
       style={vars}
       aria-hidden="true"
     >

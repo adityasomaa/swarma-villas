@@ -1,8 +1,7 @@
 /* =============================================================================
-   MOTION — the two loaders, per direction.
+   MOTION — the two loaders.
    -----------------------------------------------------------------------------
-   Kept in @layer components so Tailwind utilities still out-rank it. Both roots
-   carry data-tpl, so they take the palette of the template they belong to.
+   Kept in @layer components so Tailwind utilities still out-rank it.
 
    NOT ONE NUMBER IN THIS FILE IS A DURATION.
 
@@ -13,7 +12,7 @@
      --sw-open           how long clearing it takes
      --sw-stagger-close  gap between neighbouring panels while closing
      --sw-stagger-open   gap between neighbouring panels while opening
-     --n                 how many panels this family has
+     --n                 how many panels the curtain has
 
    A panel's own duration is the budget minus the stagger already spent getting
    to the last panel, so panel n-1 finishes exactly when the phase ends:
@@ -27,15 +26,12 @@
    still mid-slide. Deriving both from one set of numbers makes that impossible.
 
    Two variants:
-     [data-variant="arrival"]  first load, and any navigation to a home page.
+     [data-variant="arrival"]  first load, and any navigation to the home page.
                                The feather draws in gold, the name sets, the
                                curtain lifts.
      [data-variant="page"]     every other navigation. Same geometry, no mark.
 
-   Three families:
-     t1 Amber      one warm sheet rises from the bottom and lifts away upward.
-     t2 Riverstone three columns close from alternating edges, then part.
-     t3 Paon       five hairline-separated panels drop and lift in sequence.
+   The curtain: three columns close from alternating edges, then part.
    ========================================================================== */
 
 @layer components {
@@ -47,7 +43,7 @@
     display: grid;
     place-items: center;
 
-    /* The per-panel duration, derived once and used by all three families. */
+    /* The per-panel duration, derived once. */
     --sw-panel-close: calc(var(--sw-close) - var(--sw-stagger-close) * (var(--n) - 1));
     --sw-panel-open: calc(var(--sw-open) - var(--sw-stagger-open) * (var(--n) - 1));
   }
@@ -98,8 +94,8 @@
     stroke-dashoffset: 1;
   }
   /*
-   * The draw has to finish inside close + hold, which TIMING guarantees is at
-   * least 1720ms for every arrival. 0.2s + 0.94s = 1.14s, comfortably inside.
+   * The draw has to finish inside close + hold, which TIMING sets to 1760ms
+   * for the arrival. 0.2s + 0.94s = 1.14s, comfortably inside.
    */
   .sw-curtain[data-state="closing"] .sw-curtain__feather,
   .sw-curtain[data-state="closed"] .sw-curtain__feather {
@@ -110,24 +106,8 @@
     animation: sw-draw 0.72s var(--ease-out-quint) 0.4s forwards;
   }
 
-  /* ---- t1 Amber: one sheet rises, then lifts away --------------------- */
-  .sw-curtain[data-family="t1"] .sw-curtain__panel {
-    inset: 0;
-    transform: translate3d(0, 101%, 0);
-  }
-  .sw-curtain[data-family="t1"][data-state="closing"] .sw-curtain__panel,
-  .sw-curtain[data-family="t1"][data-state="closed"] .sw-curtain__panel {
-    transform: translate3d(0, 0, 0);
-    transition-duration: var(--sw-panel-close);
-  }
-  .sw-curtain[data-family="t1"][data-state="opening"] .sw-curtain__panel {
-    transform: translate3d(0, -101%, 0);
-    transition-duration: var(--sw-panel-open);
-    transition-timing-function: var(--ease-in-quint);
-  }
-
-  /* ---- t2 Riverstone: three columns from alternating edges ------------ */
-  .sw-curtain[data-family="t2"] .sw-curtain__panel {
+  /* ---- three columns from alternating edges ---------------------------- */
+  .sw-curtain .sw-curtain__panel {
     top: -1px;
     bottom: -1px;
     width: calc(100% / var(--n) + 1px);
@@ -135,49 +115,24 @@
     transform: scaleY(0);
     transform-origin: top center;
   }
-  .sw-curtain[data-family="t2"] .sw-curtain__panel:nth-child(even) {
+  .sw-curtain .sw-curtain__panel:nth-child(even) {
     transform-origin: bottom center;
   }
-  .sw-curtain[data-family="t2"][data-state="closing"] .sw-curtain__panel,
-  .sw-curtain[data-family="t2"][data-state="closed"] .sw-curtain__panel {
+  .sw-curtain[data-state="closing"] .sw-curtain__panel,
+  .sw-curtain[data-state="closed"] .sw-curtain__panel {
     transform: scaleY(1);
     transition-duration: var(--sw-panel-close);
     transition-delay: calc(var(--i) * var(--sw-stagger-close));
   }
-  .sw-curtain[data-family="t2"][data-state="opening"] .sw-curtain__panel {
+  .sw-curtain[data-state="opening"] .sw-curtain__panel {
     transform: scaleY(0);
     transform-origin: bottom center;
     transition-duration: var(--sw-panel-open);
     transition-timing-function: var(--ease-in-quint);
     transition-delay: calc((var(--n) - 1 - var(--i)) * var(--sw-stagger-open));
   }
-  .sw-curtain[data-family="t2"][data-state="opening"] .sw-curtain__panel:nth-child(even) {
+  .sw-curtain[data-state="opening"] .sw-curtain__panel:nth-child(even) {
     transform-origin: top center;
-  }
-
-  /* ---- t3 Paon: five panels drop, separated by gold hairlines --------- */
-  .sw-curtain[data-family="t3"] .sw-curtain__panel {
-    top: -1px;
-    bottom: -1px;
-    width: calc(100% / var(--n) + 1px);
-    left: calc(var(--i) * 100% / var(--n));
-    border-left: 1px solid color-mix(in srgb, var(--c-gold) 26%, transparent);
-    transform: translate3d(0, -101%, 0);
-  }
-  .sw-curtain[data-family="t3"] .sw-curtain__panel:first-child {
-    border-left: 0;
-  }
-  .sw-curtain[data-family="t3"][data-state="closing"] .sw-curtain__panel,
-  .sw-curtain[data-family="t3"][data-state="closed"] .sw-curtain__panel {
-    transform: translate3d(0, 0, 0);
-    transition-duration: var(--sw-panel-close);
-    transition-delay: calc(var(--i) * var(--sw-stagger-close));
-  }
-  .sw-curtain[data-family="t3"][data-state="opening"] .sw-curtain__panel {
-    transform: translate3d(0, 101%, 0);
-    transition-duration: var(--sw-panel-open);
-    transition-timing-function: var(--ease-in-quint);
-    transition-delay: calc((var(--n) - 1 - var(--i)) * var(--sw-stagger-open));
   }
 
   /* ------------------------------------------------- the first-load view */

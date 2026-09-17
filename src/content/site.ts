@@ -4,8 +4,7 @@
 
    HOW TO EDIT THIS FILE (no coding needed)
    ----------------------------------------
-   - Everything the three designs display comes from this one file. Change it
-     here once and all three update together.
+   - Everything the site displays comes from this one file.
    - Only edit the text between the quote marks: "like this".
    - Do not delete the commas, brackets or braces around the text.
 
@@ -548,7 +547,6 @@ export const reviews: Review[] = [
 export const copy = {
   home: {
     h1: "A river-side villa in the jungle above Ubud",
-    kicker: business.tagline,
     lede:
       "Three houses in the village of Singakerta, minutes from the centre of Ubud. " +
       "Timber and bamboo, a pool in the garden, and a restaurant of our own.",
@@ -661,7 +659,7 @@ export const cta = {
 
 /** The seven items the current site carries, in the same order. */
 export const nav = [
-  { label: "Home", href: "" },
+  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Houses", href: "/houses" },
   { label: "Experiences", href: "/experiences" },
@@ -672,12 +670,9 @@ export const nav = [
 
 export const guestCountOptions = [1, 2, 3, 4] as const;
 
-/**
- * Every page of a template, in order. Used by the sitemap, the audit and the
- * footer, so there is exactly one list to keep correct.
- */
+/** Every page of the site, in order. Used by the sitemap. */
 export const pagePaths = [
-  "",
+  "/",
   "/about",
   "/houses",
   ...houses.map((h) => `/houses/${h.slug}`),

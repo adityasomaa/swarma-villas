@@ -4,22 +4,24 @@
 /* =============================================================================
    SWARMA VILLAS BALI — GLOBAL TOKENS
    =============================================================================
-   Everything lives inside an @layer so Tailwind utilities always win over it.
+   Cream and deep sage, square corners, Instrument Serif over DM Sans.
+   (The Riverstone direction, after Villa Asteria. The two directions that were
+   not chosen are kept in git under the tag `three-directions`.)
 
-   Colour is scoped with [data-tpl]. A template's palette exists only inside its
-   own subtree, so one direction cannot leak into another even though all three
-   share a stylesheet.
+   Everything lives inside an @layer so Tailwind utilities always win over it.
    ========================================================================== */
 
 /* =============================================================================
    THE `inline` KEYWORD BELOW IS LOAD-BEARING. DO NOT REMOVE IT.
    -----------------------------------------------------------------------------
    A plain `@theme` resolves these at build time: `--color-ink: var(--c-ink)`
-   compiles to a single hard-coded hex — whichever template happens to define
-   the :root fallback — and every other template silently renders in it.
-   `@theme inline` emits `color: var(--c-ink)` instead and lets the variable
-   resolve against whichever [data-tpl] subtree the element sits in. That is the
-   entire mechanism that keeps three design systems apart in one stylesheet.
+   compiles to one hard-coded hex. `@theme inline` emits `color: var(--c-ink)`
+   instead and lets the variable resolve where the element sits.
+
+   That matters even with a single palette, because two utilities redefine the
+   palette for a subtree: `.on-photo` (type set on a photograph) and `.on-deep`
+   (a dark band). Without `inline`, `text-ink` inside a hero would still be
+   deep sage on a dark photograph.
    ========================================================================== */
 @theme inline {
   --color-canvas: var(--c-canvas);
@@ -30,25 +32,24 @@
   --color-line: var(--c-line);
   /* Control borders. Separate from --c-line because WCAG 1.4.11 asks 3:1 of the
      boundary that identifies a CONTROL; a rule between two paragraphs is
-     exempt, and darkening every hairline would flatten all three directions. */
+     exempt, and darkening every hairline would make the page look like a form. */
   --color-field: var(--c-field);
   /*
    * Small print — kickers, captions, table headers, "per night".
    *
    * NOT the same token as --color-field, and the split is deliberate. A control
    * boundary has to clear 3:1 (WCAG 1.4.11); text of any size has to clear
-   * 4.5:1 (1.4.3). One value cannot be both without either failing the text or
-   * darkening every hairline in all three designs until they look like a form.
-   * `field` draws the boundary, `subtle` sets the words.
+   * 4.5:1 (1.4.3). One value cannot be both. `field` draws the boundary,
+   * `subtle` sets the words.
    */
   --color-subtle: var(--c-subtle);
   /* The text-safe descendant of the brand gold. Used for links and kickers on
      light grounds, where the brand gold itself is unreadable. */
   --color-accent: var(--c-accent);
   --color-onaccent: var(--c-onaccent);
-  /* THE BRAND GOLD, #FCD403, straight off the logo. It is 1.44:1 on white, so
-     it can never carry text on a light ground. It is used as a FILL with
-     near-black type on it (12.9:1), as a rule, and as text on dark bands. */
+  /* THE BRAND GOLD, #FCD403, straight off the logo. It is 1.27:1 on the cream,
+     so it can never carry text on a light ground. It is used as a FILL with
+     deep sage on it (9.2:1), as a rule, and as text on dark grounds. */
   --color-gold: var(--c-gold);
   --color-ongold: var(--c-ongold);
   --color-deep: var(--c-deep);
@@ -69,82 +70,23 @@
        component uses the .z-* utilities below, so grepping for a raw z-index
        in a component returns nothing.
 
-       content < sticky header < preview switcher < mobile menu
-               < calendar & modals < cookie banner < page curtain < skip link
+       content < sticky header < mobile menu < calendar & modals
+               < cookie banner < page curtain < skip link
        --------------------------------------------------------------------- */
     --z-below: -1;
     --z-content: 1;
     --z-sticky-header: 100;
-    --z-template-switcher: 200;
     --z-mobile-menu: 300;
     --z-overlay: 400;
     --z-cookie: 500;
     --z-curtain: 550;
     --z-skip-link: 600;
 
-    /* Height of the fixed preview switcher. Consumed by the sticky header
-       offset and by the full-height heroes, so "one screen" means one screen
-       of visible page rather than one screen minus a hidden strip. */
-    --switcher-h: 38px;
+    /* Square, with the smallest softening so edges do not alias. */
+    --r-sm: 2px;
+    --r-md: 2px;
+    --r-pill: 2px;
 
-    --r-sm: 0px;
-    --r-md: 0px;
-    --r-pill: 0px;
-
-    /* Fallback palette for shared chrome. Mirrors Template 1. */
-    --c-canvas: #fbf7ef;
-    --c-surface: #ffffff;
-    --c-raised: #f3ecdd;
-    --c-ink: #16130c;
-    --c-muted: #5f574a;
-    --c-line: #e4dccb;
-    --c-field: #857a66;
-    --c-subtle: #746a59;
-    --c-accent: #7a5d00;
-    --c-onaccent: #fbf7ef;
-    --c-gold: #fcd403;
-    --c-ongold: #16130c;
-    --c-deep: #16130c;
-    --c-ondeep: #fbf7ef;
-
-    --f-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
-    --f-body: var(--font-inter), system-ui, -apple-system, sans-serif;
-  }
-
-  @media (min-width: 768px) {
-    :root {
-      --switcher-h: 42px;
-    }
-  }
-
-  /* ------------------------------------------------------ TEMPLATE 1 — AMBER */
-  /* After Vantara: warm cream, bronze, glass cards, pills, Cormorant.          */
-  [data-tpl="t1"] {
-    --c-canvas: #fbf7ef;
-    --c-surface: #ffffff;
-    --c-raised: #f3ecdd;
-    --c-ink: #16130c;
-    --c-muted: #5f574a;
-    --c-line: #e4dccb;
-    --c-field: #857a66;
-    --c-accent: #7a5d00;
-    --c-onaccent: #fbf7ef;
-    --c-gold: #fcd403;
-    --c-ongold: #16130c;
-    --c-deep: #16130c;
-    --c-ondeep: #fbf7ef;
-
-    --r-sm: 10px;
-    --r-md: 20px;
-    --r-pill: 999px;
-
-    --f-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
-    --f-body: var(--font-inter), system-ui, -apple-system, sans-serif;
-  }
-
-  /* -------------------------------------------------- TEMPLATE 2 — RIVERSTONE */
-  /* After Villa Asteria: cream and deep sage, sharp corners, photo-first.       */
-  [data-tpl="t2"] {
     --c-canvas: #f5f0e8;
     --c-surface: #ffffff;
     --c-raised: #e8ddcc;
@@ -160,38 +102,14 @@
     --c-deep: #2b3227;
     --c-ondeep: #f5f0e8;
 
-    --r-sm: 2px;
-    --r-md: 2px;
-    --r-pill: 2px;
-
+    /*
+     * The font variables are defined by next/font on <html> (the class is
+     * applied there in the root layout), so they exist for the whole document —
+     * including the calendar and the lightbox, which render through portals
+     * into <body>.
+     */
     --f-display: var(--font-instrument), Georgia, serif;
     --f-body: var(--font-dmsans), system-ui, -apple-system, sans-serif;
-  }
-
-  /* ------------------------------------------------------ TEMPLATE 3 — PAON */
-  /* After Villa L: white, hairlines, all-serif, classic hotel structure.       */
-  [data-tpl="t3"] {
-    --c-canvas: #ffffff;
-    --c-surface: #f8f7f4;
-    --c-raised: #f1efea;
-    --c-ink: #171717;
-    --c-muted: #585858;
-    --c-line: #e2e0da;
-    --c-field: #767676;
-    --c-subtle: #6d6d6d;
-    --c-accent: #6b5200;
-    --c-onaccent: #ffffff;
-    --c-gold: #fcd403;
-    --c-ongold: #171717;
-    --c-deep: #171717;
-    --c-ondeep: #ffffff;
-
-    --r-sm: 0px;
-    --r-md: 0px;
-    --r-pill: 0px;
-
-    --f-display: var(--font-lora), Georgia, serif;
-    --f-body: var(--font-lora), Georgia, serif;
   }
 }
 
@@ -210,24 +128,11 @@
   body {
     background-color: var(--c-canvas);
     color: var(--c-ink);
+    font-family: var(--f-body);
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    padding-top: var(--switcher-h);
     padding-bottom: env(safe-area-inset-bottom, 0px);
-  }
-
-  /*
-   * The typeface is set on the template wrapper, not on <body>.
-   *
-   * next/font defines its CSS variable on the element carrying the font class,
-   * which is this wrapper. A font-family on <body> referencing it resolves to
-   * nothing, and an invalid font-family silently falls back to whatever <html>
-   * inherited — which is how a whole site ends up in the system sans while
-   * every colour token still works.
-   */
-  [data-tpl] {
-    font-family: var(--f-body);
   }
 
   :focus-visible {
@@ -266,61 +171,33 @@
   }
 
   /* When a failed submit focuses the first invalid control, the browser brings
-     it into view — without this it lands under the sticky header and the guest
+     it into view — without this it lands under the fixed header and the guest
      is told something is wrong by a message they cannot see. */
   [id^="booking-"] {
-    scroll-margin-top: calc(var(--switcher-h) + 6rem);
+    scroll-margin-top: 6rem;
     scroll-margin-bottom: 2rem;
   }
 }
 
 /* =============================================================================
-   THE THREE TYPOGRAPHIC SYSTEMS
+   TYPE
    -----------------------------------------------------------------------------
-   Each direction takes its type from its reference:
-     t1  Cormorant Garamond, large and light, sentence case, slight negative
-         tracking — Vantara's display voice.
-     t2  Instrument Serif, very large, tight leading — Villa Asteria's.
-     t3  Lora throughout, moderate size, classic hotel proportions — Villa L's.
+   Instrument Serif at display sizes, very large and tightly led; DM Sans for
+   everything else, with kickers set in wide-tracked capitals.
    ========================================================================== */
 @layer components {
   .display {
     font-family: var(--f-display);
-  }
-
-  [data-tpl="t1"] .display {
-    font-weight: 500;
-    letter-spacing: -0.025em;
-    line-height: 1.02;
-  }
-  [data-tpl="t1"] .kicker {
-    font-family: var(--f-body);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-  }
-
-  [data-tpl="t2"] .display {
     font-weight: 400;
     letter-spacing: -0.012em;
     line-height: 0.95;
   }
-  [data-tpl="t2"] .kicker {
+
+  .kicker {
     font-family: var(--f-body);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.22em;
-  }
-
-  [data-tpl="t3"] .display {
-    font-weight: 400;
-    letter-spacing: -0.005em;
-    line-height: 1.14;
-  }
-  [data-tpl="t3"] .kicker {
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
   }
 }
 
@@ -330,24 +207,13 @@
      ---------------------------------------------------------------------------
      Not a background swap. Every button does two things at once:
 
-       a WIPE   a fill that grows into the button from a direction, rather than
+       a WIPE   a fill sweeps in from the left with a slight skew, rather than
                 the whole surface changing colour in one step;
-       a ROLL   the label leaves and an identical copy arrives from the opposite
-                side, so the words move rather than just recolour.
+       a ROLL   the label rolls up and out while an identical copy rolls in
+                from below, so the words move rather than just recolour.
 
      The label is rendered twice. The copy carries aria-hidden, so a screen
-     reader hears the name once — the audit's accessible-name check would fail
-     loudly if this were done by duplicating readable text.
-
-     Each direction rolls differently, because a button is the most-repeated
-     element on a site and it is where a design's manners show:
-
-       Amber       the gold wipes up from the bottom and the label rolls up.
-                   Soft, warm, round.
-       Riverstone  the wipe sweeps in from the left with a slight skew and the
-                   label rolls up as it goes. Editorial, a little brisk.
-       Paon        the wipe grows from a hairline at the bottom into the whole
-                   face, and the label slides sideways. Formal, restrained.
+     reader hears the name once.
 
      `:focus-visible` gets the same treatment as `:hover`, so a keyboard reaches
      the same interface a mouse does.
@@ -362,13 +228,20 @@
   .btn::before {
     content: "";
     position: absolute;
-    inset: 0;
+    /* Wider than the button so the skew never exposes a corner. */
+    inset: 0 -12% 0 -12%;
     z-index: -1;
     background: var(--btn-wipe, var(--c-gold));
+    transform: translate3d(-101%, 0, 0) skewX(-9deg);
+    transform-origin: left center;
     transition:
       transform 0.55s var(--ease-out-quint),
       opacity 0.4s var(--ease-out-quint);
     will-change: transform;
+  }
+  .btn:hover::before,
+  .btn:focus-visible::before {
+    transform: translate3d(0, 0, 0) skewX(0deg);
   }
 
   /* The label and its stand-in share a box; the box is what clips the roll. */
@@ -386,69 +259,14 @@
     position: absolute;
     inset: 0;
     display: block;
-  }
-
-  /* ---- Amber: wipe up, label rolls up ---------------------------------- */
-  [data-tpl="t1"] .btn::before {
-    transform: translate3d(0, 101%, 0);
-  }
-  [data-tpl="t1"] .btn:hover::before,
-  [data-tpl="t1"] .btn:focus-visible::before {
-    transform: translate3d(0, 0, 0);
-  }
-  [data-tpl="t1"] .btn__label--clone {
     transform: translate3d(0, 110%, 0);
   }
-  [data-tpl="t1"] .btn:hover .btn__label,
-  [data-tpl="t1"] .btn:focus-visible .btn__label {
+  .btn:hover .btn__label,
+  .btn:focus-visible .btn__label {
     transform: translate3d(0, -110%, 0);
   }
-  [data-tpl="t1"] .btn:hover .btn__label--clone,
-  [data-tpl="t1"] .btn:focus-visible .btn__label--clone {
-    transform: translate3d(0, 0, 0);
-  }
-
-  /* ---- Riverstone: wipe in from the left, skewed ----------------------- */
-  [data-tpl="t2"] .btn::before {
-    transform: translate3d(-101%, 0, 0) skewX(-9deg);
-    transform-origin: left center;
-    /* Wider than the button so the skew never exposes a corner. */
-    inset: 0 -12% 0 -12%;
-  }
-  [data-tpl="t2"] .btn:hover::before,
-  [data-tpl="t2"] .btn:focus-visible::before {
-    transform: translate3d(0, 0, 0) skewX(0deg);
-  }
-  [data-tpl="t2"] .btn__label--clone {
-    transform: translate3d(0, 110%, 0);
-  }
-  [data-tpl="t2"] .btn:hover .btn__label,
-  [data-tpl="t2"] .btn:focus-visible .btn__label {
-    transform: translate3d(0, -110%, 0);
-  }
-  [data-tpl="t2"] .btn:hover .btn__label--clone,
-  [data-tpl="t2"] .btn:focus-visible .btn__label--clone {
-    transform: translate3d(0, 0, 0);
-  }
-
-  /* ---- Paon: a hairline grows into the face, label slides sideways ------ */
-  [data-tpl="t3"] .btn::before {
-    transform: scaleY(0.06);
-    transform-origin: bottom center;
-  }
-  [data-tpl="t3"] .btn:hover::before,
-  [data-tpl="t3"] .btn:focus-visible::before {
-    transform: scaleY(1);
-  }
-  [data-tpl="t3"] .btn__label--clone {
-    transform: translate3d(-110%, 0, 0);
-  }
-  [data-tpl="t3"] .btn:hover .btn__label,
-  [data-tpl="t3"] .btn:focus-visible .btn__label {
-    transform: translate3d(110%, 0, 0);
-  }
-  [data-tpl="t3"] .btn:hover .btn__label--clone,
-  [data-tpl="t3"] .btn:focus-visible .btn__label--clone {
+  .btn:hover .btn__label--clone,
+  .btn:focus-visible .btn__label--clone {
     transform: translate3d(0, 0, 0);
   }
 
@@ -462,19 +280,17 @@
     }
   }
 
-
   /* --------------------------------------------- the whole stacking scale */
   .z-below { z-index: var(--z-below); }
   .z-content { z-index: var(--z-content); }
   .z-sticky-header { z-index: var(--z-sticky-header); }
-  .z-template-switcher { z-index: var(--z-template-switcher); }
   .z-mobile-menu { z-index: var(--z-mobile-menu); }
   .z-overlay { z-index: var(--z-overlay); }
   .z-cookie { z-index: var(--z-cookie); }
   .z-curtain { z-index: var(--z-curtain); }
   .z-skip-link { z-index: var(--z-skip-link); }
 
-  /* ------------------------------------------------ per-template geometry */
+  /* ------------------------------------------------------------- geometry */
   .r-sm { border-radius: var(--r-sm); }
   .r-md { border-radius: var(--r-md); }
   .r-pill { border-radius: var(--r-pill); }
@@ -497,8 +313,6 @@
     color: var(--c-ondeep);
   }
 
-  /* Text sitting directly on a photograph. The scrim is part of the utility so
-     no caller can forget it and ship unreadable type over a bright frame. */
   /*
    * Anything sitting on a photograph. It does not just set a text colour — it
    * redefines the whole palette for that subtree, so components below can keep
@@ -512,7 +326,7 @@
     color: #ffffff;
     text-shadow: 0 1px 24px rgba(0, 0, 0, 0.4);
     --c-ink: #ffffff;
-    --c-canvas: #16130c;
+    --c-canvas: #2b3227;
     --c-muted: rgba(255, 255, 255, 0.86);
     --c-accent: var(--c-gold);
     --c-line: rgba(255, 255, 255, 0.3);
@@ -561,25 +375,6 @@
     .measure-head { max-width: 44ch; }
   }
 
-  /*
-   * The page gutter, as padding rather than a max-width wrapper.
-   *
-   * Amber's opening runs the photograph off the right edge of the screen while
-   * the type beside it still lines up with the 72rem grid every other section
-   * uses. A centred container cannot do both. Padding the full-width row by
-   * half the leftover space puts the text exactly where a container would have
-   * put it, and leaves the second column free to reach the edge.
-   *
-   * 100% here is the row's own width — the viewport minus any scrollbar — which
-   * is why this is not written in vw. 100vw includes the scrollbar and would
-   * push the layout sideways by its width.
-   */
-  @media (min-width: 1024px) {
-    .gutter-start {
-      padding-left: max(2rem, calc((100% - 72rem) / 2));
-    }
-  }
-
   .reveal {
     opacity: 0;
     transform: translate3d(var(--reveal-x, 0), var(--reveal-y, 16px), 0);
@@ -611,7 +406,8 @@
 /* =============================================================================
    REDUCED MOTION
    -----------------------------------------------------------------------------
-   The calm version simplifies itself; it never removes content.
+   The calm version simplifies itself; it never removes content. Buttons still
+   change state — the fill is simply already there rather than travelling.
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   @layer base {
@@ -630,15 +426,7 @@
       opacity: 1;
       transform: none;
     }
-  }
-}
 
-/* -----------------------------------------------------------------------------
-   Calm buttons. The state still changes — the fill is simply already there
-   rather than travelling — so hover remains legible without motion.
-   -------------------------------------------------------------------------- */
-@media (prefers-reduced-motion: reduce) {
-  @layer utilities {
     .btn::before {
       transition: opacity 0.15s linear !important;
       transform: none !important;
@@ -661,4 +449,3 @@
     }
   }
 }
-

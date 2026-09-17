@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { idFromSegment } from "@/app/[template]/layout";
 import { Gallery } from "@/components/blocks/Gallery";
 import { PageHero } from "@/components/blocks/PageHero";
 import { CtaBand } from "@/components/blocks/home";
@@ -12,14 +11,11 @@ import { Container, Prose, Section, SectionHeader } from "@/components/ui";
 import { experienceBySlug, experiences } from "@/content/site";
 import { clsx } from "@/lib/clsx";
 import { breadcrumbJsonLd } from "@/lib/seo";
-import { href, TEMPLATE_LIST } from "@/lib/templates";
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return TEMPLATE_LIST.flatMap((t) =>
-    experiences.map((e) => ({ template: t.basePath.slice(1), experience: e.slug })),
-  );
+  return experiences.map((e) => ({ experience: e.slug }));
 }
 
 export async function generateMetadata({
@@ -36,12 +32,11 @@ export async function generateMetadata({
 export default async function ExperiencePage({
   params,
 }: {
-  params: Promise<{ template: string; experience: string }>;
+  params: Promise<{ experience: string }>;
 }) {
-  const { template, experience: slug } = await params;
-  const tpl = idFromSegment(template);
+  const { experience: slug } = await params;
   const exp = experienceBySlug(slug);
-  if (!tpl || !exp) notFound();
+  if (!exp) notFound();
 
   const [lead, ...rest] = exp.photos;
   const others = experiences.filter((e) => e.slug !== exp.slug);
@@ -50,7 +45,6 @@ export default async function ExperiencePage({
   return (
     <>
       <PageHero
-        tpl={tpl}
         kicker="Experiences"
         title={exp.name}
         lede={exp.summary}
@@ -61,7 +55,7 @@ export default async function ExperiencePage({
         ]}
       />
 
-      <Section tpl={tpl} tone="canvas">
+      <Section tone="canvas">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:gap-16">
             <Prose paragraphs={exp.body} size="lead" />
@@ -71,8 +65,8 @@ export default async function ExperiencePage({
                 <aside
                   className={clsx(
                     "p-7 md:p-8",
-                    "lg:sticky lg:top-[calc(var(--switcher-h)+7rem)]",
-                    tpl === "t1" ? "r-md bg-surface" : "border border-line bg-surface",
+                    "lg:sticky lg:top-28",
+                    "border border-line bg-surface",
                   )}
                 >
                   {exp.facts && (
@@ -118,10 +112,9 @@ export default async function ExperiencePage({
       </Section>
 
       {exp.lists && exp.lists.length > 1 && (
-        <Section tpl={tpl} tone="surface">
+        <Section tone="surface">
           <Container>
             <SectionHeader
-              tpl={tpl}
               kicker="What is included"
               title="The packages"
               className="mb-10 md:mb-14"
@@ -129,13 +122,12 @@ export default async function ExperiencePage({
             <ul
               className={clsx(
                 "grid gap-px bg-line sm:grid-cols-2",
-                tpl === "t1" && "gap-6 bg-transparent",
               )}
             >
               {exp.lists.map((list, i) => (
-                <li key={list.title} className={clsx(tpl !== "t1" && "bg-surface")}>
+                <li key={list.title} className="bg-surface">
                   <Reveal delay={i * 80}>
-                    <div className={clsx("h-full p-7 md:p-9", tpl === "t1" && "r-md bg-canvas")}>
+                    <div className="h-full p-7 md:p-9">
                       <span className="kicker text-gold tabular-nums">
                         {String(i + 1).padStart(2, "0")}
                       </span>
@@ -168,32 +160,29 @@ export default async function ExperiencePage({
       )}
 
       {rest.length > 0 && (
-        <Section tpl={tpl} tone="canvas">
-          <Container width={tpl === "t2" ? "wide" : "default"}>
+        <Section tone="canvas">
+          <Container width="wide">
             <SectionHeader
-              tpl={tpl}
               kicker="Look around"
               title={exp.name}
               className="mb-10 md:mb-14"
             />
-            <Gallery tpl={tpl} slugs={rest} />
+            <Gallery slugs={rest} />
           </Container>
         </Section>
       )}
 
-      <Section tpl={tpl} tone="surface" size="tight">
+      <Section tone="surface" size="tight">
         <Container>
-          <SectionHeader tpl={tpl} kicker="Also here" title="Other experiences" className="mb-8" />
+          <SectionHeader kicker="Also here" title="Other experiences" className="mb-8" />
           <ul className="grid gap-4 sm:grid-cols-3">
             {others.map((other) => (
               <li key={other.slug}>
                 <TLink
-                  href={href(tpl, `/experiences/${other.slug}`)}
+                  href={`/experiences/${other.slug}`}
                   className={clsx(
                     "group flex h-full flex-col p-6 transition-colors duration-300",
-                    tpl === "t1"
-                      ? "r-md bg-canvas hover:bg-raised"
-                      : "border border-line bg-canvas hover:bg-raised",
+                    "border border-line bg-canvas hover:bg-raised",
                   )}
                 >
                   <h3 className="display text-[1.125rem] leading-snug">{other.name}</h3>
@@ -216,13 +205,13 @@ export default async function ExperiencePage({
         </Container>
       </Section>
 
-      <CtaBand tpl={tpl} title={`Add ${exp.name} to your stay`} />
+      <CtaBand title={`Add ${exp.name} to your stay`} />
 
       <JsonLd
         data={breadcrumbJsonLd([
-          { name: "Home", path: href(tpl) },
-          { name: "Experiences", path: href(tpl, "/experiences") },
-          { name: exp.name, path: href(tpl, `/experiences/${exp.slug}`) },
+          { name: "Home", path: "/" },
+          { name: "Experiences", path: "/experiences" },
+          { name: exp.name, path: `/experiences/${exp.slug}` },
         ])}
       />
     </>

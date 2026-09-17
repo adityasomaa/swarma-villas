@@ -1,7 +1,7 @@
 /* =============================================================================
    CONTRAST
    -----------------------------------------------------------------------------
-   Checks every colour pair the three palettes actually put together, against
+   Checks every colour pair the palette actually puts together, against
    WCAG 2.2:
 
      1.4.3 Contrast (Minimum)  4.5:1 for body text, 3:1 for large text
@@ -11,8 +11,8 @@
    reading, because a screenshot cannot tell you that a pair is at 4.4 — it just
    looks slightly tired.
 
-   The brand gold is the reason this file exists. #FCD403 measures 1.44:1 on
-   white: it can never carry text on a light ground. The palettes solve that by
+   The brand gold is the reason this file exists. #FCD403 measures 1.27:1 on
+   the cream: it can never carry text on a light ground. The palette solves that by
    using gold as a FILL that carries near-black type, and a darker bronze
    descendant for text on light grounds. This script is what proves that holds
    everywhere rather than mostly.
@@ -21,22 +21,7 @@
    ========================================================================== */
 
 const PALETTES = {
-  "t1 Amber": {
-    canvas: "#fbf7ef",
-    surface: "#ffffff",
-    raised: "#f3ecdd",
-    ink: "#16130c",
-    muted: "#5f574a",
-    line: "#e4dccb",
-    field: "#857a66",
-    subtle: "#746a59",
-    accent: "#7a5d00",
-    gold: "#fcd403",
-    ongold: "#16130c",
-    deep: "#16130c",
-    ondeep: "#fbf7ef",
-  },
-  "t2 Riverstone": {
+  "Swarma Villas": {
     canvas: "#f5f0e8",
     surface: "#ffffff",
     raised: "#e8ddcc",
@@ -50,21 +35,6 @@ const PALETTES = {
     ongold: "#2b3227",
     deep: "#2b3227",
     ondeep: "#f5f0e8",
-  },
-  "t3 Paon": {
-    canvas: "#ffffff",
-    surface: "#f8f7f4",
-    raised: "#f1efea",
-    ink: "#171717",
-    muted: "#585858",
-    line: "#e2e0da",
-    field: "#767676",
-    subtle: "#6d6d6d",
-    accent: "#6b5200",
-    gold: "#fcd403",
-    ongold: "#171717",
-    deep: "#171717",
-    ondeep: "#ffffff",
   },
 };
 

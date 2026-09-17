@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 
-import { idFromSegment } from "@/app/[template]/layout";
 import { PageHero } from "@/components/blocks/PageHero";
 import { CtaBand } from "@/components/blocks/home";
 import { Photo } from "@/components/shared/Photo";
@@ -10,26 +8,17 @@ import { TLink } from "@/components/shared/Transition";
 import { Container, Section } from "@/components/ui";
 import { copy, experiences } from "@/content/site";
 import { clsx } from "@/lib/clsx";
-import { href } from "@/lib/templates";
 
 export const metadata: Metadata = {
   title: "Experiences",
   description: copy.experiences.lede,
 };
 
-export default async function ExperiencesPage({
-  params,
-}: {
-  params: Promise<{ template: string }>;
-}) {
-  const { template } = await params;
-  const tpl = idFromSegment(template);
-  if (!tpl) notFound();
+export default function ExperiencesPage() {
 
   return (
     <>
       <PageHero
-        tpl={tpl}
         kicker="On the property"
         title={copy.experiences.h1}
         lede={copy.experiences.lede}
@@ -37,8 +26,8 @@ export default async function ExperiencesPage({
         crumbs={[{ label: "Experiences", path: "/experiences" }]}
       />
 
-      <Section tpl={tpl} tone="canvas">
-        <Container width={tpl === "t2" ? "wide" : "default"}>
+      <Section tone="canvas">
+        <Container width="wide">
           {/*
             Four items, listed rather than gridded: each one is a page of its
             own with a real description, so an index that gives them room reads
@@ -49,7 +38,7 @@ export default async function ExperiencesPage({
               <li key={exp.slug} className="border-t border-line last:border-b">
                 <Reveal>
                   <TLink
-                    href={href(tpl, `/experiences/${exp.slug}`)}
+                    href={`/experiences/${exp.slug}`}
                     className={clsx(
                       "group grid items-center gap-8 py-10 md:gap-12 md:py-14",
                       "lg:grid-cols-2",
@@ -60,7 +49,6 @@ export default async function ExperiencesPage({
                       <Photo
                         slug={exp.photos[0]!}
                         ratio={16 / 10}
-                        rounded={tpl === "t1" ? "md" : "none"}
                         sizes="(min-width: 1024px) 50vw, 100vw"
                         imgClassName="transition-transform duration-[1100ms] ease-out-quint group-hover:scale-[1.04]"
                         alt={`${exp.name} at Swarma Villas Bali`}
@@ -101,7 +89,6 @@ export default async function ExperiencesPage({
       </Section>
 
       <CtaBand
-        tpl={tpl}
         title="Arrange it before you arrive"
         lede="Treatments and treks are better booked ahead — tell us what you would like and we will set it up."
       />

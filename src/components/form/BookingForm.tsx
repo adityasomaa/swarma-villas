@@ -11,7 +11,6 @@ import { validateBooking, FIELD_ORDER, type FieldErrors } from "@/lib/booking/sc
 import { bookingStore } from "@/lib/booking/store";
 import { clsx } from "@/lib/clsx";
 import { addDays, formatIDR, nightsBetween, parseISODate, pluralise, todayISO } from "@/lib/format";
-import { templateFromPath } from "@/lib/templates";
 import { bookingRequestUrl } from "@/lib/whatsapp";
 
 /* =============================================================================
@@ -61,7 +60,6 @@ const EMPTY: Fields = {
 export function BookingForm({ className }: { className?: string }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const template = templateFromPath(pathname);
   const { consent } = useConsent();
 
   /**
@@ -194,7 +192,6 @@ export function BookingForm({ className }: { className?: string }) {
       try {
         await bookingStore.save({
           ...data,
-          template: template ?? "shared",
           pageUrl,
           nights: stayNights,
         });
@@ -205,7 +202,7 @@ export function BookingForm({ className }: { className?: string }) {
 
     const url = bookingRequestUrl(
       data,
-      { template, pageUrl, action: "Send booking request" },
+      { pageUrl, action: "Send booking request" },
       chosen?.name ?? data.house,
       chosen?.priceFromIDR ?? null,
     );

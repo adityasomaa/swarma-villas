@@ -7,7 +7,6 @@ import { Photo, photo } from "@/components/shared/Photo";
 import { Reveal } from "@/components/shared/Reveal";
 import { useUI } from "@/components/shared/UIProvider";
 import { clsx } from "@/lib/clsx";
-import type { TemplateId } from "@/lib/templates";
 
 /* =============================================================================
    PHOTOGRAPH GRID, WITH A LIGHTBOX
@@ -29,11 +28,9 @@ import type { TemplateId } from "@/lib/templates";
    ========================================================================== */
 
 export function Gallery({
-  tpl,
   slugs,
   columns = 3,
 }: {
-  tpl: TemplateId;
   slugs: string[];
   columns?: 2 | 3 | 4;
 }) {
@@ -53,10 +50,8 @@ export function Gallery({
     <>
       <ul
         className={clsx(
-          "grid",
-          tpl === "t1" && "gap-4",
-          tpl === "t2" && "gap-px bg-line",
-          tpl === "t3" && "gap-2",
+          // A hairline grid: the gap is the line colour showing through.
+          "grid gap-px bg-line",
           columns === 2 && "grid-cols-1 sm:grid-cols-2",
           columns === 3 && "grid-cols-2 md:grid-cols-3",
           columns === 4 && "grid-cols-2 md:grid-cols-4",
@@ -65,7 +60,7 @@ export function Gallery({
         {slugs.map((slug, i) => {
           const record = photo(slug);
           return (
-            <li key={slug} className={clsx(tpl === "t2" && "bg-canvas")}>
+            <li key={slug} className="bg-canvas">
               <Reveal delay={(i % columns) * 60}>
                 <button
                   ref={(node) => {
@@ -78,7 +73,6 @@ export function Gallery({
                   <Photo
                     slug={slug}
                     ratio={1}
-                    rounded={tpl === "t1" ? "sm" : "none"}
                     sizes={`(min-width: 768px) ${Math.round(100 / columns)}vw, 50vw`}
                     imgClassName="transition-transform duration-[900ms] ease-out-quint group-hover:scale-[1.05]"
                     alt=""

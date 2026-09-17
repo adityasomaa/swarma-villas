@@ -5,8 +5,9 @@ import { mkdirSync } from "node:fs";
  * Screenshots for review. Not a test â€” a way to look at all three directions at
  * a real desktop width instead of guessing from a narrow preview pane.
  *
- *   node scripts/shoot.mjs /template-1 /template-2          (defaults to homes)
- *   node scripts/shoot.mjs --width 390 --tag mobile /template-1
+ *   node scripts/shoot.mjs / /houses                       (defaults to the home page)
+ *   node scripts/shoot.mjs --width 390 --tag mobile /
+ *   SHOOT_ORIGIN=https://swarma-villas.vercel.app node scripts/shoot.mjs /
  */
 const args = process.argv.slice(2);
 let width = 1440;
@@ -19,19 +20,20 @@ for (let i = 0; i < args.length; i++) {
   else if (args[i] === "--tag") tag = args[++i];
   else paths.push(args[i]);
 }
-if (paths.length === 0) paths.push("/template-1", "/template-2", "/template-3");
+if (paths.length === 0) paths.push("/");
+const ORIGIN = process.env.SHOOT_ORIGIN || "http://localhost:3100";
 
 mkdirSync("scratch/shots", { recursive: true });
 
-const browser = await chromium.launch();
+const browser = await chromium.launch({ channel: process.env.PW_CHANNEL || undefined });
 const page = await browser.newPage({ viewport: { width, height }, deviceScaleFactor: 1 });
 
 // Consent up front, so the banner is not in every screenshot.
-await page.goto("http://localhost:3100/template-1", { waitUntil: "domcontentloaded" });
+await page.goto(`${ORIGIN}/`, { waitUntil: "domcontentloaded" });
 await page.evaluate(() => localStorage.setItem("swarma.consent.v1", "accepted"));
 
 for (const path of paths) {
-  await page.goto(`http://localhost:3100${path}`, { waitUntil: "networkidle" });
+  await page.goto(`${ORIGIN}${path}`, { waitUntil: "networkidle" });
   // Let the intro play out and every Reveal fire.
   await page.waitForTimeout(3200);
   await page.evaluate(async () => {
@@ -79,7 +81,7 @@ for (const path of paths) {
     );
   });
   await page.waitForTimeout(1200);
-  const name = `${tag}${path.replace(/\//g, "_")}.png`;
+  const name = `${tag}${path === "/" ? "_home" : path.replace(/\//g, "_")}.png`;
   await page.screenshot({ path: `scratch/shots/${name}`, fullPage: true });
   console.log(name);
 }

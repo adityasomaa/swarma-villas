@@ -19,8 +19,6 @@ import type { BookingRequest } from "@/lib/booking/schema";
 export type StoredBooking = BookingRequest & {
   id: string;
   createdAt: string;
-  /** Which of the three previews the guest was looking at. */
-  template: string;
   pageUrl: string;
   nights: number;
   origin: "local" | "database";
@@ -94,7 +92,7 @@ export function createLocalStore(): BookingStore {
  *
  * Suggested table: id (uuid, pk), created_at (timestamptz), name, email, phone,
  * house (text), check_in (date), check_out (date), nights (int), guests (int),
- * notes (text), template (text), page_url (text).
+ * notes (text), page_url (text).
  */
 export function createDatabaseStore(): BookingStore {
   const notImplemented = (method: string): never => {

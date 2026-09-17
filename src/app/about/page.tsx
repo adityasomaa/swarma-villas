@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 
-import { idFromSegment } from "@/app/[template]/layout";
 import { PageHero } from "@/components/blocks/PageHero";
 import { CtaBand, LocationBand } from "@/components/blocks/home";
 import { HouseGrid } from "@/components/blocks/Houses";
@@ -16,17 +14,13 @@ export const metadata: Metadata = {
   description: copy.about.lede,
 };
 
-export default async function AboutPage({ params }: { params: Promise<{ template: string }> }) {
-  const { template } = await params;
-  const tpl = idFromSegment(template);
-  if (!tpl) notFound();
+export default function AboutPage() {
 
   const french = reviews.find((r) => r.language === "fr");
 
   return (
     <>
       <PageHero
-        tpl={tpl}
         kicker="The villa"
         title={copy.about.h1}
         lede={copy.about.lede}
@@ -38,14 +32,13 @@ export default async function AboutPage({ params }: { params: Promise<{ template
       />
 
       {/* ------------------------------------------------------- the story */}
-      <Section tpl={tpl} tone="canvas">
+      <Section tone="canvas">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-16">
             <Reveal>
               <Photo
                 slug="property-06"
                 ratio={4 / 5}
-                rounded={tpl === "t1" ? "md" : "none"}
                 sizes="(min-width: 1024px) 45vw, 100vw"
                 alt="The row of houses along the garden path"
               />
@@ -58,10 +51,9 @@ export default async function AboutPage({ params }: { params: Promise<{ template
       </Section>
 
       {/* ------------------------------------------------- why stay here */}
-      <Section tpl={tpl} tone={tpl === "t3" ? "surface" : "surface"}>
+      <Section tone="surface">
         <Container>
           <SectionHeader
-            tpl={tpl}
             kicker="Why stay here"
             title="What makes Swarma different"
             className="mb-12 md:mb-16"
@@ -69,16 +61,14 @@ export default async function AboutPage({ params }: { params: Promise<{ template
           <ul
             className={clsx(
               "grid gap-px bg-line sm:grid-cols-2",
-              tpl === "t1" && "gap-6 bg-transparent",
             )}
           >
             {copy.about.why.map((item, i) => (
-              <li key={item.title} className={clsx(tpl !== "t1" && "bg-surface")}>
+              <li key={item.title} className="bg-surface">
                 <Reveal delay={i * 80}>
                   <div
                     className={clsx(
                       "flex h-full flex-col p-7 md:p-9",
-                      tpl === "t1" && "r-md bg-canvas",
                     )}
                   >
                     <span className="kicker text-gold tabular-nums">
@@ -95,22 +85,21 @@ export default async function AboutPage({ params }: { params: Promise<{ template
       </Section>
 
       {/* ------------------------------------------------------ the houses */}
-      <Section tpl={tpl} tone="canvas">
-        <Container width={tpl === "t2" ? "wide" : "default"}>
+      <Section tone="canvas">
+        <Container width="wide">
           <SectionHeader
-            tpl={tpl}
             kicker="Where you sleep"
             title="Three houses, not a block of rooms"
             lede="Each has its own character, and all of them open onto the same garden and pool."
             className="mb-12 md:mb-16"
           />
-          <HouseGrid tpl={tpl} headingLevel="h3" />
+          <HouseGrid headingLevel="h3" />
         </Container>
       </Section>
 
       {/* ------------------------------------------- one guest, in their words */}
       {french && (
-        <Section tpl={tpl} tone="deep" size="tight">
+        <Section tone="deep" size="tight">
           <Container width="narrow" className="text-center">
             <Reveal>
               <p className="kicker text-gold">A guest review</p>
@@ -129,11 +118,11 @@ export default async function AboutPage({ params }: { params: Promise<{ template
         </Section>
       )}
 
-      <Section tpl={tpl} tone="canvas">
-        <LocationBand tpl={tpl} />
+      <Section tone="canvas">
+        <LocationBand />
       </Section>
 
-      <CtaBand tpl={tpl} />
+      <CtaBand />
     </>
   );
 }

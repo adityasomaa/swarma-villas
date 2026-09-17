@@ -1,10 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
 import { CurtainMark } from "@/components/shared/Transition";
 import { business } from "@/content/site";
-import { templateFromPath } from "@/lib/templates";
 import { prefersReducedMotion, wait } from "@/lib/wait";
 
 /* =============================================================================
@@ -27,8 +25,6 @@ const HOLD_MS = 1900;
 const EXIT_MS = 900;
 
 export function IntroLoader() {
-  const pathname = usePathname();
-  const family = templateFromPath(pathname) ?? "t1";
   const [phase, setPhase] = useState<"in" | "out" | "gone">(() => (hasPlayed ? "gone" : "in"));
   /**
    * Per-instance, and deliberately NOT the module flag above.
@@ -80,7 +76,6 @@ export function IntroLoader() {
     <div
       className="sw-intro z-curtain"
       data-state={phase}
-      data-tpl={family}
       role="status"
       aria-live="polite"
       aria-label={`Loading ${business.name}`}

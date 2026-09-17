@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 
-import { idFromSegment } from "@/app/[template]/layout";
 import { PageHero } from "@/components/blocks/PageHero";
 import { CtaBand } from "@/components/blocks/home";
 import { Reveal } from "@/components/shared/Reveal";
 import { Button, Container, Section, SectionHeader } from "@/components/ui";
 import { copy, publishedRating, reviews } from "@/content/site";
 import { clsx } from "@/lib/clsx";
-import { href } from "@/lib/templates";
 
 export const metadata: Metadata = {
   title: "Guest reviews",
@@ -28,15 +25,11 @@ export const metadata: Metadata = {
    to somewhere with more of them.
    ========================================================================== */
 
-export default async function ReviewPage({ params }: { params: Promise<{ template: string }> }) {
-  const { template } = await params;
-  const tpl = idFromSegment(template);
-  if (!tpl) notFound();
+export default function ReviewPage() {
 
   return (
     <>
       <PageHero
-        tpl={tpl}
         kicker="From our guests"
         title={copy.review.h1}
         lede={copy.review.lede}
@@ -44,7 +37,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ templat
         crumbs={[{ label: "Review", path: "/review" }]}
       />
 
-      <Section tpl={tpl} tone="canvas">
+      <Section tone="canvas">
         <Container>
           <ul className={clsx("grid gap-6", reviews.length > 1 && "md:grid-cols-2")}>
             {reviews.map((review, i) => (
@@ -53,7 +46,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ templat
                   <figure
                     className={clsx(
                       "flex h-full flex-col p-8 md:p-10",
-                      tpl === "t1" ? "r-md bg-surface" : "border border-line bg-surface",
+                      "border border-line bg-surface",
                     )}
                   >
                     <h2 className="display text-[1.5rem] leading-snug">{review.title}</h2>
@@ -79,7 +72,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ templat
             <div
               className={clsx(
                 "mt-10 p-7 md:p-9",
-                tpl === "t1" ? "r-md bg-raised" : "border border-line bg-raised",
+                "border border-line bg-raised",
               )}
             >
               <h2 className="display text-[1.25rem]">About these reviews</h2>
@@ -101,7 +94,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ templat
                 </p>
               </div>
               <div className="mt-7 flex flex-wrap gap-3">
-                <Button tpl={tpl} href={href(tpl, "/contact")} tone="outline">
+                <Button href={"/contact"} tone="outline">
                   Send us your review
                 </Button>
               </div>
@@ -110,23 +103,22 @@ export default async function ReviewPage({ params }: { params: Promise<{ templat
         </Container>
       </Section>
 
-      <Section tpl={tpl} tone="surface" size="tight">
+      <Section tone="surface" size="tight">
         <Container width="narrow" className="text-center">
           <SectionHeader
-            tpl={tpl}
             kicker="Come and see"
             title="The best review is your own"
             align="center"
           />
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button tpl={tpl} href={href(tpl, "/houses")}>
+            <Button href={"/houses"}>
               Look at the houses
             </Button>
           </div>
         </Container>
       </Section>
 
-      <CtaBand tpl={tpl} />
+      <CtaBand />
     </>
   );
 }

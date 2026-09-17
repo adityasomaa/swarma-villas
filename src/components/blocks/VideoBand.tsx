@@ -5,8 +5,6 @@ import { useState } from "react";
 import { Photo } from "@/components/shared/Photo";
 import { Container, SectionHeader } from "@/components/ui";
 import { business } from "@/content/site";
-import { clsx } from "@/lib/clsx";
-import type { TemplateId } from "@/lib/templates";
 
 /* =============================================================================
    THE VILLA'S VIDEO
@@ -24,13 +22,12 @@ import type { TemplateId } from "@/lib/templates";
    play control. `youtube-nocookie.com` is used for the same reason.
    ========================================================================== */
 
-export function VideoBand({ tpl }: { tpl: TemplateId }) {
+export function VideoBand() {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <Container width={tpl === "t2" ? "wide" : "default"}>
+    <Container width="wide">
       <SectionHeader
-        tpl={tpl}
         kicker="In motion"
         title="A look around the property"
         lede="The villa's own film of the houses, the garden and the valley."
@@ -38,10 +35,7 @@ export function VideoBand({ tpl }: { tpl: TemplateId }) {
       />
 
       <div
-        className={clsx(
-          "relative overflow-hidden bg-deep",
-          tpl === "t1" && "r-md",
-        )}
+        className="relative overflow-hidden bg-deep"
         style={{ aspectRatio: "16 / 9" }}
       >
         {playing ? (
@@ -72,10 +66,7 @@ export function VideoBand({ tpl }: { tpl: TemplateId }) {
             <span className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-white">
               <span
                 aria-hidden
-                className={clsx(
-                  "flex h-16 w-16 items-center justify-center bg-gold text-ongold transition-transform duration-500 ease-out-quint group-hover:scale-110 md:h-20 md:w-20",
-                  tpl === "t3" ? "rounded-none" : "rounded-full",
-                )}
+                className="flex h-16 w-16 items-center justify-center rounded-full bg-gold text-ongold transition-transform duration-500 ease-out-quint group-hover:scale-110 md:h-20 md:w-20"
               >
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
                   <path d="M8 5.5v13l11-6.5z" />

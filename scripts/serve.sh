@@ -15,7 +15,7 @@ sleep 2
 nohup npx next start -p "$PORT" > scratch/server.log 2>&1 &
 for i in $(seq 1 30); do
   sleep 2
-  html=$(curl -s "http://localhost:$PORT/template-1" || true)
+  html=$(curl -s "http://localhost:$PORT/" || true)
   css=$(printf '%s' "$html" | grep -o '/_next/static/chunks/[^"]*\.css' | head -1 || true)
   [ -z "$css" ] && continue
   code=$(curl -s -o /dev/null -w "%{http_code}" "http://localhost:$PORT$css")

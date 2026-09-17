@@ -28,25 +28,25 @@ const check = (name, ok, detail = "") => {
   console.log(`${ok ? "  pass" : "  FAIL"}  ${name}${detail ? `  — ${detail}` : ""}`);
 };
 
-const browser = await chromium.launch();
+const browser = await chromium.launch({ channel: process.env.PW_CHANNEL || undefined });
 
 /* ========================================================== DESKTOP ======= */
 {
   const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
   const page = await context.newPage();
-  await page.goto(`${ORIGIN}/template-1`, { waitUntil: "domcontentloaded" });
+  await page.goto(`${ORIGIN}/`, { waitUntil: "domcontentloaded" });
   await page.evaluate(() => localStorage.setItem("swarma.consent.v1", "accepted"));
 
   console.log("\nDesktop 1440x900");
 
   /* ---------------------------------------------- 11. Lenis is running ---- */
-  await page.goto(`${ORIGIN}/template-1`, { waitUntil: "networkidle" });
+  await page.goto(`${ORIGIN}/`, { waitUntil: "networkidle" });
   await page.waitForTimeout(3400);
   const lenisOn = await page.evaluate(() => document.documentElement.classList.contains("lenis"));
   check("Lenis active on desktop", lenisOn);
 
   /* ---------------------------- 12. no native form controls anywhere ------ */
-  await page.goto(`${ORIGIN}/template-1/contact`, { waitUntil: "networkidle" });
+  await page.goto(`${ORIGIN}/contact`, { waitUntil: "networkidle" });
   await page.waitForTimeout(3400);
   const native = await page.evaluate(() => ({
     selects: document.querySelectorAll("select").length,
@@ -104,7 +104,7 @@ const browser = await chromium.launch();
   check("arrow keys + Enter select an option", !/choose one/i.test(chosen), `now "${chosen.trim()}"`);
 
   /* ----- 14. the transition sequence: nothing moves while the page is open */
-  await page.goto(`${ORIGIN}/template-1/houses`, { waitUntil: "networkidle" });
+  await page.goto(`${ORIGIN}/houses`, { waitUntil: "networkidle" });
   await page.waitForTimeout(3400);
   await page.evaluate(() => window.scrollTo(0, 1600));
   await page.waitForTimeout(700);
@@ -179,20 +179,16 @@ const browser = await chromium.launch();
      the JavaScript waits used to be two separate sets of numbers; they drifted,
      and five of the twelve phases had the sequence move on while the panels
      were still mid-slide, so they vanished part-way. Both now derive from one
-     table, and this check proves it for every family and both variants.
+     table, and this check proves it for both variants.
 
      It samples the LAST panel's transform on the frame the phase changes. If
      the animation finished, the panel is exactly where that phase should leave
      it. If it was cut, it is somewhere in between and the numbers say so.
      -------------------------------------------------------------------------- */
-  for (const [family, base] of [
-    ["t1", "/template-1"],
-    ["t2", "/template-2"],
-    ["t3", "/template-3"],
-  ]) {
+  {
     for (const [variant, from, to] of [
-      ["page", `${base}`, `${base}/houses`],
-      ["arrival", `${base}/houses`, `${base}`],
+      ["page", "/", "/houses"],
+      ["arrival", "/houses", "/"],
     ]) {
       await page.goto(`${ORIGIN}${from}`, { waitUntil: "networkidle" });
       await page.waitForTimeout(3400);
@@ -256,21 +252,16 @@ const browser = await chromium.launch();
 
       await page.waitForTimeout(400);
 
-      const label = `${family} ${variant}`;
+      const label = variant;
       check(`${label}: loader variant`, trace.variant === variant, `got "${trace.variant}"`);
 
       // Covered: the panel has arrived. t2 scales, the others translate.
       if (trace.closeEnd) {
-        const covered =
-          family === "t2"
-            ? Math.abs(trace.closeEnd.sy - 1) < 0.06
-            : Math.abs(trace.closeEnd.ty) < 0.06;
+        const covered = Math.abs(trace.closeEnd.sy - 1) < 0.06;
         check(
           `${label}: close finished before the phase ended`,
           covered,
-          family === "t2"
-            ? `scaleY ${trace.closeEnd.sy.toFixed(3)} (want 1)`
-            : `translateY ${trace.closeEnd.ty.toFixed(3)} (want 0)`,
+          `scaleY ${trace.closeEnd.sy.toFixed(3)} (want 1)`,
         );
       } else {
         check(`${label}: close finished before the phase ended`, false, "no sample");
@@ -278,16 +269,11 @@ const browser = await chromium.launch();
 
       // Cleared: the panel has left. Anything short of that is a visible snap.
       if (trace.openEnd) {
-        const cleared =
-          family === "t2"
-            ? Math.abs(trace.openEnd.sy) < 0.06
-            : Math.abs(trace.openEnd.ty) > 0.94;
+        const cleared = Math.abs(trace.openEnd.sy) < 0.06;
         check(
           `${label}: open finished before the phase ended`,
           cleared,
-          family === "t2"
-            ? `scaleY ${trace.openEnd.sy.toFixed(3)} (want 0)`
-            : `translateY ${trace.openEnd.ty.toFixed(3)} (want +-1)`,
+          `scaleY ${trace.openEnd.sy.toFixed(3)} (want 0)`,
         );
       } else {
         check(`${label}: open finished before the phase ended`, false, "no sample");
@@ -307,9 +293,9 @@ for (const [label, config] of [
   const page = await context.newPage();
   console.log(`\n${label}`);
 
-  await page.goto(`${ORIGIN}/template-1`, { waitUntil: "domcontentloaded" });
+  await page.goto(`${ORIGIN}/`, { waitUntil: "domcontentloaded" });
   await page.evaluate(() => localStorage.setItem("swarma.consent.v1", "accepted"));
-  await page.goto(`${ORIGIN}/template-1`, { waitUntil: "networkidle" });
+  await page.goto(`${ORIGIN}/`, { waitUntil: "networkidle" });
   await page.waitForTimeout(3400);
 
   const lenisOff = await page.evaluate(

@@ -17,8 +17,6 @@ import {
  *     scrolls behind the thing you are trying to use.
  *   - The cookie banner sits above the mobile menu on the stacking scale, so it
  *     hides itself while the menu is open rather than covering it.
- *   - The preview switcher steps out of the way of the mobile menu for the same
- *     reason.
  */
 type UIState = {
   menuOpen: boolean;

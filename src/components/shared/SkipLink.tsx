@@ -1,6 +1,6 @@
 /**
  * Skip link. It sits at the very top of the stacking scale so it cannot be
- * covered by the preview switcher, a menu or the cookie banner — being the
+ * covered by the header, a menu or the cookie banner — being the
  * first thing a keyboard user reaches, it has to win against everything.
  */
 export function SkipLink() {

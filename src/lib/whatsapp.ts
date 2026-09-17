@@ -1,5 +1,4 @@
 import { business } from "@/content/site";
-import { TEMPLATES, type TemplateId } from "@/lib/templates";
 import { formatDateLong, formatIDR, nightsBetween, pluralise } from "@/lib/format";
 
 /* =============================================================================
@@ -10,17 +9,15 @@ import { formatDateLong, formatIDR, nightsBetween, pluralise } from "@/lib/forma
    ever used for tel: links. Getting these the wrong way round would send every
    enquiry into a phone that has no WhatsApp on it.
 
-   Three things are attached to every message automatically:
+   Two things are attached to every message automatically:
      - the page the guest was on,
-     - which of the three previews they were looking at,
      - the label of the button they pressed.
 
-   The preview name is the point: once the client is clicking through all three,
-   the villa's WhatsApp inbox becomes the measurement of which one people use.
+   So the villa can see, from the inbox alone, which pages and which buttons
+   actually produce enquiries.
    ========================================================================== */
 
 export type Provenance = {
-  template: TemplateId | null;
   pageUrl: string;
   action: string;
 };
@@ -28,10 +25,6 @@ export type Provenance = {
 function footer(p: Provenance): string {
   const lines = ["", "---"];
   if (p.pageUrl) lines.push(`Sent from: ${p.pageUrl}`);
-  if (p.template) {
-    const t = TEMPLATES[p.template];
-    lines.push(`Design preview: Template ${t.index} - ${t.name}`);
-  }
   if (p.action) lines.push(`Button: ${p.action}`);
   return lines.join("\n");
 }

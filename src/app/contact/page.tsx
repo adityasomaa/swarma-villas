@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
-import { idFromSegment } from "@/app/[template]/layout";
 import { PageHero } from "@/components/blocks/PageHero";
 import { BookingForm } from "@/components/form/BookingForm";
 import { Reveal } from "@/components/shared/Reveal";
@@ -22,24 +20,20 @@ export const metadata: Metadata = {
   description: copy.contact.lede,
 };
 
-export default async function ContactPage({ params }: { params: Promise<{ template: string }> }) {
-  const { template } = await params;
-  const tpl = idFromSegment(template);
-  if (!tpl) notFound();
+export default function ContactPage() {
 
   const checkInOut = bookingTerms.sections.find((s) => s.title === "Check-in and check-out times");
 
   return (
     <>
       <PageHero
-        tpl={tpl}
         kicker="Book direct"
         title={copy.contact.h1}
         lede={copy.contact.lede}
         crumbs={[{ label: "Contact", path: "/contact" }]}
       />
 
-      <Section tpl={tpl} tone="canvas">
+      <Section tone="canvas">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] lg:gap-16">
             {/* ------------------------------------------------------ form */}
@@ -62,7 +56,7 @@ export default async function ContactPage({ params }: { params: Promise<{ templa
                 <div
                   className={clsx(
                     "p-7 md:p-8",
-                    tpl === "t1" ? "r-md bg-surface" : "border border-line bg-surface",
+                    "border border-line bg-surface",
                   )}
                 >
                   <h2 className="display text-[1.375rem]">Rather just message us?</h2>
@@ -70,7 +64,7 @@ export default async function ContactPage({ params }: { params: Promise<{ templa
                     {copy.contact.blurb}
                   </p>
                   <div className="mt-6">
-                    <WhatsAppButton tpl={tpl} action="Contact page — Ask on WhatsApp" />
+                    <WhatsAppButton action="Contact page — Ask on WhatsApp" />
                   </div>
 
                   <dl className="mt-7 space-y-4 border-t border-line pt-6 text-[0.9375rem]">
@@ -108,7 +102,7 @@ export default async function ContactPage({ params }: { params: Promise<{ templa
                 <div
                   className={clsx(
                     "p-7 md:p-8",
-                    tpl === "t1" ? "r-md bg-raised" : "border border-line bg-raised",
+                    "border border-line bg-raised",
                   )}
                 >
                   <h2 className="display text-[1.375rem]">Getting here</h2>
@@ -136,7 +130,7 @@ export default async function ContactPage({ params }: { params: Promise<{ templa
                   <div
                     className={clsx(
                       "p-7 md:p-8",
-                      tpl === "t1" ? "r-md bg-surface" : "border border-line bg-surface",
+                      "border border-line bg-surface",
                     )}
                   >
                     <h2 className="display text-[1.375rem]">{checkInOut.title}</h2>
@@ -163,10 +157,9 @@ export default async function ContactPage({ params }: { params: Promise<{ templa
       </Section>
 
       {/* ------------------------------------------------------------- map */}
-      <Section tpl={tpl} tone="surface" size="tight">
+      <Section tone="surface" size="tight">
         <Container>
           <SectionHeader
-            tpl={tpl}
             kicker="Where we are"
             title={copy.location.heading}
             lede={copy.location.lede}
@@ -184,7 +177,7 @@ export default async function ContactPage({ params }: { params: Promise<{ templa
             rel="noopener noreferrer"
             className={clsx(
               "group flex flex-col gap-4 p-7 transition-colors duration-300 sm:flex-row sm:items-center sm:justify-between md:p-9",
-              tpl === "t1" ? "r-md bg-canvas hover:bg-raised" : "border border-line bg-canvas hover:bg-raised",
+              "border border-line bg-canvas hover:bg-raised",
             )}
           >
             <span>

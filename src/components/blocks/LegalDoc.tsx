@@ -4,7 +4,6 @@ import { TLink } from "@/components/shared/Transition";
 import { Container, Section } from "@/components/ui";
 import type { LegalDocument } from "@/content/legal";
 import { clsx } from "@/lib/clsx";
-import { href, type TemplateId } from "@/lib/templates";
 
 /* =============================================================================
    LEGAL PAGES
@@ -32,12 +31,10 @@ const RELATED = [
 ];
 
 export function LegalDoc({
-  tpl,
   doc,
   currentPath,
   crumbLabel,
 }: {
-  tpl: TemplateId;
   doc: LegalDocument;
   currentPath: string;
   crumbLabel: string;
@@ -45,18 +42,17 @@ export function LegalDoc({
   return (
     <>
       <PageHero
-        tpl={tpl}
         kicker="Legal"
         title={doc.h1}
         lede={doc.lede}
         crumbs={[{ label: crumbLabel, path: currentPath }]}
       />
 
-      <Section tpl={tpl} tone="canvas">
+      <Section tone="canvas">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[16rem_minmax(0,1fr)] lg:gap-16">
             {/* ------------------------------------------------- contents */}
-            <nav aria-label="On this page" className="lg:sticky lg:top-[calc(var(--switcher-h)+7rem)] lg:self-start">
+            <nav aria-label="On this page" className="lg:sticky lg:top-28 lg:self-start">
               <h2 className="kicker text-subtle">On this page</h2>
               <ol className="mt-4 space-y-2 border-l border-line pl-4">
                 {doc.sections.map((section) => (
@@ -80,7 +76,7 @@ export function LegalDoc({
                   key={section.title}
                   as="section"
                   delay={Math.min(i, 4) * 50}
-                  className={clsx("scroll-mt-[calc(var(--switcher-h)+8rem)]", i > 0 && "mt-12")}
+                  className={clsx("scroll-mt-28", i > 0 && "mt-12")}
                 >
                   <h2
                     id={slugify(section.title)}
@@ -123,7 +119,7 @@ export function LegalDoc({
                   {RELATED.filter((r) => r.path !== currentPath).map((related) => (
                     <li key={related.path}>
                       <TLink
-                        href={href(tpl, related.path)}
+                        href={related.path}
                         className="text-[0.9375rem] text-accent underline-offset-4 hover:underline"
                       >
                         {related.label}

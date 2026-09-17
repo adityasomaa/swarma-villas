@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 
-import { idFromSegment } from "@/app/[template]/layout";
 import { PageHero } from "@/components/blocks/PageHero";
 import { HouseGrid } from "@/components/blocks/Houses";
 import { CtaBand } from "@/components/blocks/home";
 import { Reveal } from "@/components/shared/Reveal";
 import { Container, Section, SectionHeader } from "@/components/ui";
 import { bookingTerms, copy, houses } from "@/content/site";
-import { clsx } from "@/lib/clsx";
 import { formatIDR } from "@/lib/format";
 
 export const metadata: Metadata = {
@@ -16,17 +13,13 @@ export const metadata: Metadata = {
   description: copy.houses.lede,
 };
 
-export default async function HousesPage({ params }: { params: Promise<{ template: string }> }) {
-  const { template } = await params;
-  const tpl = idFromSegment(template);
-  if (!tpl) notFound();
+export default function HousesPage() {
 
   const cancellation = bookingTerms.sections.find((s) => s.title === "Cancellation policy");
 
   return (
     <>
       <PageHero
-        tpl={tpl}
         kicker="Where you sleep"
         title={copy.houses.h1}
         lede={copy.houses.lede}
@@ -34,17 +27,16 @@ export default async function HousesPage({ params }: { params: Promise<{ templat
         crumbs={[{ label: "Houses", path: "/houses" }]}
       />
 
-      <Section tpl={tpl} tone="canvas">
-        <Container width={tpl === "t2" ? "wide" : "default"}>
-          <HouseGrid tpl={tpl} headingLevel="h2" />
+      <Section tone="canvas">
+        <Container width="wide">
+          <HouseGrid headingLevel="h2" />
         </Container>
       </Section>
 
       {/* ------------------------------------------------ side-by-side compare */}
-      <Section tpl={tpl} tone="surface">
+      <Section tone="surface">
         <Container>
           <SectionHeader
-            tpl={tpl}
             kicker="Side by side"
             title="All three on one screen"
             lede="The published starting rate, the bed, the capacity and the floor area — the four things people actually compare."
@@ -116,9 +108,9 @@ export default async function HousesPage({ params }: { params: Promise<{ templat
 
       {/* ---------------------------------------------- what to know first */}
       {cancellation && (
-        <Section tpl={tpl} tone="canvas" size="tight">
+        <Section tone="canvas" size="tight">
           <Container>
-            <div className={clsx("grid gap-8 md:grid-cols-3", tpl === "t3" && "border-t border-line pt-10")}>
+            <div className="grid gap-8 md:grid-cols-3">
               <div>
                 <h2 className="kicker text-accent">Before you book</h2>
               </div>
@@ -147,7 +139,6 @@ export default async function HousesPage({ params }: { params: Promise<{ templat
       )}
 
       <CtaBand
-        tpl={tpl}
         title="Which house is yours?"
         lede="Tell us your dates and how many of you there are, and we will say what is free."
       />
