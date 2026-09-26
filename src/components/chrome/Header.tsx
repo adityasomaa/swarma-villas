@@ -8,7 +8,7 @@ import { TLink } from "@/components/shared/Transition";
 import { useUI } from "@/components/shared/UIProvider";
 import { useMobileMenu } from "@/components/shared/useMobileMenu";
 import { Button } from "@/components/ui";
-import { business, cta, nav } from "@/content/site";
+import { bookingUrl, business, cta, nav } from "@/content/site";
 import { clsx } from "@/lib/clsx";
 import { useEnquiry } from "@/lib/useEnquiry";
 
@@ -28,6 +28,10 @@ import { useEnquiry } from "@/lib/useEnquiry";
    404 have no photograph — a cream mark there would disappear into the cream.
    The hero declares itself with data-hero="dark" and the header asks the
    document once per navigation.
+
+   EIGHT NAV ITEMS. The villa's menu is long, so the row tightens between 1024
+   and 1280px — smaller type, less tracking, narrower gaps — and opens back up
+   above that. The audit checks for sideways scroll at 1024, 1280 and 1440.
 
    The mobile panel's behaviour — Escape, focus trapping, closing on route
    change, the scroll lock — lives in useMobileMenu.
@@ -94,22 +98,27 @@ export function Header() {
             : "border-b border-line bg-canvas/92 backdrop-blur-lg",
         )}
       >
-        <div className="mx-auto flex max-w-[100rem] items-center justify-between gap-6 px-5 py-3 sm:px-8 md:py-4 lg:px-12">
+        <div className="mx-auto flex max-w-[100rem] items-center justify-between gap-4 px-5 py-3 sm:px-8 md:py-4 lg:gap-6 lg:px-8 xl:px-12">
           <LogoLink
             tone={onPhoto ? "reversed" : "color"}
             onPhoto={onPhoto}
-            imageClassName={scrolled ? "h-12 md:h-14" : "h-14 md:h-[4.5rem]"}
+            imageClassName={
+              scrolled
+                ? "h-12 md:h-14 lg:h-12 xl:h-14"
+                : "h-14 md:h-[4.5rem] lg:h-14 xl:h-[4.5rem]"
+            }
           />
 
           <nav aria-label="Main" className="hidden lg:block">
-            <ul className="flex items-center gap-8">
+            <ul className="flex items-center gap-3.5 xl:gap-7">
               {nav.map((item) => (
                 <li key={item.href}>
                   <TLink
                     href={item.href}
                     aria-current={isCurrent(item.href) ? "page" : undefined}
                     className={clsx(
-                      "relative block py-1 text-[0.8125rem] uppercase tracking-[0.16em] transition-colors duration-300",
+                      "relative block py-1 whitespace-nowrap uppercase transition-colors duration-300",
+                      "text-[0.6875rem] tracking-[0.1em] xl:text-[0.8125rem] xl:tracking-[0.14em]",
                       "after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left",
                       "after:scale-x-0 after:bg-current after:transition-transform after:duration-400 after:ease-out-quint",
                       "hover:after:scale-x-100",
@@ -129,11 +138,11 @@ export function Header() {
                 one wins is decided by the order Tailwind emits them. */}
             <span className="hidden sm:block">
               <Button
-                href={cta.primary.href}
+                href={cta.contact.href}
                 tone={onPhoto ? "outline" : "primary"}
-                className="px-6 py-3"
+                className="px-4 py-3 whitespace-nowrap xl:px-6"
               >
-                {cta.primary.label}
+                {cta.contact.label}
               </Button>
             </span>
             <MenuToggle toggleRef={toggleRef} />
@@ -245,7 +254,7 @@ function MobilePanel({
         </ul>
 
         <div className="mt-8 flex flex-col gap-3">
-          <Button href={cta.primary.href} onClick={onClose}>
+          <Button href={bookingUrl ?? cta.primary.href} external={Boolean(bookingUrl)} onClick={onClose}>
             {cta.primary.label}
           </Button>
           <Button tone="outline" external href={enquiry("Mobile menu — Ask on WhatsApp")}>

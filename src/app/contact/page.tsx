@@ -6,13 +6,8 @@ import { BookingForm } from "@/components/form/BookingForm";
 import { Reveal } from "@/components/shared/Reveal";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import { Container, Section, SectionHeader } from "@/components/ui";
-import {
-  addressOneLine,
-  bookingTerms,
-  business,
-  copy,
-  mapsDirectionsUrl,
-} from "@/content/site";
+import { termsAndConditions } from "@/content/legal";
+import { addressOneLine, business, copy, mapsDirectionsUrl } from "@/content/site";
 import { clsx } from "@/lib/clsx";
 
 export const metadata: Metadata = {
@@ -22,7 +17,8 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
 
-  const checkInOut = bookingTerms.sections.find((s) => s.title === "Check-in and check-out times");
+  // Read out of the terms rather than restated, so the two cannot disagree.
+  const checkInOut = termsAndConditions.sections.find((s) => s.title === "Check-in & Check-out");
 
   return (
     <>
@@ -135,7 +131,7 @@ export default function ContactPage() {
                   >
                     <h2 className="display text-[1.375rem]">{checkInOut.title}</h2>
                     <ul className="mt-4 space-y-2.5">
-                      {checkInOut.items.map((item) => (
+                      {checkInOut.items?.map((item) => (
                         <li
                           key={item}
                           className="flex items-baseline gap-3 text-[0.9375rem] leading-[1.6] text-muted"

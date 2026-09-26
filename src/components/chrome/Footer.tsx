@@ -6,9 +6,9 @@ import { TLink } from "@/components/shared/Transition";
 import { Button, Container } from "@/components/ui";
 import {
   addressOneLine,
+  bookingUrl,
   business,
   cta,
-  experiences,
   houses,
   mapsDirectionsUrl,
   nav,
@@ -30,7 +30,6 @@ import { useEnquiry } from "@/lib/useEnquiry";
 
 const legalLinks = [
   { label: "Terms & conditions", href: "/term-condition" },
-  { label: "Terms of use", href: "/terms-of-use" },
   { label: "Privacy policy", href: "/privacy" },
 ];
 
@@ -46,8 +45,14 @@ export function Footer() {
     { title: "Visit", links: nav.map((n) => ({ label: n.label, href: n.href })) },
     { title: "The houses", links: houses.map((h) => ({ label: h.name, href: `/houses/${h.slug}` })) },
     {
-      title: "Experiences",
-      links: experiences.map((e) => ({ label: e.name, href: `/experiences/${e.slug}` })),
+      title: "Plan your stay",
+      links: [
+        { label: "Book direct", href: bookingUrl ?? cta.primary.href },
+        { label: "Packages & offers", href: "/packages" },
+        { label: "Experiences", href: "/experiences" },
+        { label: "Guest reviews", href: "/review" },
+        { label: "Contact us", href: cta.contact.href },
+      ],
     },
   ];
 
@@ -58,13 +63,16 @@ export function Footer() {
         <div className="flex flex-col gap-8 border-b border-line pb-12 md:flex-row md:items-end md:justify-between">
           <div>
             <LogoImage tone="reversed" className="h-20 md:h-24" />
-            <p className="measure-prose mt-6 text-[0.9375rem] leading-[1.7] text-muted">
-              {business.founderLine}
+            <p className="display mt-6 text-[1.5rem] leading-tight">{business.footerLine}</p>
+            <p className="measure-prose mt-3 text-[0.9375rem] leading-[1.7] text-muted">
+              {business.footerBlurb}
             </p>
           </div>
 
           <div className="flex flex-wrap gap-3">
-            <Button href={cta.primary.href}>{cta.primary.label}</Button>
+            <Button href={bookingUrl ?? cta.primary.href} external={Boolean(bookingUrl)}>
+              {cta.primary.label}
+            </Button>
             <Button href={enquiry("Footer — Ask on WhatsApp")} tone="outline" external>
               {cta.secondary.label}
             </Button>

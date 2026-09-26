@@ -31,29 +31,38 @@ import { writeFileSync, mkdirSync } from "node:fs";
    ========================================================================== */
 
 const ORIGIN = process.argv[2] ?? "http://localhost:3000";
-const WIDTHS = [390, 768, 1440];
+/* 1024 and 1280 are in here because of the eight-item navigation: the desktop
+   bar appears at lg, and 1024 is the narrowest screen that has to hold all
+   eight links plus the logo and the corner button without wrapping. */
+const WIDTHS = [390, 768, 1024, 1280, 1440];
 
 const PAGE_PATHS = [
   "/",
   "/about",
   "/houses",
-  "/houses/wooden-gladak-house",
-  "/houses/hexa-bamboo-house",
+  "/houses/gladak-house",
+  "/houses/bamboo-hexa",
   "/houses/bamboo-dome",
+  "/restaurant",
   "/experiences",
-  "/experiences/package-offer",
-  "/experiences/jungle-trekking",
-  "/experiences/swarma-paon-restaurant",
-  "/experiences/massage-body-rituals",
+  "/packages",
+  "/journal",
+  "/journal/welcome-to-swarma-a-small-place-made-slowly",
+  "/journal/three-houses-three-ways-to-stay",
   "/gallery",
   "/review",
   "/contact",
   "/term-condition",
   "/privacy",
-  "/terms-of-use",
 ];
 
-const MUST_404 = ["/nope", "/houses/not-a-house", "/experiences/not-real", "/template-4", "/about/extra"];
+const MUST_404 = [
+  "/nope",
+  "/houses/not-a-house",
+  "/journal/not-a-post",
+  "/template-4",
+  "/about/extra",
+];
 
 /** Old preview address -> where it must end up. */
 const REDIRECTS = [
@@ -62,6 +71,12 @@ const REDIRECTS = [
   ["/template-2/houses/bamboo-dome", "/houses/bamboo-dome"],
   ["/template-1/about", "/about"],
   ["/template-3/contact", "/contact"],
+  // Renamed by the villa's September revision.
+  ["/houses/wooden-gladak-house", "/houses/gladak-house"],
+  ["/houses/hexa-bamboo-house", "/houses/bamboo-hexa"],
+  ["/experiences/swarma-paon-restaurant", "/restaurant"],
+  ["/experiences/package-offer", "/packages"],
+  ["/terms-of-use", "/term-condition"],
 ];
 
 const failures = [];

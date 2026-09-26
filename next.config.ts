@@ -12,6 +12,21 @@ import type { NextConfig } from "next";
  */
 const PREVIEWS = ["template-1", "template-2", "template-3"];
 
+/**
+ * The villa's September revision renamed two houses, folded the four separate
+ * experience pages into one, and dropped the Terms of use page. Anything
+ * already linked to the old addresses lands on the new one.
+ */
+const MOVED: Record<string, string> = {
+  "/houses/wooden-gladak-house": "/houses/gladak-house",
+  "/houses/hexa-bamboo-house": "/houses/bamboo-hexa",
+  "/experiences/swarma-paon-restaurant": "/restaurant",
+  "/experiences/package-offer": "/packages",
+  "/experiences/massage-body-rituals": "/experiences#wellness",
+  "/experiences/jungle-trekking": "/experiences#beyond",
+  "/terms-of-use": "/term-condition",
+};
+
 const nextConfig: NextConfig = {
   /**
    * The Vercel Image Optimization quota on this account is exhausted. With the
@@ -25,10 +40,17 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
 
   async redirects() {
-    return PREVIEWS.flatMap((preview) => [
-      { source: `/${preview}`, destination: "/", permanent: false },
-      { source: `/${preview}/:path*`, destination: "/:path*", permanent: false },
-    ]);
+    return [
+      ...PREVIEWS.flatMap((preview) => [
+        { source: `/${preview}`, destination: "/", permanent: false },
+        { source: `/${preview}/:path*`, destination: "/:path*", permanent: false },
+      ]),
+      ...Object.entries(MOVED).map(([source, destination]) => ({
+        source,
+        destination,
+        permanent: false,
+      })),
+    ];
   },
 };
 

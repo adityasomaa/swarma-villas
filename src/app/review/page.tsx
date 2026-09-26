@@ -4,7 +4,7 @@ import { PageHero } from "@/components/blocks/PageHero";
 import { CtaBand } from "@/components/blocks/home";
 import { Reveal } from "@/components/shared/Reveal";
 import { Button, Container, Section, SectionHeader } from "@/components/ui";
-import { copy, publishedRating, reviews } from "@/content/site";
+import { copy, reviews } from "@/content/site";
 import { clsx } from "@/lib/clsx";
 
 export const metadata: Metadata = {
@@ -80,14 +80,8 @@ export default function ReviewPage() {
                 <p>
                   These are the reviews the villa has published itself — one submitted through
                   the website and one carried across from Google. They are shown in full and
-                  unedited, apart from the spelling of the English one.
-                </p>
-                <p>
-                  Swarma Villas publishes a rating of {publishedRating.value} out of{" "}
-                  {publishedRating.outOf} on its own room pages, attributed to{" "}
-                  {publishedRating.source.toLowerCase()}. That is the villa&rsquo;s figure, and it
-                  is repeated here as theirs rather than presented as something this site
-                  measured.
+                  unedited, apart from the spelling of the English one. No overall score is
+                  shown, because there is no single platform behind these two to average.
                 </p>
                 <p>
                   If you have stayed with us, write to us and we will add yours.

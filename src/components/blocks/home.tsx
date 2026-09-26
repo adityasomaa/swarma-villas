@@ -7,7 +7,6 @@ import {
   business,
   copy,
   cta,
-  experiences,
   mapsDirectionsUrl,
   reviews,
 } from "@/content/site";
@@ -45,11 +44,16 @@ export function AboutBand() {
         </Reveal>
 
         <div>
-          <SectionHeader kicker="The villa" title={copy.about.h1} align="start" className="mb-6" />
-          <Prose paragraphs={copy.about.body.slice(0, 2)} />
+          <SectionHeader
+            kicker={copy.home.villa.kicker}
+            title={copy.home.villa.title}
+            align="start"
+            className="mb-6"
+          />
+          <Prose paragraphs={copy.home.villa.body} />
           <Reveal delay={100} className="mt-8">
             <Button href="/about" tone="outline">
-              More about Swarma Villas
+              {copy.home.villa.cta}
             </Button>
           </Reveal>
         </div>
@@ -64,34 +68,34 @@ export function ExperiencesSection() {
   return (
     <Container width="wide">
       <SectionHeader
-        kicker="On the property"
-        title={copy.experiences.h1}
-        lede={copy.experiences.lede}
+        kicker={copy.home.experiences.kicker}
+        title={copy.home.experiences.title}
+        lede={copy.home.experiences.lede}
         className="mb-12 md:mb-16"
       />
 
       {/* A hairline grid: the gap is the line colour showing through. */}
       <ul className="grid gap-px bg-line sm:grid-cols-2">
-        {experiences.map((exp, i) => (
-          <li key={exp.slug} className="bg-canvas">
+        {copy.home.experiences.cards.map((card, i) => (
+          <li key={card.name} className="bg-canvas">
             <Reveal delay={i * 80}>
               <TLink
-                href={`/experiences/${exp.slug}`}
+                href={card.href}
                 className="group flex h-full flex-col p-6 transition-colors duration-400 hover:bg-raised md:p-8"
               >
                 <div className="overflow-hidden">
                   <Photo
-                    slug={exp.photos[0]!}
+                    slug={card.photo}
                     ratio={16 / 10}
                     sizes="(min-width: 640px) 50vw, 100vw"
                     imgClassName="transition-transform duration-[1000ms] ease-out-quint group-hover:scale-[1.06]"
-                    alt={`${exp.name} at Swarma Villas Bali`}
+                    alt={`${card.name} at Swarma Villas Bali`}
                   />
                 </div>
                 <div className="flex flex-1 flex-col pt-5">
-                  <h3 className="display text-[1.5rem] leading-tight">{exp.name}</h3>
+                  <h3 className="display text-[1.5rem] leading-tight">{card.name}</h3>
                   <p className="mt-3 flex-1 text-[0.9375rem] leading-[1.65] text-muted">
-                    {exp.summary}
+                    {card.text}
                   </p>
                   <span className="mt-5 inline-block text-[0.8125rem] text-accent">
                     Read more
@@ -243,8 +247,8 @@ export function LocationBand() {
 /* -------------------------------------------------------------------- CTA */
 
 export function CtaBand({
-  title = "Come and stay with us",
-  lede = "Send your dates and we will reply on WhatsApp with availability. Booking direct means no agency fee.",
+  title = copy.home.cta.title,
+  lede = copy.home.cta.lede,
 }: {
   title?: string;
   lede?: string;

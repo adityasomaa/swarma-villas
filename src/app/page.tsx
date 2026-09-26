@@ -12,7 +12,7 @@ import {
   ReviewsBand,
 } from "@/components/blocks/home";
 import { Section } from "@/components/ui";
-import { business, copy } from "@/content/site";
+import { business, copy, showVideoSection } from "@/content/site";
 
 export const metadata: Metadata = {
   title: { absolute: `${business.name} — ${business.tagline}` },
@@ -41,9 +41,13 @@ export default function HomePage() {
         <ExperiencesSection />
       </Section>
 
-      <Section tone="canvas" size="tight">
-        <VideoBand />
-      </Section>
+      {/* Hidden at the villa's request until their own video shoot is finished.
+          Set showVideoSection in content/site.ts to bring it back. */}
+      {showVideoSection && (
+        <Section tone="canvas" size="tight">
+          <VideoBand />
+        </Section>
+      )}
 
       <Section tone="deep">
         <ReviewsBand />

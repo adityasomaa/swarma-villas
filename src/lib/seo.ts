@@ -1,4 +1,4 @@
-import { addressOneLine, business, houses, mapsPlaceUrl, publishedRating } from "@/content/site";
+import { addressOneLine, business, houses, mapsPlaceUrl } from "@/content/site";
 
 /**
  * The one place the production origin is written. If the Vercel alias ever has
@@ -19,8 +19,8 @@ export function absolute(path: string): string {
    address, the phone number and the three bookable units in a form Google does
    not have to infer from prose.
 
-   Everything comes from content/site.ts. The only rating asserted is the one
-   the villa publishes on its own room pages, and it is attributed.
+   Everything comes from content/site.ts. No rating is asserted: the villa has
+   not given a figure it stands behind, and an invented one is worse than none.
    -------------------------------------------------------------------------- */
 
 const BUSINESS_ID = `${SITE_URL}/#lodging`;
@@ -53,7 +53,8 @@ export function lodgingBusinessJsonLd() {
     priceRange: `IDR ${Math.min(...houses.map((h) => h.priceFromIDR)).toLocaleString("en-US")}–${Math.max(
       ...houses.map((h) => h.priceFromIDR),
     ).toLocaleString("en-US")}`,
-    numberOfRooms: houses.length,
+    // Three house types, five individual houses.
+    numberOfRooms: houses.reduce((n, h) => n + h.count, 0),
     checkinTime: "14:00",
     checkoutTime: "12:00",
     amenityFeature: [
@@ -135,4 +136,4 @@ export function breadcrumbJsonLd(trail: { name: string; path: string }[]) {
   };
 }
 
-export { addressOneLine, publishedRating };
+export { addressOneLine };

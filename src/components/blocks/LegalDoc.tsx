@@ -8,9 +8,8 @@ import { clsx } from "@/lib/clsx";
 /* =============================================================================
    LEGAL PAGES
    -----------------------------------------------------------------------------
-   Three pages share this layout: the booking terms, the terms of use and the
-   privacy policy. They are text, and the design's whole job is to keep them
-   readable — one column, a measure that does not run past 64 characters, and a
+   Two pages share this layout: the terms & conditions and the privacy policy.
+   They are text, and the design's whole job is to keep them readable — one column, a measure that does not run past 64 characters, and a
    contents list that jumps to a section.
 
    The headings carry ids so a specific clause can be linked to directly, which
@@ -26,7 +25,6 @@ function slugify(title: string): string {
 
 const RELATED = [
   { label: "Terms & conditions", path: "/term-condition" },
-  { label: "Terms of use", path: "/terms-of-use" },
   { label: "Privacy policy", path: "/privacy" },
 ];
 

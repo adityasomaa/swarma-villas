@@ -9,8 +9,8 @@ import { formatIDR } from "@/lib/format";
 /* =============================================================================
    THE THREE HOUSES
    -----------------------------------------------------------------------------
-   Full-width rows, numbered, alternating sides. Used twice: as a section on the
-   home page and as the body of /houses.
+   Full-width rows, alternating sides. Used twice: as a section on the home page
+   and as the body of /houses.
 
    The `headingLevel` prop exists because of that. On /houses the page title is
    the h1 and these are h2s; on the home page the section title is the h2 and
@@ -53,10 +53,7 @@ export function HouseGrid({ headingLevel = "h2" }: { headingLevel?: Level }) {
               </div>
 
               <div className="lg:px-4">
-                <p className="kicker text-subtle tabular-nums">
-                  {String(i + 1).padStart(2, "0")} / {String(houses.length).padStart(2, "0")}
-                </p>
-                <H className="display mt-4 text-[clamp(1.875rem,4vw,3rem)] leading-[1.02]">
+                <H className="display text-[clamp(1.875rem,4vw,3rem)] leading-[1.02]">
                   {house.name}
                 </H>
                 <p className="mt-4 text-[0.875rem] uppercase tracking-[0.12em] text-subtle">
@@ -89,9 +86,9 @@ export function HousesSection() {
   return (
     <Container width="wide">
       <SectionHeader
-        kicker="Where you sleep"
-        title={copy.houses.h1}
-        lede={copy.houses.lede}
+        kicker={copy.home.houses.kicker}
+        title={copy.home.houses.title}
+        lede={copy.home.houses.lede}
         className="mb-12 md:mb-16"
       />
       <HouseGrid headingLevel="h3" />

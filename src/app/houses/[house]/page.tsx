@@ -9,7 +9,7 @@ import { Photo } from "@/components/shared/Photo";
 import { Reveal } from "@/components/shared/Reveal";
 import { TLink } from "@/components/shared/Transition";
 import { Button, Container, Prose, Section, SectionHeader, Spec } from "@/components/ui";
-import { houseBySlug, houses, publishedRating } from "@/content/site";
+import { copy, houseBySlug, houses } from "@/content/site";
 import { clsx } from "@/lib/clsx";
 import { formatIDR } from "@/lib/format";
 import { accommodationJsonLd, breadcrumbJsonLd } from "@/lib/seo";
@@ -128,9 +128,7 @@ export default async function HousePage({
                 </div>
 
                 <p className="mt-6 border-t border-line pt-5 text-[0.8125rem] leading-relaxed text-subtle">
-                  The villa publishes a {publishedRating.value} out of {publishedRating.outOf}{" "}
-                  rating for this house ({publishedRating.source}). This page shows no
-                  availability — send your dates and we will reply.
+                  {copy.houses.ratesNote}
                 </p>
               </aside>
             </Reveal>
@@ -206,10 +204,7 @@ export default async function HousePage({
         </Container>
       </Section>
 
-      <CtaBand
-        title={`Stay in the ${house.name}`}
-        lede="Send your dates and we will reply on WhatsApp. Booking direct means no agency fee."
-      />
+      <CtaBand title={copy.houses.houseCta.title} lede={copy.houses.houseCta.lede} />
 
       {jsonLd && <JsonLd data={jsonLd} />}
       <JsonLd
