@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { PageHero } from "@/components/blocks/PageHero";
-import { CtaBand, LocationBand } from "@/components/blocks/home";
+import { CtaBand } from "@/components/blocks/home";
 import { Photo } from "@/components/shared/Photo";
 import { Reveal } from "@/components/shared/Reveal";
 import { Container, Prose, Section, SectionHeader } from "@/components/ui";
@@ -95,11 +95,8 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      {/* Same band as the home page, at the villa's request. */}
-      <Section tone="canvas">
-        <LocationBand />
-      </Section>
-
+      {/* The villa asked for Getting here to come off this page — it is on the
+          home page, and About is a story rather than a set of directions. */}
       <CtaBand title={copy.about.cta.title} lede={copy.about.cta.lede} />
     </>
   );

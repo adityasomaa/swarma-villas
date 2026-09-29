@@ -22,6 +22,14 @@ export const metadata: Metadata = {
  */
 const section = (title: string) => termsAndConditions.sections.find((s) => s.title === title);
 
+/**
+ * "2 houses" beside "One house" was the villa's note: the column mixed a digit
+ * with a word. Spelled out, in the villa's own capitalisation.
+ */
+const WORDS = ["", "One", "Two", "Three", "Four", "Five"] as const;
+const houseCount = (n: number) =>
+  `${WORDS[n] ?? n} ${n === 1 ? "House" : "Houses"}`;
+
 export default function HousesPage() {
   const arrival = section("Check-in & Check-out");
   const cancellation = section("Cancellation Policy");
@@ -30,7 +38,11 @@ export default function HousesPage() {
     <>
       <PageHero
         kicker={copy.houses.kicker}
-        title={copy.houses.h1}
+        title={copy.houses.h1Lines.map((line) => (
+          <span key={line} className="block">
+            {line}
+          </span>
+        ))}
         lede={copy.houses.lede}
         photo={{ slug: "room-04", alt: "A bed under a mosquito net in one of the houses" }}
         crumbs={[{ label: "Houses", path: "/houses" }]}
@@ -103,8 +115,8 @@ export default function HousesPage() {
                       <td className="py-5 pr-4 text-[0.9375rem] text-muted tabular-nums whitespace-nowrap">
                         {house.sizeSqm} sqm
                       </td>
-                      <td className="py-5 text-[0.9375rem] text-muted tabular-nums whitespace-nowrap">
-                        {house.count === 1 ? "One house" : `${house.count} houses`}
+                      <td className="py-5 text-[0.9375rem] text-muted whitespace-nowrap">
+                        {houseCount(house.count)}
                       </td>
                     </tr>
                   ))}

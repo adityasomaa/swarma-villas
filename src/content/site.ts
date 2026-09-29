@@ -162,7 +162,7 @@ export const houses: House[] = [
     sizeSqm: 12,
     count: 2,
     distinction:
-      "A traditional Javanese teakwood house with heritage details and an open-air bathtub beneath the sky.",
+      "A traditional Javanese teakwood house with heritage details and an open air bathtub beneath the sky.",
     body: [
       "The Gladak houses are traditional wooden structures originating from Java, often " +
         "referred to as Javanese bridal houses. Rich in cultural heritage, they feature " +
@@ -224,7 +224,7 @@ export const houses: House[] = [
     sizeSqm: 16,
     count: 1,
     distinction:
-      "An elegant hexagonal, single-storey bamboo house with traditional woven walls, a semi-open shower and no stairs.",
+      "An elegant hexagonal, single storey bamboo house with traditional woven walls, a semi open shower and no stairs.",
     body: [
       "The Bamboo Hexa is a hexagonal bamboo house designed around comfort and easy " +
         "access. It is single storey with no stairs, making it the only house type at " +
@@ -897,7 +897,10 @@ export const copy = {
 
   houses: {
     kicker: "Where you Sleep",
+    /** The plain string, for metadata and anywhere a heading is not rendered. */
     h1: "Three Houses. Each With Its Own Character.",
+    /** Rendered form. The villa asked for the break to fall before "Each". */
+    h1Lines: ["Three Houses.", "Each With Its Own Character."],
     lede:
       "Swarma Villas has three types of accommodation across five individual houses, " +
       "each offering a different way to experience the property. From reclaimed Javanese " +

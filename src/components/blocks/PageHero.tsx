@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import { Photo } from "@/components/shared/Photo";
 import { Reveal } from "@/components/shared/Reveal";
 import { TLink } from "@/components/shared/Transition";
@@ -24,7 +26,8 @@ const HALF = "min-h-[max(22rem,50svh)]";
 
 type Props = {
   kicker?: string;
-  title: string;
+  /** A string, or lines — some headings break where the villa asked, not where the measure falls. */
+  title: ReactNode;
   lede?: string;
   /** Omit for the text-only pages. */
   photo?: { slug: string; alt: string };
