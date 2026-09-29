@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { BookingBar } from "@/components/booking/BookingBar";
 import { PageHero } from "@/components/blocks/PageHero";
 import { CtaBand } from "@/components/blocks/home";
 import { Gallery } from "@/components/blocks/Gallery";
@@ -118,12 +119,14 @@ export default async function HousePage({
                   <Spec label="Check in / out" value="14:00 / 12:00" />
                 </dl>
 
-                <div className="mt-7 flex flex-col gap-3">
-                  <Button
-                    href={`/contact?house=${house.slug}`}
-                    className="w-full"
-                  >
-                    Request these dates
+                {/* The engine, on the page, already knowing which house this
+                    is. "Ask on WhatsApp" stays underneath it for anyone who
+                    would rather talk to someone. */}
+                <BookingBar house={house} className="mt-7" />
+
+                <div className="mt-4 flex flex-col gap-3">
+                  <Button href={`/contact?house=${house.slug}`} tone="outline" className="w-full">
+                    Ask about these dates
                   </Button>
                   <Button href={"/term-condition"} tone="quiet">
                     Read the booking terms

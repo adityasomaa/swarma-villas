@@ -152,6 +152,12 @@ export type House = {
   sizeSqm: number;
   /** How many houses of this type the villa has. */
   count: number;
+  /**
+   * What this house is called inside the booking engine, exactly. Matched by
+   * name, so if the villa renames a room there, rename it here too — a house
+   * whose names stop matching simply shows no live rate, it does not break.
+   */
+  engineRooms: readonly string[];
   /** One line that separates this house from the other two. */
   distinction: string;
   /** The villa's own description, in paragraphs. */
@@ -171,6 +177,7 @@ export const houses: House[] = [
     maxGuests: 2,
     sizeSqm: 12,
     count: 2,
+    engineRooms: ["Gladak House 1", "Gladak House 2"],
     distinction:
       "A traditional Javanese teakwood house with heritage details and an open air bathtub beneath the sky.",
     body: [
@@ -233,6 +240,7 @@ export const houses: House[] = [
     maxGuests: 2,
     sizeSqm: 16,
     count: 1,
+    engineRooms: ["Bamboo Hexa"],
     distinction:
       "An elegant hexagonal, single storey bamboo house with traditional woven walls, a semi open shower and no stairs.",
     body: [
@@ -290,6 +298,7 @@ export const houses: House[] = [
     maxGuests: 2,
     sizeSqm: 20,
     count: 2,
+    engineRooms: ["Bamboo Dome 1", "Bamboo Dome 2"],
     distinction:
       "A distinctive bamboo dome with a curved interior and an enclosed bathroom featuring both a bathtub and shower.",
     body: [
