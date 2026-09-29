@@ -114,16 +114,21 @@ export const journal: JournalPost[] = [
     photo: "paon-01",
   },
   {
+    /*
+     * The villa stopped offering the blessing ceremony, so this post explains
+     * what one is rather than inviting anyone to book it. Keep it that way
+     * unless they start arranging them again.
+     */
     slug: "a-balinese-blessing-what-happens-in-a-ceremony-and-why-it",
     title: "A Balinese Blessing: What Happens in a Ceremony, and Why It Matters",
     excerpt: "For guests curious about Bali beyond the beach and the rice terrace, the Balinese blessing ceremony offers a quiet window into the island's spiritual life.",
     body: [
       "There's a version of Bali that lives on postcards — the rice terraces, the beach clubs, the infinity pools. And then there's the Bali that happens quietly, several times a day, in small offerings placed on doorsteps and temple gates opened for prayer. A Balinese blessing ceremony is a chance to step, briefly and respectfully, into that second version of the island.",
-      "At Swarma, we can arrange a blessing ceremony on the property itself — no travel required, no early start. A local priest or ceremonial leader guides the ritual, which typically involves offerings, holy water, and prayer, each element carrying specific meaning within Balinese Hindu tradition. Guests aren't expected to understand every gesture in advance; part of the experience is simply being present, and asking questions afterward if you're curious.",
-      "What tends to surprise guests most is how personal it feels. This isn't a staged cultural performance — it's a genuine practice, adapted respectfully for guests who want to understand it rather than simply watch it. Many leave with a small sense of what daily spiritual life actually looks like in Bali: not grand or theatrical, but constant, woven into the rhythm of an ordinary day.",
-      "It's a fitting experience for the early part of a stay — a way of settling in, of understanding a little more about the place you've come to before you go looking for waterfalls and rice fields beyond the property.",
+      "A blessing ceremony is led by a local priest or ceremonial leader, and typically involves offerings, holy water and prayer, each element carrying specific meaning within Balinese Hindu tradition. Nobody is expected to understand every gesture in advance; part of it is simply being present, and asking questions afterward if you're curious.",
+      "What tends to surprise visitors most is how personal it feels. This isn't a staged cultural performance — it's a genuine practice, and anyone welcomed into one is there to understand it rather than simply watch it. Many come away with a small sense of what daily spiritual life actually looks like in Bali: not grand or theatrical, but constant, woven into the rhythm of an ordinary day.",
+      "It is worth understanding early in a stay — a way of settling in, of knowing a little more about the place you have come to before you go looking for waterfalls and rice fields.",
     ],
-    closing: "Ask us about arranging a blessing ceremony during your stay — a meaningful way to begin your time at Swarma.",
+    closing: "Curious about what you are seeing around the village while you are here? Ask us, and we will be glad to explain.",
     photo: "ritual-01",
   },
   {
