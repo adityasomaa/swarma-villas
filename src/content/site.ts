@@ -345,21 +345,52 @@ export function houseBySlug(slug: string): House | undefined {
 export const restaurant = {
   kicker: "Restaurant",
   h1: "Paon Restaurant by Swarma Villa",
+  /*
+   * Replaced wholesale on 29 September 2026 from the villa's own document,
+   * "SWARMA VILLAS BALI - web - Restaurant". Its opening line does the work the
+   * old lede did, so it is the lede now rather than a near-repeat of it.
+   */
   lede:
-    "Open air restaurant where Balinese, Indonesian and Western dishes are " +
-    "prepared in a setting inspired by Indonesian homes and craftsmanship. Open " +
-    "to everyone including non residents.",
+    "Open daily and welcoming to everyone, Paon Restaurant by Swarma Villa is an " +
+    "open-air restaurant set within a beautifully restored Javanese wooden house.",
   body: [
-    "In respect of Balinese culture, our restaurant is named after the traditional " +
+    "In respect for Balinese culture, our restaurant is named after the traditional " +
       "Balinese kitchen, Paon — a place associated with warmth, family and honest flavours.",
     "At Swarma, the kitchen is more than a place where food is prepared. It is a place " +
       "where people come together.",
-    "Set within a restored Javanese wooden house, Paon Restaurant by Swarma Villa brings " +
-      "together Indonesian craftsmanship, warm hospitality and food inspired by the " +
-      "flavours of Bali and Indonesia.",
-    "Our menu also includes Western favourites, giving guests the freedom to enjoy " +
-      "familiar dishes alongside local flavours.",
+    "Surrounded by greenery and warm Indonesian craftsmanship, Paon brings together the " +
+      "character of a traditional wooden home with a relaxed dining experience. Our menu " +
+      "is inspired by the flavours of Bali and Indonesia, alongside a selection of " +
+      "Western favourites.",
+    "Whether you are staying with us or simply visiting the area, you are always welcome " +
+      "at Paon. Come for breakfast, lunch, dinner, a relaxed meal in the garden, or " +
+      "simply to enjoy good food in a peaceful setting.",
   ],
+  /** Two titled parts the villa added below the opening text. */
+  sections: [
+    {
+      title: "Dining Your Way",
+      body: [
+        "Our kitchen is happy to accommodate dietary requirements and food allergies " +
+          "whenever possible. If you have specific dietary needs, please let us know in " +
+          "advance so our team can prepare your meal with care.",
+        "Planning something special? Paon can also cater for special occasions and " +
+          "private celebrations, from a relaxed dinner to a more personal gathering. " +
+          "Share your plans with us and we will be happy to discuss the menu and " +
+          "arrangements.",
+      ],
+    },
+    {
+      title: "Staying Nearby?",
+      body: [
+        "You do not need to be a Swarma guest to enjoy Paon. Non-resident guests are " +
+          "welcome, and if you prefer to enjoy your meal where you are staying, food " +
+          "delivery can also be arranged, subject to availability and location.",
+      ],
+    },
+  ],
+  closing:
+    "Come as you are, stay for a while, and enjoy the flavours of Bali and Indonesia at Paon.",
   cuisineTitle: "Our cuisine",
   cuisine: [
     { name: "Balinese", text: "Traditional flavours and ingredients inspired by Bali." },
@@ -438,16 +469,6 @@ export const experience = {
         "slower pace, or venture beyond the island to experience more of Indonesia.",
     ],
     items: [
-      {
-        name: "Balinese Blessing Ceremony",
-        body: [
-          "Experience a traditional Balinese blessing ceremony and learn about the cultural " +
-            "meaning behind the rituals, offerings and prayers.",
-          "A meaningful experience for guests who would like to connect more deeply with " +
-            "Balinese culture and traditions.",
-        ],
-        photo: "ritual-01",
-      },
       {
         name: "Water Temple Purification",
         body: [

@@ -65,7 +65,27 @@ export default function RestaurantPage() {
         </Container>
       </Section>
 
+      {/* ------------------------------------------- dining your way, staying nearby */}
       <Section tone="surface">
+        <Container>
+          <div className="grid gap-10 md:grid-cols-2 md:gap-14">
+            {restaurant.sections.map((section, i) => (
+              <Reveal key={section.title} delay={i * 90}>
+                <SectionHeader as="h2" title={section.title} align="start" className="mb-5" />
+                <Prose paragraphs={section.body} />
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={160}>
+            <p className="display measure-head mx-auto mt-14 text-center text-[clamp(1.375rem,3vw,2rem)] leading-[1.3] text-ink md:mt-20">
+              {restaurant.closing}
+            </p>
+          </Reveal>
+        </Container>
+      </Section>
+
+      <Section tone="canvas">
         <Container>
           <SectionHeader
             kicker="On the menu"
@@ -74,7 +94,7 @@ export default function RestaurantPage() {
           />
           <ul className="grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-4">
             {restaurant.cuisine.map((c, i) => (
-              <li key={c.name} className="bg-surface">
+              <li key={c.name} className="bg-canvas">
                 <Reveal delay={i * 70}>
                   <div className="h-full p-7 md:p-8">
                     <h3 className="display text-[1.375rem] leading-snug">{c.name}</h3>
@@ -88,7 +108,7 @@ export default function RestaurantPage() {
       </Section>
 
       {rest.length > 0 && (
-        <Section tone="canvas">
+        <Section tone="surface">
           <Container width="wide">
             <SectionHeader kicker="Look around" title="Paon in photographs" className="mb-10 md:mb-14" />
             <Gallery slugs={rest} />
