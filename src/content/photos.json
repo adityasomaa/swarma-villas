@@ -238,7 +238,7 @@
   {
     "slug": "bath-open-01",
     "category": "bathroom",
-    "caption": "Open-air bathroom with a stone basin and bamboo screen",
+    "caption": "Open air bathroom with a stone basin and bamboo screen",
     "w": 960,
     "h": 1280,
     "ratio": 0.75,
@@ -314,7 +314,7 @@
   {
     "slug": "bath-open-04",
     "category": "bathroom",
-    "caption": "Stone basin and a carved mirror in an open-air bathroom",
+    "caption": "Stone basin and a carved mirror in an open air bathroom",
     "w": 1920,
     "h": 2560,
     "ratio": 0.75,
@@ -346,7 +346,7 @@
   {
     "slug": "bath-open-05",
     "category": "bathroom",
-    "caption": "Freestanding tub and stone basin in the open-air bathroom",
+    "caption": "Freestanding tub and stone basin in the open air bathroom",
     "w": 1280,
     "h": 960,
     "ratio": 1.3333,
@@ -501,7 +501,7 @@
   {
     "slug": "dome-bed-05",
     "category": "dome",
-    "caption": "Bed and built-in bamboo lounge inside the Bamboo Dome",
+    "caption": "Bed and built in bamboo lounge inside the Bamboo Dome",
     "w": 2048,
     "h": 1365,
     "ratio": 1.5004,
@@ -641,7 +641,7 @@
   {
     "slug": "dome-lounge-01",
     "category": "dome",
-    "caption": "The built-in lounge and low table inside the Bamboo Dome",
+    "caption": "The built in lounge and low table inside the Bamboo Dome",
     "w": 1365,
     "h": 2048,
     "ratio": 0.6665,
@@ -852,7 +852,7 @@
   {
     "slug": "gladak-bed-01",
     "category": "gladak",
-    "caption": "Four-poster bed with red bedding inside the Wooden Gladak House",
+    "caption": "Four poster bed with red bedding inside the Wooden Gladak House",
     "w": 2560,
     "h": 1707,
     "ratio": 1.4997,
@@ -2760,7 +2760,7 @@
   {
     "slug": "room-03",
     "category": "rooms",
-    "caption": "Four-poster bed with white drapes in a villa room",
+    "caption": "Four poster bed with white drapes in a villa room",
     "w": 1200,
     "h": 1600,
     "ratio": 0.75,

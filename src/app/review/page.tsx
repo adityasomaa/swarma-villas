@@ -33,7 +33,7 @@ export default function ReviewPage() {
         kicker="From our guests"
         title={copy.review.h1}
         lede={copy.review.lede}
-        photo={{ slug: "paon-09", alt: "The open-air restaurant at Swarma Villas" }}
+        photo={{ slug: "paon-09", alt: "The open air restaurant at Swarma Villas" }}
         crumbs={[{ label: "Review", path: "/review" }]}
       />
 

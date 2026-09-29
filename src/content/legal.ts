@@ -14,7 +14,7 @@ import { addressOneLine, business, publicPhoneDisplay } from "@/content/site";
    One thing to keep true: the privacy policy says browser storage is used to
    remember what you type into the enquiry form. That is what this site does
    (see src/lib/consent.ts). If the site ever gains analytics, an advertising
-   pixel or a third-party script, this page has to say so.
+   pixel or a third party script, this page has to say so.
    ============================================================================= */
 
 export type LegalSection = { title: string; paragraphs?: string[]; items?: string[] };
@@ -75,7 +75,7 @@ export const termsAndConditions: LegalDocument = {
       paragraphs: [
         "Cancellation is based on the property's local time and arrival date.",
         "Applies to standard bookings only. Not applicable to weekly, monthly, " +
-          "non-refundable or special offers.",
+          "non refundable or special offers.",
       ],
     },
     {
@@ -89,7 +89,7 @@ export const termsAndConditions: LegalDocument = {
     {
       title: "Safety & Property Awareness",
       paragraphs: [
-        "Swarma Villas is a nature-based property with stone paths, steps and different " +
+        "Swarma Villas is a nature based property with stone paths, steps and different " +
           "house layouts. Guests are kindly asked to take reasonable care, particularly " +
           "when travelling with children or elderly guests.",
         "Some houses have stairs or other access considerations. Please review the " +
@@ -158,7 +158,7 @@ export const privacyPolicy: LegalDocument = {
       paragraphs: [
         "Our website may use essential browser storage or cookies to remember your " +
           "preferences and information entered into booking or enquiry forms.",
-        "Third-party services embedded or linked on our website may collect information " +
+        "Third party services embedded or linked on our website may collect information " +
           "according to their own privacy policies.",
       ],
     },

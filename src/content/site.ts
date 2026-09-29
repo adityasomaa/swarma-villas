@@ -29,7 +29,7 @@ export const business = {
   /** The line that heads the calls to action. */
   tagline: "River Side & Greenery View",
   /** How the villa describes itself, in its own words. */
-  positioning: "Eco-Chic Greenery Retreat in Singakerta, Ubud — Bali, Indonesia",
+  positioning: "Eco Chic Greenery Retreat in Singakerta, Ubud — Bali, Indonesia",
   /** The villa's own footer line. */
   footerLine: "Come Slowly. Stay Naturally.",
   footerBlurb:
@@ -352,7 +352,7 @@ export const restaurant = {
    */
   lede:
     "Open daily and welcoming to everyone, Paon Restaurant by Swarma Villa is an " +
-    "open-air restaurant set within a beautifully restored Javanese wooden house.",
+    "open air restaurant set within a beautifully restored Javanese wooden house.",
   body: [
     "In respect for Balinese culture, our restaurant is named after the traditional " +
       "Balinese kitchen, Paon — a place associated with warmth, family and honest flavours.",
@@ -383,7 +383,7 @@ export const restaurant = {
     {
       title: "Staying Nearby?",
       body: [
-        "You do not need to be a Swarma guest to enjoy Paon. Non-resident guests are " +
+        "You do not need to be a Swarma guest to enjoy Paon. Non resident guests are " +
           "welcome, and if you prefer to enjoy your meal where you are staying, food " +
           "delivery can also be arranged, subject to availability and location.",
       ],
@@ -402,7 +402,7 @@ export const restaurant = {
   details: [
     { label: "Open daily", value: "08:00 – 21:00" },
     { label: "Served", value: "Breakfast · Lunch · Dinner" },
-    { label: "Open to", value: "Villa guests and non-resident visitors" },
+    { label: "Open to", value: "Villa guests and non resident visitors" },
   ],
   cta: {
     kicker: "Greenery & Garden View",
@@ -446,7 +446,7 @@ export const experience = {
       "At Swarma Villas Bali, our Massage & Body Scrub treatments are more than just " +
         "relaxation. They are rooted in traditional techniques passed down through " +
         "generations, with a focus on care, balance and taking time to unwind.",
-      "Our local therapists use time-honoured techniques and carefully selected oils and " +
+      "Our local therapists use time honoured techniques and carefully selected oils and " +
         "scrubs. Choose a soothing massage to ease tension or a body scrub to refresh and " +
         "care for your skin. Each treatment is adapted to your preferences and needs.",
       "Whether you prefer a gentle, relaxing massage or a more invigorating treatment, " +
@@ -552,7 +552,7 @@ export const packages = {
   kicker: "Package & Offer",
   h1: "Packages & Special Offers",
   lede:
-    "Romantic stays, nature experiences, wellness and longer-stay offers, created " +
+    "Romantic stays, nature experiences, wellness and longer stay offers, created " +
     "around your time at Swarma.",
 
   intro: {
@@ -561,7 +561,7 @@ export const packages = {
       "Make your time at Swarma a little more special with a stay designed around what " +
         "you enjoy — romance, nature, wellness or simply having everything taken care of.",
       "Our packages combine accommodation with selected experiences and dining, while our " +
-        "longer-stay offers make it easier to settle in and enjoy Swarma at a slower pace.",
+        "longer stay offers make it easier to settle in and enjoy Swarma at a slower pace.",
     ],
   },
 
@@ -612,7 +612,7 @@ export const packages = {
       photo: "bath-flower-01",
     },
     {
-      name: "Full-Board Stay",
+      name: "Full Board Stay",
       tagline: "Everything You Need, Included",
       body: [
         "Enjoy your stay with meals arranged throughout your visit, so you can spend more " +
@@ -733,7 +733,7 @@ export const copy = {
        */
       titleLines: ["Stay Close to Nature.", "Stay Close to What Matters."],
       body: [
-        "Swarma Villas is a small eco-conscious stay in Singakerta, Ubud, shaped by " +
+        "Swarma Villas is a small eco conscious stay in Singakerta, Ubud, shaped by " +
           "nature, culture and simple Balinese hospitality.",
         "Three distinctive homes, each with its own character, are set among tropical " +
           "greenery, with spaces to slow down and enjoy the surroundings.",
@@ -748,17 +748,17 @@ export const copy = {
       kicker: "On the Property",
       title: "Experiences at Swarma Villas",
       lede:
-        "Swim, dine, unwind and reconnect at Swarma — with our pool, Paon Restaurant, " +
-        "traditional Balinese massage and Balinese blessing experiences. When you feel " +
+        "Swim, dine, unwind and reconnect at Swarma — with our pool, Paon Restaurant " +
+        "and traditional Balinese massage. When you feel " +
         "like exploring further, discover Ubud and its surroundings through jungle " +
-        "trekking, rice-field walks, water purification, hiking and other experiences " +
+        "trekking, rice field walks, water purification, hiking and other experiences " +
         "arranged beyond the property.",
       cards: [
         {
           name: "Paon Restaurant by Swarma Villas",
           text:
             "The villa's own restaurant, named after the traditional Balinese kitchen. " +
-            "Open to non-residents too.",
+            "Open to non residents too.",
           href: "/restaurant",
           photo: "paon-01",
         },
@@ -823,14 +823,14 @@ export const copy = {
           "The Gladak House is a traditional Javanese teakwood house, crafted from " +
             "reclaimed timber and enriched with antique details and carved elements. Its " +
             "heritage architecture brings a piece of Java into the landscape of Bali, " +
-            "while its open-air bathtub creates a quiet connection with the outdoors.",
+            "while its open air bathtub creates a quiet connection with the outdoors.",
           "The Bamboo Dome offers something entirely different. Its distinctive curved " +
             "structure is built around the character of bamboo, creating an unconventional " +
             "and intimate space for travellers who appreciate architecture, creativity and " +
             "nature. Its enclosed bathroom beneath the curved bamboo roof includes both a " +
             "bathtub and shower.",
-          "The Bamboo Hexa is a single-level bamboo house built on a hexagonal plan. " +
-            "Traditional woven bamboo walls, natural airflow and its easy, stair-free " +
+          "The Bamboo Hexa is a single level bamboo house built on a hexagonal plan. " +
+            "Traditional woven bamboo walls, natural airflow and its easy, stair free " +
             "access make it a comfortable choice for guests who prefer a more grounded and " +
             "accessible stay.",
           "Although each house is different, they share the same surroundings: the " +
@@ -846,7 +846,7 @@ export const copy = {
             "familiar Western dishes in a relaxed garden setting.",
           "Food at Swarma is intended to feel approachable and welcoming. Guests can enjoy " +
             "breakfast, lunch or dinner without having to leave the property, while " +
-            "non-residents are also welcome to dine at Paon.",
+            "non residents are also welcome to dine at Paon.",
           "For those looking to slow down further, our massage and body rituals offer " +
             "another way to relax. Local therapists practise traditional Balinese " +
             "techniques passed down through generations, with treatments adapted to each " +
@@ -858,10 +858,10 @@ export const copy = {
         body: [
           "We believe a stay in Bali can be about more than where you sleep. It can be " +
             "about experiencing the culture, landscape and everyday rhythm of the island.",
-          "Some experiences take place at Swarma, including a Balinese blessing ceremony, " +
-            "while others invite you to explore further. Depending on your interests, we " +
-            "can arrange experiences such as rice-field walks, jungle trekking, water " +
-            "purification, hiking and other cultural and nature-based activities. Selected " +
+          "Some experiences take place at Swarma, while others invite you to explore " +
+            "further. Depending on your interests, we " +
+            "can arrange experiences such as rice field walks, jungle trekking, water " +
+            "purification, hiking and other cultural and nature based activities. Selected " +
             "journeys can also take you beyond Bali to other parts of Indonesia, including " +
             "Java and its unique landscapes.",
         ],
@@ -869,7 +869,7 @@ export const copy = {
       {
         title: "Our Way of Hospitality",
         body: [
-          "Swarma is Balinese-owned and family-managed, with a local team who take pride " +
+          "Swarma is Balinese owned and family managed, with a local team who take pride " +
             "in creating a warm and personal experience for every guest.",
           "Our approach to hospitality is simple: comfortable spaces, thoughtful details, " +
             "good food, genuine care and the freedom to enjoy your stay at your own pace.",
@@ -892,7 +892,7 @@ export const copy = {
           "central Ubud — art, wellness and the rest of it.",
       },
       {
-        title: "Eco-minded comfort",
+        title: "Eco minded comfort",
         text:
           "Bamboo and teakwood structures designed to sit with the landscape rather " +
           "than on top of it.",

@@ -33,7 +33,7 @@ const GROUPS: { title: string; blurb: string; categories: string[] }[] = [
   },
   {
     title: "The Wooden Gladak House",
-    blurb: "Javanese teak, an open-air bathtub and a terrace over the garden.",
+    blurb: "Javanese teak, an open air bathtub and a terrace over the garden.",
     categories: ["gladak"],
   },
   {
@@ -53,7 +53,7 @@ const GROUPS: { title: string; blurb: string; categories: string[] }[] = [
   },
   {
     title: "Bathrooms and rituals",
-    blurb: "Open-air bathing, flower baths and the massage room.",
+    blurb: "Open air bathing, flower baths and the massage room.",
     categories: ["bathroom", "ritual"],
   },
   {
