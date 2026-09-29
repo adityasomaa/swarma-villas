@@ -140,6 +140,14 @@ export const mapsPlaceUrl =
    2. THE HOUSES
    -----------------------------------------------------------------------------
    Three types across five individual houses: two Gladak, one Hexa, two Domes.
+
+   THE RATES BELOW ARE THE ONES THAT STAND. The booking engine currently quotes
+   more — 700,000 / 900,000 / 1,000,000 against the 500,000 / 600,000 / 700,000
+   here — because the villa has not set their discounts up in it yet. Asked
+   which to follow on 29 September 2026, they said the website's. So do not
+   "correct" these to match the engine: the engine is the thing that is going
+   to move. The booking bar deliberately shows no engine price for the same
+   reason.
    -------------------------------------------------------------------------- */
 
 export type House = {

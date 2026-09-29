@@ -13,7 +13,7 @@ import {
   type EngineRoom,
 } from "@/lib/booking/engine";
 import { clsx } from "@/lib/clsx";
-import { addDays, formatIDR, nightsBetween, todayISO } from "@/lib/format";
+import { addDays, nightsBetween, todayISO } from "@/lib/format";
 
 /* =============================================================================
    THE BOOKING BAR
@@ -22,10 +22,15 @@ import { addDays, formatIDR, nightsBetween, todayISO } from "@/lib/format";
    with both already applied — rather than a bare link that drops a guest on a
    landing page and asks them to start again.
 
-   With a `house`, it also asks the engine what that house actually costs for
-   the chosen dates and whether it is free. That answer is the engine's, not
-   ours: the "from" figures elsewhere on the site are the villa's published
-   starting rates, and the two do not currently agree.
+   With a `house`, it also asks the engine whether that house is free for the
+   chosen dates and says so.
+
+   IT DOES NOT SHOW THE ENGINE'S PRICE, on purpose. The engine is currently
+   quoting more than this site publishes because the villa has not set their
+   discounts up in it yet, and they have asked for the published rates to
+   stand. Printing the undiscounted figure here would contradict the rate card
+   directly above it. When the discounts are in and the two agree, the price is
+   already in `match.fromIDR` and can go back on one line.
 
    THE LIVE LINE IS OPTIONAL BY DESIGN. Every failure path — a refused request,
    a changed field, a renamed room — ends with the line simply not being shown.
@@ -135,11 +140,8 @@ export function BookingBar({
         {complete && state === "loading" && <span className="text-subtle">Checking…</span>}
         {complete && state === "done" && house && match && (
           <span className="text-ink">
-            {house.name} is free for {nights} {nights === 1 ? "night" : "nights"} —{" "}
-            <strong className="font-normal text-accent">
-              {formatIDR(match.fromIDR ?? 0)}
-            </strong>{" "}
-            per night.
+            {house.name} is free for {nights} {nights === 1 ? "night" : "nights"}.{" "}
+            <span className="text-subtle">Rates are shown in the next step.</span>
           </span>
         )}
         {complete && state === "done" && house && rooms && !match && (

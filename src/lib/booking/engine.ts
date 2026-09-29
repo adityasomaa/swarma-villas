@@ -116,10 +116,16 @@ export async function fetchEngineRooms(
   }
 }
 
-/** The cheapest bookable room among a house's rooms, or null if none is free. */
+/**
+ * The cheapest bookable room among a house's rooms, or null if none is free.
+ *
+ * A room without a published price still counts as free — the caller wants to
+ * know whether the house can be had, and the price is a separate question.
+ */
 export function pickRoom(rooms: EngineRoom[], names: readonly string[]): EngineRoom | null {
-  const mine = rooms.filter((r) => names.includes(r.name));
-  const free = mine.filter((r) => r.bookable && r.availability > 0 && r.fromIDR !== null);
+  const free = rooms.filter((r) => names.includes(r.name) && r.bookable && r.availability > 0);
   if (free.length === 0) return null;
-  return free.reduce((best, r) => (r.fromIDR! < best.fromIDR! ? r : best));
+  return free.reduce((best, r) =>
+    r.fromIDR !== null && (best.fromIDR === null || r.fromIDR < best.fromIDR) ? r : best,
+  );
 }
