@@ -31,7 +31,7 @@ const houseCount = (n: number) =>
   `${WORDS[n] ?? n} ${n === 1 ? "House" : "Houses"}`;
 
 export default function HousesPage() {
-  const arrival = section("Check-in & Check-out");
+  const arrival = section("Check in & Check out");
   const cancellation = section("Cancellation Policy");
 
   return (
@@ -141,7 +141,7 @@ export default function HousesPage() {
               </div>
               <dl className="grid gap-8 sm:grid-cols-2 md:col-span-2">
                 <div>
-                  <dt className="display text-[1.125rem]">Check-in and check-out</dt>
+                  <dt className="display text-[1.125rem]">Check in and check out</dt>
                   <dd className="mt-3 text-[0.9375rem] leading-[1.7] text-muted">
                     <ul className="space-y-1.5">
                       {arrival.items?.map((item) => (

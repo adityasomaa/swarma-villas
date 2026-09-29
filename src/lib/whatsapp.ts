@@ -67,8 +67,8 @@ export function bookingRequestUrl(
     `Email: ${data.email}`,
     `WhatsApp: ${data.phone}`,
     `House: ${houseName}${rateIDR ? ` (from ${formatIDR(rateIDR)} per night)` : ""}`,
-    `Check-in: ${formatDateLong(data.checkIn)}`,
-    `Check-out: ${formatDateLong(data.checkOut)}`,
+    `Check in: ${formatDateLong(data.checkIn)}`,
+    `Check out: ${formatDateLong(data.checkOut)}`,
     `Nights: ${pluralise(nights, "night", "nights")}`,
     `Guests: ${pluralise(data.guests, "guest", "guests")}`,
   ];

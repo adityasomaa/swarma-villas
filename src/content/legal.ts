@@ -48,13 +48,13 @@ export const termsAndConditions: LegalDocument = {
       ],
     },
     {
-      title: "Check-in & Check-out",
+      title: "Check in & Check out",
       items: [
-        "Check-in: 14:00",
-        "Check-out: 12:00",
-        "A valid government ID or passport is required at check-in.",
-        "Early check-in is subject to availability.",
-        "Late check-out is subject to availability and may incur an additional charge.",
+        "Check in: 14:00",
+        "Check out: 12:00",
+        "A valid government ID or passport is required at check in.",
+        "Early check in is subject to availability.",
+        "Late check out is subject to availability and may incur an additional charge.",
       ],
     },
     {
@@ -70,7 +70,7 @@ export const termsAndConditions: LegalDocument = {
       items: [
         "Cancellation 4 days or more before arrival: full refund.",
         "Cancellation 1–3 days before arrival: 50% refund.",
-        "No-show: no refund.",
+        "No show: no refund.",
       ],
       paragraphs: [
         "Cancellation is based on the property's local time and arrival date.",

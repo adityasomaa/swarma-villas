@@ -51,13 +51,13 @@ export const bookingSchema = z
   })
   .superRefine((data, ctx) => {
     if (data.checkIn < todayISO()) {
-      ctx.addIssue({ code: "custom", path: ["checkIn"], message: "Check-in cannot be in the past." });
+      ctx.addIssue({ code: "custom", path: ["checkIn"], message: "Check in cannot be in the past." });
     }
     if (data.checkOut <= data.checkIn) {
       ctx.addIssue({
         code: "custom",
         path: ["checkOut"],
-        message: "Check-out must be after check-in.",
+        message: "Check out must be after check in.",
       });
     }
     if (nightsBetween(data.checkIn, data.checkOut) > 60) {

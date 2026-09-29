@@ -184,7 +184,7 @@ export const houses: House[] = [
     ],
     amenities: [
       "Air conditioning",
-      "Wi-Fi internet",
+      "WiFi internet",
       "Bedside reading light",
       "Mosquito net",
       "Duvet",
@@ -241,7 +241,7 @@ export const houses: House[] = [
     ],
     amenities: [
       "Air conditioning",
-      "Wi-Fi internet",
+      "WiFi internet",
       "Bedside reading light",
       "Mosquito net",
       "Duvet",
@@ -301,7 +301,7 @@ export const houses: House[] = [
     ],
     amenities: [
       "Air conditioning",
-      "Wi-Fi internet",
+      "WiFi internet",
       "Bedside reading light",
       "Mosquito net",
       "Duvet",

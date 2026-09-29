@@ -60,7 +60,7 @@ export function lodgingBusinessJsonLd() {
     amenityFeature: [
       { "@type": "LocationFeatureSpecification", name: "Outdoor swimming pool", value: true },
       { "@type": "LocationFeatureSpecification", name: "On-site restaurant", value: true },
-      { "@type": "LocationFeatureSpecification", name: "Free Wi-Fi", value: true },
+      { "@type": "LocationFeatureSpecification", name: "Free WiFi", value: true },
       { "@type": "LocationFeatureSpecification", name: "Air conditioning", value: true },
     ],
     containsPlace: houses.map((h) => ({

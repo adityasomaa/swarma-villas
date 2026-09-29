@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
 
   // Read out of the terms rather than restated, so the two cannot disagree.
-  const checkInOut = termsAndConditions.sections.find((s) => s.title === "Check-in & Check-out");
+  const checkInOut = termsAndConditions.sections.find((s) => s.title === "Check in & Check out");
 
   return (
     <>

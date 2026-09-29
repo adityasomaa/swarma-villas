@@ -307,10 +307,10 @@ export function BookingForm({ className }: { className?: string }) {
           />
         </Field>
 
-        <Field id="booking-checkIn" label="Check-in" error={errors.checkIn}>
+        <Field id="booking-checkIn" label="Check in" error={errors.checkIn}>
           <DateField
             id="booking-checkIn"
-            label="Check-in date"
+            label="Check in date"
             value={fields.checkIn}
             onChange={(v) => set("checkIn", v)}
             invalid={Boolean(errors.checkIn)}
@@ -318,10 +318,10 @@ export function BookingForm({ className }: { className?: string }) {
           />
         </Field>
 
-        <Field id="booking-checkOut" label="Check-out" error={errors.checkOut}>
+        <Field id="booking-checkOut" label="Check out" error={errors.checkOut}>
           <DateField
             id="booking-checkOut"
-            label="Check-out date"
+            label="Check out date"
             value={fields.checkOut}
             onChange={(v) => set("checkOut", v)}
             min={fields.checkIn ? addDays(fields.checkIn, 1) : undefined}
