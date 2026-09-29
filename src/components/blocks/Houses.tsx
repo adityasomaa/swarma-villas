@@ -62,7 +62,12 @@ export function HouseGrid({ headingLevel = "h2" }: { headingLevel?: Level }) {
                 <p className="measure-prose mt-5 text-[1.0625rem] leading-[1.7] text-muted">
                   {house.distinction}
                 </p>
-                <p className="mt-7 flex items-baseline gap-3">
+                {/* "Starting from" at the villa's request: the figure is the
+                    lowest rate for the house, not a fixed price. */}
+                <p className="mt-7 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                  <span className="text-[0.8125rem] uppercase tracking-[0.16em] text-muted">
+                    Starting from
+                  </span>
                   <span className="display text-[1.75rem]">{formatIDR(house.priceFromIDR)}</span>
                   <span className="text-[0.8125rem] uppercase tracking-[0.16em] text-muted">
                     per night

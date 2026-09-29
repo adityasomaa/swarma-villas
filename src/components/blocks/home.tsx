@@ -46,7 +46,11 @@ export function AboutBand() {
         <div>
           <SectionHeader
             kicker={copy.home.villa.kicker}
-            title={copy.home.villa.title}
+            title={copy.home.villa.titleLines.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
             align="start"
             className="mb-6"
           />
@@ -214,12 +218,6 @@ export function LocationBand() {
                 </address>
               </dd>
             </div>
-            <div>
-              <dt className="kicker text-subtle">Google plus code</dt>
-              <dd className="mt-2 text-[1rem] text-muted tabular-nums">
-                {business.address.plusCode}
-              </dd>
-            </div>
           </dl>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button href={mapsDirectionsUrl} external>
@@ -231,13 +229,28 @@ export function LocationBand() {
           </div>
         </div>
 
+        {/* A map, not a photograph, at the villa's request: they wanted the
+            surrounding area shown without the other accommodation on it.
+            Drawn from OpenStreetMap DATA by scripts/build-area-map.mjs — roads,
+            water and four landmarks, and nothing else is ever fetched, so no
+            competitor can appear on it. Editing a Google Maps image would have
+            been against Google's terms. */}
         <Reveal>
-          <Photo
-            slug="ricefield-01"
-            ratio={4 / 3}
-            sizes="(min-width: 1024px) 48vw, 100vw"
-            alt="Rice fields in Singakerta, the village the villa sits in"
-          />
+          <figure>
+            <img
+              src="/img/area-map.svg"
+              width={1200}
+              height={900}
+              alt={
+                "Map of Singakerta and central Ubud. Swarma Villas is marked beside the river, " +
+                "south-west of Ubud Palace, Monkey Forest and the Campuhan Ridge Walk."
+              }
+              className="w-full border border-line bg-canvas"
+            />
+            <figcaption className="mt-3 text-[0.75rem] leading-relaxed text-subtle">
+              An orientation map, not a navigation one — use Get directions to route.
+            </figcaption>
+          </figure>
         </Reveal>
       </div>
     </Container>

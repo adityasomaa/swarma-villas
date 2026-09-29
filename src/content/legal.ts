@@ -1,4 +1,4 @@
-import { addressOneLine, business } from "@/content/site";
+import { addressOneLine, business, publicPhoneDisplay } from "@/content/site";
 
 /* =============================================================================
    TERMS & CONDITIONS AND PRIVACY POLICY
@@ -29,7 +29,7 @@ const CONTACT_LINES = [
   business.name,
   `${addressOneLine}, ${business.address.country}`,
   business.email,
-  business.phoneDisplay,
+  publicPhoneDisplay,
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -170,7 +170,7 @@ export const privacyPolicy: LegalDocument = {
           "hold, subject to applicable law.",
         business.name,
         business.email,
-        business.phoneDisplay,
+        publicPhoneDisplay,
       ],
     },
   ],

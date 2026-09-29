@@ -40,7 +40,6 @@ export function LegalDoc({
   return (
     <>
       <PageHero
-        kicker="Legal"
         title={doc.h1}
         lede={doc.lede}
         crumbs={[{ label: crumbLabel, path: currentPath }]}

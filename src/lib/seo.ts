@@ -1,4 +1,4 @@
-import { addressOneLine, business, houses, mapsPlaceUrl } from "@/content/site";
+import { addressOneLine, business, houses, mapsPlaceUrl, publicPhoneDisplay } from "@/content/site";
 
 /**
  * The one place the production origin is written. If the Vercel alias ever has
@@ -34,7 +34,7 @@ export function lodgingBusinessJsonLd() {
     alternateName: `${business.name} – ${business.tagline}`,
     description: business.positioning,
     url: SITE_URL,
-    telephone: business.phoneDisplay,
+    telephone: publicPhoneDisplay,
     email: business.email,
     image: absolute("/img/pool-01-1600.webp"),
     hasMap: mapsPlaceUrl,

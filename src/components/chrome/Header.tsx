@@ -8,7 +8,14 @@ import { TLink } from "@/components/shared/Transition";
 import { useUI } from "@/components/shared/UIProvider";
 import { useMobileMenu } from "@/components/shared/useMobileMenu";
 import { Button } from "@/components/ui";
-import { bookingUrl, business, cta, nav } from "@/content/site";
+import {
+  bookingUrl,
+  business,
+  cta,
+  nav,
+  publicPhoneDisplay,
+  publicPhoneE164,
+} from "@/content/site";
 import { clsx } from "@/lib/clsx";
 import { useEnquiry } from "@/lib/useEnquiry";
 
@@ -267,10 +274,10 @@ function MobilePanel({
             {business.email}
           </a>
           <a
-            href={`tel:${business.phoneE164}`}
+            href={`tel:${publicPhoneE164}`}
             className="text-[0.9375rem] text-muted underline-offset-4 hover:text-ink hover:underline"
           >
-            {business.phoneDisplay}
+            {publicPhoneDisplay}
           </a>
         </div>
       </nav>

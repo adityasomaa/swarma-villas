@@ -7,7 +7,13 @@ import { Reveal } from "@/components/shared/Reveal";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import { Container, Section, SectionHeader } from "@/components/ui";
 import { termsAndConditions } from "@/content/legal";
-import { addressOneLine, business, copy, mapsDirectionsUrl } from "@/content/site";
+import {
+  addressOneLine,
+  business,
+  copy,
+  mapsDirectionsUrl,
+  showReservationsLine,
+} from "@/content/site";
 import { clsx } from "@/lib/clsx";
 
 export const metadata: Metadata = {
@@ -64,17 +70,19 @@ export default function ContactPage() {
                   </div>
 
                   <dl className="mt-7 space-y-4 border-t border-line pt-6 text-[0.9375rem]">
-                    <div>
-                      <dt className="kicker text-subtle">Reservations</dt>
-                      <dd className="mt-1.5">
-                        <a
-                          href={`tel:${business.phoneE164}`}
-                          className="text-ink underline-offset-4 hover:underline"
-                        >
-                          {business.phoneDisplay}
-                        </a>
-                      </dd>
-                    </div>
+                    {showReservationsLine && (
+                      <div>
+                        <dt className="kicker text-subtle">Reservations</dt>
+                        <dd className="mt-1.5">
+                          <a
+                            href={`tel:${business.phoneE164}`}
+                            className="text-ink underline-offset-4 hover:underline"
+                          >
+                            {business.phoneDisplay}
+                          </a>
+                        </dd>
+                      </div>
+                    )}
                     <div>
                       <dt className="kicker text-subtle">WhatsApp</dt>
                       <dd className="mt-1.5 text-muted">{business.whatsappDisplay}</dd>

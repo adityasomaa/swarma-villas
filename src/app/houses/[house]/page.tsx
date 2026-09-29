@@ -76,13 +76,16 @@ export default async function HousePage({
 
               <Reveal className="mt-12">
                 <h2 className="display text-[1.5rem]">What is in the house</h2>
-                <ul
-                  className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2"
-                >
+                {/* Columns, not a grid. The villa's order runs bedroom,
+                    bathroom, then everything else, and a grid flows across the
+                    row, which cuts that order in half. Multi-column flows down
+                    the first column and then the second, so the grouping
+                    survives. */}
+                <ul className="mt-6 gap-x-8 sm:columns-2">
                   {house.amenities.map((item) => (
                     <li
                       key={item}
-                      className="flex items-baseline gap-3 text-[0.9375rem] leading-[1.6] text-muted"
+                      className="mb-3 flex items-baseline gap-3 break-inside-avoid text-[0.9375rem] leading-[1.6] text-muted"
                     >
                       <span aria-hidden className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
                       {item}
@@ -102,7 +105,7 @@ export default async function HousePage({
                   "border border-line bg-surface",
                 )}
               >
-                <p className="kicker text-subtle">Start from</p>
+                <p className="kicker text-subtle">Starting from</p>
                 <p className="display mt-2 text-[2.25rem] leading-none">
                   {formatIDR(house.priceFromIDR)}
                 </p>

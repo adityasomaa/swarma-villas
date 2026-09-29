@@ -45,7 +45,16 @@ export const business = {
     postalCode: "80571",
     country: "Indonesia",
     countryCode: "ID",
-    /** The Google plus code the villa publishes. */
+    /**
+     * NOT SHOWN ON THE SITE, and it should not be until the villa confirms it.
+     *
+     * This is the plus code their Google listing publishes, but it does not
+     * decode to Singakerta: "M7CM+XVJ" resolves to -8.3276, 115.2846, which is
+     * around Tegallalang, roughly 24 km north of the street address above.
+     * A plus code is what a guest pastes into Maps, so a wrong one sends them
+     * to the wrong village. Put the corrected code here and restore the row in
+     * the location band when they confirm it.
+     */
     plusCode: "M7CM+XVJ",
   },
 
@@ -86,6 +95,19 @@ export const bookingUrl: string | null = null;
  */
 export const showVideoSection = false;
 
+/**
+ * THE PUBLISHED NUMBER.
+ *
+ * The villa has two lines: a reservations phone (ending 0530) and a WhatsApp
+ * number (ending 6314). They asked for only the WhatsApp one to appear on the
+ * site for now. Set showReservationsLine to true to put the reservations
+ * number back beside it; everything reads these three, so that is the only
+ * change needed.
+ */
+export const showReservationsLine = false;
+export const publicPhoneDisplay = business.whatsappDisplay;
+export const publicPhoneE164 = business.whatsappE164;
+
 export const addressOneLine =
   `${business.address.street}, ${business.address.village}, ` +
   `${business.address.district}, ${business.address.regency}, ` +
@@ -93,7 +115,8 @@ export const addressOneLine =
 
 /**
  * Opens Google Maps directions to the address above. Coordinates are not
- * hard-coded because none were published; Google resolves the written address.
+ * hard-coded because none have been confirmed — see plusCode above — so Google
+ * resolves the written address, which is the part we know to be right.
  */
 export const mapsDirectionsUrl =
   "https://www.google.com/maps/dir/?api=1&destination=" +
@@ -682,7 +705,12 @@ export const copy = {
 
     villa: {
       kicker: "The Villa",
-      title: "Stay Close to Nature. Stay Close to What Matters.",
+      /**
+       * Two lines. The villa asked for the break to fall after "Nature."
+       * rather than wherever the measure happens to put it, so the break is
+       * written here rather than left to the browser.
+       */
+      titleLines: ["Stay Close to Nature.", "Stay Close to What Matters."],
       body: [
         "Swarma Villas is a small eco-conscious stay in Singakerta, Ubud, shaped by " +
           "nature, culture and simple Balinese hospitality.",
@@ -751,11 +779,11 @@ export const copy = {
   about: {
     h1: "About Swarma Villas Bali",
     lede:
-      "A villa on the side of a river, where you can watch the valley from your room, " +
+      "A villa on the side of Ubud greenery, where you can watch the valley from your room, " +
       "with warm local hospitality and service that remembers your name.",
     /** The opening, before the first sub-heading. */
     intro: [
-      "Welcome to Swarma Villas Bali — a small, nature-immersed retreat in the quiet " +
+      "Welcome to Swarma Villas Bali — a small, nature immersed retreat in the quiet " +
         "village of Singakerta, around 10 minutes from the cultural heart of Ubud. " +
         "Surrounded by tropical greenery and the gentle rhythm of village life, Swarma " +
         "offers a more personal way to experience Bali, combining traditional " +

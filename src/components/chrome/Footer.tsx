@@ -12,6 +12,7 @@ import {
   houses,
   mapsDirectionsUrl,
   nav,
+  showReservationsLine,
 } from "@/content/site";
 import { useEnquiry } from "@/lib/useEnquiry";
 
@@ -104,12 +105,14 @@ export function Footer() {
                   <address className="not-italic">{addressOneLine}</address>
                 </a>
               </li>
-              <li>
-                <a href={`tel:${business.phoneE164}`} className={linkClass}>
-                  {business.phoneDisplay}
-                </a>
-                <span className="ml-2 text-[0.75rem] text-subtle">Reservations</span>
-              </li>
+              {showReservationsLine && (
+                <li>
+                  <a href={`tel:${business.phoneE164}`} className={linkClass}>
+                    {business.phoneDisplay}
+                  </a>
+                  <span className="ml-2 text-[0.75rem] text-subtle">Reservations</span>
+                </li>
+              )}
               <li>
                 <a
                   href={enquiry("Footer — WhatsApp number")}
