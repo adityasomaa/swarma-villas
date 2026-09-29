@@ -4,6 +4,7 @@ import { Gallery } from "@/components/blocks/Gallery";
 import { PageHero } from "@/components/blocks/PageHero";
 import { CtaBand } from "@/components/blocks/home";
 import { Photo } from "@/components/shared/Photo";
+import { MenuSlot } from "@/components/shared/MenuSlot";
 import { Reveal } from "@/components/shared/Reveal";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import { Container, Prose, Section, SectionHeader } from "@/components/ui";
@@ -69,6 +70,14 @@ export default function ExperiencesPage() {
                   action="Experiences — Book a treatment"
                   subject="a massage or body scrub"
                   label="Book a treatment"
+                />
+              </Reveal>
+              <Reveal delay={140}>
+                <MenuSlot
+                  menu={experience.wellness.menu}
+                  action="Experiences — Ask for the treatment menu"
+                  subject="the treatment menu"
+                  className="mt-8 max-w-md"
                 />
               </Reveal>
             </div>

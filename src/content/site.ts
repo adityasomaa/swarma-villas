@@ -82,12 +82,22 @@ export const business = {
 /**
  * THE BOOKING ENGINE.
  *
- * "Book Direct" is meant to open the villa's booking engine. No address has
- * been supplied yet, so every Book Direct button points at the enquiry form
- * instead. Put the URL here — starting with https:// — and every button on the
- * site follows it and opens it in a new tab. Nothing else needs changing.
+ * Guestaps (MarketConnect), merchant slug "swarma-villas-ubud", supplied by the
+ * villa on 29 September 2026. secure.guestaps.com currently redirects to
+ * secure.guestpro.net; the address below is the vendor's own documented entry
+ * point, so it is the one to keep.
+ *
+ * Set this back to null and every Book Direct button falls back to the enquiry
+ * form. Nothing else needs changing either way — see bookDirect below.
+ *
+ * The engine also takes dates directly, which nothing here uses yet:
+ *   https://secure.guestaps.com/swarma-villas-ubud/hotel-filter-redirect
+ *     /YYYY-MM-DD/YYYY-MM-DD/<promo code, or promo_code_empty>?guest=A-C-I
+ * and publishes availability and nightly rates for merchant
+ * 88b92680-6b1c-4e52-a22b-d6ed6f0d5692 through
+ * api.marketconnect.id/guestapp-hotel/api/search-availability.
  */
-export const bookingUrl: string | null = null;
+export const bookingUrl: string | null = "https://secure.guestaps.com/swarma-villas-ubud";
 
 /**
  * The home page's "In Motion" band. The villa asked for it to be hidden until
@@ -398,6 +408,17 @@ export const restaurant = {
     { name: "Western", text: "Comfortable choices for guests looking for something familiar." },
     { name: "Breakfast", text: "Start the morning slowly with breakfast at Paon." },
   ],
+  /**
+   * The space the villa asked to have held for the menu. Put a path or a URL in
+   * `href` and the button appears; until then the space carries the note and a
+   * way to ask for it. There is a menu COVER in the photo library
+   * ("menu-cover") but no pages behind it, which is why this is still null.
+   */
+  menu: {
+    label: "View menu",
+    href: null as string | null,
+    pending: "Our full menu is being prepared. Ask us and we will send it over.",
+  },
   detailsTitle: "Restaurant details",
   details: [
     { label: "Open daily", value: "08:00 – 21:00" },
@@ -457,6 +478,17 @@ export const experience = {
       "Take a moment to slow down, breathe and reconnect.",
     ],
     photos: ["bath-flower-01", "ritual-01", "bath-open-05", "menu-spa"],
+    /**
+     * As above. The library does hold a treatment menu ("menu-spa") with real
+     * prices, but it carries the old logo, the reservations number the villa
+     * has just taken off the site and a gmail address, so it is not linked
+     * here until they send a current one.
+     */
+    menu: {
+      label: "View treatment menu",
+      href: null as string | null,
+      pending: "Our treatment menu is being updated. Ask us and we will send it over.",
+    },
   },
 
   beyond: {
@@ -988,6 +1020,18 @@ export const cta = {
   primary: { label: "Book Direct", href: "/contact" },
   secondary: { label: "Ask on WhatsApp" },
   contact: { label: "Contact us", href: "/contact" },
+} as const;
+
+/**
+ * Every Book Direct button on the site. Resolving the booking engine here
+ * rather than at each button is the difference between switching it on in one
+ * place and remembering seven — which is how five of them were still pointing
+ * at the enquiry form while two were not.
+ */
+export const bookDirect = {
+  label: cta.primary.label,
+  href: bookingUrl ?? cta.primary.href,
+  external: bookingUrl !== null,
 } as const;
 
 /** The eight items the villa asked for, in their order. */

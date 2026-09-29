@@ -8,14 +8,7 @@ import { TLink } from "@/components/shared/Transition";
 import { useUI } from "@/components/shared/UIProvider";
 import { useMobileMenu } from "@/components/shared/useMobileMenu";
 import { Button } from "@/components/ui";
-import {
-  bookingUrl,
-  business,
-  cta,
-  nav,
-  publicPhoneDisplay,
-  publicPhoneE164,
-} from "@/content/site";
+import { bookDirect, business, cta, nav, publicPhoneDisplay, publicPhoneE164 } from "@/content/site";
 import { clsx } from "@/lib/clsx";
 import { useEnquiry } from "@/lib/useEnquiry";
 
@@ -261,8 +254,8 @@ function MobilePanel({
         </ul>
 
         <div className="mt-8 flex flex-col gap-3">
-          <Button href={bookingUrl ?? cta.primary.href} external={Boolean(bookingUrl)} onClick={onClose}>
-            {cta.primary.label}
+          <Button href={bookDirect.href} external={bookDirect.external} onClick={onClose}>
+            {bookDirect.label}
           </Button>
           <Button tone="outline" external href={enquiry("Mobile menu — Ask on WhatsApp")}>
             {cta.secondary.label}

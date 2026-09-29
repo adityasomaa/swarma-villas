@@ -6,7 +6,7 @@ import { TLink } from "@/components/shared/Transition";
 import { Button, Container } from "@/components/ui";
 import {
   addressOneLine,
-  bookingUrl,
+  bookDirect,
   business,
   cta,
   houses,
@@ -43,16 +43,20 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   const columns = [
-    { title: "Visit", links: nav.map((n) => ({ label: n.label, href: n.href })) },
-    { title: "The houses", links: houses.map((h) => ({ label: h.name, href: `/houses/${h.slug}` })) },
+    { title: "Visit", links: nav.map((n) => ({ label: n.label, href: n.href, external: false })) },
+    {
+      title: "The houses",
+      links: houses.map((h) => ({ label: h.name, href: `/houses/${h.slug}`, external: false })),
+    },
     {
       title: "Plan your stay",
       links: [
-        { label: "Book direct", href: bookingUrl ?? cta.primary.href },
-        { label: "Packages & offers", href: "/packages" },
-        { label: "Experiences", href: "/experiences" },
-        { label: "Guest reviews", href: "/review" },
-        { label: "Contact us", href: cta.contact.href },
+        // The booking engine is off-site, so this one leaves in a new tab.
+        { label: "Book direct", href: bookDirect.href, external: bookDirect.external },
+        { label: "Packages & offers", href: "/packages", external: false },
+        { label: "Experiences", href: "/experiences", external: false },
+        { label: "Guest reviews", href: "/review", external: false },
+        { label: "Contact us", href: cta.contact.href, external: false },
       ],
     },
   ];
@@ -71,8 +75,8 @@ export function Footer() {
           </div>
 
           <div className="flex flex-wrap gap-3">
-            <Button href={bookingUrl ?? cta.primary.href} external={Boolean(bookingUrl)}>
-              {cta.primary.label}
+            <Button href={bookDirect.href} external={bookDirect.external}>
+              {bookDirect.label}
             </Button>
             <Button href={enquiry("Footer — Ask on WhatsApp")} tone="outline" external>
               {cta.secondary.label}
@@ -88,7 +92,13 @@ export function Footer() {
               <ul className="mt-5 space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link.href}>
-                    <TLink href={link.href} className={linkClass}>
+                    <TLink
+                      href={link.href}
+                      className={linkClass}
+                      {...(link.external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                    >
                       {link.label}
                     </TLink>
                   </li>

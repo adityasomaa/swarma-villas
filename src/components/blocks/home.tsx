@@ -4,9 +4,9 @@ import { TLink } from "@/components/shared/Transition";
 import { Button, Container, Prose, SectionHeader } from "@/components/ui";
 import {
   addressOneLine,
+  bookDirect,
   business,
   copy,
-  cta,
   mapsDirectionsUrl,
   reviews,
 } from "@/content/site";
@@ -223,8 +223,8 @@ export function LocationBand() {
             <Button href={mapsDirectionsUrl} external>
               Get directions
             </Button>
-            <Button href={cta.primary.href} tone="outline">
-              {cta.primary.label}
+            <Button href={bookDirect.href} external={bookDirect.external} tone="outline">
+              {bookDirect.label}
             </Button>
           </div>
         </div>
@@ -279,7 +279,7 @@ export function CtaBand({
             {lede}
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
-            <Button href={cta.primary.href}>{cta.primary.label}</Button>
+            <Button href={bookDirect.href} external={bookDirect.external}>{bookDirect.label}</Button>
             <Button href="/houses" tone="outline">
               Compare the houses
             </Button>

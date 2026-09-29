@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { PageHero } from "@/components/blocks/PageHero";
 import { Button, Container, Section } from "@/components/ui";
-import { cta } from "@/content/site";
+import { bookDirect } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Page not found",
@@ -29,8 +29,8 @@ export default function NotFound() {
             <Button href="/houses" tone="outline">
               See the three houses
             </Button>
-            <Button href={cta.primary.href} tone="outline">
-              {cta.primary.label}
+            <Button href={bookDirect.href} external={bookDirect.external} tone="outline">
+              {bookDirect.label}
             </Button>
           </div>
         </Container>

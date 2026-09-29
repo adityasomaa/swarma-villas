@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Gallery } from "@/components/blocks/Gallery";
 import { PageHero } from "@/components/blocks/PageHero";
 import { CtaBand } from "@/components/blocks/home";
+import { MenuSlot } from "@/components/shared/MenuSlot";
 import { Reveal } from "@/components/shared/Reveal";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import { Container, Prose, Section, SectionHeader } from "@/components/ui";
@@ -18,9 +19,8 @@ export const metadata: Metadata = {
  * was a section under Experiences before, and it is open to non-residents, so
  * it needs an address of its own to send people to.
  *
- * The document also asked for a "View menu" button. There is no menu file to
- * link to yet, so it is not here: a button that goes nowhere is worse than no
- * button. Add the menu as a PDF or a set of photographs and it can go in.
+ * The villa asked for the menu's space to be held. MenuSlot holds it: put a
+ * path in restaurant.menu.href and it becomes the button.
  */
 export default function RestaurantPage() {
   const [lead, ...rest] = restaurant.photos;
@@ -59,6 +59,13 @@ export default function RestaurantPage() {
                     className="w-full"
                   />
                 </div>
+
+                <MenuSlot
+                  menu={restaurant.menu}
+                  action="Restaurant page — Ask for the menu"
+                  subject="the menu at Paon"
+                  className="mt-6"
+                />
               </aside>
             </Reveal>
           </div>
