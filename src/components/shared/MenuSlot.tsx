@@ -34,8 +34,16 @@ export function MenuSlot({
   className?: string;
 }) {
   if (menu.href) {
+    /*
+     * A PDF counts as off-site even when it is served from /public. Without
+     * this the Button falls through to TLink, which sees a path beginning with
+     * "/" and hands it to the client router — and the router has no route for
+     * a PDF. It also belongs in its own tab: a menu is something to look at
+     * beside the page, not instead of it.
+     */
+    const leavesThePage = /^https?:/.test(menu.href) || /\.pdf($|\?)/i.test(menu.href);
     return (
-      <Button href={menu.href} external={/^https?:/.test(menu.href)} className={className}>
+      <Button href={menu.href} external={leavesThePage} className={className}>
         {menu.label}
       </Button>
     );

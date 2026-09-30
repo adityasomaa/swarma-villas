@@ -426,14 +426,13 @@ export const restaurant = {
     { name: "Breakfast", text: "Start the morning slowly with breakfast at Paon." },
   ],
   /**
-   * The space the villa asked to have held for the menu. Put a path or a URL in
-   * `href` and the button appears; until then the space carries the note and a
-   * way to ask for it. There is a menu COVER in the photo library
-   * ("menu-cover") but no pages behind it, which is why this is still null.
+   * Five A4 pages, supplied by the villa on 30 September 2026 and recompressed
+   * from 5.3 MB to 2.4 MB (images capped at 150 dpi, quality 78 — the type is
+   * vector and untouched). Opens in its own tab.
    */
   menu: {
     label: "View menu",
-    href: null as string | null,
+    href: "/menu/paon-restaurant-menu.pdf" as string | null,
     pending: "Our full menu is being prepared. Ask us and we will send it over.",
   },
   detailsTitle: "Restaurant details",
