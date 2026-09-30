@@ -493,16 +493,24 @@ export const experience = {
         "we recommend booking your treatment in advance.",
       "Take a moment to slow down, breathe and reconnect.",
     ],
-    photos: ["bath-flower-01", "ritual-01", "bath-open-05", "menu-spa"],
+    /* "menu-spa" was the old treatment flyer, shown here only because there was
+       nowhere better for it. It carried the previous logo and the previous
+       prices, and the current menu is now a PDF behind the button below, so it
+       is out of the gallery. */
+    photos: ["bath-flower-01", "ritual-01", "bath-open-05", "bath-open-02"],
     /**
-     * As above. The library does hold a treatment menu ("menu-spa") with real
-     * prices, but it carries the old logo, the reservations number the villa
-     * has just taken off the site and a gmail address, so it is not linked
-     * here until they send a current one.
+     * The current one, supplied on 30 September 2026: new logo, new prices,
+     * recompressed from 3.0 MB to 0.9 MB. It replaces the old "menu-spa" flyer
+     * in the photo library, which is out of date and is no longer shown.
+     *
+     * One thing to watch: the artwork prints the reservations number ending
+     * 0530, which the villa asked to be taken off the site a few days before
+     * they sent this. The PDF is theirs, so it is published as they made it,
+     * but they may want to reissue it.
      */
     menu: {
       label: "View treatment menu",
-      href: null as string | null,
+      href: "/menu/massage-and-wellness-menu.pdf" as string | null,
       pending: "Our treatment menu is being updated. Ask us and we will send it over.",
     },
   },
