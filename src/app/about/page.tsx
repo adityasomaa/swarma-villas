@@ -20,7 +20,7 @@ export const metadata: Metadata = {
  * repeating them here only made the page longer than its story needed.
  */
 export default function AboutPage() {
-  const asides = ["property-06", "paon-01", "jungle-01", "property-03"] as const;
+  const asides = ["property-06", "paon-01", "ritual-03", "property-13"] as const;
 
   return (
     <>
@@ -29,8 +29,8 @@ export default function AboutPage() {
         title={copy.about.h1}
         lede={copy.about.lede}
         photo={{
-          slug: "property-02",
-          alt: "A teakwood gladak house among the planting at Swarma Villas Bali",
+          slug: "pool-10",
+          alt: "The pool at Swarma Villas Bali, with the houses behind it",
         }}
         crumbs={[{ label: "About", path: "/about" }]}
       />

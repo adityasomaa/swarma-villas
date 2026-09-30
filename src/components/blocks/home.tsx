@@ -35,10 +35,10 @@ export function AboutBand() {
           />
           <div className="absolute -right-4 -bottom-8 hidden w-44 lg:block xl:w-56">
             <Photo
-              slug="jungle-01"
+              slug="pool-09"
               ratio={1}
               sizes="14rem"
-              alt="The jungle valley beside the villa"
+              alt="The pool seen from the garden path"
             />
           </div>
         </Reveal>

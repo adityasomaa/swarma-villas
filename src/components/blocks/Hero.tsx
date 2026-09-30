@@ -29,7 +29,7 @@ export function Hero() {
   return (
     <section data-hero="dark" className={`relative isolate w-full ${FULL}`}>
       <Photo
-        slug="pool-02"
+        slug="pool-08"
         priority
         fill
         sizes="100vw"

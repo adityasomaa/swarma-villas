@@ -230,6 +230,7 @@ export const houses: House[] = [
       "Iron and ironing board on request",
     ],
     photos: [
+      "gladak-bed-08",
       "gladak-bed-01",
       "gladak-bed-04",
       "gladak-ext-01",
@@ -288,6 +289,7 @@ export const houses: House[] = [
       "Iron and ironing board on request",
     ],
     photos: [
+      "hexa-int-03",
       "hexa-ext-01",
       "hexa-int-01",
       "hexa-ext-03",
@@ -349,6 +351,7 @@ export const houses: House[] = [
       "Iron and ironing board on request",
     ],
     photos: [
+      "dome-bed-06",
       "dome-bed-01",
       "dome-bed-03",
       "dome-lounge-01",
@@ -824,7 +827,7 @@ export const copy = {
             "Balinese massage and body scrub, rooted in techniques passed down through " +
             "generations.",
           href: "/experiences",
-          photo: "bath-flower-01",
+          photo: "ritual-02",
         },
         {
           name: "Package & Offer",

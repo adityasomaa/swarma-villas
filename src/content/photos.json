@@ -531,6 +531,33 @@
     "source": "bedroomdome5.jpg"
   },
   {
+    "slug": "dome-bed-06",
+    "category": "dome",
+    "caption": "Inside the Bamboo Dome, the bed under its curved bamboo roof",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "dome-bed-06-480.webp",
+        "kb": 34
+      },
+      {
+        "w": 960,
+        "file": "dome-bed-06-960.webp",
+        "kb": 111
+      },
+      {
+        "w": 1600,
+        "file": "dome-bed-06-1600.webp",
+        "kb": 246
+      }
+    ],
+    "source": "house-3bamboo-dome-house.jpg"
+  },
+  {
     "slug": "dome-detail-01",
     "category": "dome",
     "caption": "Bamboo detailing and a stool inside the Bamboo Dome",
@@ -1069,6 +1096,38 @@
     "source": "whatsapp-image-2024-04-02-at-12-39-37-50fec1b4.jpg"
   },
   {
+    "slug": "gladak-bed-08",
+    "category": "gladak",
+    "caption": "The Gladak House bed with red batik bedding under a mosquito net",
+    "w": 4000,
+    "h": 3000,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "gladak-bed-08-480.webp",
+        "kb": 13
+      },
+      {
+        "w": 960,
+        "file": "gladak-bed-08-960.webp",
+        "kb": 33
+      },
+      {
+        "w": 1600,
+        "file": "gladak-bed-08-1600.webp",
+        "kb": 68
+      },
+      {
+        "w": 2400,
+        "file": "gladak-bed-08-2400.webp",
+        "kb": 128
+      }
+    ],
+    "source": "home-2gladak-house.jpg"
+  },
+  {
     "slug": "gladak-ext-01",
     "category": "gladak",
     "caption": "The wooden gladak house seen from the garden at dusk",
@@ -1399,6 +1458,38 @@
       }
     ],
     "source": "whatsapp-image-2023-11-13-at-10-31-22-1bcaa5b8.jpg"
+  },
+  {
+    "slug": "hexa-int-03",
+    "category": "hexa",
+    "caption": "The Bamboo Hexa bedroom, woven bamboo walls behind a draped bed",
+    "w": 4096,
+    "h": 3072,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "hexa-int-03-480.webp",
+        "kb": 23
+      },
+      {
+        "w": 960,
+        "file": "hexa-int-03-960.webp",
+        "kb": 82
+      },
+      {
+        "w": 1600,
+        "file": "hexa-int-03-1600.webp",
+        "kb": 175
+      },
+      {
+        "w": 2400,
+        "file": "hexa-int-03-2400.webp",
+        "kb": 304
+      }
+    ],
+    "source": "home-3hexa-bedroom1-jpg.jpg"
   },
   {
     "slug": "jungle-01",
@@ -2276,6 +2367,87 @@
     "source": "woman-having-tropical-healthy-breakfast-at-villa-on-.jpg"
   },
   {
+    "slug": "pool-08",
+    "category": "pool",
+    "caption": "The pool and garden at Swarma Villas under a clear sky",
+    "w": 4096,
+    "h": 3072,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "pool-08-480.webp",
+        "kb": 33
+      },
+      {
+        "w": 960,
+        "file": "pool-08-960.webp",
+        "kb": 125
+      },
+      {
+        "w": 1600,
+        "file": "pool-08-1600.webp",
+        "kb": 308
+      },
+      {
+        "w": 2400,
+        "file": "pool-08-2400.webp",
+        "kb": 607
+      }
+    ],
+    "source": "home-1hero-image.jpg"
+  },
+  {
+    "slug": "pool-09",
+    "category": "pool",
+    "caption": "The pool seen from the garden path, palms overhead",
+    "w": 720,
+    "h": 1600,
+    "ratio": 0.45,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "pool-09-480.webp",
+        "kb": 111
+      }
+    ],
+    "source": "home-4home.jpg"
+  },
+  {
+    "slug": "pool-10",
+    "category": "pool",
+    "caption": "The pool with sun loungers, the houses behind it",
+    "w": 4096,
+    "h": 3072,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "pool-10-480.webp",
+        "kb": 27
+      },
+      {
+        "w": 960,
+        "file": "pool-10-960.webp",
+        "kb": 98
+      },
+      {
+        "w": 1600,
+        "file": "pool-10-1600.webp",
+        "kb": 235
+      },
+      {
+        "w": 2400,
+        "file": "pool-10-2400.webp",
+        "kb": 456
+      }
+    ],
+    "source": "about-1hero.jpg"
+  },
+  {
     "slug": "property-01",
     "category": "property",
     "caption": "Bamboo building surrounded by tropical planting",
@@ -2655,6 +2827,28 @@
     "source": "restaurantpaon12.jpg"
   },
   {
+    "slug": "property-13",
+    "category": "property",
+    "caption": "A wooden house among red foliage, stone steps leading up to it",
+    "w": 1200,
+    "h": 1600,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "property-13-480.webp",
+        "kb": 69
+      },
+      {
+        "w": 960,
+        "file": "property-13-960.webp",
+        "kb": 195
+      }
+    ],
+    "source": "about-3about.jpg"
+  },
+  {
     "slug": "ricefield-01",
     "category": "jungle",
     "caption": "Rice fields under an open sky",
@@ -2702,6 +2896,45 @@
       }
     ],
     "source": "purification-3.jpg"
+  },
+  {
+    "slug": "ritual-02",
+    "category": "ritual",
+    "caption": "A massage table set up under a thatched roof in the garden",
+    "w": 1200,
+    "h": 1600,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "ritual-02-480.webp",
+        "kb": 53
+      },
+      {
+        "w": 960,
+        "file": "ritual-02-960.webp",
+        "kb": 146
+      }
+    ],
+    "source": "home-5home.jpg"
+  },
+  {
+    "slug": "ritual-03",
+    "category": "ritual",
+    "caption": "A canang offering placed on a wooden table in the garden",
+    "w": 720,
+    "h": 1600,
+    "ratio": 0.45,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "ritual-03-480.webp",
+        "kb": 34
+      }
+    ],
+    "source": "about-2about.jpg"
   },
   {
     "slug": "room-01",

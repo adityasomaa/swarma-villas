@@ -50,7 +50,7 @@ export function PageHero({ kicker, title, lede, photo, crumbs = [] }: Props) {
       />
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(24,30,10,0.82)_0%,rgba(24,30,10,0.36)_60%,rgba(24,30,10,0.3)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(24,30,10,0.92)_0%,rgba(24,30,10,0.8)_28%,rgba(24,30,10,0.64)_62%,rgba(24,30,10,0.38)_100%)]"
       />
 
       <div className={clsx("on-photo relative flex flex-col justify-end", HALF)}>
