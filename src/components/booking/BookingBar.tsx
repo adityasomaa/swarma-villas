@@ -99,7 +99,7 @@ export function BookingBar({
 
   return (
     <div className={clsx("border border-line bg-canvas p-6 md:p-7", className)}>
-      <h3 className="kicker text-accent">Check availability</h3>
+      <h3 className="kicker text-accent">Book your stay</h3>
 
       {/* One column, not two. The bar lives in a narrow aside, and a viewport
           breakpoint knows nothing about that: at sm: the two fields would sit
@@ -158,11 +158,14 @@ export function BookingBar({
       </p>
 
       <Button href={href} external className="mt-2 w-full">
-        {complete ? "Continue to booking" : "Open the booking engine"}
+        {complete ? "Continue to booking" : "Open the booking page"}
       </Button>
 
+      {/* The villa's own words. "Booking engine" is their term for it in
+          private, not the one they want guests reading. */}
       <p className="mt-4 text-[0.75rem] leading-relaxed text-subtle">
-        Booking is handled by Swarma&rsquo;s own booking engine, which opens in a new tab.
+        Our secure booking page will open in a new tab. Direct booking gives you access to
+        our best available direct rate.
       </p>
     </div>
   );
