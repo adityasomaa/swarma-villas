@@ -537,7 +537,7 @@ export const experience = {
           "Known locally as melukat, the ceremony is a spiritual practice of cleansing and " +
             "renewal, guided by local traditions and temple customs.",
         ],
-        photo: "waterfall-01",
+        photo: "waterfall-06",
       },
       {
         name: "Rice Field Walking",
@@ -546,7 +546,7 @@ export const experience = {
           "Walk through rice fields, village paths and quieter corners of the countryside " +
             "while experiencing a different side of everyday Balinese life.",
         ],
-        photo: "ricefield-01",
+        photo: "ricefield-03",
       },
       {
         name: "Jungle Trekking & Waterfall",
@@ -556,7 +556,7 @@ export const experience = {
             "tropical surroundings and visiting a waterfall along the way. A rewarding way " +
             "to spend a day surrounded by nature.",
         ],
-        photo: "jungle-01",
+        photo: "jungle-08",
       },
       {
         name: "Hiking & Nature Adventures",
@@ -566,7 +566,7 @@ export const experience = {
           "From gentle walks to more challenging routes, our team can help arrange an " +
             "experience that allows you to explore beyond the usual tourist paths.",
         ],
-        photo: "jungle-03",
+        photo: "jungle-09",
       },
       {
         name: "Mount Ijen & The Blue Fire",
@@ -577,7 +577,7 @@ export const experience = {
             "but it offers the opportunity to witness one of Indonesia's remarkable natural " +
             "landscapes.",
         ],
-        photo: "jungle-06",
+        photo: "jungle-10",
       },
       {
         name: "More of Indonesia",
@@ -639,7 +639,7 @@ export const packages = {
         "Flower decoration in your house",
         "One bottle of wine",
       ],
-      photo: "paon-dinner-01",
+      photo: "ritual-05",
     },
     {
       name: "Nature Adventure",
@@ -655,7 +655,7 @@ export const packages = {
       ],
       includedTitle: "Also included",
       included: ["60-minute Balinese massage"],
-      photo: "waterfall-02",
+      photo: "jungle-11",
     },
     {
       name: "Wellness Journey",
@@ -670,7 +670,7 @@ export const packages = {
         "Water purification at a sacred temple",
         "60-minute traditional Balinese massage",
       ],
-      photo: "bath-flower-01",
+      photo: "waterfall-07",
     },
     {
       name: "Full Board Stay",

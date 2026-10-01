@@ -69,7 +69,10 @@ const GROUPS: { title: string; blurb: string; categories: string[] }[] = [
   {
     title: "Beyond the gate",
     blurb: "The jungle, the rice fields and the waterfalls the treks reach.",
-    categories: ["jungle", "waterfall"],
+    /* "ricefield" belongs here. Without it the rice field photographs are in
+       the library and on no page: a category that no group names simply never
+       renders, and nothing warns you. */
+    categories: ["jungle", "waterfall", "ricefield"],
   },
 ];
 

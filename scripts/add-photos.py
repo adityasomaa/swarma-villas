@@ -12,7 +12,7 @@ This writes the same sizes at the same quality, and merges by slug.
 Run: python scripts/add-photos.py
 """
 import json, pathlib, subprocess, sys
-from PIL import Image
+from PIL import Image, ImageOps
 
 WIDTHS = [480, 960, 1600, 2400]
 QUALITY = 76
@@ -50,6 +50,35 @@ NEW = [
     # The wellness lead on the Experience page.
     ("massage-new.jpg", "ritual-04", "ritual",
      "A massage table laid out under a thatched bale in the garden"),
+
+    # ---------------------------------------------- 1 October, second batch
+    # The five Experience cards, the four on Package & Offer, and four of the
+    # eight tiles in the home page's gallery strip. Categories are chosen so
+    # each one lands in a group on /gallery as well.
+    ("exp-water-temple.jpg", "waterfall-06", "waterfall",
+     "Guests taking part in a melukat purification under the water"),
+    ("exp-rice-field.jpg", "ricefield-03", "ricefield",
+     "Guests on a swing above the rice fields and palms"),
+    ("exp-jungle.jpg", "jungle-08", "jungle",
+     "A guest at the foot of a giant banyan tree in the jungle"),
+    ("exp-hiking.jpg", "jungle-09", "jungle",
+     "Two walkers watching the sun come up from a ridge"),
+    ("exp-ijen.jpg", "jungle-10", "jungle",
+     "The blue fire burning in the crater at Mount Ijen"),
+    ("pkg-hero.jpg", "pool-11", "pool",
+     "The pool under the palms, looking out over the rice fields"),
+    ("pkg-romantic.jpg", "ritual-05", "ritual",
+     "A stone bath filled with flowers, a heart laid out in red petals"),
+    ("pkg-nature.jpg", "jungle-11", "jungle",
+     "The hanging roots of a banyan tree in the forest"),
+    ("pkg-wellness.jpg", "waterfall-07", "waterfall",
+     "Guests standing under a temple waterfall during a blessing"),
+    ("gal-1.jpg", "pool-12", "pool",
+     "The pool from the water, palms and a pavilion behind it"),
+    ("gal-3.jpg", "paon-14", "restaurant",
+     "The dining room at Paon, laid for a meal and open to the garden"),
+    ("gal-6.jpg", "paon-15", "restaurant",
+     "The bar and open kitchen at Paon under its timber roof"),
 ]
 
 OUT.mkdir(parents=True, exist_ok=True)
@@ -61,7 +90,10 @@ for src_name, slug, category, caption in NEW:
     if not src.exists():
         sys.exit(f"missing source: {src}")
     im = Image.open(src)
-    im = im.convert("RGB")
+    # A phone writes the rotation into EXIF rather than the pixels. Without
+    # this, a portrait photograph is encoded on its side and the page shows it
+    # that way, which is how the rice field swing arrived.
+    im = ImageOps.exif_transpose(im).convert("RGB")
     w, h = im.size
 
     widths = [x for x in WIDTHS if x <= w] or [w]

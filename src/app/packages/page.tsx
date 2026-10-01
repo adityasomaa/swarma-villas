@@ -26,7 +26,7 @@ export default function PackagesPage() {
         kicker={packages.kicker}
         title={packages.h1}
         lede={packages.lede}
-        photo={{ slug: "pool-06", alt: "The pool in the garden at Swarma Villas" }}
+        photo={{ slug: "pool-11", alt: "The pool under the palms at Swarma Villas" }}
         crumbs={[{ label: "Package & Offer", path: "/packages" }]}
       />
 

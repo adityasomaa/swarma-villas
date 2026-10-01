@@ -150,13 +150,15 @@ export function ReviewsBand() {
 
 /* ---------------------------------------------------------------- gallery */
 
+/* Tiles one, three, five and six were replaced by the villa on 1 October;
+   the other four are as they were. */
 const HOME_GALLERY = [
-  "pool-01",
+  "pool-12",
   "gladak-terrace-01",
-  "paon-03",
+  "paon-14",
   "dome-bed-03",
-  "waterfall-02",
-  "bath-open-03",
+  "ritual-05",
+  "paon-15",
   "hexa-ext-02",
   "food-02",
 ];

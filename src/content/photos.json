@@ -1661,6 +1661,89 @@
     "source": "waterfall-11.jpg"
   },
   {
+    "slug": "jungle-08",
+    "category": "jungle",
+    "caption": "A guest at the foot of a giant banyan tree in the jungle",
+    "w": 960,
+    "h": 1280,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "jungle-08-480.webp",
+        "kb": 100
+      },
+      {
+        "w": 960,
+        "file": "jungle-08-960.webp",
+        "kb": 351
+      }
+    ],
+    "source": "exp-jungle.jpg"
+  },
+  {
+    "slug": "jungle-09",
+    "category": "jungle",
+    "caption": "Two walkers watching the sun come up from a ridge",
+    "w": 1024,
+    "h": 768,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "jungle-09-480.webp",
+        "kb": 7
+      },
+      {
+        "w": 960,
+        "file": "jungle-09-960.webp",
+        "kb": 20
+      }
+    ],
+    "source": "exp-hiking.jpg"
+  },
+  {
+    "slug": "jungle-10",
+    "category": "jungle",
+    "caption": "The blue fire burning in the crater at Mount Ijen",
+    "w": 720,
+    "h": 400,
+    "ratio": 1.8,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "jungle-10-480.webp",
+        "kb": 16
+      }
+    ],
+    "source": "exp-ijen.jpg"
+  },
+  {
+    "slug": "jungle-11",
+    "category": "jungle",
+    "caption": "The hanging roots of a banyan tree in the forest",
+    "w": 963,
+    "h": 1280,
+    "ratio": 0.7523,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "jungle-11-480.webp",
+        "kb": 87
+      },
+      {
+        "w": 960,
+        "file": "jungle-11-960.webp",
+        "kb": 264
+      }
+    ],
+    "source": "pkg-nature.jpg"
+  },
+  {
     "slug": "menu-cover",
     "category": "menu",
     "caption": "The cover of the Paon Restaurant menu",
@@ -2121,6 +2204,60 @@
     "source": "juice.jpg"
   },
   {
+    "slug": "paon-14",
+    "category": "restaurant",
+    "caption": "The dining room at Paon, laid for a meal and open to the garden",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "paon-14-480.webp",
+        "kb": 39
+      },
+      {
+        "w": 960,
+        "file": "paon-14-960.webp",
+        "kb": 124
+      },
+      {
+        "w": 1600,
+        "file": "paon-14-1600.webp",
+        "kb": 287
+      }
+    ],
+    "source": "gal-3.jpg"
+  },
+  {
+    "slug": "paon-15",
+    "category": "restaurant",
+    "caption": "The bar and open kitchen at Paon under its timber roof",
+    "w": 2048,
+    "h": 1365,
+    "ratio": 1.5004,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "paon-15-480.webp",
+        "kb": 35
+      },
+      {
+        "w": 960,
+        "file": "paon-15-960.webp",
+        "kb": 111
+      },
+      {
+        "w": 1600,
+        "file": "paon-15-1600.webp",
+        "kb": 250
+      }
+    ],
+    "source": "gal-6.jpg"
+  },
+  {
     "slug": "paon-dinner-01",
     "category": "restaurant",
     "caption": "A candlelit dinner laid for two with flowers and wine",
@@ -2446,6 +2583,70 @@
       }
     ],
     "source": "about-1hero.jpg"
+  },
+  {
+    "slug": "pool-11",
+    "category": "pool",
+    "caption": "The pool under the palms, looking out over the rice fields",
+    "w": 3072,
+    "h": 4096,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "pool-11-480.webp",
+        "kb": 90
+      },
+      {
+        "w": 960,
+        "file": "pool-11-960.webp",
+        "kb": 328
+      },
+      {
+        "w": 1600,
+        "file": "pool-11-1600.webp",
+        "kb": 753
+      },
+      {
+        "w": 2400,
+        "file": "pool-11-2400.webp",
+        "kb": 1395
+      }
+    ],
+    "source": "pkg-hero.jpg"
+  },
+  {
+    "slug": "pool-12",
+    "category": "pool",
+    "caption": "The pool from the water, palms and a pavilion behind it",
+    "w": 3072,
+    "h": 4096,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "pool-12-480.webp",
+        "kb": 54
+      },
+      {
+        "w": 960,
+        "file": "pool-12-960.webp",
+        "kb": 190
+      },
+      {
+        "w": 1600,
+        "file": "pool-12-1600.webp",
+        "kb": 430
+      },
+      {
+        "w": 2400,
+        "file": "pool-12-2400.webp",
+        "kb": 794
+      }
+    ],
+    "source": "gal-1.jpg"
   },
   {
     "slug": "property-01",
@@ -2898,6 +3099,38 @@
     "source": "home-6beyond.jpg"
   },
   {
+    "slug": "ricefield-03",
+    "category": "ricefield",
+    "caption": "Guests on a swing above the rice fields and palms",
+    "w": 3456,
+    "h": 4608,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "ricefield-03-480.webp",
+        "kb": 65
+      },
+      {
+        "w": 960,
+        "file": "ricefield-03-960.webp",
+        "kb": 237
+      },
+      {
+        "w": 1600,
+        "file": "ricefield-03-1600.webp",
+        "kb": 552
+      },
+      {
+        "w": 2400,
+        "file": "ricefield-03-2400.webp",
+        "kb": 933
+      }
+    ],
+    "source": "exp-rice-field.jpg"
+  },
+  {
     "slug": "ritual-01",
     "category": "ritual",
     "caption": "A water purification at a jungle waterfall",
@@ -2979,6 +3212,38 @@
       }
     ],
     "source": "massage-new.jpg"
+  },
+  {
+    "slug": "ritual-05",
+    "category": "ritual",
+    "caption": "A stone bath filled with flowers, a heart laid out in red petals",
+    "w": 4096,
+    "h": 3056,
+    "ratio": 1.3403,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "ritual-05-480.webp",
+        "kb": 46
+      },
+      {
+        "w": 960,
+        "file": "ritual-05-960.webp",
+        "kb": 156
+      },
+      {
+        "w": 1600,
+        "file": "ritual-05-1600.webp",
+        "kb": 342
+      },
+      {
+        "w": 2400,
+        "file": "ritual-05-2400.webp",
+        "kb": 609
+      }
+    ],
+    "source": "pkg-romantic.jpg"
   },
   {
     "slug": "room-01",
@@ -3431,5 +3696,49 @@
       }
     ],
     "source": "waterfall-6.jpg"
+  },
+  {
+    "slug": "waterfall-06",
+    "category": "waterfall",
+    "caption": "Guests taking part in a melukat purification under the water",
+    "w": 960,
+    "h": 1280,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "waterfall-06-480.webp",
+        "kb": 94
+      },
+      {
+        "w": 960,
+        "file": "waterfall-06-960.webp",
+        "kb": 290
+      }
+    ],
+    "source": "exp-water-temple.jpg"
+  },
+  {
+    "slug": "waterfall-07",
+    "category": "waterfall",
+    "caption": "Guests standing under a temple waterfall during a blessing",
+    "w": 960,
+    "h": 1280,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "waterfall-07-480.webp",
+        "kb": 100
+      },
+      {
+        "w": 960,
+        "file": "waterfall-07-960.webp",
+        "kb": 359
+      }
+    ],
+    "source": "pkg-wellness.jpg"
   }
 ]

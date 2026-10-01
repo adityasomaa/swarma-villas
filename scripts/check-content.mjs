@@ -1,4 +1,6 @@
 import { chromium } from "playwright";
+import { readFileSync } from "node:fs";
+import photos from "../src/content/photos.json" with { type: "json" };
 
 /* =============================================================================
    THINGS THAT CAN VANISH WITHOUT AN ERROR
@@ -16,6 +18,11 @@ import { chromium } from "playwright";
    2. THE MENUS. Two PDFs the villa supplied, served from /public. A PDF has to
       be treated as leaving the page even from our own origin, or the Button
       falls through to the client router, which has no route for one.
+
+   3. ORPHANED PHOTOGRAPHS. /gallery groups the library by category, and a
+      category no group names renders nowhere: the photograph is in the
+      manifest, encoded at four widths, and on no page. That is exactly what
+      happened to "ricefield".
 
    Run: node scripts/check-content.mjs [origin]
    ========================================================================== */
@@ -71,6 +78,20 @@ for (const [path, what] of MENUS) {
 }
 
 await browser.close();
+
+/* ----------------------------------------------- every category has a home */
+const galleryPage = readFileSync("src/app/gallery/page.tsx", "utf8");
+const claimed = new Set(
+  [...galleryPage.matchAll(/categories: \[([^\]]+)\]/g)].flatMap((m) =>
+    [...m[1].matchAll(/"([^"]+)"/g)].map((x) => x[1]),
+  ),
+);
+for (const c of [...new Set(photos.map((p) => p.category))]) {
+  if (!claimed.has(c)) {
+    failures.push(`category "${c}" is in no gallery group, so its photographs render nowhere`);
+  }
+}
+console.log(`${claimed.size} photo categories, all claimed by a gallery group.`);
 
 console.log(`\n${MUST_SAY.length} page contents and ${MENUS.length} menus checked.`);
 if (failures.length === 0) {
