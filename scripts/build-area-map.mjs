@@ -25,13 +25,22 @@ const CACHE = "scratch/overpass-ubud.json";
 /* -----------------------------------------------------------------------------
    1. WHAT THE MAP SHOWS
    -----------------------------------------------------------------------------
-   The villa's own position is the one coordinate that is NOT from OSM: the lane
-   it sits on (Gg. Abian Tiying) is not mapped, so this is the Jalan Raya
-   Kengetan address geocoded to the street. It is good to a few hundred metres,
-   which at this scale is a couple of millimetres — but it is an approximation,
-   and it should be replaced with the villa's confirmed pin.
+   THE VILLA'S POSITION. Gg. Abian Tiying is not in OpenStreetMap, so this is
+   worked out from what is. The villa said on 1 October that the entrance is on
+   Jl. Raya Kengetan directly opposite Gaya Gelato Lab, beside Gang Gora, and
+   OSM puts Gang Gora's junction with the main road at -8.538430, 115.245217.
+   The pin sits across the road from that junction.
+
+   Good to about fifty metres. The previous value — the street name geocoded on
+   its own — was out by more than a kilometre, which is why this is written
+   down with its working. Ask them to drop a pin and it becomes exact.
+
+   GAYA GELATO LAB IS NOT DRAWN. It is not in OSM, it is directly across the
+   road from the villa, and a second label on the same spot would collide with
+   the villa's own. It is in the Getting here text instead, where it is more
+   use: it is how a guest knows they have arrived.
    -------------------------------------------------------------------------- */
-const VILLA = { lat: -8.5478, lng: 115.2518, label: "Swarma Villas" };
+const VILLA = { lat: -8.5383, lng: 115.2453, label: "Swarma Villas" };
 
 /** Everything else is geocoded from OSM at build time, by name. */
 const LANDMARKS = [
@@ -40,6 +49,19 @@ const LANDMARKS = [
   // The walk itself is a path, not a place; OSM knows the ridge as Bukit Campuhan.
   { q: "Campuhan, Ubud, Gianyar, Bali", label: "Campuhan Ridge Walk", anchor: "end" },
   { q: "Goa Gajah, Bedulu, Blahbatuh, Gianyar, Bali", label: "Goa Gajah", anchor: "start" },
+];
+
+/**
+ * The shops the villa asked for. Nominatim does not know them by these names,
+ * so the coordinates are read out of OpenStreetMap's own data and written here
+ * rather than looked up at build time. All three sit within about a kilometre
+ * north of the villa on the same road, so they are drawn smaller than the
+ * landmarks and labelled on alternating sides to keep them apart.
+ */
+const SHOPS = [
+  { lat: -8.527367, lng: 115.24381, label: "CocoMart Tebongkang", anchor: "start" },
+  { lat: -8.532994, lng: 115.243668, label: "Pepito’s", anchor: "end" },
+  { lat: -8.536528, lng: 115.243593, label: "Rüsters", anchor: "start" },
 ];
 
 const PALETTE = {
@@ -251,6 +273,30 @@ async function main() {
   }
   out.push(`</g>`);
 
+  /* The shops, smaller than the landmarks. They are a cluster rather than a
+     scatter, so they get a tighter mark and a lighter label. */
+  out.push(
+    `<g font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" fill="${PALETTE.subtle}">`,
+  );
+  for (const shop of SHOPS) {
+    const { x, y } = project(shop);
+    if (x < 0 || x > W || y < 0 || y > H) {
+      console.warn(`  ! ${shop.label} falls outside the frame`);
+      continue;
+    }
+    const width = shop.label.length * 16 * 0.55;
+    let anchor = shop.anchor;
+    if (anchor === "start" && x + 10 + width > W - 8) anchor = "end";
+    else if (anchor === "end" && x - 10 - width < 8) anchor = "start";
+    out.push(`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3" fill="${PALETTE.subtle}"/>`);
+    out.push(
+      `<text x="${(x + (anchor === "end" ? -9 : 9)).toFixed(1)}" y="${(y + 5.5).toFixed(1)}" ` +
+        `text-anchor="${anchor}" paint-order="stroke" stroke="${PALETTE.canvas}" ` +
+        `stroke-width="4">${esc(shop.label)}</text>`,
+    );
+  }
+  out.push(`</g>`);
+
   // the villa, last and loudest
   const v = project(VILLA);
   out.push(`<g>`);
@@ -262,7 +308,7 @@ async function main() {
       `stroke="${PALETTE.canvas}" stroke-width="2.5"/>`,
   );
   out.push(
-    `<text x="${v.x.toFixed(1)}" y="${(v.y - 28).toFixed(1)}" text-anchor="middle" ` +
+    `<text x="${v.x.toFixed(1)}" y="${(v.y + 44).toFixed(1)}" text-anchor="middle" ` +
       `font-family="ui-serif, Georgia, serif" font-size="29" fill="${PALETTE.ink}" ` +
       `paint-order="stroke" stroke="${PALETTE.canvas}" stroke-width="5">${esc(VILLA.label)}</text>`,
   );
@@ -299,7 +345,8 @@ async function main() {
 
   const drawn = layers.reduce((n, l) => n + l.ways.length, 0);
   console.log(
-    `public/img/area-map.svg — ${drawn} roads, ${water.length} waterways, ${places.length} landmarks`,
+    `public/img/area-map.svg — ${drawn} roads, ${water.length} waterways, ` +
+      `${places.length} landmarks, ${SHOPS.length} shops`,
   );
 }
 

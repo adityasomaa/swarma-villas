@@ -3387,5 +3387,22 @@
       }
     ],
     "source": "waterfall-6.jpg"
+  },
+  {
+    "slug": "waterfall-06",
+    "category": "waterfall",
+    "caption": "Kanto Lampo waterfall, one of the places the villa arranges trips to",
+    "w": 495,
+    "h": 619,
+    "ratio": 0.7997,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "waterfall-06-480.webp",
+        "kb": 96
+      }
+    ],
+    "source": "home-6beyond.jpg"
   }
 ]

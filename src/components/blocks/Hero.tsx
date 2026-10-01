@@ -48,7 +48,7 @@ export function Hero() {
             <p className="kicker">{business.positioning}</p>
           </Reveal>
           <Reveal delay={100}>
-            <h1 className="display mt-5 max-w-5xl text-[clamp(2.5rem,8.5vw,6.5rem)] leading-[0.94]">
+            <h1 className="display mt-5 max-w-5xl text-[clamp(2.25rem,7vw,4.75rem)] leading-[0.98]">
               {copy.home.h1}
             </h1>
           </Reveal>

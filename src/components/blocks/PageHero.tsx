@@ -58,7 +58,7 @@ export function PageHero({ kicker, title, lede, photo, crumbs = [] }: Props) {
           <Breadcrumbs crumbs={crumbs} />
           <Reveal className="mt-6">
             {kicker && <p className="kicker">{kicker}</p>}
-            <h1 className="display mt-4 max-w-4xl text-[clamp(2.25rem,6vw,4.5rem)] leading-[0.98]">
+            <h1 className="display mt-4 max-w-4xl text-[clamp(2rem,5.4vw,3.75rem)] leading-[1.02]">
               {title}
             </h1>
             {lede && (
@@ -80,7 +80,7 @@ function TextOnlyHero({ kicker, title, lede, crumbs = [] }: Omit<Props, "photo">
         <Breadcrumbs crumbs={crumbs} />
         <Reveal className="mt-6">
           {kicker && <p className="kicker text-accent">{kicker}</p>}
-          <h1 className="display measure-display mt-4 text-[clamp(2.25rem,5.4vw,4rem)] leading-[1]">
+          <h1 className="display measure-display mt-4 text-[clamp(2rem,5vw,3.5rem)] leading-[1.04]">
             {title}
           </h1>
           {lede && (

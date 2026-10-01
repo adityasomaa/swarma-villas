@@ -224,9 +224,9 @@ export const houses: House[] = [
       "Shampoo",
       "Conditioner",
       "Hairdryer",
-      "Shower cap and dental kit on request",
       "Wooden chairs",
       "Terrace",
+      "Shower cap and dental kit on request",
       "Iron and ironing board on request",
     ],
     photos: [
@@ -283,9 +283,9 @@ export const houses: House[] = [
       "Shampoo",
       "Conditioner",
       "Hairdryer",
-      "Shower cap and dental kit on request",
       "Rattan chairs",
       "Terrace",
+      "Shower cap and dental kit on request",
       "Iron and ironing board on request",
     ],
     photos: [
@@ -843,7 +843,11 @@ export const copy = {
             "Explore beyond the property through cultural experiences, nature walks, " +
             "outdoor adventures and journeys across Indonesia.",
           href: "/experiences",
-          photo: "jungle-01",
+          /* The villa's own choice. Their file is 495x619, which is small for a
+             card this wide, so it is served at its native size rather than
+             upscaled: scaling it up would only bake in the softness. A larger
+             original would sharpen this card and nothing else needs changing. */
+          photo: "waterfall-06",
         },
       ],
     },
@@ -1035,7 +1039,7 @@ export const copy = {
     heading: "Getting here",
     lede:
       "Swarma Villas Bali is on Jl. Raya Kengetan Gang Abian Tiying in Singakerta, in " +
-      "the Ubud district of Gianyar.",
+      "the Ubud district of Gianyar. The entrance is directly opposite Gaya Gelato Lab.",
   },
 } as const;
 

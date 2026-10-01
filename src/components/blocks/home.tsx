@@ -131,7 +131,7 @@ export function ReviewsBand() {
     <Container width="narrow" className="text-center">
       <Reveal>
         <p className="kicker text-gold">From our guests</p>
-        <blockquote className="display mt-8 text-[clamp(1.75rem,4vw,3rem)] leading-[1.12]">
+        <blockquote className="display mt-8 text-[clamp(1.5rem,3.2vw,2.25rem)] leading-[1.25]">
           &ldquo;{first.quote}&rdquo;
         </blockquote>
         <figcaption className="mt-8 text-[0.8125rem] uppercase tracking-[0.16em] text-muted">
