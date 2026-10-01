@@ -2876,6 +2876,28 @@
     "source": "rice-field.jpg"
   },
   {
+    "slug": "ricefield-02",
+    "category": "ricefield",
+    "caption": "Two guests looking out over the rice terraces on a day trip from the villa",
+    "w": 1280,
+    "h": 748,
+    "ratio": 1.7112,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "ricefield-02-480.webp",
+        "kb": 31
+      },
+      {
+        "w": 960,
+        "file": "ricefield-02-960.webp",
+        "kb": 111
+      }
+    ],
+    "source": "home-6beyond.jpg"
+  },
+  {
     "slug": "ritual-01",
     "category": "ritual",
     "caption": "A water purification at a jungle waterfall",
@@ -2935,6 +2957,28 @@
       }
     ],
     "source": "about-2about.jpg"
+  },
+  {
+    "slug": "ritual-04",
+    "category": "ritual",
+    "caption": "A massage table laid out under a thatched bale in the garden",
+    "w": 1200,
+    "h": 1600,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "ritual-04-480.webp",
+        "kb": 53
+      },
+      {
+        "w": 960,
+        "file": "ritual-04-960.webp",
+        "kb": 150
+      }
+    ],
+    "source": "massage-new.jpg"
   },
   {
     "slug": "room-01",
@@ -3387,22 +3431,5 @@
       }
     ],
     "source": "waterfall-6.jpg"
-  },
-  {
-    "slug": "waterfall-06",
-    "category": "waterfall",
-    "caption": "Kanto Lampo waterfall, one of the places the villa arranges trips to",
-    "w": 495,
-    "h": 619,
-    "ratio": 0.7997,
-    "orientation": "portrait",
-    "sizes": [
-      {
-        "w": 480,
-        "file": "waterfall-06-480.webp",
-        "kb": 96
-      }
-    ],
-    "source": "home-6beyond.jpg"
   }
 ]

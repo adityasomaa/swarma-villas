@@ -219,6 +219,19 @@
     text-transform: uppercase;
     letter-spacing: 0.22em;
   }
+
+  /*
+   * On a phone the villa's positioning line is the kicker, and at 16px with
+   * this much tracking it ran to three lines above the heading. Smaller, and
+   * tracked a little tighter, it sits in two. Desktop is untouched: that is
+   * the size the villa approved.
+   */
+  @media (max-width: 639px) {
+    .kicker {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+    }
+  }
 }
 
 @layer utilities {

@@ -404,10 +404,10 @@ export const restaurant = {
         "Our kitchen is happy to accommodate dietary requirements and food allergies " +
           "whenever possible. If you have specific dietary needs, please let us know in " +
           "advance so our team can prepare your meal with care.",
-        "Planning something special? Paon can also cater for special occasions and " +
-          "private celebrations, from a relaxed dinner to a more personal gathering. " +
-          "Share your plans with us and we will be happy to discuss the menu and " +
-          "arrangements.",
+        "Planning something special?",
+        "Paon can also cater for special occasions and private celebrations, from a " +
+          "relaxed dinner to a more personal gathering. Share your plans with us and we " +
+          "will be happy to discuss the menu and arrangements.",
       ],
     },
     {
@@ -500,7 +500,9 @@ export const experience = {
        nowhere better for it. It carried the previous logo and the previous
        prices, and the current menu is now a PDF behind the button below, so it
        is out of the gallery. */
-    photos: ["bath-flower-01", "ritual-01", "bath-open-05", "bath-open-02"],
+    /* The villa replaced the lead photograph on 1 October; the flower bath it
+       displaced moves into the gallery below rather than leaving. */
+    photos: ["ritual-04", "bath-flower-01", "ritual-01", "bath-open-05"],
     /**
      * The current one, supplied on 30 September 2026: new logo, new prices,
      * recompressed from 3.0 MB to 0.9 MB. It replaces the old "menu-spa" flyer
@@ -843,11 +845,10 @@ export const copy = {
             "Explore beyond the property through cultural experiences, nature walks, " +
             "outdoor adventures and journeys across Indonesia.",
           href: "/experiences",
-          /* The villa's own choice. Their file is 495x619, which is small for a
-             card this wide, so it is served at its native size rather than
-             upscaled: scaling it up would only bake in the softness. A larger
-             original would sharpen this card and nothing else needs changing. */
-          photo: "waterfall-06",
+          /* Cropped before it reached the library so the water bottles on the
+             deck are out of frame, as the villa asked — the view and the
+             guests carry the picture. See scripts/add-photos.py. */
+          photo: "ricefield-02",
         },
       ],
     },

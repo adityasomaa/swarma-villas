@@ -78,14 +78,16 @@ export default function RestaurantPage() {
           <div className="grid gap-10 md:grid-cols-2 md:gap-14">
             {restaurant.sections.map((section, i) => (
               <Reveal key={section.title} delay={i * 90}>
-                <SectionHeader as="h2" title={section.title} align="start" className="mb-5" />
-                <Prose paragraphs={section.body} />
+                <h2 className="display text-[clamp(1.5rem,3vw,2.125rem)] leading-[1.1]">
+                  {section.title}
+                </h2>
+                <Prose paragraphs={section.body} className="mt-4 text-[1rem] leading-[1.7]" />
               </Reveal>
             ))}
           </div>
 
           <Reveal delay={160}>
-            <p className="display measure-head mx-auto mt-14 text-center text-[clamp(1.375rem,3vw,2rem)] leading-[1.3] text-ink md:mt-20">
+            <p className="display measure-head mx-auto mt-14 text-center text-[clamp(1.25rem,2.4vw,1.625rem)] leading-[1.4] text-ink md:mt-20">
               {restaurant.closing}
             </p>
           </Reveal>

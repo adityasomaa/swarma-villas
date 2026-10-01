@@ -40,11 +40,16 @@ NEW = [
      "A wooden house among red foliage, stone steps leading up to it"),
     ("house-3bamboo-dome-house.jpg", "dome-bed-06", "dome",
      "Inside the Bamboo Dome, the bed under its curved bamboo roof"),
-    # Sent 1 October as the replacement for the Beyond Swarma card. The villa's
-    # original is 495x619, which is small for the card it fills; see the note
-    # against the card in content/site.ts.
-    ("home-6beyond.jpg", "waterfall-06", "waterfall",
-     "Kanto Lampo waterfall, one of the places the villa arranges trips to"),
+    # The Beyond Swarma card, second attempt. The villa asked for the water
+    # bottles on the deck to be out of frame and the view and the guests to
+    # carry it, so the source is cropped to its top 78% before it gets here:
+    # the card is 16:10 and covers, which crops the sides rather than putting
+    # the deck back.
+    ("home-6beyond.jpg", "ricefield-02", "ricefield",
+     "Two guests looking out over the rice terraces on a day trip from the villa"),
+    # The wellness lead on the Experience page.
+    ("massage-new.jpg", "ritual-04", "ritual",
+     "A massage table laid out under a thatched bale in the garden"),
 ]
 
 OUT.mkdir(parents=True, exist_ok=True)

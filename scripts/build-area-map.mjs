@@ -35,12 +35,13 @@ const CACHE = "scratch/overpass-ubud.json";
    its own — was out by more than a kilometre, which is why this is written
    down with its working. Ask them to drop a pin and it becomes exact.
 
-   GAYA GELATO LAB IS NOT DRAWN. It is not in OSM, it is directly across the
-   road from the villa, and a second label on the same spot would collide with
-   the villa's own. It is in the Getting here text instead, where it is more
-   use: it is how a guest knows they have arrived.
+   GAYA GELATO LAB is drawn at the villa's request. It is not in OSM, and all
+   that is known is that it faces the villa across Jl. Raya Kengetan, so it is
+   placed on the west side of the junction: about thirty metres out, which at
+   this scale is two units. The two labels point opposite ways so that they can
+   both be read even though the marks nearly touch.
    -------------------------------------------------------------------------- */
-const VILLA = { lat: -8.5383, lng: 115.2453, label: "Swarma Villas" };
+const VILLA = { lat: -8.5383, lng: 115.2456, label: "Swarma Villas" };
 
 /** Everything else is geocoded from OSM at build time, by name. */
 const LANDMARKS = [
@@ -60,8 +61,11 @@ const LANDMARKS = [
  */
 const SHOPS = [
   { lat: -8.527367, lng: 115.24381, label: "CocoMart Tebongkang", anchor: "start" },
-  { lat: -8.532994, lng: 115.243668, label: "Pepito’s", anchor: "end" },
-  { lat: -8.536528, lng: 115.243593, label: "Rüsters", anchor: "start" },
+  { lat: -8.532994, lng: 115.243668, label: "Pepito’s", anchor: "start" },
+  // These two sit within a couple of hundred metres of the villa, so both
+  // labels run left, away from the villa's own name on the right.
+  { lat: -8.536528, lng: 115.243593, label: "Rüsters", anchor: "end" },
+  { lat: -8.5385, lng: 115.2448, label: "Gaya Gelato Lab", anchor: "end" },
 ];
 
 const PALETTE = {
@@ -308,7 +312,7 @@ async function main() {
       `stroke="${PALETTE.canvas}" stroke-width="2.5"/>`,
   );
   out.push(
-    `<text x="${v.x.toFixed(1)}" y="${(v.y + 44).toFixed(1)}" text-anchor="middle" ` +
+    `<text x="${(v.x + 26).toFixed(1)}" y="${(v.y + 10).toFixed(1)}" text-anchor="start" ` +
       `font-family="ui-serif, Georgia, serif" font-size="29" fill="${PALETTE.ink}" ` +
       `paint-order="stroke" stroke="${PALETTE.canvas}" stroke-width="5">${esc(VILLA.label)}</text>`,
   );

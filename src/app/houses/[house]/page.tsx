@@ -133,9 +133,6 @@ export default async function HousePage({
                   </Button>
                 </div>
 
-                <p className="mt-6 border-t border-line pt-5 text-[0.8125rem] leading-relaxed text-subtle">
-                  {copy.houses.ratesNote}
-                </p>
               </aside>
             </Reveal>
           </div>
