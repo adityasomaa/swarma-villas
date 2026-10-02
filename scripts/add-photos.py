@@ -79,6 +79,41 @@ NEW = [
      "The dining room at Paon, laid for a meal and open to the garden"),
     ("gal-6.jpg", "paon-15", "restaurant",
      "The bar and open kitchen at Paon under its timber roof"),
+
+    # ------------------------------- the Gladak House folder, in their order
+    # Sixteen files, "1Hero Imgae" then Gladak1 to Gladak15. Gladak7 is the
+    # same flower bath already in the library as ritual-05, so it is not
+    # duplicated here; the house's photo list reuses that slug in its place.
+    ("gladak-00-hero.jpg", "gladak-ext-04", "gladak",
+     "The planted path and steps up to the Gladak House"),
+    ("gladak-01.jpg", "gladak-terrace-02", "gladak",
+     "Carved chairs and a low table on the Gladak House terrace"),
+    ("gladak-02.jpg", "gladak-bed-09", "gladak",
+     "The bed under its mosquito net, seen from the foot of the room"),
+    ("gladak-03.jpg", "gladak-bed-10", "gladak",
+     "The bed and the open shelving beside it"),
+    ("gladak-04.jpg", "gladak-bed-11", "gladak",
+     "The bed from the side, the terrace door standing open"),
+    ("gladak-05.jpg", "gladak-detail-01", "gladak",
+     "The wardrobe, the minibar and a robe hanging ready"),
+    ("gladak-06.jpg", "bath-open-06", "bathroom",
+     "A carved stone basin in the open air bathroom"),
+    ("gladak-08.jpg", "bath-open-07", "bathroom",
+     "The outdoor shower, towels hung on a bamboo ladder"),
+    ("gladak-09.jpg", "bath-open-08", "bathroom",
+     "The freestanding tub in the open air bathroom"),
+    ("gladak-10.jpg", "bath-detail-02", "bathroom",
+     "Shower gel, shampoo and conditioner set out on the stone"),
+    ("gladak-11.jpg", "bath-open-09", "bathroom",
+     "The timber corner of the bathroom with flowers on a shelf"),
+    ("gladak-12.jpg", "gladak-ext-05", "gladak",
+     "The Gladak House terrace running along the front of the house"),
+    ("gladak-13.jpg", "gladak-ext-06", "gladak",
+     "The house seen from the garden through the planting"),
+    ("gladak-14.jpg", "gladak-ext-07", "gladak",
+     "The entrance to the Gladak House, red foliage either side"),
+    ("gladak-15.jpg", "pool-13", "pool",
+     "The pool under the palms, seen from the garden"),
 ]
 
 OUT.mkdir(parents=True, exist_ok=True)

@@ -44,7 +44,7 @@ export function HouseGrid({ headingLevel = "h2" }: { headingLevel?: Level }) {
             >
               <div className="overflow-hidden">
                 <Photo
-                  slug={house.photos[0]!}
+                  slug={house.cardPhoto ?? house.photos[0]!}
                   ratio={16 / 10}
                   sizes="(min-width: 1024px) 55vw, 100vw"
                   imgClassName="transition-transform duration-[1100ms] ease-out-quint group-hover:scale-[1.04]"

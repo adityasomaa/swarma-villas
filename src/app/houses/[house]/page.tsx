@@ -148,7 +148,7 @@ export default async function HousePage({
               title={`The ${house.name} in photographs`}
               className="mb-10 md:mb-14"
             />
-            <Gallery slugs={rest} />
+            <Gallery slugs={rest} columns={4} />
           </Container>
         </Section>
       )}
@@ -173,7 +173,7 @@ export default async function HousePage({
                     )}
                   >
                     <Photo
-                      slug={other.photos[0]!}
+                      slug={other.cardPhoto ?? other.photos[0]!}
                       ratio={16 / 9}
                       sizes="(min-width: 640px) 50vw, 100vw"
                       imgClassName="transition-transform duration-[900ms] ease-out-quint group-hover:scale-[1.05]"

@@ -115,11 +115,22 @@ const picked =
   (await pickDate(page, "bar-checkIn", month, inDay)) &&
   (await pickDate(page, "bar-checkOut", month, outDay));
 if (!picked) fail("booking bar", `could not pick ${month} ${inDay}-${outDay}`);
-await page.waitForTimeout(2800);
+
+/*
+ * Wait for the answer rather than for a fixed number of milliseconds. The
+ * reply comes from a third party, and a sleep long enough on a good day fails
+ * on a slow one — which is worse than no check at all, because a test that
+ * cries wolf is a test people stop reading.
+ */
+const live = page.locator('[aria-live="polite"]').first();
+await live
+  .filter({ hasNotText: "Checking" })
+  .waitFor({ timeout: 20000 })
+  .catch(() => fail("booking bar", "no answer within 20s"));
 
 if (apiCalls.length !== 1) fail("booking bar", `${apiCalls.length} availability calls, want 1`);
 
-const line = (await page.locator('[aria-live="polite"]').first().innerText()).replace(/\s+/g, " ");
+const line = (await live.innerText()).replace(/\s+/g, " ");
 if (!/Gladak House is (free|taken)/.test(line)) fail("booking bar", `says "${line}"`);
 // The price belongs to the engine, not to us: the villa asked for their own
 // published rates to stand while the engine is still undiscounted.

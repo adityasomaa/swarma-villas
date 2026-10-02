@@ -54,7 +54,9 @@ export function Gallery({
           "grid gap-px bg-line",
           columns === 2 && "grid-cols-1 sm:grid-cols-2",
           columns === 3 && "grid-cols-2 md:grid-cols-3",
-          columns === 4 && "grid-cols-2 md:grid-cols-4",
+          /* Four on a laptop, as the villa asked, but three on a tablet:
+             four columns inside 768px is a contact sheet, not a gallery. */
+          columns === 4 && "grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
         )}
       >
         {slugs.map((slug, i) => {

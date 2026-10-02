@@ -172,8 +172,20 @@ export type House = {
   body: string[];
   /** In the villa's own order. */
   amenities: string[];
-  /** Photo slugs from src/content/photos.json. First one leads. */
+  /**
+   * Photo slugs from src/content/photos.json, in the villa's own order. The
+   * first is the hero of the house's own page; the rest are its gallery.
+   */
   photos: string[];
+  /**
+   * The photograph on the card, on the home page and on /houses.
+   *
+   * It is a separate field because the villa chose different pictures for the
+   * two jobs: a card is a small landscape crop that has to say which house
+   * this is at a glance, a hero is a full width band. Leave it out and the
+   * card falls back to photos[0].
+   */
+  cardPhoto?: string;
 };
 
 export const houses: House[] = [
@@ -186,6 +198,9 @@ export const houses: House[] = [
     sizeSqm: 12,
     count: 2,
     engineRooms: ["Gladak House 1", "Gladak House 2"],
+    /* The bedroom the villa picked for the card; their house page hero is the
+       first entry in photos below. */
+    cardPhoto: "gladak-bed-08",
     distinction:
       "A traditional Javanese teakwood house with heritage details and an open air bathtub beneath the sky.",
     body: [
@@ -230,15 +245,22 @@ export const houses: House[] = [
       "Iron and ironing board on request",
     ],
     photos: [
-      "gladak-bed-08",
-      "gladak-bed-01",
-      "gladak-bed-04",
-      "gladak-ext-01",
-      "gladak-bed-02",
-      "bath-open-03",
-      "gladak-terrace-01",
-      "gladak-bed-05",
-      "gladak-ext-02",
+      "gladak-ext-04",
+      "gladak-terrace-02",
+      "gladak-bed-09",
+      "gladak-bed-10",
+      "gladak-bed-11",
+      "gladak-detail-01",
+      "bath-open-06",
+      "ritual-05",
+      "bath-open-07",
+      "bath-open-08",
+      "bath-detail-02",
+      "bath-open-09",
+      "gladak-ext-05",
+      "gladak-ext-06",
+      "gladak-ext-07",
+      "pool-13",
     ],
   },
   {

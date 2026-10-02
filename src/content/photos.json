@@ -32,6 +32,38 @@
     "source": "l1130664-1-scaled.jpg"
   },
   {
+    "slug": "bath-detail-02",
+    "category": "bathroom",
+    "caption": "Shower gel, shampoo and conditioner set out on the stone",
+    "w": 4000,
+    "h": 3000,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "bath-detail-02-480.webp",
+        "kb": 31
+      },
+      {
+        "w": 960,
+        "file": "bath-detail-02-960.webp",
+        "kb": 100
+      },
+      {
+        "w": 1600,
+        "file": "bath-detail-02-1600.webp",
+        "kb": 215
+      },
+      {
+        "w": 2400,
+        "file": "bath-detail-02-2400.webp",
+        "kb": 391
+      }
+    ],
+    "source": "gladak-10.jpg"
+  },
+  {
     "slug": "bath-dome-01",
     "category": "bathroom",
     "caption": "Bamboo bathroom with a stone basin and hanging towels",
@@ -369,6 +401,134 @@
       }
     ],
     "source": "whatsapp-image-2024-04-02-at-12-40-14-ee6cba84.jpg"
+  },
+  {
+    "slug": "bath-open-06",
+    "category": "bathroom",
+    "caption": "A carved stone basin in the open air bathroom",
+    "w": 3000,
+    "h": 4000,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "bath-open-06-480.webp",
+        "kb": 64
+      },
+      {
+        "w": 960,
+        "file": "bath-open-06-960.webp",
+        "kb": 203
+      },
+      {
+        "w": 1600,
+        "file": "bath-open-06-1600.webp",
+        "kb": 435
+      },
+      {
+        "w": 2400,
+        "file": "bath-open-06-2400.webp",
+        "kb": 741
+      }
+    ],
+    "source": "gladak-06.jpg"
+  },
+  {
+    "slug": "bath-open-07",
+    "category": "bathroom",
+    "caption": "The outdoor shower, towels hung on a bamboo ladder",
+    "w": 3000,
+    "h": 4000,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "bath-open-07-480.webp",
+        "kb": 41
+      },
+      {
+        "w": 960,
+        "file": "bath-open-07-960.webp",
+        "kb": 139
+      },
+      {
+        "w": 1600,
+        "file": "bath-open-07-1600.webp",
+        "kb": 323
+      },
+      {
+        "w": 2400,
+        "file": "bath-open-07-2400.webp",
+        "kb": 567
+      }
+    ],
+    "source": "gladak-08.jpg"
+  },
+  {
+    "slug": "bath-open-08",
+    "category": "bathroom",
+    "caption": "The freestanding tub in the open air bathroom",
+    "w": 4000,
+    "h": 3000,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "bath-open-08-480.webp",
+        "kb": 30
+      },
+      {
+        "w": 960,
+        "file": "bath-open-08-960.webp",
+        "kb": 95
+      },
+      {
+        "w": 1600,
+        "file": "bath-open-08-1600.webp",
+        "kb": 224
+      },
+      {
+        "w": 2400,
+        "file": "bath-open-08-2400.webp",
+        "kb": 399
+      }
+    ],
+    "source": "gladak-09.jpg"
+  },
+  {
+    "slug": "bath-open-09",
+    "category": "bathroom",
+    "caption": "The timber corner of the bathroom with flowers on a shelf",
+    "w": 3000,
+    "h": 4000,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "bath-open-09-480.webp",
+        "kb": 20
+      },
+      {
+        "w": 960,
+        "file": "bath-open-09-960.webp",
+        "kb": 62
+      },
+      {
+        "w": 1600,
+        "file": "bath-open-09-1600.webp",
+        "kb": 140
+      },
+      {
+        "w": 2400,
+        "file": "bath-open-09-2400.webp",
+        "kb": 264
+      }
+    ],
+    "source": "gladak-11.jpg"
   },
   {
     "slug": "dome-bed-01",
@@ -1128,6 +1288,124 @@
     "source": "home-2gladak-house.jpg"
   },
   {
+    "slug": "gladak-bed-09",
+    "category": "gladak",
+    "caption": "The bed under its mosquito net, seen from the foot of the room",
+    "w": 1280,
+    "h": 960,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "gladak-bed-09-480.webp",
+        "kb": 13
+      },
+      {
+        "w": 960,
+        "file": "gladak-bed-09-960.webp",
+        "kb": 34
+      }
+    ],
+    "source": "gladak-02.jpg"
+  },
+  {
+    "slug": "gladak-bed-10",
+    "category": "gladak",
+    "caption": "The bed and the open shelving beside it",
+    "w": 4000,
+    "h": 3000,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "gladak-bed-10-480.webp",
+        "kb": 13
+      },
+      {
+        "w": 960,
+        "file": "gladak-bed-10-960.webp",
+        "kb": 36
+      },
+      {
+        "w": 1600,
+        "file": "gladak-bed-10-1600.webp",
+        "kb": 74
+      },
+      {
+        "w": 2400,
+        "file": "gladak-bed-10-2400.webp",
+        "kb": 145
+      }
+    ],
+    "source": "gladak-03.jpg"
+  },
+  {
+    "slug": "gladak-bed-11",
+    "category": "gladak",
+    "caption": "The bed from the side, the terrace door standing open",
+    "w": 4000,
+    "h": 3000,
+    "ratio": 1.3333,
+    "orientation": "landscape",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "gladak-bed-11-480.webp",
+        "kb": 14
+      },
+      {
+        "w": 960,
+        "file": "gladak-bed-11-960.webp",
+        "kb": 39
+      },
+      {
+        "w": 1600,
+        "file": "gladak-bed-11-1600.webp",
+        "kb": 84
+      },
+      {
+        "w": 2400,
+        "file": "gladak-bed-11-2400.webp",
+        "kb": 165
+      }
+    ],
+    "source": "gladak-04.jpg"
+  },
+  {
+    "slug": "gladak-detail-01",
+    "category": "gladak",
+    "caption": "The wardrobe, the minibar and a robe hanging ready",
+    "w": 3000,
+    "h": 4000,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "gladak-detail-01-480.webp",
+        "kb": 18
+      },
+      {
+        "w": 960,
+        "file": "gladak-detail-01-960.webp",
+        "kb": 48
+      },
+      {
+        "w": 1600,
+        "file": "gladak-detail-01-1600.webp",
+        "kb": 96
+      },
+      {
+        "w": 2400,
+        "file": "gladak-detail-01-2400.webp",
+        "kb": 172
+      }
+    ],
+    "source": "gladak-05.jpg"
+  },
+  {
     "slug": "gladak-ext-01",
     "category": "gladak",
     "caption": "The wooden gladak house seen from the garden at dusk",
@@ -1209,6 +1487,104 @@
     "source": "wooden-cabana-at-cozy-backyard-of-the-villa.jpg"
   },
   {
+    "slug": "gladak-ext-04",
+    "category": "gladak",
+    "caption": "The planted path and steps up to the Gladak House",
+    "w": 1200,
+    "h": 1600,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "gladak-ext-04-480.webp",
+        "kb": 60
+      },
+      {
+        "w": 960,
+        "file": "gladak-ext-04-960.webp",
+        "kb": 171
+      }
+    ],
+    "source": "gladak-00-hero.jpg"
+  },
+  {
+    "slug": "gladak-ext-05",
+    "category": "gladak",
+    "caption": "The Gladak House terrace running along the front of the house",
+    "w": 3024,
+    "h": 4032,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "gladak-ext-05-480.webp",
+        "kb": 52
+      },
+      {
+        "w": 960,
+        "file": "gladak-ext-05-960.webp",
+        "kb": 174
+      },
+      {
+        "w": 1600,
+        "file": "gladak-ext-05-1600.webp",
+        "kb": 382
+      },
+      {
+        "w": 2400,
+        "file": "gladak-ext-05-2400.webp",
+        "kb": 653
+      }
+    ],
+    "source": "gladak-12.jpg"
+  },
+  {
+    "slug": "gladak-ext-06",
+    "category": "gladak",
+    "caption": "The house seen from the garden through the planting",
+    "w": 1083,
+    "h": 1444,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "gladak-ext-06-480.webp",
+        "kb": 62
+      },
+      {
+        "w": 960,
+        "file": "gladak-ext-06-960.webp",
+        "kb": 182
+      }
+    ],
+    "source": "gladak-13.jpg"
+  },
+  {
+    "slug": "gladak-ext-07",
+    "category": "gladak",
+    "caption": "The entrance to the Gladak House, red foliage either side",
+    "w": 1200,
+    "h": 1600,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "gladak-ext-07-480.webp",
+        "kb": 71
+      },
+      {
+        "w": 960,
+        "file": "gladak-ext-07-960.webp",
+        "kb": 204
+      }
+    ],
+    "source": "gladak-14.jpg"
+  },
+  {
     "slug": "gladak-terrace-01",
     "category": "gladak",
     "caption": "Terrace chairs and a small table outside the Wooden Gladak House",
@@ -1239,6 +1615,38 @@
       }
     ],
     "source": "img-1413-min-scaled.jpg"
+  },
+  {
+    "slug": "gladak-terrace-02",
+    "category": "gladak",
+    "caption": "Carved chairs and a low table on the Gladak House terrace",
+    "w": 3024,
+    "h": 4032,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "gladak-terrace-02-480.webp",
+        "kb": 48
+      },
+      {
+        "w": 960,
+        "file": "gladak-terrace-02-960.webp",
+        "kb": 153
+      },
+      {
+        "w": 1600,
+        "file": "gladak-terrace-02-1600.webp",
+        "kb": 330
+      },
+      {
+        "w": 2400,
+        "file": "gladak-terrace-02-2400.webp",
+        "kb": 584
+      }
+    ],
+    "source": "gladak-01.jpg"
   },
   {
     "slug": "hexa-ext-01",
@@ -2647,6 +3055,28 @@
       }
     ],
     "source": "gal-1.jpg"
+  },
+  {
+    "slug": "pool-13",
+    "category": "pool",
+    "caption": "The pool under the palms, seen from the garden",
+    "w": 1200,
+    "h": 1600,
+    "ratio": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      {
+        "w": 480,
+        "file": "pool-13-480.webp",
+        "kb": 62
+      },
+      {
+        "w": 960,
+        "file": "pool-13-960.webp",
+        "kb": 214
+      }
+    ],
+    "source": "gladak-15.jpg"
   },
   {
     "slug": "property-01",
