@@ -5,7 +5,7 @@ import { PageHero } from "@/components/blocks/PageHero";
 import { CtaBand } from "@/components/blocks/home";
 import { allPhotos } from "@/components/shared/Photo";
 import { Container, Section, SectionHeader } from "@/components/ui";
-import { copy } from "@/content/site";
+import { copy, houses, restaurant } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -15,75 +15,58 @@ export const metadata: Metadata = {
 /* =============================================================================
    THE FULL LIBRARY
    -----------------------------------------------------------------------------
-   Every photograph the villa published, grouped rather than poured into one
-   endless grid — 108 images in a single column of squares is a scroll, not a
-   gallery.
+   Grouped the way the villa asked for on 1 October: the pictures a page
+   already owns are the pictures the gallery shows for it.
 
-   The order below is the order someone actually wants: the property first,
-   then each house, then the pool and the restaurant, then what is outside the
-   gate. Categories with nothing in them drop out on their own, so adding or
-   removing photographs from photos.json cannot leave an empty heading behind.
+     - the property, the pool and the garden in one group, because the
+       property is small and splitting them made three thin sets;
+     - one group per house, taken from that house's own photo list, so the
+       gallery and the house page can never drift apart;
+     - the restaurant from the restaurant page;
+     - and everything left over in one group at the end.
+
+   THAT LAST GROUP IS THE POINT. It is a remainder, not a category list, so a
+   photograph added to the library turns up here even if nobody remembers to
+   file it. The old version grouped by category, and a category no group named
+   rendered nowhere at all.
    ========================================================================== */
 
-const GROUPS: { title: string; blurb: string; categories: string[] }[] = [
-  {
-    title: "The property",
-    blurb: "The garden, the paths between the houses, and the valley they sit above.",
-    categories: ["property"],
-  },
-  {
-    title: "The Wooden Gladak House",
-    blurb: "Javanese teak, an open air bathtub and a terrace over the garden.",
-    categories: ["gladak"],
-  },
-  {
-    title: "The Hexa Bamboo House",
-    blurb: "Woven bamboo walls, single storey, no stairs.",
-    categories: ["hexa"],
-  },
-  {
-    title: "The Bamboo Dome",
-    blurb: "A curved bamboo shell, the largest of the three.",
-    categories: ["dome"],
-  },
-  {
-    title: "Rooms and details",
-    blurb: "Interiors and the small things that make them.",
-    categories: ["rooms", "detail"],
-  },
-  {
-    title: "Bathrooms and rituals",
-    blurb: "Open air bathing, flower baths and the massage room.",
-    categories: ["bathroom", "ritual"],
-  },
-  {
-    title: "The pool",
-    blurb: "The outdoor pool in the tropical garden.",
-    categories: ["pool"],
-  },
-  {
-    title: "Swarma Paon Restaurant",
-    blurb: "The restaurant, the kitchen and the food that comes out of it.",
-    categories: ["restaurant", "food", "menu"],
-  },
-  {
-    title: "Beyond the gate",
-    blurb: "The jungle, the rice fields and the waterfalls the treks reach.",
-    /* "ricefield" belongs here. Without it the rice field photographs are in
-       the library and on no page: a category that no group names simply never
-       renders, and nothing warns you. */
-    categories: ["jungle", "waterfall", "ricefield"],
-  },
-];
+type Group = { title: string; blurb: string; slugs: string[] };
 
 export default function GalleryPage() {
+  const seen = new Set<string>();
+  const take = (slugs: string[]) => {
+    const fresh = slugs.filter((slug) => !seen.has(slug));
+    for (const slug of fresh) seen.add(slug);
+    return fresh;
+  };
+  /* Lists slugs without claiming them. take() is what claims, and calling one
+     inside the other claims a slug and then filters it straight back out. */
+  const inCategories = (categories: string[]) =>
+    allPhotos.filter((p) => categories.includes(p.category)).map((p) => p.slug);
 
-  const groups = GROUPS.map((group) => ({
-    ...group,
-    slugs: allPhotos
-      .filter((p) => group.categories.includes(p.category))
-      .map((p) => p.slug),
-  })).filter((group) => group.slugs.length > 0);
+  const groups: Group[] = [
+    {
+      title: "The property",
+      blurb: "The garden, the paths between the houses, the pool and the valley they sit above.",
+      slugs: take(inCategories(["property", "pool"])),
+    },
+    ...houses.map((house) => ({
+      title: house.name,
+      blurb: house.distinction,
+      slugs: take([house.cardPhoto, ...house.photos].filter((s): s is string => Boolean(s))),
+    })),
+    {
+      title: "Paon Restaurant",
+      blurb: "The restaurant, the kitchen and the food that comes out of it.",
+      slugs: take([...restaurant.photos, ...inCategories(["restaurant", "food"])]),
+    },
+    {
+      title: "Everything else",
+      blurb: "The bathrooms, the treatments, and the places the villa takes people.",
+      slugs: take(allPhotos.map((p) => p.slug)),
+    },
+  ].filter((group) => group.slugs.length > 0);
 
   const total = groups.reduce((sum, g) => sum + g.slugs.length, 0);
 

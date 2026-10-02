@@ -1,5 +1,4 @@
 import { chromium } from "playwright";
-import { readFileSync } from "node:fs";
 import photos from "../src/content/photos.json" with { type: "json" };
 
 /* =============================================================================
@@ -19,10 +18,11 @@ import photos from "../src/content/photos.json" with { type: "json" };
       be treated as leaving the page even from our own origin, or the Button
       falls through to the client router, which has no route for one.
 
-   3. ORPHANED PHOTOGRAPHS. /gallery groups the library by category, and a
-      category no group names renders nowhere: the photograph is in the
-      manifest, encoded at four widths, and on no page. That is exactly what
-      happened to "ricefield".
+   3. ORPHANED PHOTOGRAPHS. A photograph can be in the manifest, encoded at
+      four widths, and on no page at all — which is what happened to the whole
+      "ricefield" category. /gallery ends with a remainder group now, so this
+      should be impossible; the check is here because "should be impossible"
+      is what was believed last time.
 
    Run: node scripts/check-content.mjs [origin]
    ========================================================================== */
@@ -77,21 +77,19 @@ for (const [path, what] of MENUS) {
   }
 }
 
+await page.goto(`${ORIGIN}/gallery`, { waitUntil: "networkidle" });
+await page.waitForTimeout(2500);
+const galleryHtml = await page.content();
 await browser.close();
 
-/* ----------------------------------------------- every category has a home */
-const galleryPage = readFileSync("src/app/gallery/page.tsx", "utf8");
-const claimed = new Set(
-  [...galleryPage.matchAll(/categories: \[([^\]]+)\]/g)].flatMap((m) =>
-    [...m[1].matchAll(/"([^"]+)"/g)].map((x) => x[1]),
-  ),
+/* ------------------------------------------- every photograph is on the page */
+const shown = new Set(
+  [...galleryHtml.matchAll(/\/img\/([a-z0-9-]+?)-(?:480|960|1600|2400|\d+)\.webp/g)].map((m) => m[1]),
 );
-for (const c of [...new Set(photos.map((p) => p.category))]) {
-  if (!claimed.has(c)) {
-    failures.push(`category "${c}" is in no gallery group, so its photographs render nowhere`);
-  }
+for (const photo of photos) {
+  if (!shown.has(photo.slug)) failures.push(`${photo.slug} is in the library but not on /gallery`);
 }
-console.log(`${claimed.size} photo categories, all claimed by a gallery group.`);
+console.log(`${photos.length} photographs in the library, ${shown.size} found on /gallery.`);
 
 console.log(`\n${MUST_SAY.length} page contents and ${MENUS.length} menus checked.`);
 if (failures.length === 0) {

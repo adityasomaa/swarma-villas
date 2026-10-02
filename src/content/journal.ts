@@ -44,18 +44,18 @@ export const journal: JournalPost[] = [
     photo: "property-04",
   },
   {
-    slug: "three-houses-three-ways-to-stay",
-    title: "Three Houses, Three Ways to Stay",
-    excerpt: "Javanese teak, woven bamboo, and an architecture that curves instead of squares off — Swarma's three house types, and how to choose between them.",
+    slug: "sleeping-inside-a-curve-the-bamboo-dome",
+    title: "Sleeping Inside a Curve: The Bamboo Dome",
+    excerpt: "No four walls, no flat ceiling — just bamboo bent into a single, uninterrupted form. Swarma's most architecturally distinctive house, explained.",
     body: [
-      "Most villas ask you to choose a room category. At Swarma, you choose a house — and the difference is not small.",
-      "The Gladak House is the most traditional of the three: a Javanese teakwood structure built from reclaimed timber, its low entrance door a quiet echo of the Indonesian gesture of bowing on the way into someone's home. Step through it and the room opens up unexpectedly — high ceilings, natural light, an open air bathtub set beneath the sky, close enough to the treetops that you'll hear the birds while you soak. It suits the traveller drawn to heritage and craftsmanship, someone who wants their house to have a story before they ever arrived in it.",
-      "The Bamboo Hexa takes the opposite approach: built on a hexagonal plan, entirely at ground level, with no stairs to climb. Traditional woven bamboo walls let the air move through naturally, and the whole house feels grounded — literally and otherwise. It's the house we recommend for anyone who wants easy, unfussy access, or simply prefers to feel close to the earth.",
-      "The Bamboo Dome is Swarma's most distinctive structure — a curved bamboo form built around comfort rather than convention. Larger than the other two, fully enclosed now for privacy, with a bathroom that holds both a bathtub and a shower beneath its curved roof. It's the house for travellers who came to Bali partly for the architecture, who want a stay that feels a little unconventional.",
-      "Three houses, three characters — but the same garden, the same pool, and the same restaurant waiting at the centre of it all.",
+      "Most houses are built from straight lines — four walls, a flat ceiling, corners you can lean into. The Bamboo Dome has none of that. It's built around a single curved form, bamboo bent and woven into a shape closer to a shell than a room, and it's unlike anything else on the property — or, most guests tell us, anything else they've stayed in.",
+      "There are two Domes at Swarma, which makes them a natural choice for a pair of couples travelling together, or a small family wanting rooms close by without sharing walls. Each is the largest of Swarma's three house types, and each has been fully enclosed for privacy, without losing the bamboo character that makes the structure so distinctive from the outside.",
+      "Step inside and the bedroom feels surprisingly conventional in the best sense — air conditioning, a proper mosquito net, a small sofa and table set up well enough for working on a laptop or simply reading through an afternoon. The bathroom sits on the same level, no steps to navigate after dark, with both a bathtub and a shower tucked beneath the curve of the roof.",
+      "What the Dome offers, more than any other house at Swarma, is a sense of having stepped somewhere unfamiliar without sacrificing comfort. It rewards guests who are curious about architecture, who want their accommodation to be part of the story they tell about the trip — not just where they slept, but what they slept inside.",
+      "Full access to the garden, pool, and Paon Restaurant comes standard, whichever house you choose.",
     ],
-    closing: "Not sure which house is yours? Tell us how you like to travel and we'll point you toward the right one.",
-    photo: "property-05",
+    closing: "The Bamboo Dome starts from IDR 700,000 per night. Tell us your dates on WhatsApp and we'll reply with availability.",
+    photo: "dome-bed-01",
   },
   {
     slug: "inside-the-gladak-house-a-javanese-bridal-house-in-the-ubud",
@@ -87,18 +87,18 @@ export const journal: JournalPost[] = [
     photo: "hexa-ext-01",
   },
   {
-    slug: "sleeping-inside-a-curve-the-bamboo-dome",
-    title: "Sleeping Inside a Curve: The Bamboo Dome",
-    excerpt: "No four walls, no flat ceiling — just bamboo bent into a single, uninterrupted form. Swarma's most architecturally distinctive house, explained.",
+    slug: "three-houses-three-ways-to-stay",
+    title: "Three Houses, Three Ways to Stay",
+    excerpt: "Javanese teak, woven bamboo, and an architecture that curves instead of squares off — Swarma's three house types, and how to choose between them.",
     body: [
-      "Most houses are built from straight lines — four walls, a flat ceiling, corners you can lean into. The Bamboo Dome has none of that. It's built around a single curved form, bamboo bent and woven into a shape closer to a shell than a room, and it's unlike anything else on the property — or, most guests tell us, anything else they've stayed in.",
-      "There are two Domes at Swarma, which makes them a natural choice for a pair of couples travelling together, or a small family wanting rooms close by without sharing walls. Each is the largest of Swarma's three house types, and each has been fully enclosed for privacy, without losing the bamboo character that makes the structure so distinctive from the outside.",
-      "Step inside and the bedroom feels surprisingly conventional in the best sense — air conditioning, a proper mosquito net, a small sofa and table set up well enough for working on a laptop or simply reading through an afternoon. The bathroom sits on the same level, no steps to navigate after dark, with both a bathtub and a shower tucked beneath the curve of the roof.",
-      "What the Dome offers, more than any other house at Swarma, is a sense of having stepped somewhere unfamiliar without sacrificing comfort. It rewards guests who are curious about architecture, who want their accommodation to be part of the story they tell about the trip — not just where they slept, but what they slept inside.",
-      "Full access to the garden, pool, and Paon Restaurant comes standard, whichever house you choose.",
+      "Most villas ask you to choose a room category. At Swarma, you choose a house — and the difference is not small.",
+      "The Gladak House is the most traditional of the three: a Javanese teakwood structure built from reclaimed timber, its low entrance door a quiet echo of the Indonesian gesture of bowing on the way into someone's home. Step through it and the room opens up unexpectedly — high ceilings, natural light, an open air bathtub set beneath the sky, close enough to the treetops that you'll hear the birds while you soak. It suits the traveller drawn to heritage and craftsmanship, someone who wants their house to have a story before they ever arrived in it.",
+      "The Bamboo Hexa takes the opposite approach: built on a hexagonal plan, entirely at ground level, with no stairs to climb. Traditional woven bamboo walls let the air move through naturally, and the whole house feels grounded — literally and otherwise. It's the house we recommend for anyone who wants easy, unfussy access, or simply prefers to feel close to the earth.",
+      "The Bamboo Dome is Swarma's most distinctive structure — a curved bamboo form built around comfort rather than convention. Larger than the other two, fully enclosed now for privacy, with a bathroom that holds both a bathtub and a shower beneath its curved roof. It's the house for travellers who came to Bali partly for the architecture, who want a stay that feels a little unconventional.",
+      "Three houses, three characters — but the same garden, the same pool, and the same restaurant waiting at the centre of it all.",
     ],
-    closing: "The Bamboo Dome starts from IDR 700,000 per night. Tell us your dates on WhatsApp and we'll reply with availability.",
-    photo: "dome-bed-01",
+    closing: "Not sure which house is yours? Tell us how you like to travel and we'll point you toward the right one.",
+    photo: "property-05",
   },
   {
     slug: "paon-the-kitchen-at-the-heart-of-swarma",
@@ -142,7 +142,7 @@ export const journal: JournalPost[] = [
       "Melukat pairs particularly well with a slower morning or afternoon — nothing scheduled directly before or after, room enough to sit with the experience rather than rush from it straight into the next thing.",
     ],
     closing: "We can arrange a melukat experience with advance notice — ask our team when planning your stay.",
-    photo: "waterfall-01",
+    photo: "waterfall-06",
   },
   {
     slug: "on-foot-through-the-rice-fields-of-singakerta",
@@ -169,7 +169,7 @@ export const journal: JournalPost[] = [
       "Either way, we'd suggest treating the rest of the day as recovery: a late lunch at Paon, a swim in the pool once you're back, an early night. The trek gives plenty; let the rest of the day give something back.",
     ],
     closing: "Ask about our Nature Adventure package, which pairs this trek with a Balinese massage — a full day of exertion and recovery, arranged for you.",
-    photo: "jungle-01",
+    photo: "waterfall-01",
   },
   {
     slug: "the-balinese-massage-a-tradition-not-a-spa-menu-item",
@@ -195,7 +195,7 @@ export const journal: JournalPost[] = [
       "It's not a trip for everyone. But for guests who came to Indonesia hoping to see something they won't easily see elsewhere, Ijen delivers exactly that.",
     ],
     closing: "Planning a longer stay? Ask our team about arranging a Mount Ijen and Blue Fire journey as part of your trip.",
-    photo: "jungle-03",
+    photo: "jungle-12",
   },
   {
     slug: "a-guide-to-singakerta-ubuds-quieter-edge",
@@ -238,7 +238,7 @@ export const journal: JournalPost[] = [
     ],
     closing: "Tell us your dates, your house, and which package caught your eye — we'll reply on WhatsApp with the details.",
     photo: "paon-dinner-01",
-  },
+  }
 ]
 
 export function journalPostBySlug(slug: string): JournalPost | undefined {

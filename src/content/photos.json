@@ -2152,58 +2152,21 @@
     "source": "pkg-nature.jpg"
   },
   {
-    "slug": "menu-cover",
-    "category": "menu",
-    "caption": "The cover of the Paon Restaurant menu",
-    "w": 1414,
-    "h": 2000,
-    "ratio": 0.707,
-    "orientation": "portrait",
+    "slug": "jungle-12",
+    "category": "jungle",
+    "caption": "The turquoise crater lake at Mount Ijen at first light",
+    "w": 560,
+    "h": 373,
+    "ratio": 1.5013,
+    "orientation": "landscape",
     "sizes": [
       {
         "w": 480,
-        "file": "menu-cover-480.webp",
-        "kb": 64
-      },
-      {
-        "w": 960,
-        "file": "menu-cover-960.webp",
-        "kb": 165
-      },
-      {
-        "w": 1414,
-        "file": "menu-cover-1414.webp",
-        "kb": 262
+        "file": "jungle-12-480.webp",
+        "kb": 22
       }
     ],
-    "source": "1-resto.png"
-  },
-  {
-    "slug": "menu-spa",
-    "category": "menu",
-    "caption": "The massage and body treatment menu",
-    "w": 1414,
-    "h": 2000,
-    "ratio": 0.707,
-    "orientation": "portrait",
-    "sizes": [
-      {
-        "w": 480,
-        "file": "menu-spa-480.webp",
-        "kb": 40
-      },
-      {
-        "w": 960,
-        "file": "menu-spa-960.webp",
-        "kb": 102
-      },
-      {
-        "w": 1414,
-        "file": "menu-spa-1414.webp",
-        "kb": 165
-      }
-    ],
-    "source": "swarma-spa-menu-flyer.png"
+    "source": "journal-ijen.jpg"
   },
   {
     "slug": "paon-01",

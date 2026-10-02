@@ -114,6 +114,10 @@ NEW = [
      "The entrance to the Gladak House, red foliage either side"),
     ("gladak-15.jpg", "pool-13", "pool",
      "The pool under the palms, seen from the garden"),
+    # The Mount Ijen journal entry. Their file is 560x373, which is small for
+    # the card, so it is served at that size rather than upscaled.
+    ("journal-ijen.jpg", "jungle-12", "jungle",
+     "The turquoise crater lake at Mount Ijen at first light"),
 ]
 
 OUT.mkdir(parents=True, exist_ok=True)
