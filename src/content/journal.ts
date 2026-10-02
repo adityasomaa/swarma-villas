@@ -70,7 +70,7 @@ export const journal: JournalPost[] = [
       "It is a house for guests who want their stay to carry some weight of history — who find as much pleasure in the carved detail of a door frame as in the villa's pool.",
     ],
     closing: "The Gladak House starts from IDR 500,000 per night. Send us your dates and we'll confirm availability on WhatsApp.",
-    photo: "gladak-bed-01",
+    photo: "gladak-ext-07",
   },
   {
     slug: "the-bamboo-hexa-grounded-woven-unhurried",
@@ -84,7 +84,7 @@ export const journal: JournalPost[] = [
       "It's a house without pretension. Nothing about it asks to be admired; it simply works, quietly and well, for however long you'd like to stay.",
     ],
     closing: "The Bamboo Hexa starts from IDR 600,000 per night. Send your dates on WhatsApp and we'll reply with availability.",
-    photo: "hexa-ext-01",
+    photo: "hexa-ext-07",
   },
   {
     slug: "three-houses-three-ways-to-stay",
@@ -129,7 +129,7 @@ export const journal: JournalPost[] = [
       "It is worth understanding early in a stay — a way of settling in, of knowing a little more about the place you have come to before you go looking for waterfalls and rice fields.",
     ],
     closing: "Curious about what you are seeing around the village while you are here? Ask us, and we will be glad to explain.",
-    photo: "ritual-01",
+    photo: "ritual-06",
   },
   {
     slug: "melukat-water-temple-purification-in-the-hills-above-ubud",
@@ -142,7 +142,7 @@ export const journal: JournalPost[] = [
       "Melukat pairs particularly well with a slower morning or afternoon — nothing scheduled directly before or after, room enough to sit with the experience rather than rush from it straight into the next thing.",
     ],
     closing: "We can arrange a melukat experience with advance notice — ask our team when planning your stay.",
-    photo: "waterfall-06",
+    photo: "waterfall-08",
   },
   {
     slug: "on-foot-through-the-rice-fields-of-singakerta",
@@ -156,7 +156,7 @@ export const journal: JournalPost[] = [
       "We can arrange a local guide for context and conversation along the way, or point you toward a self guided route if you'd rather walk it quietly, on your own time.",
     ],
     closing: "Ask our team for a rice field walking route — guided or self guided, depending on how you like to explore.",
-    photo: "ricefield-01",
+    photo: "ricefield-04",
   },
   {
     slug: "jungle-river-waterfall-a-half-day-trek-from-swarma",
@@ -238,7 +238,29 @@ export const journal: JournalPost[] = [
     ],
     closing: "Tell us your dates, your house, and which package caught your eye — we'll reply on WhatsApp with the details.",
     photo: "paon-dinner-01",
-  }
+  },
+  {
+    /*
+     * Added by the villa on 1 October. No photograph came with it, so this is
+     * the sunrise ridge from the Experience batch — a placeholder in the sense
+     * that it is our choice, not theirs.
+     */
+    slug: "before-the-light-sunrise-on-mount-batur",
+    title: "Before the Light: Sunrise on Mount Batur",
+    excerpt:
+      "A pre dawn climb, a sky that changes colour by the minute, and breakfast on the volcano. Mount Batur is the sunrise hike most guests ask about, and one that fits comfortably into a stay at Swarma.",
+    body: [
+      "Some mornings at Swarma begin with coffee on the terrace. This one begins in the dark.",
+      "Mount Batur is an active volcano northeast of Ubud, and climbing it for sunrise is one of Bali's most loved experiences. It is also one of the most honest. You wake in the small hours, the house is silent, and the only sound is a car idling at the gate. The drive north is quiet. Then the climb begins by headlamp, a steady path upward through dark rock, with the cool air thinning as you rise.",
+      "It is not a difficult mountain, but it is a real one. The trail is steep in places, the ground is loose underfoot, and the early start asks something of you before the day has begun. Sturdy shoes, a light jacket for the summit, and a little patience with yourself are all you need. Most guests of average fitness manage it well, and a guide stays with you throughout.",
+      "Then, near the top, the sky starts to shift. First a grey seam along the horizon, then a thin line of amber, then colour spreading outward across the clouds until the lake below catches it and Mount Agung rises in the distance. People tend to stop talking here. Nothing on the way up quite prepares you for it.",
+      "Breakfast is often taken on the mountain itself, eaten slowly while the light settles and the day begins below you. By the time you are back at Swarma, it is still morning. The pool is quiet, Paon is just beginning to stir, and the rest of the day is yours to spend lazily.",
+      "We would suggest keeping that afternoon free. Rest is part of the experience, and the best way to end this morning is a long lunch, a swim, and an early night.",
+    ],
+    closing:
+      "Would you like to see the sun rise from Mount Batur? Tell us your dates on WhatsApp and we'll arrange the guide, transport, and timing, so the only thing left to do is the climb.",
+    photo: "jungle-09",
+  },
 ]
 
 export function journalPostBySlug(slug: string): JournalPost | undefined {

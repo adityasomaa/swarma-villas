@@ -312,14 +312,17 @@ export const houses: House[] = [
     ],
     photos: [
       "hexa-int-03",
-      "hexa-ext-01",
-      "hexa-int-01",
-      "hexa-ext-03",
-      "hexa-int-02",
-      "hexa-ext-02",
-      "hexa-ext-04",
-      "bath-dome-02",
-      "hexa-ext-05",
+      "hexa-int-04",
+      "hexa-int-05",
+      "hexa-int-06",
+      "hexa-int-07",
+      "hexa-int-08",
+      "hexa-int-09",
+      "bath-open-10",
+      "bath-open-11",
+      "bath-detail-03",
+      "hexa-ext-06",
+      "hexa-ext-07",
     ],
   },
   {
@@ -330,6 +333,8 @@ export const houses: House[] = [
     maxGuests: 2,
     sizeSqm: 20,
     count: 2,
+    /* The card keeps the picture the villa chose for it. */
+    cardPhoto: "dome-bed-06",
     engineRooms: ["Bamboo Dome 1", "Bamboo Dome 2"],
     distinction:
       "A distinctive bamboo dome with a curved interior and an enclosed bathroom featuring both a bathtub and shower.",
@@ -373,15 +378,22 @@ export const houses: House[] = [
       "Iron and ironing board on request",
     ],
     photos: [
-      "dome-bed-06",
-      "dome-bed-01",
-      "dome-bed-03",
-      "dome-lounge-01",
-      "dome-bed-05",
-      "dome-lounge-02",
-      "bath-dome-01",
-      "dome-detail-02",
-      "dome-lounge-03",
+      "dome-bed-07",
+      "dome-bed-08",
+      "dome-bed-09",
+      "dome-bed-10",
+      "dome-lounge-04",
+      "dome-lounge-05",
+      "dome-detail-05",
+      "dome-detail-06",
+      "dome-detail-07",
+      "bath-dome-06",
+      "bath-dome-07",
+      "bath-dome-08",
+      "bath-dome-09",
+      "bath-detail-04",
+      "dome-ext-01",
+      "dome-ext-02",
     ],
   },
 ];
@@ -474,7 +486,28 @@ export const restaurant = {
       "Send us your dates and we'll reply on WhatsApp with availability and direct " +
       "booking options.",
   },
-  photos: ["paon-01", "paon-03", "food-04", "paon-09", "paon-13", "paon-dinner-01"],
+  photos: [
+    "paon-16",
+    "paon-17",
+    "paon-18",
+    "paon-19",
+    "food-06",
+    "food-07",
+    "paon-20",
+    "food-08",
+    "food-09",
+    "food-10",
+    "food-11",
+    "food-12",
+    "food-13",
+    "food-14",
+    "paon-21",
+    "paon-22",
+    "paon-23",
+    "paon-24",
+    "paon-25",
+    "paon-26",
+  ],
 } as const;
 
 /* -----------------------------------------------------------------------------
@@ -524,7 +557,12 @@ export const experience = {
        is out of the gallery. */
     /* The villa replaced the lead photograph on 1 October; the flower bath it
        displaced moves into the gallery below rather than leaving. */
-    photos: ["ritual-04", "bath-flower-01", "ritual-01", "bath-open-05"],
+    photos: [
+      "ritual-04",
+      "ritual-07",
+      "pool-12",
+      "paon-27",
+    ],
     /**
      * The current one, supplied on 30 September 2026: new logo, new prices,
      * recompressed from 3.0 MB to 0.9 MB. It replaces the old "menu-spa" flyer
