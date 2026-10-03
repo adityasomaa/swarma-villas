@@ -82,14 +82,27 @@ await page.waitForTimeout(2500);
 const galleryHtml = await page.content();
 await browser.close();
 
-/* ------------------------------------------- every photograph is on the page */
+/* -------------------------------------------- every LOOK is on the page */
+/* Not every photograph: the gallery deliberately shows one frame of each scene,
+   at the villa's request. What must never happen is a scene vanishing entirely,
+   which is the failure the "ricefield" category had. */
 const shown = new Set(
   [...galleryHtml.matchAll(/\/img\/([a-z0-9-]+?)-(?:480|960|1600|2400|\d+)\.webp/g)].map((m) => m[1]),
 );
+const looks = new Map();
 for (const photo of photos) {
-  if (!shown.has(photo.slug)) failures.push(`${photo.slug} is in the library but not on /gallery`);
+  if (!looks.has(photo.look)) looks.set(photo.look, []);
+  looks.get(photo.look).push(photo.slug);
 }
-console.log(`${photos.length} photographs in the library, ${shown.size} found on /gallery.`);
+for (const [look, members] of looks) {
+  if (!members.some((slug) => shown.has(slug))) {
+    failures.push(`no frame of "${look}" is on /gallery (${members.join(", ")})`);
+  }
+}
+console.log(
+  `${photos.length} photographs in ${looks.size} distinct looks, ` +
+    `${shown.size} frames shown on /gallery.`,
+);
 
 console.log(`\n${MUST_SAY.length} page contents and ${MENUS.length} menus checked.`);
 if (failures.length === 0) {

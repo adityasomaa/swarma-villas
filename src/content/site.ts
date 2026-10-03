@@ -313,7 +313,7 @@ export const houses: House[] = [
     photos: [
       "hexa-int-03",
       "hexa-int-04",
-      "hexa-int-05",
+      "hexa-int-03",
       "hexa-int-06",
       "hexa-int-07",
       "hexa-int-08",
@@ -378,7 +378,7 @@ export const houses: House[] = [
       "Iron and ironing board on request",
     ],
     photos: [
-      "dome-bed-07",
+      "dome-bed-06",
       "dome-bed-08",
       "dome-bed-09",
       "dome-bed-10",
@@ -391,7 +391,7 @@ export const houses: House[] = [
       "bath-dome-07",
       "bath-dome-08",
       "bath-dome-09",
-      "bath-detail-04",
+      "bath-detail-03",
       "dome-ext-01",
       "dome-ext-02",
     ],
@@ -487,8 +487,8 @@ export const restaurant = {
       "booking options.",
   },
   photos: [
-    "paon-16",
-    "paon-17",
+    "paon-14",
+    "paon-15",
     "paon-18",
     "paon-19",
     "food-06",

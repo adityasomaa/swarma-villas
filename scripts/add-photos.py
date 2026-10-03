@@ -222,3 +222,10 @@ for src_name, slug, category, caption in NEW:
 merged = sorted(by_slug.values(), key=lambda m: m["slug"])
 MANIFEST.write_text(json.dumps(merged, indent=2) + "\n", encoding="utf-8")
 print(f"\nphotos.json: {len(manifest)} -> {len(merged)} photographs")
+
+# Entries are rewritten wholesale above, which drops the "look" field, and a
+# photograph without one is treated as unique and can repeat itself in the
+# gallery. Retagging is cheap, so it happens every time rather than being
+# something to remember.
+print()
+subprocess.run([sys.executable, "scripts/tag-photo-looks.py"], check=True)

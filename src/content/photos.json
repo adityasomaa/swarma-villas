@@ -29,7 +29,8 @@
         "kb": 172
       }
     ],
-    "source": "l1130664-1-scaled.jpg"
+    "source": "l1130664-1-scaled.jpg",
+    "look": "bath-detail-01"
   },
   {
     "slug": "bath-detail-02",
@@ -61,7 +62,8 @@
         "kb": 391
       }
     ],
-    "source": "gladak-10.jpg"
+    "source": "gladak-10.jpg",
+    "look": "bath-detail-02"
   },
   {
     "slug": "bath-detail-03",
@@ -88,34 +90,8 @@
         "kb": 107
       }
     ],
-    "source": "hexa-09.jpg"
-  },
-  {
-    "slug": "bath-detail-04",
-    "category": "bathroom",
-    "caption": "Bath products set out on a timber shelf",
-    "w": 1600,
-    "h": 1066,
-    "ratio": 1.5009,
-    "orientation": "landscape",
-    "sizes": [
-      {
-        "w": 480,
-        "file": "bath-detail-04-480.webp",
-        "kb": 21
-      },
-      {
-        "w": 960,
-        "file": "bath-detail-04-960.webp",
-        "kb": 53
-      },
-      {
-        "w": 1600,
-        "file": "bath-detail-04-1600.webp",
-        "kb": 107
-      }
-    ],
-    "source": "dome-14.jpg"
+    "source": "hexa-09.jpg",
+    "look": "bath-detail-03"
   },
   {
     "slug": "bath-dome-01",
@@ -147,7 +123,8 @@
         "kb": 155
       }
     ],
-    "source": "bathroomdome1.jpg"
+    "source": "bathroomdome1.jpg",
+    "look": "bath-dome-01"
   },
   {
     "slug": "bath-dome-02",
@@ -174,7 +151,8 @@
         "kb": 179
       }
     ],
-    "source": "bathroomdome4.jpg"
+    "source": "bathroomdome4.jpg",
+    "look": "bath-dome-02"
   },
   {
     "slug": "bath-dome-03",
@@ -201,7 +179,8 @@
         "kb": 169
       }
     ],
-    "source": "bathroomdome5.jpg"
+    "source": "bathroomdome5.jpg",
+    "look": "bath-dome-03"
   },
   {
     "slug": "bath-dome-04",
@@ -228,7 +207,8 @@
         "kb": 174
       }
     ],
-    "source": "bathroomdome6.jpg"
+    "source": "bathroomdome6.jpg",
+    "look": "bath-dome-04"
   },
   {
     "slug": "bath-dome-05",
@@ -260,7 +240,8 @@
         "kb": 198
       }
     ],
-    "source": "bathroomdome7.jpg"
+    "source": "bathroomdome7.jpg",
+    "look": "bath-dome-05"
   },
   {
     "slug": "bath-dome-06",
@@ -287,7 +268,8 @@
         "kb": 144
       }
     ],
-    "source": "dome-10.jpg"
+    "source": "dome-10.jpg",
+    "look": "bath-dome-06"
   },
   {
     "slug": "bath-dome-07",
@@ -314,7 +296,8 @@
         "kb": 97
       }
     ],
-    "source": "dome-11.jpg"
+    "source": "dome-11.jpg",
+    "look": "bath-dome-01"
   },
   {
     "slug": "bath-dome-08",
@@ -341,7 +324,8 @@
         "kb": 140
       }
     ],
-    "source": "dome-12.jpg"
+    "source": "dome-12.jpg",
+    "look": "bath-dome-05"
   },
   {
     "slug": "bath-dome-09",
@@ -363,7 +347,8 @@
         "kb": 105
       }
     ],
-    "source": "dome-13.jpg"
+    "source": "dome-13.jpg",
+    "look": "bath-dome-03"
   },
   {
     "slug": "bath-flower-01",
@@ -395,7 +380,8 @@
         "kb": 203
       }
     ],
-    "source": "bathroomdome2.jpg"
+    "source": "bathroomdome2.jpg",
+    "look": "bath-dome-06"
   },
   {
     "slug": "bath-flower-02",
@@ -422,7 +408,8 @@
         "kb": 226
       }
     ],
-    "source": "bathroomdome3.jpg"
+    "source": "bathroomdome3.jpg",
+    "look": "bath-flower-02"
   },
   {
     "slug": "bath-open-01",
@@ -444,7 +431,8 @@
         "kb": 121
       }
     ],
-    "source": "23c5d3d0-0556-45e1-b247-9fd43524617f.jpg"
+    "source": "23c5d3d0-0556-45e1-b247-9fd43524617f.jpg",
+    "look": "bath-open-01"
   },
   {
     "slug": "bath-open-02",
@@ -466,7 +454,8 @@
         "kb": 197
       }
     ],
-    "source": "95c4c4d7-3178-424a-8b5e-459042acca6e.jpg"
+    "source": "95c4c4d7-3178-424a-8b5e-459042acca6e.jpg",
+    "look": "bath-open-02"
   },
   {
     "slug": "bath-open-03",
@@ -498,7 +487,8 @@
         "kb": 357
       }
     ],
-    "source": "l1130658-scaled.jpg"
+    "source": "l1130658-scaled.jpg",
+    "look": "bath-open-03"
   },
   {
     "slug": "bath-open-04",
@@ -530,7 +520,8 @@
         "kb": 513
       }
     ],
-    "source": "l1130659-scaled.jpg"
+    "source": "l1130659-scaled.jpg",
+    "look": "bath-open-04"
   },
   {
     "slug": "bath-open-05",
@@ -557,7 +548,8 @@
         "kb": 133
       }
     ],
-    "source": "whatsapp-image-2024-04-02-at-12-40-14-ee6cba84.jpg"
+    "source": "whatsapp-image-2024-04-02-at-12-40-14-ee6cba84.jpg",
+    "look": "bath-open-05"
   },
   {
     "slug": "bath-open-06",
@@ -589,7 +581,8 @@
         "kb": 741
       }
     ],
-    "source": "gladak-06.jpg"
+    "source": "gladak-06.jpg",
+    "look": "bath-open-04"
   },
   {
     "slug": "bath-open-07",
@@ -621,7 +614,8 @@
         "kb": 567
       }
     ],
-    "source": "gladak-08.jpg"
+    "source": "gladak-08.jpg",
+    "look": "bath-open-07"
   },
   {
     "slug": "bath-open-08",
@@ -653,7 +647,8 @@
         "kb": 399
       }
     ],
-    "source": "gladak-09.jpg"
+    "source": "gladak-09.jpg",
+    "look": "bath-open-03"
   },
   {
     "slug": "bath-open-09",
@@ -685,7 +680,8 @@
         "kb": 264
       }
     ],
-    "source": "gladak-11.jpg"
+    "source": "gladak-11.jpg",
+    "look": "bath-detail-01"
   },
   {
     "slug": "bath-open-10",
@@ -707,7 +703,8 @@
         "kb": 121
       }
     ],
-    "source": "hexa-07.jpg"
+    "source": "hexa-07.jpg",
+    "look": "bath-open-01"
   },
   {
     "slug": "bath-open-11",
@@ -729,7 +726,8 @@
         "kb": 197
       }
     ],
-    "source": "hexa-08.jpg"
+    "source": "hexa-08.jpg",
+    "look": "bath-open-02"
   },
   {
     "slug": "dome-bed-01",
@@ -761,7 +759,8 @@
         "kb": 344
       }
     ],
-    "source": "bedroomdome1.jpg"
+    "source": "bedroomdome1.jpg",
+    "look": "dome-bed-01"
   },
   {
     "slug": "dome-bed-02",
@@ -793,7 +792,8 @@
         "kb": 265
       }
     ],
-    "source": "bedroomdome2.jpg"
+    "source": "bedroomdome2.jpg",
+    "look": "dome-bed-02"
   },
   {
     "slug": "dome-bed-03",
@@ -825,7 +825,8 @@
         "kb": 186
       }
     ],
-    "source": "bedroomdome3.jpg"
+    "source": "bedroomdome3.jpg",
+    "look": "dome-bed-03"
   },
   {
     "slug": "dome-bed-04",
@@ -857,7 +858,8 @@
         "kb": 291
       }
     ],
-    "source": "bedroomdome4.jpg"
+    "source": "bedroomdome4.jpg",
+    "look": "dome-bed-04"
   },
   {
     "slug": "dome-bed-05",
@@ -889,7 +891,8 @@
         "kb": 291
       }
     ],
-    "source": "bedroomdome5.jpg"
+    "source": "bedroomdome5.jpg",
+    "look": "dome-bed-05"
   },
   {
     "slug": "dome-bed-06",
@@ -916,34 +919,8 @@
         "kb": 246
       }
     ],
-    "source": "house-3bamboo-dome-house.jpg"
-  },
-  {
-    "slug": "dome-bed-07",
-    "category": "dome",
-    "caption": "The Bamboo Dome bed inside the curved shell",
-    "w": 2048,
-    "h": 1365,
-    "ratio": 1.5004,
-    "orientation": "landscape",
-    "sizes": [
-      {
-        "w": 480,
-        "file": "dome-bed-07-480.webp",
-        "kb": 34
-      },
-      {
-        "w": 960,
-        "file": "dome-bed-07-960.webp",
-        "kb": 111
-      },
-      {
-        "w": 1600,
-        "file": "dome-bed-07-1600.webp",
-        "kb": 246
-      }
-    ],
-    "source": "dome-01.jpg"
+    "source": "house-3bamboo-dome-house.jpg",
+    "look": "dome-bed-01"
   },
   {
     "slug": "dome-bed-08",
@@ -970,7 +947,8 @@
         "kb": 188
       }
     ],
-    "source": "dome-02.jpg"
+    "source": "dome-02.jpg",
+    "look": "dome-bed-02"
   },
   {
     "slug": "dome-bed-09",
@@ -997,7 +975,8 @@
         "kb": 201
       }
     ],
-    "source": "dome-03.jpg"
+    "source": "dome-03.jpg",
+    "look": "dome-bed-05"
   },
   {
     "slug": "dome-bed-10",
@@ -1024,7 +1003,8 @@
         "kb": 131
       }
     ],
-    "source": "dome-04.jpg"
+    "source": "dome-04.jpg",
+    "look": "dome-bed-03"
   },
   {
     "slug": "dome-detail-01",
@@ -1051,7 +1031,8 @@
         "kb": 191
       }
     ],
-    "source": "bedroomdome10.jpg"
+    "source": "bedroomdome10.jpg",
+    "look": "dome-detail-01"
   },
   {
     "slug": "dome-detail-02",
@@ -1078,7 +1059,8 @@
         "kb": 262
       }
     ],
-    "source": "bedroomdome11.jpg"
+    "source": "bedroomdome11.jpg",
+    "look": "dome-detail-02"
   },
   {
     "slug": "dome-detail-03",
@@ -1105,7 +1087,8 @@
         "kb": 229
       }
     ],
-    "source": "bedroomdome12.jpg"
+    "source": "bedroomdome12.jpg",
+    "look": "dome-detail-03"
   },
   {
     "slug": "dome-detail-04",
@@ -1132,7 +1115,8 @@
         "kb": 238
       }
     ],
-    "source": "bedroomdome7.jpg"
+    "source": "bedroomdome7.jpg",
+    "look": "dome-detail-04"
   },
   {
     "slug": "dome-detail-05",
@@ -1154,7 +1138,8 @@
         "kb": 118
       }
     ],
-    "source": "dome-07.jpg"
+    "source": "dome-07.jpg",
+    "look": "dome-detail-01"
   },
   {
     "slug": "dome-detail-06",
@@ -1176,7 +1161,8 @@
         "kb": 110
       }
     ],
-    "source": "dome-08.jpg"
+    "source": "dome-08.jpg",
+    "look": "dome-detail-06"
   },
   {
     "slug": "dome-detail-07",
@@ -1198,7 +1184,8 @@
         "kb": 166
       }
     ],
-    "source": "dome-09.jpg"
+    "source": "dome-09.jpg",
+    "look": "dome-detail-02"
   },
   {
     "slug": "dome-ext-01",
@@ -1220,7 +1207,8 @@
         "kb": 201
       }
     ],
-    "source": "dome-15.jpg"
+    "source": "dome-15.jpg",
+    "look": "dome-ext-01"
   },
   {
     "slug": "dome-ext-02",
@@ -1242,7 +1230,8 @@
         "kb": 151
       }
     ],
-    "source": "dome-16.jpg"
+    "source": "dome-16.jpg",
+    "look": "dome-ext-02"
   },
   {
     "slug": "dome-lounge-01",
@@ -1269,7 +1258,8 @@
         "kb": 251
       }
     ],
-    "source": "bedroomdome6.jpg"
+    "source": "bedroomdome6.jpg",
+    "look": "dome-lounge-01"
   },
   {
     "slug": "dome-lounge-02",
@@ -1301,7 +1291,8 @@
         "kb": 265
       }
     ],
-    "source": "bedroomdome8.jpg"
+    "source": "bedroomdome8.jpg",
+    "look": "dome-lounge-02"
   },
   {
     "slug": "dome-lounge-03",
@@ -1333,7 +1324,8 @@
         "kb": 261
       }
     ],
-    "source": "bedroomdome9.jpg"
+    "source": "bedroomdome9.jpg",
+    "look": "dome-lounge-03"
   },
   {
     "slug": "dome-lounge-04",
@@ -1360,7 +1352,8 @@
         "kb": 187
       }
     ],
-    "source": "dome-05.jpg"
+    "source": "dome-05.jpg",
+    "look": "dome-lounge-02"
   },
   {
     "slug": "dome-lounge-05",
@@ -1387,7 +1380,8 @@
         "kb": 189
       }
     ],
-    "source": "dome-06.jpg"
+    "source": "dome-06.jpg",
+    "look": "dome-lounge-03"
   },
   {
     "slug": "food-01",
@@ -1409,7 +1403,8 @@
         "kb": 130
       }
     ],
-    "source": "granola.jpg"
+    "source": "granola.jpg",
+    "look": "food-01"
   },
   {
     "slug": "food-02",
@@ -1441,7 +1436,8 @@
         "kb": 265
       }
     ],
-    "source": "image00006-1.jpg"
+    "source": "image00006-1.jpg",
+    "look": "food-02"
   },
   {
     "slug": "food-03",
@@ -1463,7 +1459,8 @@
         "kb": 112
       }
     ],
-    "source": "nasi-campur-2.jpg"
+    "source": "nasi-campur-2.jpg",
+    "look": "food-03"
   },
   {
     "slug": "food-04",
@@ -1485,7 +1482,8 @@
         "kb": 154
       }
     ],
-    "source": "nasi-campur.jpg"
+    "source": "nasi-campur.jpg",
+    "look": "food-04"
   },
   {
     "slug": "food-05",
@@ -1507,7 +1505,8 @@
         "kb": 141
       }
     ],
-    "source": "spring-roll.jpg"
+    "source": "spring-roll.jpg",
+    "look": "food-05"
   },
   {
     "slug": "food-06",
@@ -1539,7 +1538,8 @@
         "kb": 238
       }
     ],
-    "source": "resto-05.jpg"
+    "source": "resto-05.jpg",
+    "look": "food-06"
   },
   {
     "slug": "food-07",
@@ -1561,7 +1561,8 @@
         "kb": 48
       }
     ],
-    "source": "resto-06.jpg"
+    "source": "resto-06.jpg",
+    "look": "food-07"
   },
   {
     "slug": "food-08",
@@ -1593,7 +1594,8 @@
         "kb": 298
       }
     ],
-    "source": "resto-08.jpg"
+    "source": "resto-08.jpg",
+    "look": "food-08"
   },
   {
     "slug": "food-09",
@@ -1615,7 +1617,8 @@
         "kb": 92
       }
     ],
-    "source": "resto-09.jpg"
+    "source": "resto-09.jpg",
+    "look": "food-04"
   },
   {
     "slug": "food-10",
@@ -1637,7 +1640,8 @@
         "kb": 117
       }
     ],
-    "source": "resto-10.jpg"
+    "source": "resto-10.jpg",
+    "look": "food-10"
   },
   {
     "slug": "food-11",
@@ -1669,7 +1673,8 @@
         "kb": 313
       }
     ],
-    "source": "resto-11.jpg"
+    "source": "resto-11.jpg",
+    "look": "food-05"
   },
   {
     "slug": "food-12",
@@ -1696,7 +1701,8 @@
         "kb": 138
       }
     ],
-    "source": "resto-12.jpg"
+    "source": "resto-12.jpg",
+    "look": "food-12"
   },
   {
     "slug": "food-13",
@@ -1718,7 +1724,8 @@
         "kb": 112
       }
     ],
-    "source": "resto-13.jpg"
+    "source": "resto-13.jpg",
+    "look": "food-01"
   },
   {
     "slug": "food-14",
@@ -1750,7 +1757,8 @@
         "kb": 497
       }
     ],
-    "source": "resto-14.jpg"
+    "source": "resto-14.jpg",
+    "look": "food-14"
   },
   {
     "slug": "gladak-bed-01",
@@ -1782,7 +1790,8 @@
         "kb": 160
       }
     ],
-    "source": "img-1414-min-scaled.jpg"
+    "source": "img-1414-min-scaled.jpg",
+    "look": "gladak-bed-01"
   },
   {
     "slug": "gladak-bed-02",
@@ -1814,7 +1823,8 @@
         "kb": 181
       }
     ],
-    "source": "img-1416-min-scaled.jpg"
+    "source": "img-1416-min-scaled.jpg",
+    "look": "gladak-bed-02"
   },
   {
     "slug": "gladak-bed-03",
@@ -1846,7 +1856,8 @@
         "kb": 181
       }
     ],
-    "source": "img-1417-min-scaled.jpg"
+    "source": "img-1417-min-scaled.jpg",
+    "look": "gladak-bed-02"
   },
   {
     "slug": "gladak-bed-04",
@@ -1878,7 +1889,8 @@
         "kb": 119
       }
     ],
-    "source": "l1130669-scaled.jpg"
+    "source": "l1130669-scaled.jpg",
+    "look": "gladak-bed-04"
   },
   {
     "slug": "gladak-bed-05",
@@ -1910,7 +1922,8 @@
         "kb": 148
       }
     ],
-    "source": "l1130676-scaled.jpg"
+    "source": "l1130676-scaled.jpg",
+    "look": "gladak-bed-05"
   },
   {
     "slug": "gladak-bed-06",
@@ -1942,7 +1955,8 @@
         "kb": 137
       }
     ],
-    "source": "l1130677-scaled.jpg"
+    "source": "l1130677-scaled.jpg",
+    "look": "gladak-bed-06"
   },
   {
     "slug": "gladak-bed-07",
@@ -1969,7 +1983,8 @@
         "kb": 51
       }
     ],
-    "source": "whatsapp-image-2024-04-02-at-12-39-37-50fec1b4.jpg"
+    "source": "whatsapp-image-2024-04-02-at-12-39-37-50fec1b4.jpg",
+    "look": "gladak-bed-04"
   },
   {
     "slug": "gladak-bed-08",
@@ -2001,7 +2016,8 @@
         "kb": 128
       }
     ],
-    "source": "home-2gladak-house.jpg"
+    "source": "home-2gladak-house.jpg",
+    "look": "gladak-bed-04"
   },
   {
     "slug": "gladak-bed-09",
@@ -2023,7 +2039,8 @@
         "kb": 34
       }
     ],
-    "source": "gladak-02.jpg"
+    "source": "gladak-02.jpg",
+    "look": "gladak-bed-04"
   },
   {
     "slug": "gladak-bed-10",
@@ -2055,7 +2072,8 @@
         "kb": 145
       }
     ],
-    "source": "gladak-03.jpg"
+    "source": "gladak-03.jpg",
+    "look": "gladak-bed-10"
   },
   {
     "slug": "gladak-bed-11",
@@ -2087,7 +2105,8 @@
         "kb": 165
       }
     ],
-    "source": "gladak-04.jpg"
+    "source": "gladak-04.jpg",
+    "look": "gladak-bed-05"
   },
   {
     "slug": "gladak-detail-01",
@@ -2119,7 +2138,8 @@
         "kb": 172
       }
     ],
-    "source": "gladak-05.jpg"
+    "source": "gladak-05.jpg",
+    "look": "gladak-detail-01"
   },
   {
     "slug": "gladak-ext-01",
@@ -2146,7 +2166,8 @@
         "kb": 100
       }
     ],
-    "source": "whatsapp-image-2023-11-13-at-10-38-09-691df0c0.jpg"
+    "source": "whatsapp-image-2023-11-13-at-10-38-09-691df0c0.jpg",
+    "look": "gladak-ext-01"
   },
   {
     "slug": "gladak-ext-02",
@@ -2173,7 +2194,8 @@
         "kb": 228
       }
     ],
-    "source": "whatsapp-image-2024-04-02-at-12-57-59-ff0f6347.jpg"
+    "source": "whatsapp-image-2024-04-02-at-12-57-59-ff0f6347.jpg",
+    "look": "gladak-ext-01"
   },
   {
     "slug": "gladak-ext-03",
@@ -2200,7 +2222,8 @@
         "kb": 170
       }
     ],
-    "source": "wooden-cabana-at-cozy-backyard-of-the-villa.jpg"
+    "source": "wooden-cabana-at-cozy-backyard-of-the-villa.jpg",
+    "look": "gladak-ext-03"
   },
   {
     "slug": "gladak-ext-04",
@@ -2222,7 +2245,8 @@
         "kb": 171
       }
     ],
-    "source": "gladak-00-hero.jpg"
+    "source": "gladak-00-hero.jpg",
+    "look": "gladak-ext-04"
   },
   {
     "slug": "gladak-ext-05",
@@ -2254,7 +2278,8 @@
         "kb": 653
       }
     ],
-    "source": "gladak-12.jpg"
+    "source": "gladak-12.jpg",
+    "look": "gladak-ext-05"
   },
   {
     "slug": "gladak-ext-06",
@@ -2276,7 +2301,8 @@
         "kb": 182
       }
     ],
-    "source": "gladak-13.jpg"
+    "source": "gladak-13.jpg",
+    "look": "gladak-ext-06"
   },
   {
     "slug": "gladak-ext-07",
@@ -2298,7 +2324,8 @@
         "kb": 204
       }
     ],
-    "source": "gladak-14.jpg"
+    "source": "gladak-14.jpg",
+    "look": "gladak-ext-07"
   },
   {
     "slug": "gladak-terrace-01",
@@ -2330,7 +2357,8 @@
         "kb": 247
       }
     ],
-    "source": "img-1413-min-scaled.jpg"
+    "source": "img-1413-min-scaled.jpg",
+    "look": "gladak-terrace-01"
   },
   {
     "slug": "gladak-terrace-02",
@@ -2362,7 +2390,8 @@
         "kb": 584
       }
     ],
-    "source": "gladak-01.jpg"
+    "source": "gladak-01.jpg",
+    "look": "gladak-terrace-02"
   },
   {
     "slug": "hexa-ext-01",
@@ -2394,7 +2423,8 @@
         "kb": 366
       }
     ],
-    "source": "img-1432-min-scaled.jpg"
+    "source": "img-1432-min-scaled.jpg",
+    "look": "hexa-ext-01"
   },
   {
     "slug": "hexa-ext-02",
@@ -2426,7 +2456,8 @@
         "kb": 452
       }
     ],
-    "source": "img-1433-min-scaled.jpg"
+    "source": "img-1433-min-scaled.jpg",
+    "look": "hexa-ext-02"
   },
   {
     "slug": "hexa-ext-03",
@@ -2458,7 +2489,8 @@
         "kb": 218
       }
     ],
-    "source": "img-1438-min-scaled.jpg"
+    "source": "img-1438-min-scaled.jpg",
+    "look": "hexa-ext-03"
   },
   {
     "slug": "hexa-ext-04",
@@ -2490,7 +2522,8 @@
         "kb": 367
       }
     ],
-    "source": "img-1388-min-scaled.jpg"
+    "source": "img-1388-min-scaled.jpg",
+    "look": "hexa-ext-04"
   },
   {
     "slug": "hexa-ext-05",
@@ -2522,7 +2555,8 @@
         "kb": 471
       }
     ],
-    "source": "img-1418-min-scaled.jpg"
+    "source": "img-1418-min-scaled.jpg",
+    "look": "hexa-ext-05"
   },
   {
     "slug": "hexa-ext-06",
@@ -2539,7 +2573,8 @@
         "kb": 60
       }
     ],
-    "source": "hexa-10.jpg"
+    "source": "hexa-10.jpg",
+    "look": "hexa-ext-06"
   },
   {
     "slug": "hexa-ext-07",
@@ -2571,7 +2606,8 @@
         "kb": 688
       }
     ],
-    "source": "hexa-11.jpg"
+    "source": "hexa-11.jpg",
+    "look": "hexa-ext-07"
   },
   {
     "slug": "hexa-int-01",
@@ -2603,7 +2639,8 @@
         "kb": 227
       }
     ],
-    "source": "img-1468-min-scaled.jpg"
+    "source": "img-1468-min-scaled.jpg",
+    "look": "hexa-int-01"
   },
   {
     "slug": "hexa-int-02",
@@ -2630,7 +2667,8 @@
         "kb": 101
       }
     ],
-    "source": "whatsapp-image-2023-11-13-at-10-31-22-1bcaa5b8.jpg"
+    "source": "whatsapp-image-2023-11-13-at-10-31-22-1bcaa5b8.jpg",
+    "look": "hexa-int-02"
   },
   {
     "slug": "hexa-int-03",
@@ -2662,7 +2700,8 @@
         "kb": 304
       }
     ],
-    "source": "home-3hexa-bedroom1-jpg.jpg"
+    "source": "home-3hexa-bedroom1-jpg.jpg",
+    "look": "hexa-int-02"
   },
   {
     "slug": "hexa-int-04",
@@ -2684,39 +2723,8 @@
         "kb": 116
       }
     ],
-    "source": "hexa-01.jpg"
-  },
-  {
-    "slug": "hexa-int-05",
-    "category": "hexa",
-    "caption": "The bed and the woven bamboo wall behind it",
-    "w": 4096,
-    "h": 3072,
-    "ratio": 1.3333,
-    "orientation": "landscape",
-    "sizes": [
-      {
-        "w": 480,
-        "file": "hexa-int-05-480.webp",
-        "kb": 23
-      },
-      {
-        "w": 960,
-        "file": "hexa-int-05-960.webp",
-        "kb": 82
-      },
-      {
-        "w": 1600,
-        "file": "hexa-int-05-1600.webp",
-        "kb": 175
-      },
-      {
-        "w": 2400,
-        "file": "hexa-int-05-2400.webp",
-        "kb": 304
-      }
-    ],
-    "source": "hexa-02.jpg"
+    "source": "hexa-01.jpg",
+    "look": "hexa-int-04"
   },
   {
     "slug": "hexa-int-06",
@@ -2738,7 +2746,8 @@
         "kb": 99
       }
     ],
-    "source": "hexa-03.jpg"
+    "source": "hexa-03.jpg",
+    "look": "hexa-int-06"
   },
   {
     "slug": "hexa-int-07",
@@ -2760,7 +2769,8 @@
         "kb": 62
       }
     ],
-    "source": "hexa-04.jpg"
+    "source": "hexa-04.jpg",
+    "look": "hexa-int-07"
   },
   {
     "slug": "hexa-int-08",
@@ -2792,7 +2802,8 @@
         "kb": 301
       }
     ],
-    "source": "hexa-05.jpg"
+    "source": "hexa-05.jpg",
+    "look": "hexa-int-08"
   },
   {
     "slug": "hexa-int-09",
@@ -2824,7 +2835,8 @@
         "kb": 353
       }
     ],
-    "source": "hexa-06.jpg"
+    "source": "hexa-06.jpg",
+    "look": "hexa-int-09"
   },
   {
     "slug": "jungle-01",
@@ -2856,7 +2868,8 @@
         "kb": 830
       }
     ],
-    "source": "image00024-1.jpg"
+    "source": "image00024-1.jpg",
+    "look": "jungle-01"
   },
   {
     "slug": "jungle-02",
@@ -2883,7 +2896,8 @@
         "kb": 372
       }
     ],
-    "source": "jungle-1.jpg"
+    "source": "jungle-1.jpg",
+    "look": "jungle-02"
   },
   {
     "slug": "jungle-03",
@@ -2905,7 +2919,8 @@
         "kb": 345
       }
     ],
-    "source": "jungle-2.jpg"
+    "source": "jungle-2.jpg",
+    "look": "jungle-03"
   },
   {
     "slug": "jungle-04",
@@ -2927,7 +2942,8 @@
         "kb": 346
       }
     ],
-    "source": "jungle-3.jpg"
+    "source": "jungle-3.jpg",
+    "look": "jungle-04"
   },
   {
     "slug": "jungle-05",
@@ -2949,7 +2965,8 @@
         "kb": 346
       }
     ],
-    "source": "jungle-4.jpg"
+    "source": "jungle-4.jpg",
+    "look": "jungle-05"
   },
   {
     "slug": "jungle-06",
@@ -2971,7 +2988,8 @@
         "kb": 357
       }
     ],
-    "source": "waterfall-10.jpg"
+    "source": "waterfall-10.jpg",
+    "look": "jungle-06"
   },
   {
     "slug": "jungle-07",
@@ -2993,7 +3011,8 @@
         "kb": 317
       }
     ],
-    "source": "waterfall-11.jpg"
+    "source": "waterfall-11.jpg",
+    "look": "jungle-04"
   },
   {
     "slug": "jungle-08",
@@ -3015,7 +3034,8 @@
         "kb": 351
       }
     ],
-    "source": "exp-jungle.jpg"
+    "source": "exp-jungle.jpg",
+    "look": "jungle-08"
   },
   {
     "slug": "jungle-09",
@@ -3037,7 +3057,8 @@
         "kb": 20
       }
     ],
-    "source": "exp-hiking.jpg"
+    "source": "exp-hiking.jpg",
+    "look": "jungle-09"
   },
   {
     "slug": "jungle-10",
@@ -3054,7 +3075,8 @@
         "kb": 16
       }
     ],
-    "source": "exp-ijen.jpg"
+    "source": "exp-ijen.jpg",
+    "look": "jungle-10"
   },
   {
     "slug": "jungle-11",
@@ -3076,7 +3098,8 @@
         "kb": 264
       }
     ],
-    "source": "pkg-nature.jpg"
+    "source": "pkg-nature.jpg",
+    "look": "jungle-11"
   },
   {
     "slug": "jungle-12",
@@ -3093,7 +3116,8 @@
         "kb": 22
       }
     ],
-    "source": "journal-ijen.jpg"
+    "source": "journal-ijen.jpg",
+    "look": "jungle-12"
   },
   {
     "slug": "paon-01",
@@ -3125,39 +3149,8 @@
         "kb": 421
       }
     ],
-    "source": "pututeddy-01.jpg"
-  },
-  {
-    "slug": "paon-02",
-    "category": "restaurant",
-    "caption": "The dining room at Swarma Paon Restaurant",
-    "w": 2048,
-    "h": 1365,
-    "ratio": 1.5004,
-    "orientation": "landscape",
-    "sizes": [
-      {
-        "w": 480,
-        "file": "paon-02-480.webp",
-        "kb": 39
-      },
-      {
-        "w": 960,
-        "file": "paon-02-960.webp",
-        "kb": 124
-      },
-      {
-        "w": 1600,
-        "file": "paon-02-1600.webp",
-        "kb": 287
-      },
-      {
-        "w": 2048,
-        "file": "paon-02-2048.webp",
-        "kb": 421
-      }
-    ],
-    "source": "restaurantpaon1.jpg"
+    "source": "pututeddy-01.jpg",
+    "look": "paon-01"
   },
   {
     "slug": "paon-03",
@@ -3189,7 +3182,8 @@
         "kb": 347
       }
     ],
-    "source": "restaurantpaon10.jpg"
+    "source": "restaurantpaon10.jpg",
+    "look": "paon-03"
   },
   {
     "slug": "paon-04",
@@ -3221,7 +3215,8 @@
         "kb": 469
       }
     ],
-    "source": "restaurantpaon11.jpg"
+    "source": "restaurantpaon11.jpg",
+    "look": "paon-04"
   },
   {
     "slug": "paon-05",
@@ -3253,7 +3248,8 @@
         "kb": 158
       }
     ],
-    "source": "restaurantpaon13.jpg"
+    "source": "restaurantpaon13.jpg",
+    "look": "paon-05"
   },
   {
     "slug": "paon-06",
@@ -3285,7 +3281,8 @@
         "kb": 388
       }
     ],
-    "source": "restaurantpaon2.jpg"
+    "source": "restaurantpaon2.jpg",
+    "look": "paon-06"
   },
   {
     "slug": "paon-07",
@@ -3317,7 +3314,8 @@
         "kb": 364
       }
     ],
-    "source": "restaurantpaon4.jpg"
+    "source": "restaurantpaon4.jpg",
+    "look": "paon-07"
   },
   {
     "slug": "paon-08",
@@ -3349,7 +3347,8 @@
         "kb": 340
       }
     ],
-    "source": "restaurantpaon5.jpg"
+    "source": "restaurantpaon5.jpg",
+    "look": "paon-08"
   },
   {
     "slug": "paon-09",
@@ -3381,7 +3380,8 @@
         "kb": 261
       }
     ],
-    "source": "restaurantpaon6.jpg"
+    "source": "restaurantpaon6.jpg",
+    "look": "paon-09"
   },
   {
     "slug": "paon-10",
@@ -3413,7 +3413,8 @@
         "kb": 141
       }
     ],
-    "source": "restaurantpaon7.jpg"
+    "source": "restaurantpaon7.jpg",
+    "look": "paon-10"
   },
   {
     "slug": "paon-11",
@@ -3445,7 +3446,8 @@
         "kb": 302
       }
     ],
-    "source": "restaurantpaon8.jpg"
+    "source": "restaurantpaon8.jpg",
+    "look": "paon-11"
   },
   {
     "slug": "paon-12",
@@ -3477,7 +3479,8 @@
         "kb": 661
       }
     ],
-    "source": "img-2368-scaled.jpg"
+    "source": "img-2368-scaled.jpg",
+    "look": "paon-12"
   },
   {
     "slug": "paon-13",
@@ -3499,7 +3502,8 @@
         "kb": 204
       }
     ],
-    "source": "juice.jpg"
+    "source": "juice.jpg",
+    "look": "food-14"
   },
   {
     "slug": "paon-14",
@@ -3526,7 +3530,8 @@
         "kb": 287
       }
     ],
-    "source": "gal-3.jpg"
+    "source": "gal-3.jpg",
+    "look": "paon-01"
   },
   {
     "slug": "paon-15",
@@ -3553,61 +3558,8 @@
         "kb": 250
       }
     ],
-    "source": "gal-6.jpg"
-  },
-  {
-    "slug": "paon-16",
-    "category": "restaurant",
-    "caption": "The dining room at Paon, open to the garden",
-    "w": 2048,
-    "h": 1365,
-    "ratio": 1.5004,
-    "orientation": "landscape",
-    "sizes": [
-      {
-        "w": 480,
-        "file": "paon-16-480.webp",
-        "kb": 39
-      },
-      {
-        "w": 960,
-        "file": "paon-16-960.webp",
-        "kb": 124
-      },
-      {
-        "w": 1600,
-        "file": "paon-16-1600.webp",
-        "kb": 287
-      }
-    ],
-    "source": "resto-01.jpg"
-  },
-  {
-    "slug": "paon-17",
-    "category": "restaurant",
-    "caption": "Tables and the counter inside Paon",
-    "w": 2048,
-    "h": 1365,
-    "ratio": 1.5004,
-    "orientation": "landscape",
-    "sizes": [
-      {
-        "w": 480,
-        "file": "paon-17-480.webp",
-        "kb": 35
-      },
-      {
-        "w": 960,
-        "file": "paon-17-960.webp",
-        "kb": 111
-      },
-      {
-        "w": 1600,
-        "file": "paon-17-1600.webp",
-        "kb": 250
-      }
-    ],
-    "source": "resto-02.jpg"
+    "source": "gal-6.jpg",
+    "look": "paon-07"
   },
   {
     "slug": "paon-18",
@@ -3639,7 +3591,8 @@
         "kb": 418
       }
     ],
-    "source": "resto-03.jpg"
+    "source": "resto-03.jpg",
+    "look": "paon-18"
   },
   {
     "slug": "paon-19",
@@ -3671,7 +3624,8 @@
         "kb": 168
       }
     ],
-    "source": "resto-04.jpg"
+    "source": "resto-04.jpg",
+    "look": "paon-19"
   },
   {
     "slug": "paon-20",
@@ -3698,7 +3652,8 @@
         "kb": 189
       }
     ],
-    "source": "resto-07.jpg"
+    "source": "resto-07.jpg",
+    "look": "paon-09"
   },
   {
     "slug": "paon-21",
@@ -3725,7 +3680,8 @@
         "kb": 100
       }
     ],
-    "source": "resto-15.jpg"
+    "source": "resto-15.jpg",
+    "look": "paon-10"
   },
   {
     "slug": "paon-22",
@@ -3752,7 +3708,8 @@
         "kb": 168
       }
     ],
-    "source": "resto-16.jpg"
+    "source": "resto-16.jpg",
+    "look": "paon-22"
   },
   {
     "slug": "paon-23",
@@ -3774,7 +3731,8 @@
         "kb": 104
       }
     ],
-    "source": "resto-17.jpg"
+    "source": "resto-17.jpg",
+    "look": "paon-23"
   },
   {
     "slug": "paon-24",
@@ -3801,7 +3759,8 @@
         "kb": 267
       }
     ],
-    "source": "resto-18.jpg"
+    "source": "resto-18.jpg",
+    "look": "paon-06"
   },
   {
     "slug": "paon-25",
@@ -3828,7 +3787,8 @@
         "kb": 209
       }
     ],
-    "source": "resto-19.jpg"
+    "source": "resto-19.jpg",
+    "look": "paon-11"
   },
   {
     "slug": "paon-26",
@@ -3855,7 +3815,8 @@
         "kb": 245
       }
     ],
-    "source": "resto-20.jpg"
+    "source": "resto-20.jpg",
+    "look": "paon-03"
   },
   {
     "slug": "paon-27",
@@ -3877,7 +3838,8 @@
         "kb": 96
       }
     ],
-    "source": "xp-03.jpg"
+    "source": "xp-03.jpg",
+    "look": "paon-27"
   },
   {
     "slug": "paon-dinner-01",
@@ -3904,7 +3866,8 @@
         "kb": 85
       }
     ],
-    "source": "special-dinner-swarma.jpg"
+    "source": "special-dinner-swarma.jpg",
+    "look": "paon-19"
   },
   {
     "slug": "pool-01",
@@ -3936,7 +3899,8 @@
         "kb": 681
       }
     ],
-    "source": "image00002.jpg"
+    "source": "image00002.jpg",
+    "look": "pool-01"
   },
   {
     "slug": "pool-02",
@@ -3968,7 +3932,8 @@
         "kb": 659
       }
     ],
-    "source": "img-1452-min-scaled.jpg"
+    "source": "img-1452-min-scaled.jpg",
+    "look": "pool-02"
   },
   {
     "slug": "pool-03",
@@ -4000,7 +3965,8 @@
         "kb": 1007
       }
     ],
-    "source": "swarma-1-1.jpg"
+    "source": "swarma-1-1.jpg",
+    "look": "pool-03"
   },
   {
     "slug": "pool-04",
@@ -4032,7 +3998,8 @@
         "kb": 434
       }
     ],
-    "source": "swarma-13-1-1.jpg"
+    "source": "swarma-13-1-1.jpg",
+    "look": "pool-04"
   },
   {
     "slug": "pool-05",
@@ -4064,7 +4031,8 @@
         "kb": 401
       }
     ],
-    "source": "swarma-7-1-1-1.jpg"
+    "source": "swarma-7-1-1-1.jpg",
+    "look": "pool-05"
   },
   {
     "slug": "pool-06",
@@ -4096,7 +4064,8 @@
         "kb": 443
       }
     ],
-    "source": "swarma-9-1-1.jpg"
+    "source": "swarma-9-1-1.jpg",
+    "look": "pool-06"
   },
   {
     "slug": "pool-07",
@@ -4123,7 +4092,8 @@
         "kb": 95
       }
     ],
-    "source": "woman-having-tropical-healthy-breakfast-at-villa-on-.jpg"
+    "source": "woman-having-tropical-healthy-breakfast-at-villa-on-.jpg",
+    "look": "pool-07"
   },
   {
     "slug": "pool-08",
@@ -4155,7 +4125,8 @@
         "kb": 607
       }
     ],
-    "source": "home-1hero-image.jpg"
+    "source": "home-1hero-image.jpg",
+    "look": "pool-08"
   },
   {
     "slug": "pool-09",
@@ -4172,7 +4143,8 @@
         "kb": 111
       }
     ],
-    "source": "home-4home.jpg"
+    "source": "home-4home.jpg",
+    "look": "pool-09"
   },
   {
     "slug": "pool-10",
@@ -4204,7 +4176,8 @@
         "kb": 456
       }
     ],
-    "source": "about-1hero.jpg"
+    "source": "about-1hero.jpg",
+    "look": "pool-06"
   },
   {
     "slug": "pool-11",
@@ -4236,7 +4209,8 @@
         "kb": 1395
       }
     ],
-    "source": "pkg-hero.jpg"
+    "source": "pkg-hero.jpg",
+    "look": "pool-11"
   },
   {
     "slug": "pool-12",
@@ -4268,7 +4242,8 @@
         "kb": 794
       }
     ],
-    "source": "gal-1.jpg"
+    "source": "gal-1.jpg",
+    "look": "pool-12"
   },
   {
     "slug": "pool-13",
@@ -4290,7 +4265,8 @@
         "kb": 214
       }
     ],
-    "source": "gladak-15.jpg"
+    "source": "gladak-15.jpg",
+    "look": "pool-13"
   },
   {
     "slug": "property-01",
@@ -4317,7 +4293,8 @@
         "kb": 214
       }
     ],
-    "source": "20250606-161929-scaled.jpg"
+    "source": "20250606-161929-scaled.jpg",
+    "look": "property-01"
   },
   {
     "slug": "property-02",
@@ -4349,7 +4326,8 @@
         "kb": 754
       }
     ],
-    "source": "dsc04233-hdr-scaled.jpg"
+    "source": "dsc04233-hdr-scaled.jpg",
+    "look": "property-02"
   },
   {
     "slug": "property-03",
@@ -4381,7 +4359,8 @@
         "kb": 433
       }
     ],
-    "source": "img-0072-scaled.jpg"
+    "source": "img-0072-scaled.jpg",
+    "look": "gladak-ext-01"
   },
   {
     "slug": "property-04",
@@ -4413,7 +4392,8 @@
         "kb": 261
       }
     ],
-    "source": "img-1403-min-scaled.jpg"
+    "source": "img-1403-min-scaled.jpg",
+    "look": "property-04"
   },
   {
     "slug": "property-05",
@@ -4445,7 +4425,8 @@
         "kb": 406
       }
     ],
-    "source": "img-1424-min-scaled.jpg"
+    "source": "img-1424-min-scaled.jpg",
+    "look": "property-05"
   },
   {
     "slug": "property-06",
@@ -4477,7 +4458,8 @@
         "kb": 502
       }
     ],
-    "source": "img-1447-min-scaled.jpg"
+    "source": "img-1447-min-scaled.jpg",
+    "look": "property-06"
   },
   {
     "slug": "property-07",
@@ -4509,7 +4491,8 @@
         "kb": 506
       }
     ],
-    "source": "img-1448-min-scaled.jpg"
+    "source": "img-1448-min-scaled.jpg",
+    "look": "property-06"
   },
   {
     "slug": "property-08",
@@ -4541,7 +4524,8 @@
         "kb": 338
       }
     ],
-    "source": "img-2575-scaled.jpg"
+    "source": "img-2575-scaled.jpg",
+    "look": "property-08"
   },
   {
     "slug": "property-09",
@@ -4573,7 +4557,8 @@
         "kb": 398
       }
     ],
-    "source": "img-2576-scaled.jpg"
+    "source": "img-2576-scaled.jpg",
+    "look": "gladak-terrace-02"
   },
   {
     "slug": "property-10",
@@ -4605,7 +4590,8 @@
         "kb": 419
       }
     ],
-    "source": "img-2579-scaled.jpg"
+    "source": "img-2579-scaled.jpg",
+    "look": "gladak-ext-05"
   },
   {
     "slug": "property-11",
@@ -4637,7 +4623,8 @@
         "kb": 448
       }
     ],
-    "source": "img-2580-scaled.jpg"
+    "source": "img-2580-scaled.jpg",
+    "look": "gladak-ext-05"
   },
   {
     "slug": "property-12",
@@ -4669,7 +4656,8 @@
         "kb": 443
       }
     ],
-    "source": "restaurantpaon12.jpg"
+    "source": "restaurantpaon12.jpg",
+    "look": "property-12"
   },
   {
     "slug": "property-13",
@@ -4691,7 +4679,8 @@
         "kb": 195
       }
     ],
-    "source": "about-3about.jpg"
+    "source": "about-3about.jpg",
+    "look": "property-13"
   },
   {
     "slug": "ricefield-01",
@@ -4718,7 +4707,8 @@
         "kb": 200
       }
     ],
-    "source": "rice-field.jpg"
+    "source": "rice-field.jpg",
+    "look": "ricefield-01"
   },
   {
     "slug": "ricefield-02",
@@ -4740,7 +4730,8 @@
         "kb": 111
       }
     ],
-    "source": "home-6beyond.jpg"
+    "source": "home-6beyond.jpg",
+    "look": "ricefield-02"
   },
   {
     "slug": "ricefield-03",
@@ -4772,7 +4763,8 @@
         "kb": 933
       }
     ],
-    "source": "exp-rice-field.jpg"
+    "source": "exp-rice-field.jpg",
+    "look": "ricefield-03"
   },
   {
     "slug": "ricefield-04",
@@ -4804,7 +4796,8 @@
         "kb": 677
       }
     ],
-    "source": "jr-ricefield.jpg"
+    "source": "jr-ricefield.jpg",
+    "look": "ricefield-04"
   },
   {
     "slug": "ritual-01",
@@ -4826,7 +4819,8 @@
         "kb": 290
       }
     ],
-    "source": "purification-3.jpg"
+    "source": "purification-3.jpg",
+    "look": "ritual-01"
   },
   {
     "slug": "ritual-02",
@@ -4848,7 +4842,8 @@
         "kb": 146
       }
     ],
-    "source": "home-5home.jpg"
+    "source": "home-5home.jpg",
+    "look": "ritual-02"
   },
   {
     "slug": "ritual-03",
@@ -4865,7 +4860,8 @@
         "kb": 34
       }
     ],
-    "source": "about-2about.jpg"
+    "source": "about-2about.jpg",
+    "look": "ritual-03"
   },
   {
     "slug": "ritual-04",
@@ -4887,7 +4883,8 @@
         "kb": 150
       }
     ],
-    "source": "massage-new.jpg"
+    "source": "massage-new.jpg",
+    "look": "ritual-02"
   },
   {
     "slug": "ritual-05",
@@ -4919,7 +4916,8 @@
         "kb": 609
       }
     ],
-    "source": "pkg-romantic.jpg"
+    "source": "pkg-romantic.jpg",
+    "look": "ritual-05"
   },
   {
     "slug": "ritual-06",
@@ -4941,7 +4939,8 @@
         "kb": 219
       }
     ],
-    "source": "jr-blessing.jpg"
+    "source": "jr-blessing.jpg",
+    "look": "ritual-06"
   },
   {
     "slug": "ritual-07",
@@ -4968,7 +4967,8 @@
         "kb": 222
       }
     ],
-    "source": "xp-01.jpg"
+    "source": "xp-01.jpg",
+    "look": "ritual-07"
   },
   {
     "slug": "room-01",
@@ -4995,7 +4995,8 @@
         "kb": 101
       }
     ],
-    "source": "020fb67f-5486-4bc2-9532-f8880a84442d.jpg"
+    "source": "020fb67f-5486-4bc2-9532-f8880a84442d.jpg",
+    "look": "hexa-int-02"
   },
   {
     "slug": "room-02",
@@ -5022,7 +5023,8 @@
         "kb": 209
       }
     ],
-    "source": "7870d1b6-a084-4998-8cdd-96bc9ea99498.jpg"
+    "source": "7870d1b6-a084-4998-8cdd-96bc9ea99498.jpg",
+    "look": "room-02"
   },
   {
     "slug": "room-03",
@@ -5049,7 +5051,8 @@
         "kb": 159
       }
     ],
-    "source": "ba866717-52a2-4846-9c15-94bf6ebd87a8.jpg"
+    "source": "ba866717-52a2-4846-9c15-94bf6ebd87a8.jpg",
+    "look": "hexa-int-04"
   },
   {
     "slug": "room-04",
@@ -5081,7 +5084,8 @@
         "kb": 206
       }
     ],
-    "source": "img-1436-min-scaled.jpg"
+    "source": "img-1436-min-scaled.jpg",
+    "look": "room-04"
   },
   {
     "slug": "room-05",
@@ -5113,7 +5117,8 @@
         "kb": 224
       }
     ],
-    "source": "img-1437-min-scaled.jpg"
+    "source": "img-1437-min-scaled.jpg",
+    "look": "room-05"
   },
   {
     "slug": "room-06",
@@ -5145,7 +5150,8 @@
         "kb": 140
       }
     ],
-    "source": "img-1463-min-scaled.jpg"
+    "source": "img-1463-min-scaled.jpg",
+    "look": "room-06"
   },
   {
     "slug": "room-07",
@@ -5177,7 +5183,8 @@
         "kb": 143
       }
     ],
-    "source": "img-1469-min-scaled.jpg"
+    "source": "img-1469-min-scaled.jpg",
+    "look": "room-07"
   },
   {
     "slug": "room-08",
@@ -5209,7 +5216,8 @@
         "kb": 279
       }
     ],
-    "source": "img-1470-min-scaled.jpg"
+    "source": "img-1470-min-scaled.jpg",
+    "look": "room-08"
   },
   {
     "slug": "room-detail-01",
@@ -5241,7 +5249,8 @@
         "kb": 124
       }
     ],
-    "source": "l1130665-1-scaled.jpg"
+    "source": "l1130665-1-scaled.jpg",
+    "look": "gladak-detail-01"
   },
   {
     "slug": "room-detail-02",
@@ -5273,7 +5282,8 @@
         "kb": 352
       }
     ],
-    "source": "l1130662-scaled.jpg"
+    "source": "l1130662-scaled.jpg",
+    "look": "bath-detail-02"
   },
   {
     "slug": "room-detail-03",
@@ -5305,7 +5315,8 @@
         "kb": 380
       }
     ],
-    "source": "l1130661-scaled.jpg"
+    "source": "l1130661-scaled.jpg",
+    "look": "bath-open-07"
   },
   {
     "slug": "waterfall-01",
@@ -5332,7 +5343,8 @@
         "kb": 198
       }
     ],
-    "source": "river-waterfall.jpg"
+    "source": "river-waterfall.jpg",
+    "look": "waterfall-01"
   },
   {
     "slug": "waterfall-02",
@@ -5354,7 +5366,8 @@
         "kb": 352
       }
     ],
-    "source": "waterfall-1.jpg"
+    "source": "waterfall-1.jpg",
+    "look": "waterfall-02"
   },
   {
     "slug": "waterfall-03",
@@ -5376,7 +5389,8 @@
         "kb": 306
       }
     ],
-    "source": "waterfall-2.jpg"
+    "source": "waterfall-2.jpg",
+    "look": "waterfall-03"
   },
   {
     "slug": "waterfall-04",
@@ -5398,7 +5412,8 @@
         "kb": 258
       }
     ],
-    "source": "waterfall-4.jpg"
+    "source": "waterfall-4.jpg",
+    "look": "waterfall-04"
   },
   {
     "slug": "waterfall-05",
@@ -5420,7 +5435,8 @@
         "kb": 257
       }
     ],
-    "source": "waterfall-6.jpg"
+    "source": "waterfall-6.jpg",
+    "look": "waterfall-05"
   },
   {
     "slug": "waterfall-06",
@@ -5442,7 +5458,8 @@
         "kb": 290
       }
     ],
-    "source": "exp-water-temple.jpg"
+    "source": "exp-water-temple.jpg",
+    "look": "ritual-01"
   },
   {
     "slug": "waterfall-07",
@@ -5464,7 +5481,8 @@
         "kb": 359
       }
     ],
-    "source": "pkg-wellness.jpg"
+    "source": "pkg-wellness.jpg",
+    "look": "waterfall-07"
   },
   {
     "slug": "waterfall-08",
@@ -5486,6 +5504,7 @@
         "kb": 283
       }
     ],
-    "source": "jr-melukat.jpg"
+    "source": "jr-melukat.jpg",
+    "look": "waterfall-08"
   }
 ]

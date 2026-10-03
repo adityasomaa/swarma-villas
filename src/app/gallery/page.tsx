@@ -34,10 +34,25 @@ export const metadata: Metadata = {
 type Group = { title: string; blurb: string; slugs: string[] };
 
 export default function GalleryPage() {
-  const seen = new Set<string>();
+  /*
+   * Two things are claimed at once: the slug, so a photograph appears in one
+   * group only, and its look, so a group never shows two frames of the same
+   * scene. The villa asked for the second after finding the gallery repeating
+   * itself; the pages are left alone, because a page is a sequence they chose
+   * rather than a set.
+   */
+  const seenSlug = new Set<string>();
+  const seenLook = new Set<string>();
+  const lookOf = new Map(allPhotos.map((p) => [p.slug, p.look]));
   const take = (slugs: string[]) => {
-    const fresh = slugs.filter((slug) => !seen.has(slug));
-    for (const slug of fresh) seen.add(slug);
+    const fresh: string[] = [];
+    for (const slug of slugs) {
+      const look = lookOf.get(slug) ?? slug;
+      if (seenSlug.has(slug) || seenLook.has(look)) continue;
+      seenSlug.add(slug);
+      seenLook.add(look);
+      fresh.push(slug);
+    }
     return fresh;
   };
   /* Lists slugs without claiming them. take() is what claims, and calling one

@@ -27,6 +27,13 @@ export type PhotoRecord = {
   ratio: number;
   orientation: string;
   sizes: { w: number; file: string; kb: number }[];
+  /**
+   * Shared by the frames that show the same thing from the same spot. The villa
+   * shoots a scene several times and sends the frames in different folders, so
+   * the library holds pictures a visitor reads as one picture. Written by
+   * scripts/tag-photo-looks.py.
+   */
+  look: string;
 };
 
 const BY_SLUG = new Map((photos as PhotoRecord[]).map((p) => [p.slug, p]));
