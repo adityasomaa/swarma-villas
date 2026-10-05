@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { GoogleReviews } from "@/components/blocks/GoogleReviews";
 import { PageHero } from "@/components/blocks/PageHero";
 import { CtaBand } from "@/components/blocks/home";
 import { Reveal } from "@/components/shared/Reveal";
@@ -7,6 +8,7 @@ import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import { Button, Container, Section, SectionHeader } from "@/components/ui";
 import { copy, googleListingUrl, reviews } from "@/content/site";
 import { clsx } from "@/lib/clsx";
+import { fetchGoogleReviews } from "@/lib/reviews/google";
 
 export const metadata: Metadata = {
   title: "Guest reviews",
@@ -16,17 +18,27 @@ export const metadata: Metadata = {
 /* =============================================================================
    REVIEWS
    -----------------------------------------------------------------------------
-   Two reviews, and that is the honest number. The current site's review page
-   carries a third entry that is spam — a random string submitted through an
-   open form — and it is not reproduced here.
+   Google first when Google answers, the villa's own underneath.
 
-   Two is a thin page, and the temptation is to pad it. It is not padded. What
-   is added instead is the one thing a visitor actually wants when a site shows
-   only two reviews: a straight statement of where they came from, and a link
-   to somewhere with more of them.
+   The villa asked for their Google reviews on the page. That needs a Places API
+   key, and until one is set this page is exactly what it was: the two reviews
+   they published themselves. With a key, Google's reviews lead and the one
+   review submitted through their own website stays below them — the other one
+   was carried across from Google by hand, and showing it beside the live ones
+   would print the same thing twice.
+
+   DAILY, NOT PER VISIT. Google is called once a revalidation rather than once a
+   visitor: cheaper, faster, and inside Google's rules about how long their
+   review content may be held.
    ========================================================================== */
 
-export default function ReviewPage() {
+export const revalidate = 86400;
+
+export default async function ReviewPage() {
+  const google = await fetchGoogleReviews();
+  const own = google
+    ? reviews.filter((r) => !/google/i.test(r.via))
+    : reviews;
 
   return (
     <>
@@ -38,10 +50,19 @@ export default function ReviewPage() {
         crumbs={[{ label: "Review", path: "/review" }]}
       />
 
-      <Section tone="canvas">
+      {google && <GoogleReviews data={google} />}
+
+      <Section tone={google ? "surface" : "canvas"}>
         <Container>
-          <ul className={clsx("grid gap-6", reviews.length > 1 && "md:grid-cols-2")}>
-            {reviews.map((review, i) => (
+          {google && (
+            <SectionHeader
+              kicker="Sent to us directly"
+              title="Written to the villa"
+              className="mb-10 md:mb-14"
+            />
+          )}
+          <ul className={clsx("grid gap-6", own.length > 1 && "md:grid-cols-2")}>
+            {own.map((review, i) => (
               <li key={review.author}>
                 <Reveal delay={i * 90}>
                   <figure
@@ -78,12 +99,21 @@ export default function ReviewPage() {
             >
               <h2 className="display text-[1.25rem]">About these reviews</h2>
               <div className="measure-prose mt-4 space-y-4 text-[0.9375rem] leading-[1.7] text-muted">
-                <p>
-                  These are the reviews the villa has published itself — one submitted through
-                  the website and one carried across from Google. They are shown in full and
-                  unedited, apart from the spelling of the English one. No overall score is
-                  shown, because there is no single platform behind these two to average.
-                </p>
+                {google ? (
+                  <p>
+                    The reviews above come straight from the villa&rsquo;s Google listing and
+                    are shown as written. Below them is a review sent to the villa directly,
+                    which is not on Google and so does not count towards the score.
+                  </p>
+                ) : (
+                  <p>
+                    These are the reviews the villa has published itself — one submitted
+                    through the website and one carried across from Google. They are shown in
+                    full and unedited, apart from the spelling of the English one. No overall
+                    score is shown, because there is no single platform behind these two to
+                    average.
+                  </p>
+                )}
                 <p>
                   If you have stayed with us, write to us and we will add yours.
                 </p>
