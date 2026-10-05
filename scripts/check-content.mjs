@@ -41,6 +41,10 @@ const MUST_SAY = [
   /* The plus code was wrong for weeks: it came from a second Google listing
      pinned 24 km away. This is the corrected one, checked against the pin. */
   ["/", "the plus code", "F66W+Q7X"],
+  /* The reviews are transcribed from Google by hand, so nothing throws if a
+     card is dropped from the content file — the row simply gets shorter. */
+  ["/review", "a guest's Google review", "I’ve been to 60 countries"],
+  ["/review", "the way through to the rest", "See all reviews on Google"],
 ];
 
 /* The review page's way through to Google. Checked as a link rather than as a

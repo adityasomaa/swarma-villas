@@ -450,6 +450,97 @@
 }
 
 /* =============================================================================
+   THE REVIEW ROW
+   -----------------------------------------------------------------------------
+   One element moves. The track holds the ten reviews twice, so translating it
+   by exactly one copy's width puts card 11 where card 1 was and the row reads
+   as endless.
+
+   WHY THE HALF GAP. The track is a single flex row of 2n items with n*2-1 gaps
+   between them, so one copy is not 50% of its width — it is 50% plus half a
+   gap. Animating to a plain -50% drifts by half a gap every lap, which after a
+   minute is a visible stutter at the seam. This is the whole reason --gap is a
+   variable rather than a Tailwind class.
+
+   The row is paused on hover so a review can actually be read, but only where
+   hovering is real: a phone fires :hover on tap and would leave the row frozen
+   until something else was touched.
+   ========================================================================== */
+@layer components {
+  .marquee {
+    --gap: 1.5rem;
+    --marquee-duration: 90s;
+    overflow: hidden;
+    /* Fades the cards out at both edges instead of cutting them. */
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 3rem,
+      #000 calc(100% - 3rem),
+      transparent
+    );
+  }
+
+  .marquee__track {
+    display: flex;
+    width: max-content;
+    gap: var(--gap);
+    align-items: stretch;
+    /*
+     * No padding on the track. Padding counts towards its width but not towards
+     * a copy, so one gap's worth of padding puts the seam one gap out of place
+     * every lap — measured, not guessed: the shift came to 3944px against a
+     * copy of 3920px. The mask is what keeps the first card off the edge.
+     */
+    animation: marquee var(--marquee-duration) linear infinite;
+    will-change: transform;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .marquee:hover .marquee__track {
+      animation-play-state: paused;
+    }
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(calc(-50% - var(--gap) / 2), 0, 0);
+    }
+  }
+}
+
+/*
+ * Reduced motion: the row stops and becomes something you push yourself. The
+ * blanket rule further down would otherwise collapse the animation to 0.001ms,
+ * which does not stop the row — it teleports it to the end and leaves it there.
+ */
+@media (prefers-reduced-motion: reduce) {
+  @layer components {
+    .marquee {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+    }
+    .marquee__track {
+      animation: none !important;
+    }
+    .marquee__track > li {
+      scroll-snap-align: center;
+    }
+    /*
+     * Nothing is drifting now, so the second copy is just the same ten again.
+     * !important because the card carries Tailwind's `flex`, and a utility
+     * outranks anything in the components layer however it is written here.
+     */
+    .marquee__repeat {
+      display: none !important;
+    }
+  }
+}
+
+/* =============================================================================
    REDUCED MOTION
    -----------------------------------------------------------------------------
    The calm version simplifies itself; it never removes content. Buttons still

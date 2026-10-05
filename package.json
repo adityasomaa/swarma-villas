@@ -27,7 +27,7 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "verify": "node scripts/check-google-reviews.mjs && node scripts/check-contrast.mjs && node scripts/audit.mjs http://localhost:3100 && node scripts/flow.mjs http://localhost:3100 && node scripts/check-hyphens.mjs && node scripts/check-content.mjs && node scripts/check-booking.mjs && node scripts/check-touch.mjs",
+    "verify": "node scripts/check-google-reviews.mjs && node scripts/check-contrast.mjs && node scripts/audit.mjs http://localhost:3100 && node scripts/flow.mjs http://localhost:3100 && node scripts/check-hyphens.mjs && node scripts/check-content.mjs && node scripts/check-booking.mjs && node scripts/check-touch.mjs && node scripts/check-marquee.mjs",
     "shots": "node scripts/shoot.mjs",
     "photos": "node scripts/optimise-photos.mjs",
     "map": "node scripts/build-area-map.mjs",

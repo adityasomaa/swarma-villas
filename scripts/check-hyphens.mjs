@@ -16,6 +16,12 @@ import { chromium } from "playwright";
    Check-out and No-show are dictionary nouns in the terms. If the villa ever
    wants those opened up too, take them out of ALLOWED.
 
+   QUOTED GUESTS ARE NOT THE VILLA. The reviews are other people's writing,
+   reproduced as they wrote it; "semi-open bath" and "on-call massage" are
+   theirs, and silently rewriting a quote to satisfy the villa's house style
+   would make it something the guest did not say. Every <blockquote> is lifted
+   out of the text before it is read.
+
    Run: node scripts/check-hyphens.mjs [origin]
    ========================================================================== */
 
@@ -37,7 +43,17 @@ await page.evaluate(() => localStorage.setItem("swarma.consent.v1", "accepted"))
 const found = new Map();
 for (const path of PAGES) {
   await page.goto(`${ORIGIN}${path}`, { waitUntil: "domcontentloaded" });
-  const text = await page.evaluate(() => document.body.innerText);
+  const text = await page.evaluate(() => {
+    /* Clone, drop the quotations, then read: innerText on the clone still
+       reports what CSS renders, which is the whole point of reading the page
+       rather than the content files. */
+    const body = document.body.cloneNode(true);
+    body.querySelectorAll("blockquote").forEach((q) => q.remove());
+    document.body.append(body);
+    const text = body.innerText;
+    body.remove();
+    return text;
+  });
   for (const match of text.matchAll(/[A-Za-z]{2,}-[A-Za-z]{2,}/g)) {
     if (ALLOWED.has(match[0])) continue;
     if (!found.has(match[0])) found.set(match[0], new Set());

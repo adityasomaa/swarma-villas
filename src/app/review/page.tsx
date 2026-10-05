@@ -6,6 +6,7 @@ import { CtaBand } from "@/components/blocks/home";
 import { Reveal } from "@/components/shared/Reveal";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import { Button, Container, Section, SectionHeader } from "@/components/ui";
+import { CAPTURED, googleReviewsFallback } from "@/content/google-reviews";
 import { copy, googleListingUrl, reviews } from "@/content/site";
 import { clsx } from "@/lib/clsx";
 import { fetchGoogleReviews } from "@/lib/reviews/google";
@@ -18,27 +19,29 @@ export const metadata: Metadata = {
 /* =============================================================================
    REVIEWS
    -----------------------------------------------------------------------------
-   Google first when Google answers, the villa's own underneath.
+   Google's reviews lead; the one sent to the villa directly sits underneath.
 
-   The villa asked for their Google reviews on the page. That needs a Places API
-   key, and until one is set this page is exactly what it was: the two reviews
-   they published themselves. With a key, Google's reviews lead and the one
-   review submitted through their own website stays below them — the other one
-   was carried across from Google by hand, and showing it beside the live ones
-   would print the same thing twice.
+   TWO SOURCES, ONE SHAPE. Normally these come from the transcribed set in
+   src/content/google-reviews.ts. If a Places API key is ever set they come from
+   Google itself instead, live, and the page does not change in any other way —
+   both are the same type, so the row below does not know or care which it got.
+   The only visible difference is the line admitting when a transcribed set was
+   copied, since that one goes stale and the live one cannot.
 
-   DAILY, NOT PER VISIT. Google is called once a revalidation rather than once a
-   visitor: cheaper, faster, and inside Google's rules about how long their
-   review content may be held.
+   The review submitted through the villa's own website is not on Google and so
+   is not part of the score. It is kept separate and labelled rather than mixed
+   in, because a visitor counting stars should be able to count the same ones
+   Google counted.
    ========================================================================== */
 
 export const revalidate = 86400;
 
 export default async function ReviewPage() {
-  const google = await fetchGoogleReviews();
-  const own = google
-    ? reviews.filter((r) => !/google/i.test(r.via))
-    : reviews;
+  const live = await fetchGoogleReviews();
+  const google = live ?? googleReviewsFallback;
+  /* Morgane's review is in the Google set now; showing it here as well would
+     print the same words twice under two different headings. */
+  const own = reviews.filter((r) => !/google/i.test(r.via));
 
   return (
     <>
@@ -50,17 +53,15 @@ export default async function ReviewPage() {
         crumbs={[{ label: "Review", path: "/review" }]}
       />
 
-      {google && <GoogleReviews data={google} />}
+      <GoogleReviews data={google} capturedOn={live ? undefined : CAPTURED} />
 
-      <Section tone={google ? "surface" : "canvas"}>
+      <Section tone="surface">
         <Container>
-          {google && (
-            <SectionHeader
-              kicker="Sent to us directly"
-              title="Written to the villa"
-              className="mb-10 md:mb-14"
-            />
-          )}
+          <SectionHeader
+            kicker="Sent to us directly"
+            title="Written to the villa"
+            className="mb-10 md:mb-14"
+          />
           <ul className={clsx("grid gap-6", own.length > 1 && "md:grid-cols-2")}>
             {own.map((review, i) => (
               <li key={review.author}>
@@ -99,27 +100,15 @@ export default async function ReviewPage() {
             >
               <h2 className="display text-[1.25rem]">About these reviews</h2>
               <div className="measure-prose mt-4 space-y-4 text-[0.9375rem] leading-[1.7] text-muted">
-                {google ? (
-                  <p>
-                    The reviews above come straight from the villa&rsquo;s Google listing and
-                    are shown as written. Below them is a review sent to the villa directly,
-                    which is not on Google and so does not count towards the score.
-                  </p>
-                ) : (
-                  <>
-                    <p>
-                      These are the reviews the villa has published itself — one submitted
-                      through the website and one carried across from Google. They are shown in
-                      full and unedited, apart from the spelling of the English one. No overall
-                      score is shown, because there is no single platform behind these two to
-                      average.
-                    </p>
-                    <p>
-                      Every review guests have left, and the rating they add up to, is on the
-                      villa&rsquo;s Google listing.
-                    </p>
-                  </>
-                )}
+                <p>
+                  The reviews in the row above are from the villa&rsquo;s Google listing and are
+                  shown as written, each one under the name of the guest who wrote it. Google
+                  holds many more than ten; the link above goes to all of them.
+                </p>
+                <p>
+                  The review below was sent to the villa directly. It is not on Google, and so
+                  it does not count towards the score.
+                </p>
                 <p>
                   If you have stayed with us, write to us and we will add yours.
                 </p>
