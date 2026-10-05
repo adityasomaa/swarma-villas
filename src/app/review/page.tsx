@@ -3,8 +3,9 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/blocks/PageHero";
 import { CtaBand } from "@/components/blocks/home";
 import { Reveal } from "@/components/shared/Reveal";
+import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import { Button, Container, Section, SectionHeader } from "@/components/ui";
-import { copy, reviews } from "@/content/site";
+import { copy, mapsPlaceUrl, reviews } from "@/content/site";
 import { clsx } from "@/lib/clsx";
 
 export const metadata: Metadata = {
@@ -87,9 +88,20 @@ export default function ReviewPage() {
                   If you have stayed with us, write to us and we will add yours.
                 </p>
               </div>
+              {/*
+                This said "Send us your review" and went to /contact, which is
+                the booking enquiry form — a guest offering a review landed on
+                a form asking for their dates. It goes to WhatsApp now, which
+                is what the sentence above it promises.
+              */}
               <div className="mt-7 flex flex-wrap gap-3">
-                <Button href={"/contact"} tone="outline">
-                  Send us your review
+                <WhatsAppButton
+                  action="Review page — Send a review"
+                  subject="a review of our stay"
+                  label="Send us your review"
+                />
+                <Button href={mapsPlaceUrl} tone="outline" external>
+                  Find us on Google
                 </Button>
               </div>
             </div>
