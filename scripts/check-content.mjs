@@ -41,7 +41,13 @@ const MUST_SAY = [
   /* The plus code was wrong for weeks: it came from a second Google listing
      pinned 24 km away. This is the corrected one, checked against the pin. */
   ["/", "the plus code", "F66W+Q7X"],
-  ["/review", "the way to leave a Google review", "Review us on Google"],
+];
+
+/* The review page's way through to Google. Checked as a link rather than as a
+   label, because the label changes with whether a Places key is set and the
+   thing that must never break is the destination. */
+const LINKS = [
+  ["/review", "the link to the villa's Google listing", "cid=6089290508169825112"],
 ];
 
 const MENUS = [
@@ -61,6 +67,16 @@ for (const [path, what, needle] of MUST_SAY) {
      set in small caps comes back shouting, and that is not a content change. */
   const text = (await page.evaluate(() => document.body.innerText)).toLowerCase();
   if (!text.includes(needle.toLowerCase())) failures.push(`${path} — ${what} — no "${needle}"`);
+}
+
+for (const [path, what, needle] of LINKS) {
+  await page.goto(`${ORIGIN}${path}`, { waitUntil: "domcontentloaded" });
+  const hrefs = await page.evaluate(() =>
+    [...document.querySelectorAll("a[href]")].map((a) => a.getAttribute("href")),
+  );
+  if (!hrefs.some((h) => h?.includes(needle))) {
+    failures.push(`${path} — ${what} — no link to "${needle}"`);
+  }
 }
 
 for (const [path, what] of MENUS) {
@@ -110,7 +126,7 @@ console.log(
     `${shown.size} frames shown on /gallery.`,
 );
 
-console.log(`\n${MUST_SAY.length} page contents and ${MENUS.length} menus checked.`);
+console.log(`\n${MUST_SAY.length} page contents, ${LINKS.length} links and ${MENUS.length} menus checked.`);
 if (failures.length === 0) {
   console.log("PASS — no failures.");
   process.exit(0);

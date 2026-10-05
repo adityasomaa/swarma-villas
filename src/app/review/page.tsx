@@ -106,13 +106,19 @@ export default async function ReviewPage() {
                     which is not on Google and so does not count towards the score.
                   </p>
                 ) : (
-                  <p>
-                    These are the reviews the villa has published itself — one submitted
-                    through the website and one carried across from Google. They are shown in
-                    full and unedited, apart from the spelling of the English one. No overall
-                    score is shown, because there is no single platform behind these two to
-                    average.
-                  </p>
+                  <>
+                    <p>
+                      These are the reviews the villa has published itself — one submitted
+                      through the website and one carried across from Google. They are shown in
+                      full and unedited, apart from the spelling of the English one. No overall
+                      score is shown, because there is no single platform behind these two to
+                      average.
+                    </p>
+                    <p>
+                      Every review guests have left, and the rating they add up to, is on the
+                      villa&rsquo;s Google listing.
+                    </p>
+                  </>
                 )}
                 <p>
                   If you have stayed with us, write to us and we will add yours.
@@ -130,8 +136,13 @@ export default async function ReviewPage() {
                   opening="Hello Swarma Villas, I would like to leave a review of my stay."
                   label="Send us your review"
                 />
+                {/*
+                  With Google's own reviews above there is nothing left to read
+                  here, so the link is an invitation to write one. Without them
+                  it is the only way to the rest, and says so.
+                */}
                 <Button href={googleListingUrl} tone="outline" external>
-                  Review us on Google
+                  {google ? "Review us on Google" : "Read our reviews on Google"}
                 </Button>
               </div>
             </div>
