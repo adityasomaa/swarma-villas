@@ -24,9 +24,15 @@ import "server-only";
                               to a particular listing — which will matter when
                               the villa merges their duplicate one.
 
-   CACHING. The page revalidates daily, so Google is called once a day rather
-   than once a visit. That keeps the bill small and stays inside Google's terms,
-   which do not allow their review content to be stored indefinitely.
+   WHAT THIS COSTS. Asking for reviews and rating puts the request in Google's
+   "Place Details Enterprise" bucket: 1,000 calls a month free, then $20 per
+   thousand. The page revalidates daily, so this is called a handful of times a
+   day rather than once a visitor — call it fifty a month against a free cap of
+   a thousand. The place lookup is "Text Search (IDs Only)", which is unlimited
+   and free, which is why the field mask below asks for nothing else.
+
+   Daily refresh also keeps this inside Google's terms, which do not allow their
+   review content to be stored indefinitely.
    ========================================================================== */
 
 /*
@@ -74,7 +80,14 @@ async function findPlaceId(key: string): Promise<string | null> {
     headers: {
       "Content-Type": "application/json",
       "X-Goog-Api-Key": key,
-      "X-Goog-FieldMask": "places.id,places.displayName",
+      /*
+       * ID ONLY, DELIBERATELY. Google bills Text Search by the most expensive
+       * field asked for: "Text Search Essentials (IDs Only)" is unlimited and
+       * free, and adding displayName — which is a Pro field, and which this
+       * code never read — would have moved every lookup onto a paid SKU for
+       * nothing.
+       */
+      "X-Goog-FieldMask": "places.id",
     },
     body: JSON.stringify({ textQuery: LOOKUP, maxResultCount: 1 }),
     next: { revalidate: 86400 },
