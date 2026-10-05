@@ -46,16 +46,15 @@ export const business = {
     country: "Indonesia",
     countryCode: "ID",
     /**
-     * NOT SHOWN ON THE SITE, and it should not be until the villa confirms it.
+     * The real one, read back from the villa's Google listing on 5 October and
+     * checked: it decodes to within a metre of the pin Google holds.
      *
-     * This is the plus code their Google listing publishes, but it does not
-     * decode to Singakerta: "M7CM+XVJ" resolves to -8.3276, 115.2846, which is
-     * around Tegallalang, roughly 24 km north of the street address above.
-     * A plus code is what a guest pastes into Maps, so a wrong one sends them
-     * to the wrong village. Put the corrected code here and restore the row in
-     * the location band when they confirm it.
+     * The code published before, "M7CM+XVJ", came from a SECOND Google listing
+     * for this property, "Swarma villa", whose pin sits at -8.3276, 115.2846 —
+     * about 24 km north, near Tegallalang. That listing is still live and still
+     * collecting reviews. Only the villa can merge or move it.
      */
-    plusCode: "M7CM+XVJ",
+    plusCode: "F66W+Q7X",
   },
 
   email: "info@swarmavillas.com",
@@ -124,17 +123,26 @@ export const addressOneLine =
   `${business.address.province} ${business.address.postalCode}`;
 
 /**
- * Opens Google Maps directions to the address above. Coordinates are not
- * hard-coded because none have been confirmed — see plusCode above — so Google
- * resolves the written address, which is the part we know to be right.
+ * WHERE THE VILLA IS, ACCORDING TO GOOGLE.
+ *
+ * Read off their own listing rather than guessed: Gang Gora's junction, the
+ * booking engine's address and this pin all agree within forty metres.
  */
-export const mapsDirectionsUrl =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent(`${addressOneLine}, ${business.address.country}`);
+export const coordinates = { lat: -8.5380226, lng: 115.2457351 } as const;
 
-export const mapsPlaceUrl =
-  "https://www.google.com/maps/search/?api=1&query=" +
-  encodeURIComponent(`${business.name}, ${addressOneLine}`);
+/**
+ * The listing itself, by its Google customer id. A cid link is the stable way
+ * to reach one: it survives a rename, and it cannot drift onto a neighbouring
+ * business the way a search for the name can. "Write a review" is one tap from
+ * here, which is what the villa asked for.
+ */
+export const googleListingUrl = "https://maps.google.com/?cid=6089290508169825112";
+
+/** Directions to the confirmed pin, rather than to a line of text. */
+export const mapsDirectionsUrl =
+  `https://www.google.com/maps/dir/?api=1&destination=${coordinates.lat},${coordinates.lng}`;
+
+export const mapsPlaceUrl = googleListingUrl;
 
 /* -----------------------------------------------------------------------------
    2. THE HOUSES

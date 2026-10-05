@@ -12,18 +12,21 @@ import { useEnquiry } from "@/lib/useEnquiry";
 export function WhatsAppButton({
   action,
   subject,
+  opening,
   label = cta.secondary.label,
   className,
 }: {
   action: string;
   subject?: string;
+  /** Replaces "I have a question about …" for buttons that are not questions. */
+  opening?: string;
   label?: string;
   className?: string;
 }) {
   const enquiry = useEnquiry();
   return (
     <a
-      href={enquiry(action, subject)}
+      href={enquiry(action, subject, opening)}
       target="_blank"
       rel="noopener noreferrer"
       className={[buttonStyle("primary"), className].filter(Boolean).join(" ")}

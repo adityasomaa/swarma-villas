@@ -220,6 +220,12 @@ export function LocationBand() {
                 </address>
               </dd>
             </div>
+            <div>
+              <dt className="kicker text-subtle">Google plus code</dt>
+              <dd className="mt-2 text-[1rem] text-muted tabular-nums">
+                {business.address.plusCode}
+              </dd>
+            </div>
           </dl>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button href={mapsDirectionsUrl} external>

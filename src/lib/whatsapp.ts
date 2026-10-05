@@ -33,12 +33,20 @@ function link(text: string): string {
   return `https://wa.me/${business.whatsappE164}?text=${encodeURIComponent(text)}`;
 }
 
-/** A general enquiry, optionally about one specific thing. */
-export function generalEnquiryUrl(p: Provenance, subject?: string): string {
-  const opening = subject
-    ? `Hello Swarma Villas, I have a question about ${subject}.`
-    : "Hello Swarma Villas, I have a question about staying with you.";
-  return link(`${opening}${footer(p)}`);
+/**
+ * A general enquiry, optionally about one specific thing.
+ *
+ * `opening` replaces the sentence outright, for the buttons that are not
+ * questions — someone sending a review is not asking one, and "a question
+ * about a review of our stay" is not a sentence anybody writes.
+ */
+export function generalEnquiryUrl(p: Provenance, subject?: string, opening?: string): string {
+  const line =
+    opening ??
+    (subject
+      ? `Hello Swarma Villas, I have a question about ${subject}.`
+      : "Hello Swarma Villas, I have a question about staying with you.");
+  return link(`${line}${footer(p)}`);
 }
 
 export type BookingMessage = {

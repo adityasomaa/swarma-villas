@@ -25,15 +25,15 @@ const CACHE = "scratch/overpass-ubud.json";
 /* -----------------------------------------------------------------------------
    1. WHAT THE MAP SHOWS
    -----------------------------------------------------------------------------
-   THE VILLA'S POSITION. Gg. Abian Tiying is not in OpenStreetMap, so this is
-   worked out from what is. The villa said on 1 October that the entrance is on
-   Jl. Raya Kengetan directly opposite Gaya Gelato Lab, beside Gang Gora, and
-   OSM puts Gang Gora's junction with the main road at -8.538430, 115.245217.
-   The pin sits across the road from that junction.
+   THE VILLA'S POSITION is now the pin on their own Google listing, read off it
+   on 5 October. It agrees with the two things worked out independently: Gang
+   Gora's junction in OpenStreetMap, 34 m away, and the address the booking
+   engine publishes. Three sources, one spot.
 
-   Good to about fifty metres. The previous value — the street name geocoded on
-   its own — was out by more than a kilometre, which is why this is written
-   down with its working. Ask them to drop a pin and it becomes exact.
+   Two earlier values were wrong, and both are worth remembering. The street
+   name geocoded on its own landed 1.25 km south east. And the plus code the
+   old website published, M7CM+XVJ, belongs to a SECOND Google listing for this
+   property whose pin sits 24 km north near Tegallalang.
 
    GAYA GELATO LAB is drawn at the villa's request. It is not in OSM, and all
    that is known is that it faces the villa across Jl. Raya Kengetan, so it is
@@ -41,7 +41,7 @@ const CACHE = "scratch/overpass-ubud.json";
    this scale is two units. The two labels point opposite ways so that they can
    both be read even though the marks nearly touch.
    -------------------------------------------------------------------------- */
-const VILLA = { lat: -8.5383, lng: 115.2456, label: "Swarma Villas" };
+const VILLA = { lat: -8.5380226, lng: 115.2457351, label: "Swarma Villas" };
 
 /** Everything else is geocoded from OSM at build time, by name. */
 const LANDMARKS = [

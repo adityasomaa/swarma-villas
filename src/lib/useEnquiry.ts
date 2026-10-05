@@ -19,12 +19,12 @@ export function useEnquiry() {
   const pathname = usePathname();
 
   return useCallback(
-    (action: string, subject?: string) => {
+    (action: string, subject?: string, opening?: string) => {
       const provenance: Provenance = {
         pageUrl: `${SITE_URL}${pathname}`,
         action,
       };
-      return generalEnquiryUrl(provenance, subject);
+      return generalEnquiryUrl(provenance, subject, opening);
     },
     [pathname],
   );

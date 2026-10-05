@@ -38,6 +38,10 @@ const MUST_SAY = [
   ["/term-condition", "the no show clause", "No show: no refund."],
   ["/houses/gladak-house", "the amenities", "WiFi internet"],
   ["/", "how a guest knows they have arrived", "directly opposite Gaya Gelato Lab"],
+  /* The plus code was wrong for weeks: it came from a second Google listing
+     pinned 24 km away. This is the corrected one, checked against the pin. */
+  ["/", "the plus code", "F66W+Q7X"],
+  ["/review", "the way to leave a Google review", "Review us on Google"],
 ];
 
 const MENUS = [
@@ -53,8 +57,10 @@ await page.evaluate(() => localStorage.setItem("swarma.consent.v1", "accepted"))
 
 for (const [path, what, needle] of MUST_SAY) {
   await page.goto(`${ORIGIN}${path}`, { waitUntil: "domcontentloaded" });
-  const text = await page.evaluate(() => document.body.innerText);
-  if (!text.includes(needle)) failures.push(`${path} — ${what} — no "${needle}"`);
+  /* Case folded, because innerText reports what CSS renders: a button label
+     set in small caps comes back shouting, and that is not a content change. */
+  const text = (await page.evaluate(() => document.body.innerText)).toLowerCase();
+  if (!text.includes(needle.toLowerCase())) failures.push(`${path} — ${what} — no "${needle}"`);
 }
 
 for (const [path, what] of MENUS) {

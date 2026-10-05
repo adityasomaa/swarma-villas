@@ -5,7 +5,7 @@ import { CtaBand } from "@/components/blocks/home";
 import { Reveal } from "@/components/shared/Reveal";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import { Button, Container, Section, SectionHeader } from "@/components/ui";
-import { copy, mapsPlaceUrl, reviews } from "@/content/site";
+import { copy, googleListingUrl, reviews } from "@/content/site";
 import { clsx } from "@/lib/clsx";
 
 export const metadata: Metadata = {
@@ -97,11 +97,11 @@ export default function ReviewPage() {
               <div className="mt-7 flex flex-wrap gap-3">
                 <WhatsAppButton
                   action="Review page — Send a review"
-                  subject="a review of our stay"
+                  opening="Hello Swarma Villas, I would like to leave a review of my stay."
                   label="Send us your review"
                 />
-                <Button href={mapsPlaceUrl} tone="outline" external>
-                  Find us on Google
+                <Button href={googleListingUrl} tone="outline" external>
+                  Review us on Google
                 </Button>
               </div>
             </div>
