@@ -1,7 +1,7 @@
 import { Photo } from "@/components/shared/Photo";
 import { Reveal } from "@/components/shared/Reveal";
 import { Button, Container } from "@/components/ui";
-import { bookDirect, business, copy } from "@/content/site";
+import { business, copy, cta } from "@/content/site";
 
 /* =============================================================================
    THE OPENING
@@ -60,7 +60,10 @@ export function Hero() {
             </Reveal>
             <Reveal delay={280}>
               <div className="flex flex-wrap gap-3">
-                <Button href={bookDirect.href} external={bookDirect.external}>{bookDirect.label}</Button>
+                {/* Book Direct moved to the header, where it sits on every
+                    page rather than only this one, so the hero asks for the
+                    other thing a guest might want: someone to talk to. */}
+                <Button href={cta.contact.href}>{cta.contact.label}</Button>
                 <Button href="/houses" tone="outline">
                   The houses
                 </Button>

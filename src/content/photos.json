@@ -2198,34 +2198,6 @@
     "look": "gladak-ext-01"
   },
   {
-    "slug": "gladak-ext-03",
-    "category": "gladak",
-    "caption": "A wooden house and lawn in the villa garden",
-    "w": 1280,
-    "h": 853,
-    "ratio": 1.5006,
-    "orientation": "landscape",
-    "sizes": [
-      {
-        "w": 480,
-        "file": "gladak-ext-03-480.webp",
-        "kb": 27
-      },
-      {
-        "w": 960,
-        "file": "gladak-ext-03-960.webp",
-        "kb": 95
-      },
-      {
-        "w": 1280,
-        "file": "gladak-ext-03-1280.webp",
-        "kb": 170
-      }
-    ],
-    "source": "wooden-cabana-at-cozy-backyard-of-the-villa.jpg",
-    "look": "gladak-ext-03"
-  },
-  {
     "slug": "gladak-ext-04",
     "category": "gladak",
     "caption": "The planted path and steps up to the Gladak House",
@@ -4066,34 +4038,6 @@
     ],
     "source": "swarma-9-1-1.jpg",
     "look": "pool-06"
-  },
-  {
-    "slug": "pool-07",
-    "category": "pool",
-    "caption": "A floating breakfast tray served in the pool",
-    "w": 1280,
-    "h": 853,
-    "ratio": 1.5006,
-    "orientation": "landscape",
-    "sizes": [
-      {
-        "w": 480,
-        "file": "pool-07-480.webp",
-        "kb": 21
-      },
-      {
-        "w": 960,
-        "file": "pool-07-960.webp",
-        "kb": 62
-      },
-      {
-        "w": 1280,
-        "file": "pool-07-1280.webp",
-        "kb": 95
-      }
-    ],
-    "source": "woman-having-tropical-healthy-breakfast-at-villa-on-.jpg",
-    "look": "pool-07"
   },
   {
     "slug": "pool-08",

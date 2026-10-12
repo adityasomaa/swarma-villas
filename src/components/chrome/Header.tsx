@@ -136,13 +136,19 @@ export function Header() {
             {/* The wrapper carries the responsive display. On the Button itself,
                 `hidden` would fight the button's own `inline-flex`, and which
                 one wins is decided by the order Tailwind emits them. */}
+            {/* The villa asked for Book Direct in the corner: it is on every
+                page, so the one thing a guest is here to do is never more than
+                a glance away. `external` matters — the booking engine is a
+                third-party origin, and without it the client router would try
+                to treat it as a route on this site. */}
             <span className="hidden sm:block">
               <Button
-                href={cta.contact.href}
+                href={bookDirect.href}
+                external={bookDirect.external}
                 tone={onPhoto ? "outline" : "primary"}
                 className="px-4 py-3 whitespace-nowrap xl:px-6"
               >
-                {cta.contact.label}
+                {bookDirect.label}
               </Button>
             </span>
             <MenuToggle toggleRef={toggleRef} />

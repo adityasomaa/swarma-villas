@@ -82,7 +82,6 @@ const KEEP = {
   149: ["gladak-bed-07", "gladak", "Bed with red batik bedding and air conditioning above"],
   148: ["gladak-ext-01", "gladak", "The wooden gladak house seen from the garden at dusk"],
   151: ["gladak-ext-02", "gladak", "Wooden gladak houses among banana palms"],
-  154: ["gladak-ext-03", "gladak", "A wooden house and lawn in the villa garden"],
 
   // ---- Hexa Bamboo House: hexagonal plan, arched door, woven walls
   54: ["hexa-ext-01", "hexa", "The arched doorway of the Hexa Bamboo House framed by planting"],
@@ -124,7 +123,10 @@ const KEEP = {
   127: ["pool-04", "pool", "A floating breakfast tray on the pool at dusk"],
   128: ["pool-05", "pool", "The pool area lit in the evening"],
   129: ["pool-06", "pool", "The pool seen from the deck in bright sun"],
-  153: ["pool-07", "pool", "A floating breakfast tray served in the pool"],
+  /* 153 and 154 are deliberately absent. Both were stock photographs of
+     somewhere else — 153 a model with a floating breakfast, 154 a lawn and
+     picnic table that is not the Gladak House — and the villa asked for the
+     first to go. Re-adding either would put them back on /gallery. */
 
   // ---- Swarma Paon Restaurant
   104: ["paon-01", "restaurant", "Tables set inside Swarma Paon Restaurant under a bamboo roof"],
