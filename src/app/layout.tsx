@@ -52,12 +52,17 @@ export const metadata: Metadata = {
     description: "Three houses in Singakerta, Ubud. Published rates, book direct.",
   },
   /**
-   * Noindex, deliberately, for as long as this lives on vercel.app. A second
-   * copy of Swarma Villas' own copy would compete with swarmavillasbali.com in
-   * search. Flip this and the disallow in robots.ts together on the day the
-   * site moves to the villa's own domain.
+   * Indexable, on swarmavillas.com only. The same deployment also answers on
+   * swarma-villas.vercel.app, and next.config.ts sends `X-Robots-Tag: noindex`
+   * for that host — a meta tag here cannot tell the two apart, because the
+   * pages are prerendered once for both.
+   *
+   * "./" resolves against each page's own path, so every page names itself on
+   * the apex as canonical. That is what folds the vercel.app copy, www and any
+   * stray query string into one address in search.
    */
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
+  alternates: { canonical: "./" },
   formatDetection: { telephone: false },
 };
 

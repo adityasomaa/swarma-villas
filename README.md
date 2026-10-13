@@ -354,12 +354,24 @@ scripts/                    crawl, fetch, optimise, audit, contrast, flow, shoot
 
 ---
 
-## Before it moves to the villa's domain
+## The domain
 
-- **`robots.ts` disallows the host and the layout sends `noindex`.** A second
-  copy of the villa's own copy on vercel.app would compete with
-  swarmavillasbali.com in search. Remove both together on the day of the move,
-  and change `SITE_URL` in `src/lib/seo.ts`.
-- **The current site's house pages live at `/house/<slug>`** (singular); this
-  site uses `/houses/<slug>`. Add redirects from the old addresses so existing
-  links and search results keep working.
+The site lives at **https://swarmavillas.com** (registered 13 October 2026 at
+Hostinger; www redirects to the apex). `SITE_URL` in `src/lib/seo.ts` names it,
+and every canonical tag, the sitemap, robots.txt and the structured data follow.
+
+- **Indexable on swarmavillas.com, not on vercel.app.** The same deployment
+  answers on both. Pages are prerendered once for every host, so the noindex for
+  vercel.app is an `X-Robots-Tag` header keyed on the host in `next.config.ts`,
+  and every page names its swarmavillas.com address as canonical.
+- **The old WordPress addresses redirect permanently.** Its house pages lived at
+  `/house/<old-slug>`; `OLD_SITE` in `next.config.ts` maps them. For those to do
+  any good, **swarmavillasbali.com has to forward to swarmavillas.com with the
+  path kept** (`/house/bamboo-dome` → `swarmavillas.com/house/bamboo-dome`, which
+  then lands on `/houses/bamboo-dome`). Until it does, the old site keeps its
+  own rankings and the two compete.
+- **Email.** The site prints `info@swarmavillas.com`, the address the villa
+  asked for in September. The domain had no mail records when it was bought, so
+  that address needs a mailbox or forwarder before anyone relies on it.
+- **Privacy policy and terms** should still be read against Indonesian PDP Law
+  No. 27/2022 (see above).

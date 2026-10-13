@@ -8,10 +8,6 @@ import { SITE_URL } from "@/lib/seo";
  * Every page of the site, built from the content rather than from a hand-kept
  * list — a hand-kept list is how the journal's fifteen pages would have been
  * left out.
- *
- * robots.ts currently disallows the whole host, so nothing here is crawled
- * today. The file exists so that the day the disallow comes off, the map is
- * already correct.
  */
 const staticPaths = [
   "/",

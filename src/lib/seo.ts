@@ -1,11 +1,14 @@
 import { addressOneLine, business, houses, mapsPlaceUrl, publicPhoneDisplay } from "@/content/site";
 
 /**
- * The one place the production origin is written. If the Vercel alias ever has
- * to change, change it here and the canonical tags, the sitemap, robots.txt and
- * every absolute URL in the structured data follow.
+ * The one place the production origin is written. Change it here and the
+ * canonical tags, the sitemap, robots.txt and every absolute URL in the
+ * structured data follow.
+ *
+ * The apex, not www: Vercel redirects www here, and a canonical that names the
+ * host a visitor is redirected away from would contradict itself.
  */
-export const SITE_URL = "https://swarma-villas.vercel.app";
+export const SITE_URL = "https://swarmavillas.com";
 
 export function absolute(path: string): string {
   return new URL(path, SITE_URL).toString();
